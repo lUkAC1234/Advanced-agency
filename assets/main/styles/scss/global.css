@@ -3108,6 +3108,11 @@
   border-radius: 50%;
 }
 
+.post-social-views .post-social-views-icon {
+  color: var(--text-dark-blue);
+  font-size: 1.25rem;
+}
+
 @media screen and (max-width: 1100px) {
   .post-text-container {
     width: min(100%, 35rem);
@@ -3794,7 +3799,13 @@
   gap: 1rem;
 }
 .detail-share-social-container .detail-share-social-text {
+  font-weight: 400;
   margin-right: 2rem;
+}
+.detail-share-social-container .detail-share-social-views {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
 }
 .detail-share-social-container i {
   font-size: 1.5rem;
@@ -3833,6 +3844,11 @@
   margin: 0 0 0 0.5rem;
 }
 
+.detail-share-social-urls {
+  display: flex;
+  gap: 0.5rem;
+}
+
 @media screen and (max-width: 600px) {
   .detail-link-text-container .detail-link-text {
     font-size: 1rem !important;
@@ -3846,6 +3862,9 @@
   }
   .detail-share-social-container i {
     font-size: 1.25rem;
+  }
+  .detail-share-social-container .detail-share-social-views .detail-share-social-views-text {
+    font-size: 1rem !important;
   }
 }
 @media screen and (max-width: 450px) {
@@ -3862,6 +3881,11 @@
   .detail-share-social-container .shareAfterText p,
   .detail-share-social-container .shareAfterText i {
     font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .detail-share-social-container {
+    flex-flow: column;
   }
 }
 .similar-popular-posts {
@@ -7335,7 +7359,7 @@ select:-webkit-autofill:focus {
 .choices-column:has(.recommended) .abilities ul li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .modal-user-container .modalUser, .feedback-empty-container .feedback-empty-text, .website-technologies-main-text, .website-technologies-column .website-technologies-type,
 .job-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities ul li, .pricing-popular-column:has(.recommended) .price-column ul li,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities ul li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-column:has(.recommended) .categorie-column ul li,
-.pricing-categories-column:has(.recommended) .pricing-categories-abilities ul li, .pricing-categories-abilities ul li, .post-text-container .post-text, .featured-posts-column .featured-post-column-text, .detail-content-wrapper pre,
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities ul li, .pricing-categories-abilities ul li, .post-text-container .post-text, .post-social-views .post-social-views-text, .featured-posts-column .featured-post-column-text, .detail-content-wrapper pre,
 .detail-content-wrapper li,
 .detail-content-wrapper span,
 .detail-content-wrapper p,
@@ -7344,7 +7368,7 @@ select:-webkit-autofill:focus {
 .project-detail-description-container li,
 .project-detail-description-container span,
 .project-detail-description-container p,
-.project-detail-description-container div, .detail-link-text-container .detail-link-text, .detail-share-user-info-container .detail-share-posted, .detail-share-social-container .detail-share-social-text, .job-openings-list-title-container .job-openings-list-main-text, .job-gradient-info-container .job-gradient-info-text, .job-info-container .job-info-text, .messenger-your-message .messenger-your-message-text,
+.project-detail-description-container div, .detail-link-text-container .detail-link-text, .detail-share-user-info-container .detail-share-posted, .detail-share-social-container .detail-share-social-text, .detail-share-social-container .detail-share-social-views .detail-share-social-views-text, .job-openings-list-title-container .job-openings-list-main-text, .job-gradient-info-container .job-gradient-info-text, .job-info-container .job-info-text, .messenger-your-message .messenger-your-message-text,
 .messenger-your-message .messenger-others-message-text,
 .messenger-others-message .messenger-your-message-text,
 .messenger-others-message .messenger-others-message-text {

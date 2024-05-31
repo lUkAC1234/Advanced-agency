@@ -38,6 +38,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
+    # IP ADDRESS MIDDLEWARE
+    'web.middleware.TrackUserActivityMiddleware',
+
 ]
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'

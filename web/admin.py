@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import UserModel, PricingModel, PostModel, FeedbackModel, ContactusModel, \
 FaqModel, JobModel, JobCategoryModel, ProjectModel, ProjectCategory, PostTagModel, PostCategoryModel, PartnersModel, \
-JobApplyModel, CheckOut, JobKnowledgesModel
+JobApplyModel, CheckOut, JobKnowledgesModel, VisitHistory
 from django.utils.translation import gettext_lazy as _
 # For saving html code
 from django.utils.safestring import mark_safe
@@ -14,6 +14,13 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ['id', 'username']
     list_display_links = ['id', 'username']
     search_fields = ['username']
+
+@admin.register(VisitHistory)
+class VisitHistoryAdmin(admin.ModelAdmin):
+    list_display = ('user', 'ip_address', 'timestamp')
+    list_filter = ('user', 'timestamp', 'ip_address')
+    search_fields = ('user__username', 'ip_address')
+    readonly_fields = ('user', 'ip_address')
 
 @admin.register(PricingModel)
 class PricingAdmin(admin.ModelAdmin):

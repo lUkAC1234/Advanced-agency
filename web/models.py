@@ -91,6 +91,17 @@ class UserModel(AbstractUser):
         self.username = self.username.lower()
         super().save(*args, **kwargs)
     
+class VisitHistory(models.Model):
+    user = models.ForeignKey(UserModel, null=True, blank=True, on_delete=models.CASCADE)
+    ip_address = models.GenericIPAddressField(null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        if self.user:
+            return f"{self.user.username} visited at {self.timestamp}"
+        else:
+            return f"Anonymous user with IP {self.ip_address} visited at {self.timestamp}"
+
 # --------------------------------------------------------------------------- #
 
 
@@ -157,6 +168,14 @@ class PostModel(models.Model):
 
     def __str__(self):
         return self.title
+    
+class PostView(models.Model):
+    post = models.ForeignKey(PostModel, on_delete=models.CASCADE, related_name='views')
+    ip_address = models.GenericIPAddressField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('post', 'ip_address')
     
 class FeedbackModel(models.Model):
     text = models.TextField(max_length=2500)

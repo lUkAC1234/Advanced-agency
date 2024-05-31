@@ -148,6 +148,17 @@
     }
 }
 
+.post-social-views {
+    .post-social-views-text {
+        @extend .info-text-gray-1-125rem;
+    }
+
+    .post-social-views-icon {
+        color: var(--text-dark-blue);
+        font-size: 1.25rem;
+    }
+}
+
 @media screen and (max-width: 1100px) {
     .post-text-container {
         width: min(100%, 35rem);

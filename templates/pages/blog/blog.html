@@ -42,6 +42,10 @@
                     <p class="post-text">{{ latestPost.short_description }}</p>
                     <span class="post-posted">Posted on</span>
                     <p class="post-date">{{ latestPost.posted_on|date:"F d, Y" }}</p>
+                    <p class="post-social-views">
+                        <i class="fa-solid fa-eye post-social-views-icon"></i> 
+                        <span class="post-social-views-text">{{ latestPost.view_count }}</span>
+                    </p>
                 </div>
             </div>
         </div>

@@ -24,6 +24,10 @@
                     <p class="featured-post-column-text">{{ object.short_description }}</p>
                     <span class="featured-post-column-posted">Posted on</span>
                     <p class="featured-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
+                    <p class="post-social-views">
+                        <i class="fa-solid fa-eye post-social-views-icon"></i> 
+                        <span class="post-social-views-text">{{ object.view_count }}</span>
+                    </p>
                     {% if object.is_private %}
                     <p class="detail-gradient-private">Private post</p>
                     {% endif %}

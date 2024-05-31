@@ -21,12 +21,15 @@
             </div>
             <h2 class="detail-gradient-posted fade fadeInUp">
                 Posted on 
-                <span class="detail-gradient-posted-date">{{ object.posted_on|date:"F d, Y" }}</span>
+                <span class="detail-gradient-posted-date">
+                    {{ object.posted_on|date:"F d, Y" }} 
+                </span>
             </h2>
             
             {% if object.is_private %}
             <p class="detail-gradient-private fade fadeInUp">Private post</p>
             {% endif %}
+
         </div>
     </section>
 
@@ -58,12 +61,15 @@
                     <p class="detail-share-username">{{ object.user }}</p>
                 </div>
                 <div class="detail-share-social-container fade slideInRight">
-                    <p class="detail-share-social-text">Share this article</p>
-                    <button class="shareBtn" id="shareBtn"><i
+                    <h2 class="detail-share-social-text">Share this article </h2>
+                    <div class="detail-share-social-urls">
+                        <button class="shareBtn" id="shareBtn"><i
                             class="fa-sharp fa-solid fa-link detail-share-link-icon"></i></button>
-                    <a href="https://t.me/share/url?url={{ request.build_absolute_uri|urlencode }}"><i class="fab fa-telegram detail-share-social-icon"></i></a>
-                    <a href="https://www.instagram.com/i.really_miss.you_/"><i class="fab fa-instagram detail-share-social-icon"></i></a>
-                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri|urlencode }}"><i class="fa-brands fa-linkedin detail-share-social-icon"></i></a>
+                        <a href="https://t.me/share/url?url={{ request.build_absolute_uri|urlencode }}"><i class="fab fa-telegram detail-share-social-icon"></i></a>
+                        <a href="https://www.instagram.com/i.really_miss.you_/"><i class="fab fa-instagram detail-share-social-icon"></i></a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri|urlencode }}"><i class="fa-brands fa-linkedin detail-share-social-icon"></i></a>
+                        <p class="detail-share-social-views"><i class="fa-solid fa-eye detail-share-social-icon"></i> <span class="detail-share-social-views-text">{{ view_count }}</span></p>
+                    </div>
 
                     <div class="shareAfterText" id="shareAfterText">
                         <p>You have successfully copied the URL <i class="fa-sharp fa-solid fa-circle-check"></i></p>

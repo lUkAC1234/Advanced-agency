@@ -73,7 +73,11 @@ body #container .shifted .messagelist .success {
   color: var(--white);
 }
 body #container .shifted .messagelist .success a {
-  color: var(--primary-color);
+  color: var(--white);
+}
+
+a:link, a:visited {
+  color: var(--white);
 }
 
 .toggle-nav-sidebar {
@@ -438,6 +442,48 @@ body #container .shifted .messagelist .success a {
 .main.shifted > #nav-sidebar .app-web table tbody tr td,
 .main.shifted > #nav-sidebar .app-web table tbody tr th {
   border: none;
+}
+
+.module .flex-container .readonly {
+  color: var(--primary-color) !important;
+}
+
+#changelist-filter {
+  background-color: var(--white) !important;
+}
+
+#changelist-filter li.selected {
+  border-color: var(--purple) !important;
+}
+
+#changelist-filter li.selected a {
+  color: var(--purple) !important;
+}
+
+#changelist-filter details summary {
+  color: var(--white);
+  font-size: 1rem;
+}
+
+#changelist-filter details > summary::before {
+  color: var(--purple) !important;
+}
+
+.module h2,
+.module caption,
+.inline-group h2 {
+  background: var(--purple) !important;
+}
+
+#changelist-filter a {
+  color: var(--primary-color) !important;
+}
+#changelist-filter a:hover {
+  color: var(--purple) !important;
+}
+
+#changelist-filter h2 {
+  color: var(--white) !important;
 }
 
 /*# sourceMappingURL=__admin.css.map */

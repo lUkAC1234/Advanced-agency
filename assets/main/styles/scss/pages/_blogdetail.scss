@@ -352,7 +352,17 @@
 
     .detail-share-social-text {
         @extend .info-text-gray-1-125rem;
+        font-weight: 400;
         margin-right: 2rem;
+    }
+
+    .detail-share-social-views {
+        .detail-share-social-views-text {
+            @extend .info-text-gray-1-125rem;
+        }
+        display: flex;
+        justify-content: center;
+        gap: 0.25rem;
     }
 
     i {
@@ -399,6 +409,11 @@
     }
 }
 
+.detail-share-social-urls {
+    display: flex;
+    gap: 0.5rem;
+}
+
 @media screen and (max-width: 600px) {
     .detail-link-text-container {
         .detail-link-text {
@@ -421,6 +436,12 @@
 
         i {
             font-size: 1.25rem;
+        }
+
+        .detail-share-social-views  {
+            .detail-share-social-views-text {
+                font-size: 1rem !important;
+            }
         }
     }
 }
@@ -452,6 +473,12 @@
                 font-size: 0.8rem;
             }
         }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .detail-share-social-container {
+        flex-flow: column;
     }
 }
 

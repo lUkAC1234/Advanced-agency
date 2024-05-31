@@ -3,11 +3,38 @@ from django.urls import reverse_lazy
 from django.db.models import Q, Prefetch, Count
 from django.http import JsonResponse
 from django.utils.translation import gettext as _
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
-from .models import PostModel, PricingModel, FeedbackModel, FaqModel, JobModel, \
-PostCategoryModel, PostTagModel, UserModel, PartnersModel, CheckOut, ProjectModel, ProjectCategory
-from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm, JobApplyForm, \
-CheckOutForm, FeedbackForm, UserPasswordChangeForm
+from django.views.generic import (
+    TemplateView,
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+)
+from .models import (
+    PostModel,
+    PricingModel,
+    FeedbackModel,
+    FaqModel,
+    JobModel,
+    PostCategoryModel,
+    PostTagModel,
+    UserModel,
+    PartnersModel,
+    CheckOut,
+    ProjectModel,
+    ProjectCategory,
+    PostView  
+)
+from .forms import (
+    ContactusModelForm,
+    AccountForm,
+    LoginForm,
+    RegistrationForm,
+    JobApplyForm,
+    CheckOutForm,
+    FeedbackForm,
+    UserPasswordChangeForm,
+)
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
 from django.template.loader import render_to_string
@@ -17,135 +44,160 @@ from django.db.models import Count
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib import messages
 from django.utils import timezone
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import never_cache
+
 
 class index(TemplateView):
     template_name = "pages/index.html"
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
-        data['posts'] = PostModel.objects.only('title', 'image', 'posted_on', 'short_description').all()
-        data['feedbacks'] = FeedbackModel.objects.select_related('user').filter(is_allowed=True)
-        data['partners'] = PartnersModel.objects.all()
+        data["pricing"] = PricingModel.objects.filter(popular=True).order_by(
+            "-popular", "-id"
+        )[:3]
+        data["posts"] = PostModel.objects.only(
+            "title", "image", "posted_on", "short_description"
+        ).all()
+        data["feedbacks"] = FeedbackModel.objects.select_related("user").filter(
+            is_allowed=True
+        )
+        data["partners"] = PartnersModel.objects.all()
         return data
-    
+
+
 class about(TemplateView):
     template_name = "pages/about.html"
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['users'] = CheckOut.objects.only('user').all()
+        data["users"] = CheckOut.objects.only("user").all()
         return data
+
 
 class contact(CreateView):
     form_class = ContactusModelForm
     template_name = "pages/contact.html"
-    success_url = '/contact/us/' 
+    success_url = "/contact/us/"
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['faqs'] = FaqModel.objects.all()[:8]
+        data["faqs"] = FaqModel.objects.all()[:8]
         return data
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         try:
             form.save()
-            response_data = {'success': True}
-            if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+            response_data = {"success": True}
+            if self.request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest":
                 return JsonResponse(response_data)
         except Exception as e:
-            errors = {field: [error for error in form[field].errors] for field in form.fields}
-            if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
-                return JsonResponse({'success': False, 'errors': errors})
+            errors = {
+                field: [error for error in form[field].errors] for field in form.fields
+            }
+            if self.request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest":
+                return JsonResponse({"success": False, "errors": errors})
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        errors = {field: [error for error in form[field].errors] for field in form.fields}
-        if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
-            return JsonResponse({'success': False, 'errors': errors})
+        errors = {
+            field: [error for error in form[field].errors] for field in form.fields
+        }
+        if self.request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest":
+            return JsonResponse({"success": False, "errors": errors})
         return super().form_invalid(form)
-    
+
+
 class FAQListView(ListView):
     model = FaqModel
     template_name = "pages/faqlist.html"
+
 
 class Pricing(TemplateView):
     template_name = "pages/pricing/pricing.html"
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
+        data["pricing"] = PricingModel.objects.filter(popular=True).order_by(
+            "-popular", "-id"
+        )[:3]
         return data
-    
+
+
 class pricinglist(ListView):
     model = PricingModel
     template_name = "pages/pricing/pricinglist.html"
+
     def get_queryset(self):
         queryset = super().get_queryset()
-        recommended_items = queryset.filter(recommended=True).order_by('-id')
-        popular_items = queryset.filter(popular=True, recommended=False).order_by('-id')
-        other_items = queryset.exclude(recommended=True, popular=True).order_by('-id')
+        recommended_items = queryset.filter(recommended=True).order_by("-id")
+        popular_items = queryset.filter(popular=True, recommended=False).order_by("-id")
+        other_items = queryset.exclude(recommended=True, popular=True).order_by("-id")
         queryset = list(recommended_items) + list(popular_items) + list(other_items)
-        
+
         queryset = list({item.id: item for item in queryset}.values())
 
         return queryset
 
+
 def AddToCart(request, id):
-    cart = request.session.get('cart', [])
+    cart = request.session.get("cart", [])
 
     if not cart:
-        request.session['cart'] = []
-        cart = request.session.get('cart', [])
+        request.session["cart"] = []
+        cart = request.session.get("cart", [])
     if id not in cart:
         cart.append(id)
 
-    request.session['cart'] = cart
+    request.session["cart"] = cart
 
-    return redirect('main:payment')
+    return redirect("main:payment")
+
 
 def RemoveFromCart(request, id):
-    cart = request.session.get('cart', [])
+    cart = request.session.get("cart", [])
     if id in cart:
         cart.remove(id)
-        request.session['cart'] = cart
-    return redirect('main:payment')
+        request.session["cart"] = cart
+    return redirect("main:payment")
+
 
 class payment_list(CreateView):
-    template_name = 'pages/pricing/paymentlist.html'
+    template_name = "pages/pricing/paymentlist.html"
     form_class = CheckOutForm
 
     def get_success_url(self):
-        return reverse('main:thankyou')
+        return reverse("main:thankyou")
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        cart = self.request.session.get('cart', [])
-        data['cart_items'] = PricingModel.get_cart_objects(cart)
+        cart = self.request.session.get("cart", [])
+        data["cart_items"] = PricingModel.get_cart_objects(cart)
         return data
 
     def form_valid(self, form):
-        cart = self.request.session.get('cart', [])
+        cart = self.request.session.get("cart", [])
         queryset = PricingModel.get_cart_objects(cart)
         form.instance.total_price = sum(item.price for item in queryset)
         form.instance.user = self.request.user
         form.instance.success_checkout = 1
         data = form.save()
         data.item.set(queryset)
-        self.request.session['cart'] = []
-        self.request.session['success_checkout'] = True
+        self.request.session["cart"] = []
+        self.request.session["success_checkout"] = True
         return super(payment_list, self).form_valid(form)
-    
+
     def form_invalid(self, form):
         return super().form_invalid(form)
-    
+
+
 class SuccessPayment(CreateView):
     form_class = FeedbackForm
     template_name = "pages/pricing/thankyou.html"
 
     def get_success_url(self):
-        return reverse('main:pricing')
+        return reverse("main:pricing")
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -153,30 +205,35 @@ class SuccessPayment(CreateView):
 
     def get(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            return redirect('main:page404')
-        
-        if self.request.session.get('success_checkout', False):
-            self.request.session['success_checkout'] = False
+            return redirect("main:page404")
+
+        if self.request.session.get("success_checkout", False):
+            self.request.session["success_checkout"] = False
             return super().get(request, *args, **kwargs)
-        
-        return redirect('main:page404')
+
+        return redirect("main:page404")
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        CheckOut.objects.filter(user=self.request.user, success_checkout=True).update(success_checkout=True)
-        return data  
-    
+        CheckOut.objects.filter(user=self.request.user, success_checkout=True).update(
+            success_checkout=True
+        )
+        return data
+
+
+from django.db.models import Count, Q
+
 class BlogListView(ListView):
     template_name = "pages/blog/blog.html"
     paginate_by = 5
     model = PostModel
 
     def get_queryset(self):
-        search = self.request.GET.get('search', '')
-        tag = self.request.GET.get("tag", '')
-        category = self.request.GET.get("category", '')
+        search = self.request.GET.get("search", "")
+        tag = self.request.GET.get("tag", "")
+        category = self.request.GET.get("category", "")
 
-        posts = PostModel.objects.all().select_related('category')
+        posts = PostModel.objects.all().select_related("category")
 
         # Filter out private posts for non-staff users
         if not self.request.user.is_staff:
@@ -194,52 +251,94 @@ class BlogListView(ListView):
                 posts = posts.filter(category=category)
 
         return posts
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['latestPost'] = PostModel.objects.filter(is_private=False).order_by('-id').first()
+        
+        # Get the latest post
+        latest_post = PostModel.objects.filter(is_private=False).order_by("-id").first()
+        
+        # Calculate view count for latest post
+        if latest_post:
+            latest_post.view_count = latest_post.views.count()
+        
+        # Include latest post in the context
+        context["latestPost"] = latest_post
+        
+        # Calculate view count for each post in the object list
+        for post in context['object_list']:
+            post.view_count = post.views.count()
+        
         queryset = PostModel.objects.all()
 
         if not self.request.user.is_staff:
             queryset = queryset.exclude(is_private=True)
 
-        context['postCategories'] = PostCategoryModel.objects.annotate(
-            post_count=Count('postCategories', filter=~Q(postCategories__is_private=True)),
-            all_post_count=Count('postCategories', filter=Q(postCategories__is_private=True) | Q(postCategories__is_private=False))
+        context["postCategories"] = PostCategoryModel.objects.annotate(
+            post_count=Count(
+                "postCategories", filter=~Q(postCategories__is_private=True)
+            ),
+            all_post_count=Count(
+                "postCategories",
+                filter=Q(postCategories__is_private=True)
+                | Q(postCategories__is_private=False),
+            ),
         ).prefetch_related(
-            Prefetch('postCategories', queryset=queryset, to_attr='postmodel_categories')
+            Prefetch(
+                "postCategories", queryset=queryset, to_attr="postmodel_categories"
+            )
         )
 
-        context['postTags'] = PostTagModel.objects.annotate(
-            post_count=Count('postTags', filter=~Q(postTags__is_private=True)),
-            all_post_count=Count('postTags', filter=Q(postTags__is_private=True) | Q(postTags__is_private=False))
+        context["postTags"] = PostTagModel.objects.annotate(
+            post_count=Count("postTags", filter=~Q(postTags__is_private=True)),
+            all_post_count=Count(
+                "postTags",
+                filter=Q(postTags__is_private=True) | Q(postTags__is_private=False),
+            ),
         ).prefetch_related(
-            Prefetch('postTags', queryset=queryset, to_attr='postmodel_tags')
+            Prefetch("postTags", queryset=queryset, to_attr="postmodel_tags")
         )
 
-        context['is_staff'] = self.request.user.is_staff
+        context["is_staff"] = self.request.user.is_staff
         return context
 
     def render_to_response(self, context, **response_kwargs):
-        if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
-            html = render_to_string('pages/blog/blog_result.html', {'object_list': context['object_list']}, request=self.request)
-            return JsonResponse({'success': True, 'html': html, 'paginator': context['paginator'].num_pages, 'page': context['page_obj'].number})
+        if self.request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest":
+            html = render_to_string(
+                "pages/blog/blog_result.html",
+                {"object_list": context["object_list"]},
+                request=self.request,
+            )
+            return JsonResponse(
+                {
+                    "success": True,
+                    "html": html,
+                    "paginator": context["paginator"].num_pages,
+                    "page": context["page_obj"].number,
+                }
+            )
         return super().render_to_response(context, **response_kwargs)
-
 
 class blogdetail(DetailView):
     model = PostModel
-    template_name = "pages/blog/blogdetail.html"  
-    
+    template_name = "pages/blog/blogdetail.html"
+
     def get_queryset(self):
-        return PostModel.objects.select_related('category') 
-    
+        return PostModel.objects.select_related("category")
+
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
 
         # Check if the post is private and the user is not staff
         if self.object.is_private and not request.user.is_staff:
             raise Http404("This post is private.")
+
+        # Track view if unique
+        ip_address = self.get_client_ip(request)
+        if not PostView.objects.filter(
+            post=self.object, ip_address=ip_address
+        ).exists():
+            PostView.objects.create(post=self.object, ip_address=ip_address)
 
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
@@ -248,63 +347,89 @@ class blogdetail(DetailView):
         context = super().get_context_data(**kwargs)
         current_post = self.get_object()
 
-        similar_posts = PostModel.objects.filter(
-            (Q(category=current_post.category) | Q(tags__in=current_post.tags.all())) & ~Q(is_private=True)
-        ).exclude(id=current_post.id).distinct()[:2].select_related('category')
-        
-        context['similarPosts'] = similar_posts
-        return context 
+        similar_posts = (
+            PostModel.objects.filter(
+                (
+                    Q(category=current_post.category)
+                    | Q(tags__in=current_post.tags.all())
+                )
+                & ~Q(is_private=True)
+            )
+            .exclude(id=current_post.id)
+            .distinct()[:2]
+            .select_related("category")
+        )
+
+        context["similarPosts"] = similar_posts
+        context["view_count"] = current_post.views.count()
+        return context
+
+    def get_client_ip(self, request):
+        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(",")[0]
+        else:
+            ip = request.META.get("REMOTE_ADDR")
+        return ip
+
 
 class job(ListView):
     model = JobModel
-    template_name = "pages/job/job.html"    
+    template_name = "pages/job/job.html"
 
     def get_queryset(self):
-        return JobModel.objects.select_related('category')
+        return JobModel.objects.select_related("category")
+
 
 class JobDetailView(DetailView):
     model = JobModel
     template_name = "pages/job/jobdetail.html"
 
     def get_queryset(self):
-        return JobModel.objects.select_related('category')
+        return JobModel.objects.select_related("category")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         current_job = self.object
-        context['other_jobs'] = JobModel.objects.filter(category=current_job.category).exclude(pk=current_job.pk).select_related('category')[:3]
-        context['apply_form'] = JobApplyForm(initial={'category': current_job.category})
+        context["other_jobs"] = (
+            JobModel.objects.filter(category=current_job.category)
+            .exclude(pk=current_job.pk)
+            .select_related("category")[:3]
+        )
+        context["apply_form"] = JobApplyForm(initial={"category": current_job.category})
         return context
 
     def post(self, request, pk):
         current_job = self.get_object()
         form = JobApplyForm(request.POST)
-        
+
         if form.is_valid():
             form.instance.user = request.user
             form.instance.category = current_job.category
             form.save()
-            response_data = {'success': True}
-            if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
-                return JsonResponse(response_data) 
-            return redirect('main:jobdetail', pk=current_job.pk)
-        
-        errors = {field: [error for error in form[field].errors] for field in form.fields}
-        response_data = {'success': False, 'errors': errors}
-        if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+            response_data = {"success": True}
+            if request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest":
+                return JsonResponse(response_data)
+            return redirect("main:jobdetail", pk=current_job.pk)
+
+        errors = {
+            field: [error for error in form[field].errors] for field in form.fields
+        }
+        response_data = {"success": False, "errors": errors}
+        if request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest":
             return JsonResponse(response_data)
-        
+
         context = self.get_context_data(object=current_job)
-        context['apply_form'] = form
+        context["apply_form"] = form
         return self.render_to_response(context)
 
 
 class ProjectsView(TemplateView):
-    template_name = 'pages/projects/projects.html'
+    template_name = "pages/projects/projects.html"
 
     def get_queryset(self):
-        category = self.request.GET.get("category", '')
-        projects = ProjectModel.objects.all().select_related('category')
+        category = self.request.GET.get("category", "")
+        projects = ProjectModel.objects.all().select_related("category")
 
         if category and category.isdigit():
             if ProjectCategory.objects.filter(id=category).exists():
@@ -314,33 +439,37 @@ class ProjectsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['projects'] = self.get_queryset()
-        context['categories'] = ProjectCategory.objects.all()
+        context["projects"] = self.get_queryset()
+        context["categories"] = ProjectCategory.objects.all()
         return context
 
     def render_to_response(self, context, **response_kwargs):
-        if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+        if self.request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest":
             projects = self.get_queryset()
-            html = render_to_string('pages/projects/projects_result.html', {'projects': projects})
-            return JsonResponse({'success': True, 'html': html})
+            html = render_to_string(
+                "pages/projects/projects_result.html", {"projects": projects}
+            )
+            return JsonResponse({"success": True, "html": html})
 
-        return super().render_to_response(context, **response_kwargs)     
-    
+        return super().render_to_response(context, **response_kwargs)
+
+
 class ProjectDetailView(DetailView):
     model = ProjectModel
-    template_name = 'pages/projects/projectdetail.html'
+    template_name = "pages/projects/projectdetail.html"
+
 
 class MyProfileEdit(LoginRequiredMixin, UpdateView):
     model = UserModel
-    form_class = AccountForm 
+    form_class = AccountForm
     template_name = "pages/user/profile.html"
-    success_url = reverse_lazy('main:profile')
+    success_url = reverse_lazy("main:profile")
 
     def get_object(self, queryset=None):
         return self.request.user
-    
+
     def form_valid(self, form):
-        messages.success(self.request, 'Profile updated successfully.')
+        messages.success(self.request, "Profile updated successfully.")
         return super().form_valid(form)
 
     def form_invalid(self, form):
@@ -348,46 +477,56 @@ class MyProfileEdit(LoginRequiredMixin, UpdateView):
             for error in errors:
                 messages.error(self.request, f"{error}")
         return super().form_invalid(form)
-    
+
+
 def loginView(request):
-    template_name = 'pages/user/login.html'
-    if request.method == 'POST':
+    template_name = "pages/user/login.html"
+    if request.method == "POST":
         form = LoginForm(data=request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                next_url = request.POST.get('next', reverse('main:profile'))
-                return JsonResponse({'success': True, 'redirect': next_url})
-            form.add_error('password', f'Username or password is incorrect')
-        errors = {field: [error for error in form[field].errors] for field in form.fields}
-        return JsonResponse({'success': False, 'errors': errors})
-    return render(request, template_name, {
-        'form': LoginForm(),
-        'googleLoginUrl': '/accounts/login/',
-    })
+                next_url = request.POST.get("next", reverse("main:profile"))
+                return JsonResponse({"success": True, "redirect": next_url})
+            form.add_error("password", f"Username or password is incorrect")
+        errors = {
+            field: [error for error in form[field].errors] for field in form.fields
+        }
+        return JsonResponse({"success": False, "errors": errors})
+    return render(
+        request,
+        template_name,
+        {
+            "form": LoginForm(),
+            "googleLoginUrl": "/accounts/login/",
+        },
+    )
 
-    
+
 class RegistrationView(CreateView):
     model = UserModel
     form_class = RegistrationForm
-    template_name = 'pages/user/registration.html'
-    success_url = reverse_lazy('main:profile')
+    template_name = "pages/user/registration.html"
+    success_url = reverse_lazy("main:profile")
 
     def form_valid(self, form):
-        form.instance.password = make_password(form.cleaned_data['password'])
-        del form.cleaned_data['confirm_password']
+        form.instance.password = make_password(form.cleaned_data["password"])
+        del form.cleaned_data["confirm_password"]
 
         response = super().form_valid(form)
         messages.success(self.request, "You have successfully created an account")
-        login(self.request, self.object) 
-        return JsonResponse({'success': True})
+        login(self.request, self.object)
+        return JsonResponse({"success": True})
 
     def form_invalid(self, form):
-        errors = {field: [error for error in form[field].errors] for field in form.fields}
-        return JsonResponse({'success': False, 'errors': errors})
+        errors = {
+            field: [error for error in form[field].errors] for field in form.fields
+        }
+        return JsonResponse({"success": False, "errors": errors})
+
 
 class UserPasswordChangeView(PasswordChangeView):
     model = UserModel
@@ -397,19 +536,21 @@ class UserPasswordChangeView(PasswordChangeView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        self.request.user.refresh_from_db() 
+        self.request.user.refresh_from_db()
         self.request.user.updated_at = timezone.now()
-        self.request.user.save(update_fields=['updated_at'])
+        self.request.user.save(update_fields=["updated_at"])
         messages.success(self.request, "Your password was successfully updated")
         return response
 
+
 def logoutView(request):
     logout(request)
-    return redirect('main:index')
+    return redirect("main:index")
 
 
-# --ERRORS VIEWS-- # 
+# --ERRORS VIEWS-- #
+
 
 def PageNotFound(request, *args, **kwargs):
-    text = render_to_string('pages/error/error404.html')
+    text = render_to_string("pages/error/error404.html")
     return HttpResponseNotFound(text)
