@@ -7,6 +7,8 @@ from django.contrib.auth.hashers import make_password
 from django.utils import timezone
 from django.core.validators import EmailValidator
 from django.core.exceptions import ValidationError
+from django.utils import timezone
+from datetime import timedelta
 import os
 
 class EnglishLettersUsernameValidator(RegexValidator):
@@ -91,17 +93,38 @@ class UserModel(AbstractUser):
         self.username = self.username.lower()
         super().save(*args, **kwargs)
     
+
 class VisitHistory(models.Model):
     user = models.ForeignKey(UserModel, null=True, blank=True, on_delete=models.CASCADE)
     ip_address = models.GenericIPAddressField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
+    start_time = models.DateTimeField(null=True, blank=True)
+    end_time = models.DateTimeField(null=True, blank=True)
+
+    @property
+    def visit_duration(self):
+        """
+        Calculate the duration of the visit based on the start time and end time.
+        """
+        if self.start_time and self.end_time:
+            return self.end_time - self.start_time
+        return None
+
+    @property
+    def is_online(self):
+        """
+        Check if the user is considered online based on the start time of their last visit.
+        Assuming a user is online if their last visit occurred within the last 5 minutes.
+        """
+        if self.start_time:
+            return timezone.now() - self.start_time < timedelta(minutes=5)  # Adjust threshold if needed
+        return False
 
     def __str__(self):
         if self.user:
             return f"{self.user.username} visited at {self.timestamp}"
         else:
             return f"Anonymous user with IP {self.ip_address} visited at {self.timestamp}"
-
 # --------------------------------------------------------------------------- #
 
 

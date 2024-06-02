@@ -583,3 +583,9 @@ a:link, a:visited {
 #changelist-filter h2 {
     color: var(--white) !important;
 }
+
+.field-is_online {
+    background: var(--white);
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}

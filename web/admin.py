@@ -17,10 +17,16 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(VisitHistory)
 class VisitHistoryAdmin(admin.ModelAdmin):
-    list_display = ('user', 'ip_address', 'timestamp')
+    list_display = ('user', 'ip_address', 'get_visit_duration', 'is_online', 'timestamp')
     list_filter = ('user', 'timestamp', 'ip_address')
     search_fields = ('user__username', 'ip_address')
-    readonly_fields = ('user', 'ip_address')
+    readonly_fields = ('user', 'ip_address', 'timestamp', 'start_time')
+
+    def get_visit_duration(self, obj):
+        return obj.visit_duration
+
+    def is_online(self, obj):
+        return obj.is_online
 
 @admin.register(PricingModel)
 class PricingAdmin(admin.ModelAdmin):

@@ -486,4 +486,10 @@ a:link, a:visited {
   color: var(--white) !important;
 }
 
+.field-is_online {
+  background: var(--white);
+  color: var(--primary-color) !important;
+  font-weight: 600;
+}
+
 /*# sourceMappingURL=__admin.css.map */

@@ -41,6 +41,7 @@
 .pages-section-container {
     @extend .flex-row-justify-align-center;
     width: 100%;
+    transition: all 0.4s ease;
 
     ul {
         display: flex;
@@ -136,70 +137,20 @@
 // Hamburger part
 
 .hamburger {
-    position: relative;
-    width: 30px;
-    height: 4px;
-    background: var(--background-purple);
-    border-radius: 10px;
     z-index: var(--z-index-4);
     cursor: pointer;
-    transition: all 0.3s;
+
+    i {
+        font-size: 1.75rem;
+        color: var(--background-purple);
+        font-weight: 900;
+        transition: all 0.4s ease;
+    }
 }
 
-.hamburger::before,
-.hamburger::after {
-    position: absolute;
-    content: "";
-    height: 4px;
-    right: 0;
-    background: var(--background-purple);
-    border-radius: 30px;
-    transition: all 0.3s;
-}
 
-.hamburger::before {
-    width: 20px;
-    top: -10px;
-}
-
-.hamburger::after {
-    width: 25px;
-    top: 10px;
-}
-
-.hamburger-checkbox {
-    position: absolute;
-    width: 30px;
-    height: 100%;
-    z-index: var(--z-index-5);
-    cursor: pointer;
-}
-
-.hamburger,
-.hamburger-checkbox {
+.hamburger {
     display: none;
-}
-
-.navbar input:checked~.hamburger {
-    background: transparent;
-}
-
-.navbar input:checked~.hamburger::before {
-    top: 0;
-    transform: rotate(-45deg);
-    width: 30px;
-}
-
-.navbar input:checked~.hamburger::after {
-    top: 0;
-    transform: rotate(45deg);
-    width: 30px;
-}
-
-.navbar input:checked~.pages-section,
-.navbar input:checked~.pages-section .pages-section-container {
-    display: flex;
-    right: 0;
 }
 
 .hidden-content {
@@ -209,19 +160,33 @@
 @media screen and (max-width: 1400px) {
     .pages-section {
         .pages-section-container {
+            display: flex;
             width: 400px;
             position: absolute;
-            display: none;
             top: 0;
-            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(192,141,255,1) 100%, rgba(136,40,255,1) 100%);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(192, 141, 255, 1) 100%, rgba(136, 40, 255, 1) 100%);
             height: 100vh;
             overflow-y: auto;
             gap: 1.25rem;
             justify-content: start;
             align-items: start;
             flex-flow: column;
-            transition: all 0.4s ease;
             right: -100%;
+            opacity: 0;
+            visibility: hidden;
+
+            &.active {
+                right: 0;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    .navbar:has(.pages-section-container.active) {
+        .hamburger i {
+            font-size: 2rem;
+            margin-top: 0.25rem;
         }
     }
 
@@ -249,7 +214,7 @@
         }
     }
 
-    .navbar input:checked~.pages-section .hidden-content {
+    .pages-section-container.active .hidden-content {
         display: block;
         transition: all 1s ease;
     }
@@ -272,7 +237,7 @@
             position: absolute;
             width: 100%;
             height: 2px;
-            background-color: var(--background-header-menu);
+            background-color: var(--background-purple);
         }
 
         &::before {
@@ -288,23 +253,25 @@
                 font-family: var(--grotext-sans);
                 padding: 0.375rem 0.6875rem;
                 background: none;
-                border: 1.3px solid var(--background-header-menu);
+                border: 1.3px solid var(--background-purple);
                 border-radius: 2.5rem;
                 font-size: 1rem;
                 cursor: pointer;
+                color: var(--text-purple);
+                transition: all 0.5s;
 
                 &:hover {
-                    color: var(--text-purple);
-                    border-color: var(--background-purple);
-                    transition: all 0.5s;
+                    color: var(--text-white);
+                    background-color: var(--background-purple);
                 }
             }
 
             .hidden-login {
                 border-color: transparent;
-
                 &:hover {
-                    border-color: transparent;
+                    border-color: #8828ff;
+                    background-color: transparent;
+                    color: var(--text-purple);
                 }
             }
         }
@@ -362,35 +329,10 @@
         margin-right: 3rem;
     }
 
-
     .hamburger {
-        top: 43px;
-    }
-
-    .hamburger,
-    .hamburger::before,
-    .hamburger::after,
-    .hamburger-checkbox {
         position: absolute;
-        right: 0px;
-    }
-
-    .hamburger,
-    .hamburger-checkbox {
         display: block;
         right: 20px;
-        top: 45px;
-    }
-
-    .hamburger-checkbox {
-        top: -2px;
-        opacity: 0;
-    }
-}
-
-@media screen and (max-width: 992px) {
-    .hamburger {
-        top: 41px;
     }
 }
 
@@ -415,12 +357,6 @@
                 font-size: 1.35rem;
             }
         }
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .hamburger {
-        top: 35px;
     }
 }
 
@@ -468,7 +404,7 @@
 
 #dropdownProfileImage.active {
     border-color: var(--background-purple);
-    transition: all 0.4s;
+    transition: all 0.4s ease;
 }
 
 .dropdown__icon,
@@ -487,7 +423,7 @@
 
     &:hover {
         color: var(--text-white);
-        transition: all 0.5s;
+        transition: all 0.4s ease;
     }
 }
 
@@ -586,13 +522,16 @@
 }
 
 @media screen and (max-width: 600px) {
-    .navbar .hamburger-checkbox:checked~.pages-section .dropdown-container {
-        display: block !important;
+    .navbar:has(.pages-section-container.active) .dropdown-container {
+        visibility: visible;
+        opacity: 1;
     }
 
     .dropdown-container {
-        display: none;
+        visibility: hidden;
+        opacity: 0;
         margin: 1.25rem 0 1.25rem auto;
+        transition: all 0.4s ease;
     }
 }
 

@@ -72,6 +72,16 @@ navLinks.forEach(link => {
     }
 });
 
+const hamburger = document.getElementById('hamburger');
+const icon = document.getElementById('hamburgerIcon');
+const pages_section = document.querySelector('.pages-section-container');
+
+hamburger.addEventListener('click', () => {
+    pages_section.classList.toggle('active');
+    icon.classList.toggle('fa-bars-staggered');
+    icon.classList.toggle('fa-xmark');
+});
+
 /*=============== DROPDOWN JS ===============*/
 const dropdownProfileImage = document.getElementById('dropdownProfileImage');
 const showDropdown = (content, button) =>{

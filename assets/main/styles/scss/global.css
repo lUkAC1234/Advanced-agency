@@ -6230,6 +6230,7 @@
 
 .pages-section-container {
   width: 100%;
+  transition: all 0.4s ease;
 }
 .pages-section-container ul {
   display: flex;
@@ -6306,70 +6307,18 @@
 }
 
 .hamburger {
-  position: relative;
-  width: 30px;
-  height: 4px;
-  background: var(--background-purple);
-  border-radius: 10px;
   z-index: var(--z-index-4);
   cursor: pointer;
-  transition: all 0.3s;
+}
+.hamburger i {
+  font-size: 1.75rem;
+  color: var(--background-purple);
+  font-weight: 900;
+  transition: all 0.4s ease;
 }
 
-.hamburger::before,
-.hamburger::after {
-  position: absolute;
-  content: "";
-  height: 4px;
-  right: 0;
-  background: var(--background-purple);
-  border-radius: 30px;
-  transition: all 0.3s;
-}
-
-.hamburger::before {
-  width: 20px;
-  top: -10px;
-}
-
-.hamburger::after {
-  width: 25px;
-  top: 10px;
-}
-
-.hamburger-checkbox {
-  position: absolute;
-  width: 30px;
-  height: 100%;
-  z-index: var(--z-index-5);
-  cursor: pointer;
-}
-
-.hamburger,
-.hamburger-checkbox {
+.hamburger {
   display: none;
-}
-
-.navbar input:checked ~ .hamburger {
-  background: transparent;
-}
-
-.navbar input:checked ~ .hamburger::before {
-  top: 0;
-  transform: rotate(-45deg);
-  width: 30px;
-}
-
-.navbar input:checked ~ .hamburger::after {
-  top: 0;
-  transform: rotate(45deg);
-  width: 30px;
-}
-
-.navbar input:checked ~ .pages-section,
-.navbar input:checked ~ .pages-section .pages-section-container {
-  display: flex;
-  right: 0;
 }
 
 .hidden-content {
@@ -6378,9 +6327,9 @@
 
 @media screen and (max-width: 1400px) {
   .pages-section .pages-section-container {
+    display: flex;
     width: 400px;
     position: absolute;
-    display: none;
     top: 0;
     background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(192, 141, 255) 100%, rgb(136, 40, 255) 100%);
     height: 100vh;
@@ -6389,8 +6338,18 @@
     justify-content: start;
     align-items: start;
     flex-flow: column;
-    transition: all 0.4s ease;
     right: -100%;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .pages-section .pages-section-container.active {
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+  .navbar:has(.pages-section-container.active) .hamburger i {
+    font-size: 2rem;
+    margin-top: 0.25rem;
   }
   .pages-section-container::-webkit-scrollbar {
     width: 10px;
@@ -6407,7 +6366,7 @@
     margin: 0;
     transform: none !important;
   }
-  .navbar input:checked ~ .pages-section .hidden-content {
+  .pages-section-container.active .hidden-content {
     display: block;
     transition: all 1s ease;
   }
@@ -6427,7 +6386,7 @@
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: var(--background-header-menu);
+    background-color: var(--background-purple);
   }
   .hidden-btn-container::before {
     top: -1rem;
@@ -6439,21 +6398,24 @@
     font-family: var(--grotext-sans);
     padding: 0.375rem 0.6875rem;
     background: none;
-    border: 1.3px solid var(--background-header-menu);
+    border: 1.3px solid var(--background-purple);
     border-radius: 2.5rem;
     font-size: 1rem;
     cursor: pointer;
+    color: var(--text-purple);
+    transition: all 0.5s;
   }
   .hidden-btn-container a button:hover {
-    color: var(--text-purple);
-    border-color: var(--background-purple);
-    transition: all 0.5s;
+    color: var(--text-white);
+    background-color: var(--background-purple);
   }
   .hidden-btn-container a .hidden-login {
     border-color: transparent;
   }
   .hidden-btn-container a .hidden-login:hover {
-    border-color: transparent;
+    border-color: #8828ff;
+    background-color: transparent;
+    color: var(--text-purple);
   }
   .hiddent-text-container {
     margin-top: 2rem;
@@ -6498,29 +6460,9 @@
     margin-right: 3rem;
   }
   .hamburger {
-    top: 43px;
-  }
-  .hamburger,
-  .hamburger::before,
-  .hamburger::after,
-  .hamburger-checkbox {
     position: absolute;
-    right: 0px;
-  }
-  .hamburger,
-  .hamburger-checkbox {
     display: block;
     right: 20px;
-    top: 45px;
-  }
-  .hamburger-checkbox {
-    top: -2px;
-    opacity: 0;
-  }
-}
-@media screen and (max-width: 992px) {
-  .hamburger {
-    top: 41px;
   }
 }
 @media screen and (max-width: 600px) {
@@ -6535,11 +6477,6 @@
   }
   .hidden-social-media-icons a i {
     font-size: 1.35rem;
-  }
-}
-@media screen and (max-width: 400px) {
-  .hamburger {
-    top: 35px;
   }
 }
 .dropdown-container {
@@ -6583,7 +6520,7 @@
 
 #dropdownProfileImage.active {
   border-color: var(--background-purple);
-  transition: all 0.4s;
+  transition: all 0.4s ease;
 }
 
 .dropdown__icon,
@@ -6602,7 +6539,7 @@
 }
 .dropdown__name:hover {
   color: var(--text-white);
-  transition: all 0.5s;
+  transition: all 0.4s ease;
 }
 
 .dropdown__icons {
@@ -6696,12 +6633,15 @@
   }
 }
 @media screen and (max-width: 600px) {
-  .navbar .hamburger-checkbox:checked ~ .pages-section .dropdown-container {
-    display: block !important;
+  .navbar:has(.pages-section-container.active) .dropdown-container {
+    visibility: visible;
+    opacity: 1;
   }
   .dropdown-container {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
     margin: 1.25rem 0 1.25rem auto;
+    transition: all 0.4s ease;
   }
 }
 @media screen and (max-width: 400px) {
@@ -6879,7 +6819,6 @@
   --box-shadow-dark-blue: #140B48;
   --package-background: #F9F9FB;
   --recommended: #FFDA58;
-  --background-header-menu: #363636;
   --carousel-background: #FDFDFD;
   --carousel-image-background: #f3f3f3;
   --linear-gray-background: #c3c3c3;
@@ -7161,35 +7100,10 @@ strong {
 }
 
 @media screen and (min-width: 2000px) {
+  .header,
   .main,
   .footer {
-    max-width: 2000px;
-    margin: 0 auto;
-    width: 100vw;
-  }
-}
-@media screen and (min-width: 2500px) {
-  .main,
-  .footer {
-    max-width: 2500px;
-  }
-}
-@media screen and (min-width: 3000px) {
-  .main,
-  .footer {
-    max-width: 3000px;
-  }
-}
-@media screen and (min-width: 3500px) {
-  .main,
-  .footer {
-    max-width: 3500px;
-  }
-}
-@media screen and (min-width: 4000px) {
-  .main,
-  .footer {
-    max-width: 4000px;
+    padding-inline: calc(50% - 50rem);
   }
 }
 .onerem-tworem-purple-button, .gradient-artice-btn-container .gradient-artice-btn, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .clear-posts-container .clear-posts-clear, .join-our-team-btn-container button, .job-gradient-info-btn-container button, .jobApplyForm .apply-button, .profile-submit-btn-container .profile-submit-btn, .payment-product-info-container .payment-type-container .payment-product-remove, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn, .success-payment-feedback-container button, .change-password-form-btn {
