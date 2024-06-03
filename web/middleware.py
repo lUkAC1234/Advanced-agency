@@ -44,7 +44,7 @@ class TrackUserActivityMiddleware:
                     last_visit.save()
                     logger.info(f"End time updated for user {user}")
                 # If the user is authenticated, update the end time if it's been more than 3 hours
-                elif last_visit.start_time < now - timedelta(hours=3):
+                elif last_visit.start_time < now - timedelta(minutes=30):
                     last_visit.end_time = now
                     last_visit.save()
                     logger.info(f"End time updated for user {user}")
@@ -65,3 +65,4 @@ class TrackUserActivityMiddleware:
         else:
             ip = request.META.get('REMOTE_ADDR')
         return ip
+    

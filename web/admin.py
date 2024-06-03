@@ -5,6 +5,7 @@ JobApplyModel, CheckOut, JobKnowledgesModel, VisitHistory
 from django.utils.translation import gettext_lazy as _
 # For saving html code
 from django.utils.safestring import mark_safe
+from django.utils.html import format_html
 
 
 # --------------------------------------------------------------------------- #
@@ -17,16 +18,20 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(VisitHistory)
 class VisitHistoryAdmin(admin.ModelAdmin):
-    list_display = ('user', 'ip_address', 'get_visit_duration', 'is_online', 'timestamp')
+    list_display = ('user', 'ip_address', 'get_visit_duration', 'is_online_status', 'timestamp')
     list_filter = ('user', 'timestamp', 'ip_address')
     search_fields = ('user__username', 'ip_address')
-    readonly_fields = ('user', 'ip_address', 'timestamp', 'start_time')
+    readonly_fields = ('user', 'ip_address', 'timestamp', 'start_time', 'end_time', 'is_online_status')
 
     def get_visit_duration(self, obj):
         return obj.visit_duration
 
-    def is_online(self, obj):
-        return obj.is_online
+    def is_online_status(self, obj):
+        if obj.is_online:
+            return format_html('<span class="user_online_status" style="color: white; background: green; padding: 0.25rem 1rem;">Online</span>')
+        else:
+            return format_html('<span class="user_offline_status" style="color: white; background: red; padding: 0.25rem 1rem;">Offline</span>')
+    is_online_status.short_description = 'Online Status'
 
 @admin.register(PricingModel)
 class PricingAdmin(admin.ModelAdmin):

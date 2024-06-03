@@ -12,7 +12,7 @@
         position: absolute;
         background: url(../../images/layout/wave.svg);
         width: 100%;
-        height: 200px;
+        height: 10rem;
         background-position: bottom center;
         bottom: -10px;
         background-size: cover;
@@ -265,14 +265,14 @@
         left: 0;
         top: -5rem;
         width: 10rem;
-        height: 500px;
+        height: 25rem;
         background-image: url('../../images/about-us/leftcircle.svg');
         background-repeat: no-repeat;
         background-size: contain;
 
         @media screen and (max-width: 600px) {
             width: 8rem;
-            height: 300px;
+            height: 15rem;
             top: -3rem;
         }
     }
@@ -436,7 +436,7 @@
         position: absolute;
         background: url(../../images/about-us/percentwavetop.svg);
         width: 100%;
-        height: 300px;
+        height: 15rem;
         background-position: top center;
         top: 0px;
         background-size: cover;
@@ -447,7 +447,7 @@
         position: absolute;
         background: url(../../images/layout/wave.svg);
         width: 100%;
-        height: 200px;
+        height: 20rem;
         background-position: bottom center;
         bottom: -10px;
         background-size: cover;
@@ -554,14 +554,14 @@
         top: -10rem;
         right: 0;
         width: 10rem;
-        height: 500px;
+        height: 25rem;
         background-image: url('../../images/main-page/rightcircle.svg');
         background-repeat: no-repeat;
         background-size: contain;
 
         @media screen and (max-width: 600px) {
             width: 7rem;
-            height: 300px;
+            height: 15rem;
             top: -5rem;
         }
     }
@@ -679,14 +679,14 @@
         left: 0;
         top: -5rem;
         width: 10rem;
-        height: 500px;
+        height: 25rem;
         background-image: url('../../images/about-us/leftcircle.svg');
         background-repeat: no-repeat;
         background-size: contain;
 
         @media screen and (max-width: 600px) {
-            width: 8rem;
-            height: 300px;
+            width: 7rem;
+            height: 15rem;
             top: -3rem;
         }
     }
@@ -698,14 +698,14 @@
         top: 0rem;
         right: 0;
         width: 10rem;
-        height: 500px;
+        height: 25rem;
         background-image: url('../../images/main-page/rightcircle.svg');
         background-repeat: no-repeat;
         background-size: contain;
 
         @media screen and (max-width: 600px) {
             width: 7rem;
-            height: 300px;
+            height: 15rem;
             top: 10rem;
         }
     }

@@ -117,7 +117,7 @@ class VisitHistory(models.Model):
         Assuming a user is online if their last visit occurred within the last 5 minutes.
         """
         if self.start_time:
-            return timezone.now() - self.start_time < timedelta(minutes=5)  # Adjust threshold if needed
+            return timezone.now() - self.start_time < timedelta(minutes=1)  # Adjust threshold if needed
         return False
 
     def __str__(self):
