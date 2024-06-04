@@ -556,11 +556,11 @@
 .carousel-text-container .carousel-private-status {
   font-size: 0.8rem !important;
   position: absolute;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  top: -0.5rem;
+  right: 0rem;
   background: var(--background-purple);
   padding: 0.25rem 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 0 1.25rem 0 1.25rem;
 }
 
 .carousel-date-container {
@@ -3115,8 +3115,8 @@
 
 .post-social-views.carousel {
   position: absolute;
-  right: 1.5rem;
   bottom: 1.5rem;
+  right: 1.5rem;
 }
 
 @media screen and (max-width: 1100px) {
@@ -6313,6 +6313,7 @@
   display: flex;
   width: fit-content;
   gap: 1rem;
+  margin-right: 5rem;
 }
 .login-part-header .sign-button {
   padding: 0.475rem 1.25rem;
@@ -6358,7 +6359,7 @@
   display: none;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1450px) {
   .pages-section .pages-section-container {
     display: flex;
     width: 400px;
