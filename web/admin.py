@@ -127,6 +127,7 @@ class ProjectsAdmin(admin.ModelAdmin):
     list_display = ['id', 'title']
     list_display_links = ['id', 'title']
     search_fields = ['title']
+    readonly_fields = ['posted_on']
 
 @admin.register(PartnersModel)
 class PartnersAdmin(admin.ModelAdmin):

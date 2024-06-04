@@ -301,9 +301,8 @@ class ProjectModel(models.Model):
     title = models.CharField(max_length=100)
     description = RichTextField()
     image = models.ImageField(upload_to='projects/images/%Y/%m/%d/')
-    link = models.URLField()
     category = models.ForeignKey(ProjectCategory, on_delete=models.CASCADE)
-    users = models.ManyToManyField(UserModel)
+    posted_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title

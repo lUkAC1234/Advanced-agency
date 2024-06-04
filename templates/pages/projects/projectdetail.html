@@ -27,6 +27,7 @@
                 <div class="project-detail-category-container fade fadeInDown">
                     <button class="project-detail-category"><i class="fa-solid fa-star-half-stroke"></i> {{ object.category }}</button>
                 </div>
+                <h3 class="project-detail-posted-on fade fadeInUp">{{ object.posted_on|date:"F d, Y" }}</h3>
                 <div class="project-detail-description-container fade fadeInUp">
                     <p class="project-detail-description">
                         {{ object.description|safe }}
@@ -37,25 +38,6 @@
                     <img src="{{ object.image.url }}" alt="">
                 </div>
             </section>
-
-            <!-- 
-                <article class="project-detail-article">
-                    <h1 class="project-detail-title">{{ object.title }}</h1>
-                    <div class="project-detail-creaters">
-                        <a href="{% url 'main:projects' %}" class="project-detail-category"><i class="fa-solid fa-circle-left"></i> Go back</a>
-                        <button class="project-detail-category"><i class="fa-solid fa-star-half-stroke"></i> {{ object.category }}</button>
-                        <a href="{{ object.link }}" class="project-detail-category"><i class="fa-solid fa-link"></i> Link</a>
-                        <div class="project-detail-devs">
-                            {% for user in object.users.all %}
-                                <img src="{{ user.user_image.url }}" alt="">
-                            {% endfor %}
-                            {% if not object.users.count >= 3 %}
-                                <img src="{% static 'main/images/profile/profile.svg' %}" alt="">
-                            {% endif %}
-                        </div>
-                    </div>
-                </article>
-             -->
         </div>
     </section>
 </main>
