@@ -219,6 +219,10 @@
                             <p class="carousel-date-posted">Posted by {{ object.user }}</p>
                             <span class="carousel-date">{{ object.posted_on|date:"F d, Y" }}</span>
                         </div>
+                        <p class="post-social-views carousel">
+                            <i class="fa-solid fa-eye post-social-views-icon"></i> 
+                            <span class="post-social-views-text">{{ object.view_count }}</span>
+                        </p>
                     </div>
                     {% endif %}
                     {% endfor %}

@@ -63,6 +63,9 @@ class index(TemplateView):
             is_allowed=True
         )
         data["partners"] = PartnersModel.objects.all()
+
+        for post in data["posts"]:
+            post.view_count = post.views.count()
         return data
 
 
@@ -440,7 +443,7 @@ class ProjectsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["projects"] = self.get_queryset()
-        context["categories"] = ProjectCategory.objects.all()
+        context["categories"] = ProjectCategory.objects.annotate(project_count=Count('projectmodel'))
         return context
 
     def render_to_response(self, context, **response_kwargs):

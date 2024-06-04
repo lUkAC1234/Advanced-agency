@@ -3,8 +3,10 @@
     <div class="projects-wrapper">
         {% for object in projects %}
         <div class="projects-column fade fadeInDown">
-            <a href="{% url 'main:projectdetail' pk=object.pk %}" class="projects-column-link">View <i class="fa-solid fa-arrow-right-long"></i></a>
-            <img src="{{ object.image.url }}" alt="">
+            <a href="{% url 'main:projectdetail' pk=object.pk %}" class="projects-column-content">
+                <h1 class="project-content-title">{{ object.title }}</h1>
+                <img src="{{ object.image.url }}" alt="">
+            </a>
         </div>
         {% endfor %}
     </div>

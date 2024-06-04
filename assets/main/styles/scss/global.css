@@ -3113,6 +3113,12 @@
   font-size: 1.25rem;
 }
 
+.post-social-views.carousel {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+}
+
 @media screen and (max-width: 1100px) {
   .post-text-container {
     width: min(100%, 35rem);
@@ -5801,15 +5807,40 @@
   padding: 0.5rem !important;
 }
 
-.projects-container {
-  padding: 5rem 1rem;
-}
-
 .projects-article {
-  margin-block: 2rem;
+  position: relative;
+  width: 100%;
+  min-height: 25rem;
+  z-index: 10;
+  margin-bottom: 2rem;
+}
+.projects-article::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top left, transparent 25%, #F4F5F6 25.5%, #F4F5F6 36%, transparent 37%, transparent 100%), radial-gradient(circle at bottom right, transparent 34%, #F4F5F6 34.5%, #F4F5F6 45.5%, transparent 46%, transparent 100%);
+  background-size: 12rem 12rem;
+  z-index: -1;
+}
+.projects-article::after {
+  content: "";
+  position: absolute;
+  background: url(../../images/layout/wave.svg);
+  width: 100%;
+  height: 10rem;
+  background-position: bottom center;
+  bottom: -10px;
+  background-size: cover;
+}
+@media screen and (max-width: 600px) {
+  .projects-article {
+    min-height: 20rem;
+  }
 }
 .projects-article .projects-article-title {
   font-size: 3.5rem !important;
+  padding-top: 7.5rem;
 }
 @media screen and (max-width: 992px) {
   .projects-article .projects-article-title {
@@ -5827,6 +5858,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+  padding-inline: 1rem;
 }
 .projects-category-section .projects-category-text {
   transition: all 0.4s ease;
@@ -5855,79 +5887,48 @@
 }
 
 .projects-wrapper {
+  grid-gap: 1.5rem;
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
   margin: 5rem auto 1rem;
-  width: 98%;
+  padding-inline: 1rem;
 }
-@media screen and (max-width: 992px) {
+@media only screen and (max-width: 1700px) {
   .projects-wrapper {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .projects-wrapper .projects-column {
-    width: 100%;
-    height: 100%;
-  }
-  .projects-wrapper .projects-column:nth-child(4n) {
-    grid-column: span 1 !important;
-    grid-row: span 1 !important;
-  }
-  .projects-wrapper .projects-column:nth-child(7n) {
-    grid-column: span 2;
-    grid-row: span 2;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
   }
 }
-@media screen and (max-width: 750px) {
+@media only screen and (max-width: 1600px) {
   .projects-wrapper {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   }
 }
-@media screen and (max-width: 550px) {
+@media only screen and (max-width: 1500px) {
   .projects-wrapper {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   }
-  .projects-wrapper .projects-column {
-    width: 100%;
-    height: 100%;
-  }
-  .projects-wrapper .projects-column:nth-child(7n) {
-    grid-column: span 1 !important;
-    grid-row: span 1 !important;
-  }
-  .projects-wrapper .projects-column:nth-child(3n) {
-    grid-column: span 2;
-  }
+}
+.projects-wrapper .projects-column-content {
+  position: relative;
+  background: var(--background-white);
+  height: 100%;
+}
+.projects-wrapper .projects-column:nth-child(8n+1) {
+  grid-column: 1/span 2;
+}
+.projects-wrapper .projects-column:nth-child(8n+8) {
+  grid-column: 1/-1;
 }
 .projects-wrapper .projects-column {
   position: relative;
-  width: 100%;
-  height: 100%;
   transition: all 0.4s ease;
-}
-.projects-wrapper .projects-column:nth-child(4n) {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-.projects-wrapper .projects-column:hover .projects-column-link {
-  opacity: 1;
-  background: linear-gradient(0deg, rgb(136, 40, 255) 0%, rgb(255, 217, 221) 100%);
-}
-.projects-wrapper .projects-column:hover {
-  opacity: 0.5;
-}
-.projects-wrapper .projects-column-link {
-  gap: 0.25rem;
-  position: absolute;
+  height: 25rem;
   width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: all 0.4s ease;
-  color: var(--text-white) !important;
+  overflow: hidden;
   border-radius: 0.5rem;
 }
-.projects-wrapper .projects-column-link i {
-  font-size: 0.8rem;
+.projects-wrapper .projects-column:hover img {
+  scale: 1.05;
 }
 .projects-wrapper img {
   width: 100%;
@@ -5935,8 +5936,54 @@
   border-radius: 0.5rem;
   min-height: 15rem;
   object-fit: cover;
+  transition: all 0.4s ease;
 }
 
+.project-content-title {
+  position: absolute;
+  left: 0rem;
+  bottom: 0;
+  color: var(--text-white) !important;
+  background: linear-gradient(180deg, rgba(25, 28, 36, 0), rgba(25, 28, 36, 0.8));
+  height: 20rem;
+  width: 100%;
+  padding: 0.5rem;
+  z-index: var(--z-index-1);
+}
+@media screen and (max-width: 550px) {
+  .project-content-title {
+    font-size: 1.25rem !important;
+  }
+}
+
+@media only screen and (max-width: 1355px) {
+  .projects-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr));
+  }
+  .projects-wrapper .projects-column:nth-child(8n+1) {
+    grid-column: auto;
+  }
+  .projects-wrapper .projects-column:nth-child(6n+1) {
+    grid-column: 1/span 2;
+  }
+  .projects-wrapper .projects-column:nth-child(8n+8) {
+    grid-column: auto;
+  }
+  .projects-wrapper .projects-column:nth-child(6n+6) {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .projects-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .projects-wrapper .projects-column:nth-child(6n+1),
+  .projects-wrapper .projects-column:nth-child(6n+6),
+  .projects-wrapper .projects-column:nth-child(8n+1),
+  .projects-wrapper .projects-column:nth-child(8n+8) {
+    grid-column: auto;
+  }
+}
 .projects-empty {
   display: grid;
   place-items: center;
@@ -5971,99 +6018,49 @@
   object-fit: cover;
 }
 
-.project-detail-section {
-  padding-block: 4rem;
+.project-go-back-section {
+  position: fixed;
+  left: 1rem;
+  z-index: var(--z-index-2);
+  top: 27rem;
+  padding-left: calc(50% - 50rem);
+}
+.project-go-back-section svg {
+  width: 3rem;
+  height: 3rem;
+}
+.project-go-back-section svg circle,
+.project-go-back-section svg path {
+  transition: all 0.3s ease;
+}
+.project-go-back-section svg:hover circle, .project-go-back-section svg:hover path {
+  stroke: var(--text-purple);
+}
+.project-go-back-section:hover svg {
+  stroke: var(--text-purple);
 }
 
+.project-detail-section {
+  padding: 0 0rem 2rem 1rem;
+}
+
+.project-detail-category-container {
+  display: grid;
+  place-content: center;
+}
 .project-detail-image-container {
-  width: 100%;
+  width: calc(100% - 5rem);
+  height: 100%;
+  padding: 2rem 0rem 1rem 5rem;
 }
 .project-detail-image-container img {
   width: 100%;
-  height: 25rem;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
+  max-height: 50rem;
+  border-radius: 0.5rem;
 }
 
-.project-detail-article {
-  width: 100%;
-  height: 20rem;
-  background: url("../../images/project-detail/wave.svg") no-repeat;
-  background-size: cover;
-  margin-top: -0.33rem;
-  padding: 2rem 1rem;
-}
-.project-detail-article .project-detail-title {
-  color: var(--text-white) !important;
-}
-
-.project-detail-creaters {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-.project-detail-creaters .project-detail-category {
-  color: var(--text-purple);
-  text-align: center;
-  font-size: 1.125rem;
-  font-family: var(--grotext-sans);
-  font-weight: 500;
-  padding: 1rem 2rem;
-  border-radius: 40px;
-  border: none;
-  background: var(--gray-button);
-}
-.project-detail-creaters .project-detail-category i {
-  font-size: 1rem;
-}
-
-.project-detail-devs {
-  display: flex;
-  background: var(--background-white);
-  padding: 0.65rem 1rem;
-  border-radius: 40px;
-}
-.project-detail-devs img {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  object-fit: cover;
-}
-.project-detail-devs img:not(:first-child) {
-  margin-left: -0.5rem;
-}
-
-.project-detail-description-container {
-  padding-inline: 1rem;
-  margin-top: 1rem;
-}
-
-@media screen and (max-width: 750px) {
-  .project-detail-creaters .project-detail-category {
-    font-size: 1rem;
-    padding: 0.75rem 1rem;
-  }
-  .project-detail-creaters .project-detail-category i {
-    font-size: 0.9rem;
-  }
-  .project-detail-devs {
-    padding: 0.25rem 0.5rem;
-  }
-}
-@media screen and (max-width: 600px) {
-  .project-detail-image-container img {
-    height: 18rem;
-  }
-  .project-detail-article {
-    height: 25rem;
-  }
-  .project-detail-article .project-detail-title {
-    font-size: 1.75rem !important;
-  }
-  .project-detail-creaters {
-    flex-wrap: wrap;
-  }
-}
 .change-password-form-section {
   padding: 8rem 1rem;
   background: radial-gradient(circle farthest-corner at 10% 20%, rgb(242, 235, 243) 0%, rgb(234, 241, 249) 90.1%);
@@ -6652,10 +6649,25 @@
   }
 }
 .footer {
+  position: relative;
   width: 100%;
+  padding: 0 0 4rem;
   background: var(--footer-background);
-  padding: 6rem 0 4rem;
   z-index: var(--z-index-9);
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top left, transparent 25%, #F4F5F6 25.5%, #F4F5F6 36%, transparent 37%, transparent 100%), radial-gradient(circle at bottom right, transparent 34%, #F4F5F6 34.5%, #F4F5F6 45.5%, transparent 46%, transparent 100%);
+  background-size: 12rem 12rem;
+  z-index: -2;
+  max-width: 100rem;
+}
+
+.footer-links {
+  padding-top: 4rem;
 }
 
 .footer .footer-links {
@@ -7144,7 +7156,7 @@ strong {
 .gray-button-purple-1rem-2rem, .gradient-artice-btn-container .gradient-artice-btn-no-border, .task-content-column .task-button-a .task-button, .choices-column .abilities .abilities-btn, .choices-column:has(.recommended) .price-column .abilities-btn,
 .choices-column:has(.recommended) .abilities .abilities-btn, .partners-empty-container .partners-empty-clear, .pricing-abilities-btn, .pricing-popular-column:has(.recommended) .price-column .pricing-abilities-btn,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities .pricing-abilities-btn, .pricing-categories-column:has(.recommended) .categorie-column .categories-abilities-btn,
-.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn, .categories-abilities-btn, .posts-tags-column .post-tags-element, .job-info-btn-container .toggle-button, .projects-category-section .projects-category-text, .projects-empty .projects-empty-clear {
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn, .categories-abilities-btn, .posts-tags-column .post-tags-element, .job-info-btn-container .toggle-button, .projects-category-section .projects-category-text, .projects-empty .projects-empty-clear, .project-detail-category-container .project-detail-category {
   color: var(--text-purple);
   text-align: center;
   font-size: 1.125rem;
@@ -7159,7 +7171,7 @@ strong {
 }
 .gray-button-purple-1rem-2rem:hover, .gradient-artice-btn-container .gradient-artice-btn-no-border:hover, .task-content-column .task-button-a .task-button:hover, .choices-column .abilities .abilities-btn:hover, .choices-column:has(.recommended) .price-column .abilities-btn:hover, .partners-empty-container .partners-empty-clear:hover, .pricing-abilities-btn:hover, .pricing-popular-column:has(.recommended) .price-column .pricing-abilities-btn:hover,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities .pricing-abilities-btn:hover, .pricing-categories-column:has(.recommended) .categorie-column .categories-abilities-btn:hover,
-.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn:hover, .categories-abilities-btn:hover, .posts-tags-column .post-tags-element:hover, .job-info-btn-container .toggle-button:hover, .projects-category-section .projects-category-text:hover, .projects-empty .projects-empty-clear:hover {
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn:hover, .categories-abilities-btn:hover, .posts-tags-column .post-tags-element:hover, .job-info-btn-container .toggle-button:hover, .projects-category-section .projects-category-text:hover, .projects-empty .projects-empty-clear:hover, .project-detail-category-container .project-detail-category:hover {
   background: var(--background-purple);
   color: var(--gray-button);
 }
@@ -7215,13 +7227,13 @@ select:-webkit-autofill:focus {
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-image-container .payment-image-type, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,
 .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price, .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost-title,
-.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .projects-wrapper .projects-column-link, .change-password-form-user, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .feedback-empty-container .feedback-empty-title, .website-technologies-column .website-technologies-title,
+.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .change-password-form-user, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .feedback-empty-container .feedback-empty-title, .website-technologies-column .website-technologies-title,
 .job-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .featured-posts-column .featured-post-column-title, .similar-popular-posts-column .similar-popular-post-column-title, .job-openings-list-type-container .job-openings-list-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
 .job-content h2,
 .job-content h3,
 .job-content h4,
 .job-content h5,
-.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title, .change-password-form-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .post-text-container .post-title, .project-detail-article .project-detail-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .job-openings-list-title-container .job-openings-list-main-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .projects-article .projects-article-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
+.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title, .project-content-title, .change-password-form-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .post-text-container .post-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .job-openings-list-title-container .job-openings-list-main-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .projects-article .projects-article-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
 .featured-posts-category-title, .posts-tags-title, .detail-gradient-container .detail-gradient-title, .detail-content-wrapper .detail-content-title,
 .project-detail-description-container .detail-content-title, .detail-link-text-container .detail-link-title {
   color: var(--text-dark-blue);
@@ -7237,7 +7249,7 @@ select:-webkit-autofill:focus {
   font-size: 3rem;
 }
 
-.dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .post-text-container .post-title, .project-detail-article .project-detail-title {
+.dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .post-text-container .post-title {
   font-size: 2rem;
 }
 
@@ -7247,7 +7259,7 @@ select:-webkit-autofill:focus {
 .job-content h3,
 .job-content h4,
 .job-content h5,
-.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title, .change-password-form-title {
+.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title, .project-content-title, .change-password-form-title {
   font-size: 1.5rem;
 }
 
@@ -7257,7 +7269,7 @@ select:-webkit-autofill:focus {
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-image-container .payment-image-type, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,
 .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price, .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost-title,
-.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .projects-wrapper .projects-column-link, .change-password-form-user {
+.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .change-password-form-user {
   font-size: 1rem;
 }
 
@@ -7348,7 +7360,7 @@ select:-webkit-autofill:focus {
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-main-edit-container .profile-edit-title, .profile-edit-column label, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,
 .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price, .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost-title,
-.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .project-detail-article .project-detail-title, .change-password-form-user, .change-password-form-title {
+.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .project-content-title, .change-password-form-user, .change-password-form-title {
   text-align: start;
 }
 
@@ -7463,7 +7475,7 @@ select:-webkit-autofill:focus {
   align-items: start;
 }
 
-.flex-row-justify-align-center, .flex-column-justify-align-center, .faq-container, .gradient-container, .website-technologies-container, .system-container, .about-get-in-touch-info-column, .contact-us-hero-get-in-touch-main-container, .contact-us-hero-get-in-touch-container .contact-us-hero-logo-image-container, .contact-form-column-btn-container, .btn-for-list-of-packages, .custom-build-container, .pricing-list-container, .projects-wrapper .projects-column-link, .pages-section-container {
+.flex-row-justify-align-center, .flex-column-justify-align-center, .faq-container, .gradient-container, .website-technologies-container, .system-container, .about-get-in-touch-info-column, .contact-us-hero-get-in-touch-main-container, .contact-us-hero-get-in-touch-container .contact-us-hero-logo-image-container, .contact-form-column-btn-container, .btn-for-list-of-packages, .custom-build-container, .pricing-list-container, .pages-section-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7522,7 +7534,7 @@ select:-webkit-autofill:focus {
   align-items: center;
 }
 
-.flex-row-align-end, .flex-column-align-end, .ready-to-try-image-column {
+.flex-row-align-end, .flex-column-align-end, .ready-to-try-image-column, .project-content-title {
   display: flex;
   align-items: end;
 }
