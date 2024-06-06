@@ -5,6 +5,8 @@ var scrollTrigger = 60;
 var scrollBtn = 600;
 const backToTopButton = document.getElementById('back-to-top');
 const siteProgressBar = document.getElementById('progress');
+var contactForm = "active";
+
 window.onscroll = function() {
     if (window.scrollY >= scrollTrigger || window.pageYOffset >= scrollTrigger) {
         document.getElementById("header").classList.add(className);
@@ -17,8 +19,10 @@ window.onscroll = function() {
     
     if (window.scrollY >= scrollBtn || window.pageYOffset >= scrollBtn) {
         document.getElementById("btn-top-container").classList.add(BtnTop);
+        document.getElementById("included-section").classList.add(contactForm);
     } else {
         document.getElementById("btn-top-container").classList.remove(BtnTop);
+        document.getElementById("included-section").classList.remove(contactForm);
     }
 };
 

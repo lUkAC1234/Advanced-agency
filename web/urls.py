@@ -7,11 +7,12 @@ ProjectsView, ProjectDetailView, UserPasswordChangeView
 
 from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, \
 PasswordResetCompleteView, PasswordResetConfirmView
-
+from django.views.i18n import set_language
 
 app_name = "main"
 
 urlpatterns = [
+    path('set-language/', set_language, name='set_language'),
     # Main Page
     path('', index.as_view(), name="index"),
 
@@ -67,5 +68,4 @@ urlpatterns = [
 
     # Errors
     path('page/not/found/404/error', PageNotFound, name="page404"),
-
 ]

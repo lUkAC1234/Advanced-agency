@@ -13,7 +13,7 @@ import re
 class AccountForm(forms.ModelForm):
     class Meta:
         model = UserModel
-        fields = ['first_name','user_image', 'company', 'location', 'email', 'position', 'mobileNumber', 'socialMedia']
+        fields = ['first_name','user_image', 'company', 'location', 'email', 'position', 'socialMedia']
 
 class PostModelForm(forms.ModelForm):
     class Meta:
@@ -29,7 +29,7 @@ class PostModelForm(forms.ModelForm):
 class ContactusModelForm(forms.ModelForm):
     class Meta:
         model = ContactusModel
-        exclude = ('user',)
+        exclude = ('created_at',)
 
 class FeedbackForm(forms.ModelForm):
     class Meta:

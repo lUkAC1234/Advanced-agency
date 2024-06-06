@@ -9,9 +9,16 @@ $grotext-sans: 'Space Grotesk',
 sans-serif;
 $nunito: 'Nunito', sans-serif;
 $poppins: 'Poppins';
+
+html[lang="ru"] {
+    --grotext-sans: 'Nunito', sans-serif !important; 
+    --poppins: 'Nunito', sans-serif !important; 
+}
+
 :root {
     --grotext-sans: #{$grotext-sans} !important;
     --sans: #{$sans} !important;
     --nunito: #{$nunito} !important;
     --poppins: #{$poppins} !important;
 }
+

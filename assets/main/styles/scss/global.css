@@ -103,7 +103,7 @@
     font-size: 0.9rem !important;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   .gradient-artice-main {
     padding-inline: 0.5rem;
   }
@@ -116,9 +116,21 @@
     gap: 1rem;
   }
 }
-@media screen and (max-width: 600px) and (max-width: 450px) {
+@media screen and (max-width: 650px) and (max-width: 450px) {
   .gradient-website-information {
     grid-template-columns: auto auto;
+  }
+}
+@media screen and (max-width: 400px) {
+  .gradient-website-information {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 400px) and (max-width: 450px) {
+  .gradient-website-information {
+    grid-template-columns: auto;
   }
 }
 .tasks {
@@ -128,10 +140,13 @@
 
 .task-image-column video {
   width: 100%;
-  max-width: 37.5rem;
+  width: min(100%, 37.5rem);
   object-fit: cover;
 }
 
+.task-content-column {
+  width: min(100%, 33rem);
+}
 .task-content-column .task-text {
   margin-left: 0.3rem;
   margin-top: 1rem;
@@ -143,24 +158,25 @@
   margin-top: 2rem;
 }
 
-@media screen and (max-width: 992px) {
-  .task-content-column {
-    margin-right: 0.5rem;
-  }
-  .task-content-column .task-title {
+@media screen and (max-width: 1000px) {
+  .task-title {
     font-size: 2rem !important;
   }
-  .task-content-column .task-text {
+  .task-text {
     font-size: 1rem !important;
+  }
+  .task-content-column {
+    margin-right: 0.5rem;
   }
   .task-content-column .task-button-a .task-button {
     padding: 0.7rem 1.2rem !important;
     font-size: 1rem !important;
   }
 }
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 800px) {
   .tasks {
     flex-flow: column-reverse;
+    padding-inline: 1rem;
   }
   .task-content-column {
     margin: 0 0.5rem;
@@ -190,6 +206,9 @@
   }
 }
 
+.static-info {
+  width: min(100%, 35rem);
+}
 .static-info .static-info-text {
   margin-top: 1rem;
 }
@@ -328,7 +347,7 @@
     font-size: 0.65rem !important;
   }
 }
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 800px) {
   .chat {
     flex-flow: column;
     gap: 2rem;
@@ -341,7 +360,7 @@
     margin: 0 0.5rem;
   }
   .static-info .static-info-title {
-    font-size: 2.5rem !important;
+    font-size: 2rem !important;
   }
   .static-info .static-info-text {
     font-size: 1rem !important;
@@ -2030,7 +2049,7 @@
 
 .contact-form-column-form {
   display: grid;
-  grid-template-areas: "name email" "phone company" "message message" "button button";
+  grid-template-areas: "name company" "email email" "message message" "button button";
   gap: 1rem 0.7rem;
   width: 29rem;
   grid-template-columns: 1fr 1fr;
@@ -2041,15 +2060,11 @@
 }
 
 .contact-form-column-input-container:nth-child(2) {
-  grid-area: email;
+  grid-area: company;
 }
 
 .contact-form-column-input-container:nth-child(3) {
-  grid-area: phone;
-}
-
-.contact-form-column-input-container:nth-child(4) {
-  grid-area: company;
+  grid-area: email;
 }
 
 .contact-form-column-big-input-container {
@@ -2186,7 +2201,7 @@
     margin: 0 2%;
   }
   .contact-form-column-form {
-    grid-template-areas: "name" "email" "phone" "company" "message" "button";
+    grid-template-areas: "name" "email" "company" "message" "button";
     gap: 1rem 0.7rem;
     width: 100%;
     grid-template-columns: 1fr;
@@ -2459,6 +2474,190 @@
   .ready-to-try-button,
   .ready-to-try-button-without-background {
     padding: 0.5rem 1rem !important;
+  }
+}
+.contact-form-included-section {
+  position: fixed;
+  bottom: 2rem;
+  right: 1rem;
+  z-index: var(--z-index-10);
+  scale: 0;
+  transition: all 0.6s ease;
+}
+.contact-form-included-section.active {
+  scale: 1;
+}
+
+.contact-form-included-icon {
+  position: absolute;
+  right: 7rem;
+  bottom: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: all 0.3s ease;
+}
+.contact-form-included-icon i {
+  font-size: 2.25rem;
+  color: var(--text-purple);
+}
+
+.contact-form-included-form {
+  margin-bottom: 3rem;
+  transform: scale(0);
+  opacity: 0;
+  visibility: 0;
+  height: 0;
+  transform-origin: bottom;
+  transition: all 0.3s ease;
+  background-color: var(--background-white);
+  padding-block: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
+}
+.contact-form-included-form.active {
+  transform: scale(1);
+  opacity: 1;
+  visibility: 1;
+  height: auto;
+}
+
+.contact-form-included-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #ececec;
+}
+
+.contact-form-included-title {
+  font-size: 1rem !important;
+}
+
+.contact-form-included-close-btn {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  right: 0.5rem;
+  top: 0.125rem;
+}
+.contact-form-included-close-btn i {
+  color: var(--text-purple);
+  font-size: 1.125rem;
+}
+
+.contact-form-included-form-content {
+  padding-inline: 1rem;
+  overflow-y: auto;
+  margin-block: 1rem 3rem;
+  height: 20rem;
+  overflow-y: auto;
+}
+
+.contact-form-included-input-container input,
+.contact-form-included-input-container textarea {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out 0s, box-shadow 0.1s ease-in-out 0s, background-color 0.25s ease-in-out 0s, color 0.25s ease-in-out 0s, z-index 0.25s ease-in-out 0s;
+  border: 1px solid rgb(216, 220, 222);
+  border-radius: 0.25rem;
+  width: 100%;
+  padding: 0.8rem;
+  min-height: 2rem;
+  line-height: 1.28571;
+  font-size: 0.7rem;
+  background-color: rgb(255, 255, 255);
+  color: rgb(47, 57, 65);
+  cursor: auto;
+  outline: none;
+  margin-block: 0.25rem;
+  font-family: var(--grotext-sans);
+}
+.contact-form-included-input-container input:hover, .contact-form-included-input-container input:focus,
+.contact-form-included-input-container textarea:hover,
+.contact-form-included-input-container textarea:focus {
+  box-shadow: rgba(153, 153, 153, 0.4) 0px 0px 0px 0.214286rem;
+  border-color: rgb(104, 115, 125);
+}
+.contact-form-included-input-container textarea {
+  min-height: 5rem;
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 20rem;
+}
+.contact-form-included-input-container label {
+  font-size: 0.9rem !important;
+}
+
+.contact-form-included-input-container:has(.errorlist) input,
+.contact-form-included-input-container:has(.errorlist) textarea {
+  border-color: var(--error);
+}
+
+.contact-form-included-btn-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 1rem;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 1rem 0;
+}
+.contact-form-included-btn-container .contact-form-included-btn {
+  display: flex;
+  color: var(--text-purple);
+  text-align: center;
+  font-size: 0.9rem;
+  font-family: var(--grotext-sans);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 40px;
+  border: none;
+  background: var(--gray-button);
+  transition: 0.5s;
+  cursor: pointer;
+}
+.contact-form-included-btn-container .contact-form-included-btn:hover {
+  background: var(--background-purple);
+  color: var(--gray-button);
+}
+
+.errorlist {
+  margin: 0.25rem;
+}
+.errorlist li {
+  color: var(--error);
+  font-family: var(--roboto);
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 600px) {
+  .contact-form-included-section {
+    position: fixed;
+    bottom: 1rem;
+  }
+  .contact-form-included-icon {
+    position: absolute;
+    right: 4rem;
+    bottom: 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  .contact-form-included-icon i {
+    font-size: 2.25rem;
+    color: var(--text-purple);
+  }
+  .contact-form-included-form {
+    width: 20rem;
+  }
+  .contact-form-included-input-container input,
+  .contact-form-included-input-container textarea {
+    font-size: 1rem;
+  }
+  .contact-form-included-form-content {
+    height: 22rem;
   }
 }
 .pricing-popular-packages-section {
@@ -6313,6 +6512,8 @@
   display: flex;
   width: fit-content;
   gap: 1rem;
+}
+.login-part-header:has(.dropdown-container) {
   margin-right: 5rem;
 }
 .login-part-header .sign-button {
@@ -6325,6 +6526,7 @@
   font-family: var(--grotext-sans);
   outline: none;
   cursor: pointer;
+  text-wrap: nowrap;
 }
 .login-part-header .sign-button:hover {
   color: #fff;
@@ -6359,7 +6561,7 @@
   display: none;
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1510px) {
   .pages-section .pages-section-container {
     display: flex;
     width: 400px;
@@ -6838,7 +7040,7 @@
   --text-light-gray: #666;
   --text-header-menu: #20184E;
   --text-light-white: #DEDEDE;
-  --error: #fb4d4d;
+  --error: rgb(204, 51, 64);
 }
 
 :root {
@@ -7109,6 +7311,11 @@
   src: url("/static/main/fonts/sans/sans8.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+html[lang=ru] {
+  --grotext-sans: "Nunito", sans-serif !important;
+  --poppins: "Nunito", sans-serif !important;
+}
+
 :root {
   --grotext-sans: Space Grotesk, sans-serif !important;
   --sans: sans-serif !important;
@@ -7250,14 +7457,14 @@ select:-webkit-autofill:focus {
   -webkit-transition: color 9999999s ease-out, background-color 9999999s ease-out;
 }
 
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text, .choices-column .price-column .recommended h1, .partners-info-container .partners-column .partners-info-title, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .categorie-column .recommended h1, .post-text-container .post-posted, .post-creator-container .post-creator-position,
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text, .choices-column .price-column .recommended h1, .partners-info-container .partners-column .partners-info-title, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .contact-form-included-input-container label, .price-column .recommended h1, .categorie-column .recommended h1, .post-text-container .post-posted, .post-creator-container .post-creator-position,
 .post-creator-container .post-creator-username, .featured-posts-column .featured-post-column-posted, .similar-popular-posts-column .similar-popular-post-column-posted, .jobApplyForm .jobApply-group label, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-image-container .payment-image-type, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,
 .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price, .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost-title,
 .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .change-password-form-user, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .feedback-empty-container .feedback-empty-title, .website-technologies-column .website-technologies-title,
-.job-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .featured-posts-column .featured-post-column-title, .similar-popular-posts-column .similar-popular-post-column-title, .job-openings-list-type-container .job-openings-list-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
+.job-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .contact-form-included-title, .services-info-column .services-info-title, .featured-posts-column .featured-post-column-title, .similar-popular-posts-column .similar-popular-post-column-title, .job-openings-list-type-container .job-openings-list-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
 .job-content h2,
 .job-content h3,
 .job-content h4,
@@ -7283,7 +7490,7 @@ select:-webkit-autofill:focus {
 }
 
 .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .feedback-empty-container .feedback-empty-title, .website-technologies-column .website-technologies-title,
-.job-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .featured-posts-column .featured-post-column-title, .similar-popular-posts-column .similar-popular-post-column-title, .job-openings-list-type-container .job-openings-list-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
+.job-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .contact-form-included-title, .services-info-column .services-info-title, .featured-posts-column .featured-post-column-title, .similar-popular-posts-column .similar-popular-post-column-title, .job-openings-list-type-container .job-openings-list-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
 .job-content h2,
 .job-content h3,
 .job-content h4,
@@ -7292,7 +7499,7 @@ select:-webkit-autofill:focus {
   font-size: 1.5rem;
 }
 
-.dark-blue-text-center-grotext-family-1rem, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text, .choices-column .price-column .recommended h1, .partners-info-container .partners-column .partners-info-title, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .categorie-column .recommended h1, .post-text-container .post-posted, .post-creator-container .post-creator-position,
+.dark-blue-text-center-grotext-family-1rem, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text, .choices-column .price-column .recommended h1, .partners-info-container .partners-column .partners-info-title, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .contact-form-included-input-container label, .price-column .recommended h1, .categorie-column .recommended h1, .post-text-container .post-posted, .post-creator-container .post-creator-position,
 .post-creator-container .post-creator-username, .featured-posts-column .featured-post-column-posted, .similar-popular-posts-column .similar-popular-post-column-posted, .jobApplyForm .jobApply-group label, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
@@ -7376,7 +7583,7 @@ select:-webkit-autofill:focus {
   font-size: 0.75rem;
 }
 
-.text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .blog-gradient-title, .post-text-container .post-title, .post-text-container .post-posted, .post-creator-container .post-creator-position,
+.text-align-start, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .contact-form-included-input-container label, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .blog-gradient-title, .post-text-container .post-title, .post-text-container .post-posted, .post-creator-container .post-creator-position,
 .post-creator-container .post-creator-username, .featured-search-title,
 .featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title, .detail-content-wrapper .detail-content-title,
 .project-detail-description-container .detail-content-title, .detail-link-text-container .detail-link-title, .similar-popular-posts-column .similar-popular-post-column-title, .job-openings-list-type-container .job-openings-list-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-gradient-info-container .job-gradient-info-category, .jobApplyForm .jobApply-group label, .job-content h1,

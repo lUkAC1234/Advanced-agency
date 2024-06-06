@@ -1,0 +1,49 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Project Detail - CyberCode</title>
+{% endblock %}
+
+{% block content %}
+<main class="main">
+    {% include 'layout/contact_form.html' %}
+    <section class="projects-section">
+        <div class="projects-container">
+            <article class="projects-article">
+                <h1 class="projects-article-title fade fadeInDown">{{ object.title }}</h1>
+            </article>
+        </div>
+    </section>
+    <section class="project-go-back-section">
+        <div class="project-go-back-container">
+            <a href="{% url 'main:projects' %}">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64" width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="30.5" stroke="#0E1724" stroke-width="3"></circle> <path d="M29.333 41.333L20 32m0 0l9.333-9.333M20 32h24" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+        </div>
+    </section>
+    <section class="project-detail-section">
+        <div class="project-detail-container">
+            <section class="project-detail-content">
+                <div class="project-detail-category-container fade fadeInDown">
+                    <button class="project-detail-category"><i class="fa-solid fa-star-half-stroke"></i> {{ object.category }}</button>
+                </div>
+                <h3 class="project-detail-posted-on fade fadeInUp">{{ object.posted_on|date:"F d, Y" }}</h3>
+                <div class="project-detail-description-container fade fadeInUp">
+                    <p class="project-detail-description">
+                        {{ object.description|safe }}
+                    </p>
+                </div>
+
+                <div class="project-detail-image-container fade fadeInUp">
+                    <img src="{{ object.image.url }}" alt="">
+                </div>
+            </section>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block js_block %}
+
+{% endblock %}

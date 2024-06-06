@@ -1,0 +1,115 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Profile - CyberCode</title>
+{% endblock %}
+
+{% block content %}
+<main class="main profile-main">
+    <!-- START PROFILE SECTION -->
+    <div class="profile-gradient-container">
+        {% if messages %}
+        <ul class="success-password-message">
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <li class="{{ message.tags }}"><i class="fa-solid fa-circle-check"></i> {{ message }}</li>
+                {% elif message.tags == 'error' %}
+                    <li class="{{ message.tags }}"><i class="fa-solid fa-circle-exclamation"></i> {{ message }}</li>
+                {% endif %}
+            {% endfor %}
+            <button class="close-message" onclick="closeMessage(this)"><i class="fa-solid fa-xmark"></i></button>
+        </ul>
+        {% endif %}
+    </div>
+    <section class="profile-section">
+        <div class="profile-container">
+            <form enctype="multipart/form-data" method="POST" id="profile-form" class="profile-main-form">
+                {% csrf_token %}
+                <article class="profile-general-info-container fade fadeInDown">
+                    <div class="profile-image-edit-container">
+                        <div class="profile-image-container">
+                            <img class="profile-image" src="{{ request.user.user_image.url }}" alt="">
+                            <label class="file-upload-label">
+                                <i class="fa-sharp fa-solid fa-camera profile-add-icon"></i>
+                                <input class="profile-upload-input" type="file" name="user_image" accept=".jpg, .png, .webp, .jpeg, .svg, .jfif">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="profile-user-info-container">
+                        <h1 class="profile-username" style="text-transform: lowercase;">{{ request.user }}</h1>
+                        <p class="profile-email">
+                            {{ request.user.email|default_if_none:'cybercodesp@gmail.com'|default:'cybercodesp@gmail.com' }}
+                        </p>
+                    </div>
+                    <div class="change-password-container">
+                        <a href="{% url 'main:changeuserpassword' %}" class="change-password-user">
+                            <i class="fa-solid fa-key"></i> Change Password
+                        </a>
+                    </div>
+                </article>
+                <article class="profile-edit-container fade slideInRight">
+                    <div class="profile-main-edit-container">
+                        <h1 class="profile-edit-title">Main info</h1>
+                        <div class="profile-main-edit-wrapper">
+                            <div class="profile-edit-column">
+                                <label for="">First Name</label>
+                                <input class="profile-edit-input" type="text" placeholder="example" name="first_name"
+                                    value="{{ request.user.first_name|default_if_none:'' }}">
+                            </div>
+                            <div class="profile-edit-column">
+                                <label for="">Company</label>
+                                <input class="profile-edit-input" type="text" placeholder="CyberCode" name="company"
+                                    value="{{ request.user.company|default_if_none:'' }}">
+                            </div>
+                            <div class="profile-edit-column">
+                                <label for="">Location</label>
+                                <input class="profile-edit-input" type="text" placeholder="NYC, New York, USA"
+                                    name="location" value="{{ request.user.location|default_if_none:'' }}">
+                            </div>
+                            <div class="profile-edit-column">
+                                <label for="">Position</label>
+                                <input class="profile-edit-input" type="text" placeholder="UI/UX Designer"
+                                    name="position" value="{{ request.user.position|default_if_none:'' }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-contact-edit-container">
+                        <h1 class="profile-edit-title">Contact Info</h1>
+                        <div class="profile-contact-edit-wrapper">
+                            <div class="profile-edit-column">
+                                <label for="">Email</label>
+                                <p class="profile-edit-text"><i class="fa-solid fa-circle-info"></i> The email you entered can help you recover your account if you forget your password.</p>
+                                <input class="profile-edit-input" type="email" placeholder="cybercodesp@gmail.com"
+                                    name="email" value="{{ request.user.email|default_if_none:'' }}">
+                            </div>
+                            <div class="profile-edit-column">
+                                <label for="">Social Media</label>
+                                <input class="profile-edit-input" type="url" placeholder="https://www.instagram.com/"
+                                    name="socialMedia" value="{{ request.user.socialMedia|default_if_none:'' }}">
+                            </div>
+                        </div>
+                        <div class="profile-submit-btn-container">
+                            <button type="submit" class="profile-submit-btn">
+                                <i class="fa-solid fa-circle-check"></i>
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </form>
+        </div>
+    </section>
+
+    <!-- END PROFILE SECTION -->
+</main>
+{% endblock %}
+
+{% block js_block %}
+<script src="{% static 'main/scripts/js/profile.js' %}"></script>
+<script>
+    function closeMessage(button) {
+        button.parentNode.style.display = 'none';
+    }
+</script>
+{% endblock %}

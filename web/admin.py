@@ -6,12 +6,12 @@ from django.utils.translation import gettext_lazy as _
 # For saving html code
 from django.utils.safestring import mark_safe
 from django.utils.html import format_html
-
+from modeltranslation.admin import TranslationAdmin
 
 # --------------------------------------------------------------------------- #
 # User Model Admin
 @admin.register(UserModel)
-class UserAdmin(admin.ModelAdmin):
+class UserAdmin(TranslationAdmin):
     list_display = ['id', 'username']
     list_display_links = ['id', 'username']
     search_fields = ['username']
@@ -34,13 +34,13 @@ class VisitHistoryAdmin(admin.ModelAdmin):
     is_online_status.short_description = 'Online Status'
 
 @admin.register(PricingModel)
-class PricingAdmin(admin.ModelAdmin):
+class PricingAdmin(TranslationAdmin):
     list_display = ['id', 'type', 'price']
     list_display_links = ['id', 'type', 'price']
     search_fields = ['type', 'price']
 
 @admin.register(PostModel)
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(TranslationAdmin):
     list_display = ['id', 'title', 'user']
     list_display_links = ['id', 'title']
     search_fields = ['title']
@@ -61,50 +61,50 @@ class PostAdmin(admin.ModelAdmin):
         return obj
     
 @admin.register(PostTagModel)
-class PostTagAdmin(admin.ModelAdmin):
+class PostTagAdmin(TranslationAdmin):
     list_display = ['id', 'tag']
     list_display_links = ['id', 'tag']
     search_fields = ['tag']
 
 @admin.register(PostCategoryModel)
-class PostCategoryAdmin(admin.ModelAdmin):
+class PostCategoryAdmin(TranslationAdmin):
     list_display = ['id', 'category']
     list_display_links = ['id', 'category']
     search_fields = ['category']
     
 @admin.register(FeedbackModel)
-class FeedbackAdmin(admin.ModelAdmin):
+class FeedbackAdmin(TranslationAdmin):
     list_display = ['id', 'text']
     list_display_links = ['id', 'text']
     search_fields = ['text']
 
 @admin.register(ContactusModel)
-class ContactAdmin(admin.ModelAdmin):
+class ContactAdmin(TranslationAdmin):
     list_display = ['id', 'company']
     list_display_links = ['id', 'company']
     search_fields = ['company']
     readonly_fields = ['created_at']
 
 @admin.register(FaqModel)
-class FAQAdmin(admin.ModelAdmin):
+class FAQAdmin(TranslationAdmin):
     list_display = ['id', 'question']
     list_display_links = ['id', 'question']
     search_fields = ['question']
 
 @admin.register(JobModel)
-class JobAdmin(admin.ModelAdmin):
+class JobAdmin(TranslationAdmin):
     list_display = ['id', 'title']
     list_display_links = ['id', 'title']
     search_fields = ['title']
 
 @admin.register(JobCategoryModel)
-class JobCategoryAdmin(admin.ModelAdmin):
+class JobCategoryAdmin(TranslationAdmin):
     list_display = ['id', 'category']
     list_display_links = ['id', 'category']
     search_fields = ['category']
 
 @admin.register(JobKnowledgesModel)
-class JobKnowledgesAdmin(admin.ModelAdmin):
+class JobKnowledgesAdmin(TranslationAdmin):
     list_display = ['id', 'knowledge']
     list_display_links = ['id', 'knowledge']
     search_fields = ['knowledge']
@@ -117,26 +117,26 @@ class JobApplyyAdmin(admin.ModelAdmin):
     readonly_fields = ['created_at']
 
 @admin.register(ProjectCategory)
-class ProjectsCategoryAdmin(admin.ModelAdmin):
+class ProjectsCategoryAdmin(TranslationAdmin):
     list_display = ['id', 'category']
     list_display_links = ['id', 'category']
     search_fields = ['category']
 
 @admin.register(ProjectModel)
-class ProjectsAdmin(admin.ModelAdmin):
+class ProjectsAdmin(TranslationAdmin):
     list_display = ['id', 'title']
     list_display_links = ['id', 'title']
     search_fields = ['title']
     readonly_fields = ['posted_on']
 
 @admin.register(PartnersModel)
-class PartnersAdmin(admin.ModelAdmin):
+class PartnersAdmin(TranslationAdmin):
     list_display = ['id', 'title']
     list_display_links = ['id', 'title']
     search_fields = ['title']
 
 @admin.register(CheckOut)
-class CheckOutAdmin(admin.ModelAdmin):
+class CheckOutAdmin(TranslationAdmin):
     list_display = ['id', 'first_name', 'total_price']
     list_display_links = ['id', 'first_name']
     search_fields = ['first_name']

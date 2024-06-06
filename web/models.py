@@ -28,13 +28,7 @@ class PasswordValidator(RegexValidator):
         'Password must be at least 8 characters and at most 128 characters long, and can only contain English letters, numbers and !$@%.'
     )
     flags = 0
-
-class PhoneValidator(RegexValidator):
-    regex=r'^\+\d{12}$'
-    message =_("Phone number must be in the format: '+123456789012'.")
-
-    flags = 0
-
+    
 def validate_image_extension(value):
     allowed_extensions = ['.webp', '.png', '.jpg', '.jpeg', '.svg', '.jfif']
     ext = os.path.splitext(value.name)[1]
@@ -51,7 +45,6 @@ class UserModel(AbstractUser):
     company = models.CharField(max_length=30, blank=True, null=True)
     location = models.CharField(max_length=50, blank=True, null=True)
     position = models.CharField(max_length=50, blank=True, null=True)
-    mobileNumber = models.CharField(max_length=13, blank=True, null=True)  # Assuming you have a PhoneValidator
     socialMedia = models.URLField(blank=True, null=True)
     updated_at = models.DateTimeField(auto_now_add=True, editable=False, null=True, blank=True)
     
@@ -216,11 +209,9 @@ class FeedbackModel(models.Model):
     
 class ContactusModel(models.Model):
     fullname = models.CharField(max_length=50)
-    phone = models.CharField(max_length=13, validators=[PhoneValidator()])
     email = models.EmailField(max_length=50)
     company = models.CharField(max_length=100)
     text = models.TextField()
-    user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='contactUser')
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -280,7 +271,6 @@ class JobModel(models.Model):
 class JobApplyModel(models.Model):
     firstName = models.CharField(max_length=50)
     email = models.EmailField()
-    phone = models.CharField(max_length=13, validators=[PhoneValidator()])
     text = models.TextField(max_length=1000)
     category = models.ForeignKey(JobCategoryModel, on_delete=models.CASCADE)
     user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='jobApplyUser')
@@ -327,7 +317,6 @@ class PartnersModel(models.Model):
 
 class CheckOut(models.Model):
     first_name = models.CharField(max_length=50)
-    phone = models.CharField(max_length=13, validators=[PhoneValidator()])
     email = models.EmailField()
     item = models.ManyToManyField(PricingModel, related_name='checkout')
     total_price = models.FloatField()

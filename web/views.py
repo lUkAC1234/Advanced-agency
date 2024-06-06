@@ -9,6 +9,7 @@ from django.views.generic import (
     DetailView,
     CreateView,
     UpdateView,
+    FormView
 )
 from .models import (
     PostModel,
@@ -46,9 +47,25 @@ from django.contrib import messages
 from django.utils import timezone
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
+from django.http import HttpResponseRedirect
 
+class ContactFormMixin:
+    form_class = ContactusModelForm
 
-class index(TemplateView):
+    def get_success_url(self):
+        return self.request.META.get('HTTP_REFERER', '/')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if 'contact_form' not in context:
+            context['contact_form'] = self.get_form()
+        return context
+
+    def form_valid(self, form):
+        form.save()
+        return HttpResponseRedirect(self.get_success_url())
+    
+class index(ContactFormMixin, TemplateView, FormView):
     template_name = "pages/index.html"
 
     def get_context_data(self, **kwargs):
@@ -68,8 +85,7 @@ class index(TemplateView):
             post.view_count = post.views.count()
         return data
 
-
-class about(TemplateView):
+class about(ContactFormMixin, TemplateView, FormView):
     template_name = "pages/about.html"
 
     def get_context_data(self, **kwargs):
@@ -89,7 +105,6 @@ class contact(CreateView):
         return data
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
         try:
             form.save()
             response_data = {"success": True}
@@ -112,12 +127,12 @@ class contact(CreateView):
         return super().form_invalid(form)
 
 
-class FAQListView(ListView):
+class FAQListView(ContactFormMixin, ListView, FormView):
     model = FaqModel
     template_name = "pages/faqlist.html"
 
 
-class Pricing(TemplateView):
+class Pricing(ContactFormMixin, TemplateView, FormView):
     template_name = "pages/pricing/pricing.html"
 
     def get_context_data(self, **kwargs):
@@ -128,7 +143,7 @@ class Pricing(TemplateView):
         return data
 
 
-class pricinglist(ListView):
+class pricinglist(ContactFormMixin, ListView, FormView):
     model = PricingModel
     template_name = "pages/pricing/pricinglist.html"
 
@@ -226,7 +241,7 @@ class SuccessPayment(CreateView):
 
 from django.db.models import Count, Q
 
-class BlogListView(ListView):
+class BlogListView(ContactFormMixin, ListView, FormView):
     template_name = "pages/blog/blog.html"
     paginate_by = 5
     model = PostModel
@@ -322,7 +337,7 @@ class BlogListView(ListView):
             )
         return super().render_to_response(context, **response_kwargs)
 
-class blogdetail(DetailView):
+class blogdetail(ContactFormMixin, DetailView, FormView):
     model = PostModel
     template_name = "pages/blog/blogdetail.html"
 
@@ -376,7 +391,7 @@ class blogdetail(DetailView):
         return ip
 
 
-class job(ListView):
+class job(ContactFormMixin, ListView, FormView):
     model = JobModel
     template_name = "pages/job/job.html"
 
@@ -427,7 +442,7 @@ class JobDetailView(DetailView):
         return self.render_to_response(context)
 
 
-class ProjectsView(TemplateView):
+class ProjectsView(ContactFormMixin, TemplateView, FormView):
     template_name = "pages/projects/projects.html"
 
     def get_queryset(self):
@@ -457,7 +472,7 @@ class ProjectsView(TemplateView):
         return super().render_to_response(context, **response_kwargs)
 
 
-class ProjectDetailView(DetailView):
+class ProjectDetailView(ContactFormMixin, DetailView, FormView):
     model = ProjectModel
     template_name = "pages/projects/projectdetail.html"
 

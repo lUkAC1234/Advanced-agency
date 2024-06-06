@@ -1,0 +1,67 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% block title %}
+<title>FAQ List - CyberCode</title>
+{% endblock %}
+<main class="main faq-main">
+    {% include 'layout/contact_form.html' %}
+    <!-- Start FAQ Section -->
+
+    <section class="faq-section faqList">
+        <h1 class="faq-main-title fade fadeInDown">Frequently Asked Questions</h1>
+        <p class="faq-main-info fade fadeInDown">There is the list of every FAQs.</p>
+        <div class="faq-container">
+            {% for object in object_list %}
+            <div class="faq fade fadeInDown {% if forloop.counter == 1 or forloop.counter == 3 %} active{% endif %}">
+                <div class="faq-btn-container">
+                    <button class="faq-card-title">
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                        <p class="faq-card-title-text">{{ object.question }}</p>
+                    </button>
+                </div>
+                <div class="faq-text">
+                    {{ object.answer|safe }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+    <!-- End FAQ SECTION -->
+
+    <!-- Start READY TO TRY SECTION -->
+    <section class="ready-to-try-section">
+        <div class="ready-to-try-container">
+            <div class="ready-to-try-column fade fadeInUp">
+                <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
+                <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
+                <div class="ready-to-try-buttons-container">
+                    <div class="ready-to-try-btn-column">
+                        <a href="{% url 'main:pricing' %}">
+                            <button class="ready-to-try-button">Get started</button>
+                        </a>
+                    </div>
+                    <div class="ready-to-try-btn-column">
+                        <a href="{% url 'main:pricinglist' %}">
+                            <button class="ready-to-try-button-without-background">Pricing</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ready-to-try-image-column fade fadeInDown">
+                <img src="{% static 'main/images/contactus/readytotry.png' %}" alt="">
+            </div>
+        </div>
+    </section>
+    <!-- End READY TO TRY SECTION -->
+</main>
+{% endblock %}
+
+{% block js_block %}
+<script src="{% static 'main/scripts/js/faq.js' %}"></script>
+<script>
+</script>
+{% endblock %}

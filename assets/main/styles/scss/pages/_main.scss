@@ -86,6 +86,7 @@
         }
         .gradient-website-information-text {
             @extend .dark-blue-text-center-grotext-family-1rem;
+            @extend .text-align-start; 
         }
     }
 }
@@ -112,7 +113,7 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
     .gradient-artice-main  {
         padding-inline: 0.5rem;
     }
@@ -133,6 +134,18 @@
     }
 }
 
+@media screen and (max-width: 400px) {
+    .gradient-website-information {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+
+        @media screen and (max-width: 450px) {
+            grid-template-columns: auto;
+        }
+    }
+}
+
 // TASKS START
 
 .tasks {
@@ -144,12 +157,13 @@
 .task-image-column {
     video {
         width: 100%;
-        max-width: 37.5rem;
+        width: min(100%, 37.5rem);
         object-fit: cover;
     }
 }
 
 .task-content-column {
+    width: min(100%, 33rem);
     .task-title {
         @extend .dark-blue-text-center-grotext-family-3rem;
         @extend .text-align-start;
@@ -171,18 +185,17 @@
     }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1000px) {
+    .task-title {
+        font-size: 2rem !important;
+    }
+
+    .task-text {
+        font-size: 1rem !important;
+    }
+
     .task-content-column {
         margin-right: 0.5rem;
-
-        .task-title {
-            font-size: 2rem !important;
-        }
-
-        .task-text {
-            font-size: 1rem !important;
-        }
-
         .task-button-a {
             .task-button {
                 padding: 0.7rem 1.2rem !important;
@@ -192,9 +205,10 @@
     }
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 800px) {
     .tasks {
         flex-flow: column-reverse;
+        padding-inline: 1rem;
     }
 
     .task-content-column {
@@ -234,6 +248,7 @@
 }
 
 .static-info {
+    width: min(100%, 35rem);
     .static-info-title {
         @extend .dark-blue-text-center-grotext-family-3rem;
         @extend .text-align-start;
@@ -431,7 +446,7 @@
     }
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 800px) {
     .chat {
         flex-flow: column;
         gap: 2rem;
@@ -448,7 +463,7 @@
 
     .static-info {
         .static-info-title {
-            font-size: 2.5rem !important;
+            font-size: 2rem !important;
         }
 
         .static-info-text {

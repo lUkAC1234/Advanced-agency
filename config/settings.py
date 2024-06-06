@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8ts4y19v^4dh!+wc+d0ub-rr15y+7r2#3#y-4d00oa-2rt)%(r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -14,12 +14,14 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     'ckeditor',
 
     'fontawesomefree',
@@ -31,6 +33,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "django.middleware.locale.LocaleMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -52,7 +55,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'templates'
+            BASE_DIR / "web/templates"
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -76,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'webordermain',
-        'USER': 'root',
+        'USER': 'postgres',
         'PASSWORD': 'dimatop12',
         'HOST': 'localhost',
         'PORT': '5432'
@@ -104,7 +107,21 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'EN'
+LANGUAGE_CODE = 'EN-RU'
+
+gettext = lambda s: s
+
+LANGUAGES = [
+    ('en', gettext('English')),
+    ('ru', gettext('Russian')),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / "web" / "locale"
+]
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
+
 
 TIME_ZONE = 'Asia/Tashkent'
 
