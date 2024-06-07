@@ -25,6 +25,10 @@
 }
 
 .logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
     flex: 0 0 4.5rem;
 
     img {
@@ -46,6 +50,18 @@
     ul {
         display: flex;
         gap: 2.5rem;
+
+        @media screen and (max-width: 1800px) {
+            gap: 2rem;
+        }
+
+        @media screen and (max-width: 1700px) {
+            gap: 1.5rem;
+        }
+
+        @media screen and (max-width: 1600px) {
+            gap: 1.125rem;
+        }
 
         .nav-link {
             position: relative;
@@ -456,7 +472,7 @@
     display: flex;
     flex-flow: column;
     width: max-content;
-    left: 0;
+    left: -1rem;
     top: 4rem;
     transform: scale(.1);
     transform-origin: center;
@@ -545,5 +561,98 @@
         position: absolute;
         top: 0;
         margin: 1rem 0;
+    }
+}
+
+body:has(.language-dropdown-content.show) {
+    overflow-y: hidden;
+}
+
+.custom-language-select {
+    position: relative;
+    display: inline-block;
+    z-index: var(--z-index-11);
+
+    img {
+        width: 1.5rem;
+        height: 0.9rem;
+        object-fit: cover;
+    }
+}
+
+/* Style the dropdown button */
+.select-button {
+    @extend .dark-blue-text-center-grotext-family-1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem !important;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* Style the dropdown content */
+.language-dropdown-content {
+    display: none;
+    position: fixed;
+    border-radius: 4px;
+    padding: 8px;
+    z-index: 1;
+
+    &.show {
+        position: absolute;
+        display: block;
+        top: -2rem;
+        left: -6rem;
+        width: min(100vw, 100rem);
+        height: 100vmax;
+        background: var(--background-white);
+        padding: 3rem 1rem;
+
+        @media screen and (max-width: 992px) {
+            height: 110vmax;
+        }
+    }
+}
+
+.language-dropdown-content-title-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem
+}
+
+.language-dropdown-content-title {
+    @extend .dark-blue-text-center-grotext-family-1-5rem;
+    @extend .text-align-start;
+}
+
+.language-dropdown-content-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    i {
+        color: var(--text-dark-blue);
+        font-size: 1.5rem;
+    }
+}
+
+.language-option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    gap: 0.25rem;
+    cursor: pointer;
+    margin-block: 0.5rem;
+    font-family: var(--grotext-sans);
+    font-size: 0.9rem;
+
+
+    &:hover {
+
     }
 }

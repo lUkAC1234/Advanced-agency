@@ -1,3 +1,36 @@
+// LANGUAGE START
+
+document.addEventListener("DOMContentLoaded", function() {
+    var selectButton = document.querySelector(".select-button");
+    var dropdownContent = document.querySelector(".language-dropdown-content");
+    var closeButton = document.querySelector(".language-dropdown-content-close");
+
+    // Show/hide options on button click
+    selectButton.addEventListener("click", function() {
+        dropdownContent.classList.toggle("show");
+    });
+
+    // Close dropdown when close button is clicked
+    closeButton.addEventListener("click", function() {
+        dropdownContent.classList.remove("show");
+    });
+
+    // Update selected value on option click
+    dropdownContent.addEventListener("click", function(event) {
+        var target = event.target;
+        if (target.classList.contains("language-option")) {
+            var value = target.getAttribute("value");
+            selectButton.textContent = target.textContent;
+            document.querySelector("#language_select").value = value;
+            document.getElementById("language_form").submit();
+        }
+    });
+});
+
+
+// Language end
+
+
 /* HEADER-NAVBAR + BOTTOM BTN TO TOP */
 var className = "header-active";
 var BtnTop = "btn-top-active";
@@ -99,3 +132,4 @@ const showDropdown = (content, button) =>{
 }
 
 showDropdown('dropdown-content','dropdown-button')
+

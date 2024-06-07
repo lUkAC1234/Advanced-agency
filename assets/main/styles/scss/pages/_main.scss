@@ -208,7 +208,7 @@
 @media screen and (max-width: 800px) {
     .tasks {
         flex-flow: column-reverse;
-        padding-inline: 1rem;
+        padding-inline: 0.5rem;
     }
 
     .task-content-column {
@@ -450,6 +450,7 @@
     .chat {
         flex-flow: column;
         gap: 2rem;
+        padding-inline: 0.5rem;
     }
 
     .chats {

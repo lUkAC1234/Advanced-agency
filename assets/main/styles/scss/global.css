@@ -176,7 +176,7 @@
 @media screen and (max-width: 800px) {
   .tasks {
     flex-flow: column-reverse;
-    padding-inline: 1rem;
+    padding-inline: 0.5rem;
   }
   .task-content-column {
     margin: 0 0.5rem;
@@ -351,6 +351,7 @@
   .chat {
     flex-flow: column;
     gap: 2rem;
+    padding-inline: 0.5rem;
   }
   .chats {
     gap: 1rem;
@@ -2483,6 +2484,7 @@
   z-index: var(--z-index-10);
   scale: 0;
   transition: all 0.6s ease;
+  width: min(100%, 20rem);
 }
 .contact-form-included-section.active {
   scale: 1;
@@ -6449,6 +6451,10 @@
 }
 
 .logo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
   flex: 0 0 4.5rem;
 }
 .logo-section img {
@@ -6467,6 +6473,21 @@
 .pages-section-container ul {
   display: flex;
   gap: 2.5rem;
+}
+@media screen and (max-width: 1800px) {
+  .pages-section-container ul {
+    gap: 2rem;
+  }
+}
+@media screen and (max-width: 1700px) {
+  .pages-section-container ul {
+    gap: 1.5rem;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .pages-section-container ul {
+    gap: 1.125rem;
+  }
 }
 .pages-section-container ul .nav-link {
   position: relative;
@@ -6802,7 +6823,7 @@
   display: flex;
   flex-flow: column;
   width: max-content;
-  left: 0;
+  left: -1rem;
   top: 4rem;
   transform: scale(0.1);
   transform-origin: center;
@@ -6886,6 +6907,85 @@
     top: 0;
     margin: 1rem 0;
   }
+}
+body:has(.language-dropdown-content.show) {
+  overflow-y: hidden;
+}
+
+.custom-language-select {
+  position: relative;
+  display: inline-block;
+  z-index: var(--z-index-11);
+}
+.custom-language-select img {
+  width: 1.5rem;
+  height: 0.9rem;
+  object-fit: cover;
+}
+
+/* Style the dropdown button */
+.select-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.7rem !important;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* Style the dropdown content */
+.language-dropdown-content {
+  display: none;
+  position: fixed;
+  border-radius: 4px;
+  padding: 8px;
+  z-index: 1;
+}
+.language-dropdown-content.show {
+  position: absolute;
+  display: block;
+  top: -2rem;
+  left: -6rem;
+  width: min(100vw, 100rem);
+  height: 100vmax;
+  background: var(--background-white);
+  padding: 3rem 1rem;
+}
+@media screen and (max-width: 992px) {
+  .language-dropdown-content.show {
+    height: 110vmax;
+  }
+}
+
+.language-dropdown-content-title-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.language-dropdown-content-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.language-dropdown-content-close i {
+  color: var(--text-dark-blue);
+  font-size: 1.5rem;
+}
+
+.language-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  gap: 0.25rem;
+  cursor: pointer;
+  margin-block: 0.5rem;
+  font-family: var(--grotext-sans);
+  font-size: 0.9rem;
 }
 .footer {
   position: relative;
@@ -7463,13 +7563,13 @@ select:-webkit-autofill:focus {
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-image-container .payment-image-type, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,
 .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price, .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost-title,
-.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .change-password-form-user, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .feedback-empty-container .feedback-empty-title, .website-technologies-column .website-technologies-title,
+.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .change-password-form-user, .select-button, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .feedback-empty-container .feedback-empty-title, .website-technologies-column .website-technologies-title,
 .job-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .contact-form-included-title, .services-info-column .services-info-title, .featured-posts-column .featured-post-column-title, .similar-popular-posts-column .similar-popular-post-column-title, .job-openings-list-type-container .job-openings-list-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
 .job-content h2,
 .job-content h3,
 .job-content h4,
 .job-content h5,
-.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title, .project-content-title, .project-detail-posted-on, .change-password-form-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .post-text-container .post-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .job-openings-list-title-container .job-openings-list-main-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .projects-article .projects-article-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
+.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title, .project-content-title, .project-detail-posted-on, .change-password-form-title, .language-dropdown-content-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .post-text-container .post-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .job-openings-list-title-container .job-openings-list-main-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .projects-article .projects-article-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
 .featured-posts-category-title, .posts-tags-title, .detail-gradient-container .detail-gradient-title, .detail-content-wrapper .detail-content-title,
 .project-detail-description-container .detail-content-title, .detail-link-text-container .detail-link-title {
   color: var(--text-dark-blue);
@@ -7495,7 +7595,7 @@ select:-webkit-autofill:focus {
 .job-content h3,
 .job-content h4,
 .job-content h5,
-.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title, .project-content-title, .project-detail-posted-on, .change-password-form-title {
+.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title, .project-content-title, .project-detail-posted-on, .change-password-form-title, .language-dropdown-content-title {
   font-size: 1.5rem;
 }
 
@@ -7505,7 +7605,7 @@ select:-webkit-autofill:focus {
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-image-container .payment-image-type, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,
 .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price, .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost-title,
-.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .change-password-form-user {
+.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .change-password-form-user, .select-button {
   font-size: 1rem;
 }
 
@@ -7596,7 +7696,7 @@ select:-webkit-autofill:focus {
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-main-edit-container .profile-edit-title, .profile-edit-column label, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,
 .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price, .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost-title,
-.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .project-content-title, .project-detail-posted-on, .change-password-form-user, .change-password-form-title {
+.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .project-content-title, .project-detail-posted-on, .change-password-form-user, .change-password-form-title, .language-dropdown-content-title {
   text-align: start;
 }
 

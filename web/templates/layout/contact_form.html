@@ -1,23 +1,23 @@
-{% load static %}
+{% load static i18n %}
 <!-- Start Contact form Included Section -->
 
 <section class="contact-form-included-section" id="included-section">
-    <div class="contact-form-included-container">
+    <div class="contact-form-included-conta iner">
         <button class="contact-form-included-icon" id="contact-form-included-toggle">
             <i class="fa-solid fa-envelope"></i>
         </button>
         <form class="contact-form-included-form" method="POST" id="contact-form-included">
             {% csrf_token %}
             <header class="contact-form-included-header">
-                <h1 class="contact-form-included-title">Send message</h1>
+                <h1 class="contact-form-included-title">{% translate 'Send message' %}</h1>
                 <button type="button" class="contact-form-included-close-btn" id="contact-form-included-close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </header>
             <div class="contact-form-included-form-content">
                 <div class="contact-form-included-input-container">
-                    <label class="placeholder">Full Name</label>
-                    <input type="text" class="contact-form-included-input" placeholder="Dwayne Johnson" id="fullname" required
+                    <label class="placeholder">{% translate 'Full Name' %}</label>
+                    <input type="text" class="contact-form-included-input" placeholder="{% translate 'Dwayne Johnson' %}" id="fullname" required
                         value="{% if form.fullname.value %}{{ form.fullname.value }}{% else %}{{ request.user.first_name|default:'' }}{% endif %}"
                         name="fullname">
                     {% if form.fullname.errors %}
@@ -25,7 +25,7 @@
                     {% endif %}
                 </div>
                 <div class="contact-form-included-input-container">
-                    <label class="placeholder">Email address</label>
+                    <label class="placeholder">{% translate 'Email address' %}</label>
                     <input type="email" class="contact-form-included-input" placeholder="example@gmail.com" name="email" required
                         id="email"
                         value="{% if form.email.value %}{{ form.email.value }}{% else %}{{ request.user.email|default:'' }}{% endif %}">
@@ -34,7 +34,7 @@
                     {% endif %}
                 </div>
                 <div class="contact-form-included-input-container">
-                    <label class="placeholder">Company name</label>
+                    <label class="placeholder">{% translate 'Company name' %}</label>
                     <input type="text" class="contact-form-included-input" placeholder="Cyber code" name="company" required
                         id="company"
                         value="{% if form.company.value %}{{ form.company.value }}{% else %}{{ request.user.company|default:'' }}{% endif %}">
@@ -44,9 +44,9 @@
                 </div>
 
                 <div class="contact-form-included-input-container">
-                    <label class="placeholder">Message</label>
+                    <label class="placeholder">{% translate 'Message' %}</label>
                     <textarea type="text" class="contact-form-included-input" id="text"
-                        value="{{ form.text.value|default_if_none:'' }}" placeholder="Hello, I want to order..."
+                        value="{{ form.text.value|default_if_none:'' }}" placeholder="{% translate 'Hello, I want to order...' %}"
                         name="text" required></textarea>
                     {% if form.text.errors %}
                     <p class="error-message">{{ form.text.errors }}</p>
@@ -54,7 +54,7 @@
                 </div>
 
                 <footer class="contact-form-included-btn-container">
-                    <button type="submit" class="contact-form-included-btn">Send message</button>
+                    <button type="submit" class="contact-form-included-btn">{% translate 'Send message' %}</button>
                 </footer>
             </div>
         </form>
