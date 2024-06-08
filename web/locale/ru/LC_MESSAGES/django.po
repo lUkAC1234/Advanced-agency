@@ -1501,10 +1501,8 @@ msgstr ""
 "запись, если вы забудете свой пароль."
 
 #: .\web\templates\pages\user\registration.html:24
-#, fuzzy
-#| msgid "Home - CyberCode"
 msgid "Sign up - Cyber Code"
-msgstr "Главная - Cybercode"
+msgstr "Регистрация - Cyber Code"
 
 #: .\web\templates\pages\user\registration.html:40
 msgid "Your place to work Plan and Create."
@@ -1536,21 +1534,19 @@ msgstr "У вас уже есть аккаунт?"
 
 #: .\web\views.py:352
 msgid "This post is private."
-msgstr ""
+msgstr "Этот пост является приватным."
 
 #: .\web\views.py:490
 msgid "Profile updated successfully."
-msgstr ""
+msgstr "Профиль успешно обновлен."
 
 #: .\web\views.py:538
-#, fuzzy
-#| msgid "You have successfully submitted an application to work with us"
 msgid "You have successfully created an account"
-msgstr "Вы успешно подали заявку на работу с нами"
+msgstr "Вы успешно создали аккаунт"
 
 #: .\web\views.py:560
 msgid "Your password was successfully updated"
-msgstr ""
+msgstr "Ваш пароль успешно обновлен"
 
 #~ msgid "Language"
 #~ msgstr "Язык"
