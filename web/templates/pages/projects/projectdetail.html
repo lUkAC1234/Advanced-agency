@@ -1,8 +1,8 @@
 {% extends 'layout/base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block title %}
-<title>Project Detail - CyberCode</title>
+<title>{% translate 'Project' %} - {{ object.title }} - Cyber Code</title>
 {% endblock %}
 
 {% block content %}

@@ -21,7 +21,7 @@
     <!-- Animation -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
     <!-- Animation End -->
-    <title>Sign in - CyberCode</title>
+    <title>{% translate 'Sign in - Cyber Code' %}</title>
 </head> 
 
 <body class="sign-body">
@@ -31,28 +31,35 @@
             <div class="sign-container">
                 <div class="sign-image-container">
                     <div class="sign-image-logo-container">
-                        <h1 class="sign-image-logo-text">Cyber Code</h1>
+                        <h1 class="sign-image-logo-text">
+                            Cyber Code
+                        </h1>
                     </div>
-                    <h1 class="sign-image-title">Your place to work Plan and Create.</h1>
+                    <h1 class="sign-image-title">
+                        
+                        {% translate "Your place to work Plan and Create"%}
+                    </h1>
                     <div class="sign-image-wrapper">
                         <img src="{% static 'main/images/login/login.svg' %}" alt="">
                     </div>
                 </div>
                 <div class="sign-info-container">
                     <a href="{% url 'main:index' %}" class="sign-return-back-link"><i class="fa-solid fa-arrow-left-long"></i></a>
-                    <h1 class="sign-info-title">Sign In to Website</h1>
+                    <h1 class="sign-info-title">{% translate "Sign In to Website" %}</h1>
                     <form id="login-form">
                         {% csrf_token %}
                         <input type="hidden" name="next" value="{{ request.GET.next|default:'main:profile' }}">
                         <div class="sign-info-input-container">
                             <div class="sign-info-input-column">
-                                <label class="sign-info-label">Username</label>
+                                <label class="sign-info-label">
+                                    {% translate "Username" %}</label>
                                 <input class="sign-info-input" type="text" placeholder="myusername" name="username"
                                     autocomplete="off" value="{{ form.username.value|default_if_none:'' }}">
                                 <div class="error-message" id="username-error"></div>
                             </div>
                             <div class="sign-info-input-column">
-                                <label class="sign-info-label">Password</label>
+                                <label class="sign-info-label">
+                                    {% translate "Password" %}</label>
                                 <input class="sign-info-input" type="password" placeholder="••••••••" name="password"
                                     autocomplete="off" value="{{ form.password.value|default_if_none:'' }}">
                                 <div class="error-message" id="password-error"></div>
@@ -63,18 +70,21 @@
                             <div class="sign-info-extra-wrapper">
                                 <div class="sign-info-extra-remember-container">
                                     <input type="checkbox" name="" id="">
-                                    <h1 class="sign-info-extra-remember-text">Remember me</h1>
+                                    <h1 class="sign-info-extra-remember-text">
+                                        {% translate "Remember me" %}</h1>
                                 </div>
                                 <div class="sign-info-extra-password-container">
-                                    <a href="{% url 'main:password_reset' %}" class="sign-info-extra-password-text">Forgot Password ?</a>
+                                    <a href="{% url 'main:password_reset' %}" class="sign-info-extra-password-text">
+                                        {% translate "Forgot Password ?" %}</a>
                                 </div>
                             </div>
                             <div class="sign-info-btn-container">
-                                <button class="sign-info-btn" type="submit">Sign in <i class="fa-solid fa-arrow-right"></i></button>
-                                <a href="{% url 'main:registration' %}" class="sign-info-check-account">Don’t have an
-                                    account?</a>
-                            </div> 
-                        </div>
+                                <button class="sign-info-btn" type="submit">
+                                    {% translate "Sign in" %} <i class="fa-solid fa-arrow-right"></i></button>
+                                <a href="{% url 'main:registration' %}" class="sign-info-check-account">
+                                    {% translate "Don’t have an account?"%}</a>
+                            </div>
+                        </div> 
                     </form>
                 </div>
             </div>

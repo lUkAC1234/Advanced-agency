@@ -82,23 +82,23 @@ class RegistrationForm(forms.ModelForm):
 
     def clean_confirm_password(self):
         if self.cleaned_data['confirm_password'] != self.cleaned_data['password']:
-            raise ValidationError('Passwords do not match')
+            raise ValidationError(_('Passwords do not match'))
         return self.cleaned_data['confirm_password']
 
     def clean_username(self):
         username = self.cleaned_data['username']
         if UserModel.objects.filter(username__iexact=username).exists():
-            raise ValidationError('This username is already in use')
+            raise ValidationError(_('This username is already in use'))
         return username
     
     def clean_password(self):
         password = self.cleaned_data['password']
 
         if not re.match(r'^[a-zA-Z0-9!$@%]*$', password):
-            raise ValidationError('Password can only contain English letters, numbers, !, $, @, %')
+            raise ValidationError(_('Password can only contain English letters, numbers, !, $, @, %'))
 
         if len(password) < 8:
-            raise ValidationError('Password must be at least 8 characters long')
+            raise ValidationError(_('Password must be at least 8 characters long'))
 
         return password
     

@@ -349,7 +349,7 @@ class blogdetail(ContactFormMixin, DetailView, FormView):
 
         # Check if the post is private and the user is not staff
         if self.object.is_private and not request.user.is_staff:
-            raise Http404("This post is private.")
+            raise Http404(_("This post is private."))
 
         # Track view if unique
         ip_address = self.get_client_ip(request)
@@ -487,7 +487,7 @@ class MyProfileEdit(LoginRequiredMixin, UpdateView):
         return self.request.user
 
     def form_valid(self, form):
-        messages.success(self.request, "Profile updated successfully.")
+        messages.success(self.request, _("Profile updated successfully."))
         return super().form_valid(form)
 
     def form_invalid(self, form):
@@ -509,7 +509,7 @@ def loginView(request):
                 login(request, user)
                 next_url = request.POST.get("next", reverse("main:profile"))
                 return JsonResponse({"success": True, "redirect": next_url})
-            form.add_error("password", f"Username or password is incorrect")
+            form.add_error("password", _("Username or password is incorrect"))
         errors = {
             field: [error for error in form[field].errors] for field in form.fields
         }
@@ -535,7 +535,7 @@ class RegistrationView(CreateView):
         del form.cleaned_data["confirm_password"]
 
         response = super().form_valid(form)
-        messages.success(self.request, "You have successfully created an account")
+        messages.success(self.request, _("You have successfully created an account"))
         login(self.request, self.object)
         return JsonResponse({"success": True})
 
@@ -557,7 +557,7 @@ class UserPasswordChangeView(PasswordChangeView):
         self.request.user.refresh_from_db()
         self.request.user.updated_at = timezone.now()
         self.request.user.save(update_fields=["updated_at"])
-        messages.success(self.request, "Your password was successfully updated")
+        messages.success(self.request, _("Your password was successfully updated"))
         return response
 
 

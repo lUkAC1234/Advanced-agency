@@ -1,12 +1,7 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import UserModel,PricingModel, PostCategoryModel, PostTagModel, PostModel, \
-    PostView, FeedbackModel, ContactusModel, FaqModel, JobCategoryModel, \
-    JobKnowledgesModel, JobModel, JobApplyModel, ProjectCategory, ProjectModel, \
-    PartnersModel, CheckOut
-
-@register(UserModel)
-class UserModelTranslationOptions(TranslationOptions):
-    fields = ('company', 'location', 'position')  # Add fields you want to translate
+from .models import PricingModel, PostCategoryModel, PostTagModel, PostModel, \
+    FaqModel, JobCategoryModel, \
+    JobKnowledgesModel, JobModel, ProjectCategory, ProjectModel
 
 @register(PricingModel)
 class PricingModelTranslationOptions(TranslationOptions):
@@ -23,14 +18,6 @@ class PostTagModelTranslationOptions(TranslationOptions):
 @register(PostModel)
 class PostModelTranslationOptions(TranslationOptions):
     fields = ('title', 'short_description', 'post_text')  # Add fields you want to translate
-
-@register(FeedbackModel)
-class FeedbackModelTranslationOptions(TranslationOptions):
-    fields = ('text',)  # Add fields you want to translate
-
-@register(ContactusModel)
-class ContactusModelTranslationOptions(TranslationOptions):
-    fields = ('fullname', 'company', 'text')  # Add fields you want to translate
 
 @register(FaqModel)
 class FaqModelTranslationOptions(TranslationOptions):
@@ -56,10 +43,3 @@ class ProjectCategoryTranslationOptions(TranslationOptions):
 class ProjectModelTranslationOptions(TranslationOptions):
     fields = ('title', 'description')  # Add fields you want to translate
 
-@register(PartnersModel)
-class PartnersModelTranslationOptions(TranslationOptions):
-    fields = ('title',)  # Add fields you want to translate
-
-@register(CheckOut)
-class CheckOutTranslationOptions(TranslationOptions):
-    fields = ('first_name', 'address', 'city', 'position')  # Add fields you want to translate

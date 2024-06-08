@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-07 23:23+0500\n"
+"POT-Creation-Date: 2024-06-08 18:24+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,9 +36,25 @@ msgstr "Введите ваше имя пользователя"
 msgid "Enter you password"
 msgstr "Введите ваш пароль"
 
-#: .\web\forms.py:70
+#: .\web\forms.py:70 .\web\views.py:512
 msgid "Username or password is incorrect"
 msgstr "Имя пользователя или пароль неверны"
+
+#: .\web\forms.py:85
+msgid "Passwords do not match"
+msgstr "Пароли не совпадают"
+
+#: .\web\forms.py:91
+msgid "This username is already in use"
+msgstr "Это имя пользователя уже используется"
+
+#: .\web\forms.py:98
+msgid "Password can only contain English letters, numbers, !, $, @, %"
+msgstr "Пароль может содержать только английские буквы, цифры, !, $, @, %"
+
+#: .\web\forms.py:101
+msgid "Password must be at least 8 characters long"
+msgstr "Пароль должен быть не менее 8 символов в длину"
 
 #: .\web\models.py:17
 msgid ""
@@ -115,10 +131,12 @@ msgstr "Администрация Django"
 
 #: .\web\templates\layout\contact_form.html:12
 #: .\web\templates\layout\contact_form.html:57
+#: .\web\templates\pages\contact.html:97
 msgid "Send message"
 msgstr "Отправить сообщение"
 
 #: .\web\templates\layout\contact_form.html:19
+#: .\web\templates\pages\contact.html:71
 msgid "Full Name"
 msgstr "Полное имя"
 
@@ -127,14 +145,17 @@ msgid "Dwayne Johnson"
 msgstr "Дуэйн Джонсон"
 
 #: .\web\templates\layout\contact_form.html:28
+#: .\web\templates\pages\contact.html:78
 msgid "Email address"
 msgstr "Адрес электронной почты"
 
 #: .\web\templates\layout\contact_form.html:37
+#: .\web\templates\pages\contact.html:85
 msgid "Company name"
 msgstr "Название компании"
 
 #: .\web\templates\layout\contact_form.html:47
+#: .\web\templates\pages\job\jobdetail.html:62
 msgid "Message"
 msgstr "Сообщение"
 
@@ -155,7 +176,7 @@ msgid "Useful links"
 msgstr "Полезные ссылки"
 
 #: .\web\templates\layout\footer.html:24 .\web\templates\layout\footer.html:26
-#: .\web\templates\layout\header.html:158
+#: .\web\templates\layout\header.html:160
 msgid "Profile"
 msgstr "Профиль"
 
@@ -176,39 +197,38 @@ msgid "Our product"
 msgstr "Наши продукты"
 
 #: .\web\templates\layout\footer.html:36 .\web\templates\layout\header.html:80
+#: .\web\templates\pages\blog\blog.html:159
+#: .\web\templates\pages\contact.html:158 .\web\templates\pages\faqlist.html:49
+#: .\web\templates\pages\pricing\pricing.html:153
+#: .\web\templates\pages\pricing\pricinglist.html:86
+#: .\web\templates\pages\projects\projects.html:47
 msgid "Pricing"
 msgstr "Услуги"
 
 #: .\web\templates\layout\footer.html:37
-#, fuzzy
-#| msgid "Pricing"
 msgid "Pricing list"
-msgstr "Услуги"
+msgstr "Список цен"
 
 #: .\web\templates\layout\footer.html:38 .\web\templates\layout\header.html:92
 msgid "Blog"
 msgstr "Блог"
 
 #: .\web\templates\layout\footer.html:39
-#, fuzzy
-#| msgid "About"
 msgid "About us"
 msgstr "О нас"
 
-#: .\web\templates\layout\footer.html:46 .\web\templates\layout\header.html:178
+#: .\web\templates\layout\footer.html:46 .\web\templates\layout\header.html:180
 msgid "Logout"
 msgstr "Выход"
 
 #: .\web\templates\layout\footer.html:48 .\web\templates\layout\header.html:106
-#: .\web\templates\layout\header.html:186
+#: .\web\templates\layout\header.html:188
 msgid "Login"
 msgstr "Войти"
 
 #: .\web\templates\layout\footer.html:50
-#, fuzzy
-#| msgid "Location"
 msgid "Job Application"
-msgstr "Местоположение"
+msgstr "Подача заявки на работу"
 
 #: .\web\templates\layout\footer.html:51
 msgid "Faq List"
@@ -251,23 +271,413 @@ msgid "Projects"
 msgstr "Проекты"
 
 #: .\web\templates\layout\header.html:109
-#: .\web\templates\layout\header.html:150
-#: .\web\templates\layout\header.html:189 .\web\templates\pages\index.html:20
-#: .\web\templates\pages\index.html:168
+#: .\web\templates\layout\header.html:152
+#: .\web\templates\layout\header.html:191
+#: .\web\templates\pages\blog\blog.html:154
+#: .\web\templates\pages\contact.html:153 .\web\templates\pages\faqlist.html:44
+#: .\web\templates\pages\index.html:20 .\web\templates\pages\index.html:168
+#: .\web\templates\pages\job\job.html:42 .\web\templates\pages\job\job.html:143
+#: .\web\templates\pages\job\jobdetail.html:184
+#: .\web\templates\pages\pricing\pricing.html:32
+#: .\web\templates\pages\pricing\pricing.html:100
+#: .\web\templates\pages\pricing\pricing.html:148
+#: .\web\templates\pages\pricing\pricinglist.html:24
+#: .\web\templates\pages\pricing\pricinglist.html:55
+#: .\web\templates\pages\pricing\pricinglist.html:81
+#: .\web\templates\pages\projects\projects.html:42
 msgid "Get started"
 msgstr "Начать"
 
-#: .\web\templates\layout\header.html:164
-msgid "Messages"
-msgstr "Сообщения"
-
-#: .\web\templates\layout\header.html:170
+#: .\web\templates\layout\header.html:117
+#: .\web\templates\layout\header.html:172
 msgid "Help Center"
 msgstr "Центр помощи"
 
+#: .\web\templates\layout\header.html:166 .\web\templates\pages\contact.html:92
+msgid "Messages"
+msgstr "Сообщения"
+
+#: .\web\templates\pages\about.html:5
+msgid "About us - Cyber Code"
+msgstr "О нас - Кибер Код"
+
+#: .\web\templates\pages\about.html:15
+msgid "Our mission is to make people happy and productive"
+msgstr "Наша миссия - сделать людей счастливыми и продуктивными"
+
+#: .\web\templates\pages\about.html:16
+msgid ""
+"We are on a mission to give you more control. Start your business, "
+"organizing and reacting. Spend more time doing the things that matter."
+msgstr ""
+"Мы на миссии, чтобы дать вам больше контроля. Начните свой бизнес, организуя "
+"и реагируя. Проводите больше времени на важных вещах."
+
+#: .\web\templates\pages\about.html:19
+#: .\web\templates\pages\pricing\pricing.html:73
+msgid "Get in touch"
+msgstr "Связаться с нами"
+
+#: .\web\templates\pages\about.html:28
+msgid "In progress"
+msgstr "В процессе"
+
+#: .\web\templates\pages\about.html:31
+msgid "UX Design"
+msgstr "UX Дизайн"
+
+#: .\web\templates\pages\about.html:37
+msgid "Creating user story"
+msgstr "Создание истории пользователя"
+
+#: .\web\templates\pages\about.html:39
+msgid "Dec"
+msgstr "Дек"
+
+#: .\web\templates\pages\about.html:54
+msgid "The Technologies that we used to make this website"
+msgstr "Технологии, которые мы использовали для создания этого веб-сайта"
+
+#: .\web\templates\pages\about.html:56
+msgid ""
+"We used these technologies because they are convenient, intuitive, and also "
+"provide many features for both frontend and backend development."
+msgstr ""
+"Мы использовали эти технологии, потому что они удобны, интуитивно понятны и "
+"также предоставляют множество функций для разработки как на стороне клиента, "
+"так и на стороне сервера."
+
+#: .\web\templates\pages\about.html:67
+msgid ""
+"Django is our backend framework, powering the core functionality of our "
+"project."
+msgstr ""
+"Django - это наш фреймворк для бэкэнда, обеспечивающий основную "
+"функциональность нашего проекта."
+
+#: .\web\templates\pages\about.html:77
+msgid ""
+"Python, our primary programming language, drives the logic and functionality "
+"of our web application."
+msgstr ""
+"Python, наш основной язык программирования, определяет логику и "
+"функциональность нашего веб-приложения."
+
+#: .\web\templates\pages\about.html:87
+msgid ""
+"PostgreSQL, a powerful database, ensures data integrity and efficient "
+"storage for our project."
+msgstr ""
+"PostgreSQL, мощная база данных, обеспечивает целостность данных и "
+"эффективное хранение для нашего проекта."
+
+#: .\web\templates\pages\about.html:97
+msgid ""
+"React, a JavaScript library, enables dynamic and responsive user interfaces, "
+"enhancing user engagement."
+msgstr ""
+"React, библиотека JavaScript, позволяет создавать динамические и адаптивные "
+"пользовательские интерфейсы, улучшая вовлеченность пользователей."
+
+#: .\web\templates\pages\about.html:107
+#, fuzzy
+#| msgid ""
+#| "HTML is essential for structuring web content and creating the foundation "
+#| "of our project."
+msgid ""
+"HTML is essential for structuring web content and creating the foundation of "
+"our project\\"
+msgstr ""
+"HTML является неотъемлемым элементом для структурирования веб-контента и "
+"создания основы нашего проекта."
+
+#: .\web\templates\pages\about.html:117
+#, fuzzy
+#| msgid "CSS, Cascading Style Sheets, enhances our project"
+msgid "CSS, Cascading Style Sheets, enhances our project\\"
+msgstr "CSS, Каскадные таблицы стилей, улучшают наш проект"
+
+#: .\web\templates\pages\about.html:127
+msgid ""
+"JavaScript, a versatile scripting language, brings interactivity and "
+"functionality to our web application."
+msgstr ""
+"JavaScript, универсальный язык скриптов, придает интерактивность и "
+"функциональность нашему веб-приложению."
+
+#: .\web\templates\pages\about.html:137
+msgid ""
+"DRF, a Django extension, simplifies API development, facilitating data "
+"exchange and integration."
+msgstr ""
+"DRF, расширение Django, упрощает разработку API, облегчая обмен данными и их "
+"интеграцию."
+
+#: .\web\templates\pages\about.html:147
+msgid ""
+"Sass, a CSS preprocessor, streamlines our styling workflow with variables, "
+"nesting, and modularization."
+msgstr ""
+"Sass, препроцессор CSS, оптимизирует наш рабочий процесс стилизации с "
+"помощью переменных, вложенности и модульности."
+
+#: .\web\templates\pages\about.html:163
+msgid "Tracked users"
+msgstr "Отслеживаемые пользователи"
+
+#: .\web\templates\pages\about.html:164
+msgid "All our clients are satisfied with our work!"
+msgstr "Все наши клиенты довольны нашей работой!"
+
+#: .\web\templates\pages\about.html:170
+msgid "Events per month"
+msgstr "События в месяц"
+
+#: .\web\templates\pages\about.html:171
+msgid "Every month we get about this much work from clients"
+msgstr "Каждый месяц мы получаем примерно столько работ от клиентов"
+
+#: .\web\templates\pages\about.html:177
+msgid "Capital raised"
+msgstr "Поднятый капитал"
+
+#: .\web\templates\pages\about.html:178
+msgid ""
+"Until today we have earned exactly this amount, and this is just the "
+"beginning!"
+msgstr ""
+"До сегодняшнего дня мы заработали точно эту сумму, и это только начало!"
+
+#: .\web\templates\pages\about.html:184
+msgid "Team members"
+msgstr "Члены команды"
+
+#: .\web\templates\pages\about.html:185
+msgid "All of our employees are important to us, join us!"
+msgstr "Все наши сотрудники важны для нас, присоединяйтесь к нам!"
+
+#: .\web\templates\pages\about.html:202
+msgid "Team"
+msgstr "Команда"
+
+#: .\web\templates\pages\about.html:202
+msgid "members"
+msgstr "члены"
+
+#: .\web\templates\pages\about.html:206
+msgid "A great story always starts with a great team Work"
+msgstr "Великая история всегда начинается с великой команды Работы"
+
+#: .\web\templates\pages\about.html:207 .\web\templates\pages\about.html:225
+#: .\web\templates\pages\job\job.html:39
+#: .\web\templates\pages\pricing\pricing.html:97
+msgid ""
+"We are a small, but growing team. Our expertise includes growth marketing, "
+"design, software development, and product management."
+msgstr ""
+"Мы - небольшая, но растущая команда. Наш опыт включает маркетинг роста, "
+"дизайн, разработку программного обеспечения и управление продуктом."
+
+#: .\web\templates\pages\about.html:210 .\web\templates\pages\about.html:228
+msgid "Join us"
+msgstr "Присоединяйтесь к нам"
+
+#: .\web\templates\pages\about.html:224
+msgid "The values that drive everything we do"
+msgstr "Ценности, которые определяют все наши действия"
+
+#: .\web\templates\pages\about.html:237
+msgid "Innovation"
+msgstr "Инновации"
+
+#: .\web\templates\pages\about.html:238
+msgid "Every month we introduce innovation to our agency"
+msgstr "Каждый месяц мы внедряем инновации в нашу компанию"
+
+#: .\web\templates\pages\about.html:244
+msgid "Accountability"
+msgstr "Ответственность"
+
+#: .\web\templates\pages\about.html:245
+msgid "Our responsibility is to provide quality work to our clients."
+msgstr "Наша ответственность - предоставить клиентам качественную работу."
+
+#: .\web\templates\pages\about.html:251
+msgid "Commitment"
+msgstr "Обязательство"
+
+#: .\web\templates\pages\about.html:252
+msgid "Make each of our clients happy and satisfied"
+msgstr "Сделать каждого из наших клиентов счастливым и довольным"
+
+#: .\web\templates\pages\about.html:258
+msgid "Team Work"
+msgstr "Командная работа"
+
+#: .\web\templates\pages\about.html:259
+msgid "Working with a team is much better than working alone"
+msgstr "Работать в команде намного лучше, чем работать в одиночку"
+
+#: .\web\templates\pages\about.html:272
+msgid "Stay get in touch with us"
+msgstr "Оставайтесь на связи с нами"
+
+#: .\web\templates\pages\about.html:273 .\web\templates\pages\contact.html:15
+#: .\web\templates\pages\contact.html:33
+msgid "Questions? Comments? Want to schedule a demo? We’d love to chat!"
+msgstr ""
+"Вопросы? Комментарии? Хотите запланировать демонстрацию? Мы будем рады "
+"побеседовать!"
+
+#: .\web\templates\pages\about.html:281 .\web\templates\pages\contact.html:42
+msgid "Email us"
+msgstr "Напишите нам"
+
+#: .\web\templates\pages\about.html:290 .\web\templates\pages\contact.html:51
+msgid "Phone number"
+msgstr "Номер телефона"
+
+#: .\web\templates\pages\blog\blog.html:5
+msgid "Blog - Cyber Code"
+msgstr "Блог - Cyber Code"
+
+#: .\web\templates\pages\blog\blog.html:14
+msgid "Our best tips for building and launching creative projects."
+msgstr "Наши лучшие советы по созданию и запуску творческих проектов."
+
+#: .\web\templates\pages\blog\blog.html:23
+msgid "Latest posts"
+msgstr "Последние посты"
+
+#: .\web\templates\pages\blog\blog.html:44
+#: .\web\templates\pages\blog\blog_result.html:25
+msgid "Posted on"
+msgstr "Опубликовано"
+
+#: .\web\templates\pages\blog\blog.html:64
+msgid "Search by title"
+msgstr "Поиск по заголовку"
+
+#: .\web\templates\pages\blog\blog.html:72
+msgid "By category"
+msgstr "По категории"
+
+#: .\web\templates\pages\blog\blog.html:90
+msgid "By tags"
+msgstr "По тегам"
+
+#: .\web\templates\pages\blog\blog.html:107
+#: .\web\templates\pages\blog\blog_result.html:46
+msgid "Clear all filters"
+msgstr "Сбросить все фильтры"
+
+#: .\web\templates\pages\blog\blog.html:149
+#: .\web\templates\pages\contact.html:148 .\web\templates\pages\faqlist.html:39
+#: .\web\templates\pages\pricing\pricing.html:143
+#: .\web\templates\pages\pricing\pricinglist.html:76
+#: .\web\templates\pages\projects\projects.html:37
+msgid "Ready to try"
+msgstr "Готовы попробовать"
+
+#: .\web\templates\pages\blog\blog.html:149
+#: .\web\templates\pages\contact.html:148 .\web\templates\pages\faqlist.html:39
+msgid "Cyber Code?"
+msgstr "Cyber Code?"
+
+#: .\web\templates\pages\blog\blog.html:150
+#: .\web\templates\pages\contact.html:149 .\web\templates\pages\faqlist.html:40
+#: .\web\templates\pages\pricing\pricing.html:144
+#: .\web\templates\pages\pricing\pricinglist.html:77
+#: .\web\templates\pages\projects\projects.html:38
+msgid "Try Cyber Code and take back control of your day"
+msgstr "Попробуйте Cyber Code и верните себе контроль над своим днем"
+
+#: .\web\templates\pages\blog\blog_result.html:32
+#: .\web\templates\pages\index.html:218
+msgid "Private post"
+msgstr "Приватный пост"
+
+#: .\web\templates\pages\blog\blog_result.html:44
+#: .\web\templates\pages\index.html:177 .\web\templates\pages\index.html:240
+#: .\web\templates\pages\index.html:271 .\web\templates\pages\index.html:313
+#: .\web\templates\pages\job\job.html:125
+#: .\web\templates\pages\job\jobdetail.html:166
+#: .\web\templates\pages\pricing\paymentlist.html:113
+#: .\web\templates\pages\pricing\pricing.html:40
+#: .\web\templates\pages\pricing\pricinglist.html:63
+msgid "No matching results"
+msgstr "Нет подходящих результатов"
+
+#: .\web\templates\pages\blog\blog_result.html:45
+msgid "There are no any blogs yet"
+msgstr "Пока нет ни одного блога"
+
+#: .\web\templates\pages\contact.html:5
+msgid "Contact us - Cyber Code"
+msgstr "Свяжитесь с нами - Cyber Code"
+
+#: .\web\templates\pages\contact.html:14 .\web\templates\pages\contact.html:32
+msgid "Contact us"
+msgstr "Свяжитесь с нами"
+
+#: .\web\templates\pages\contact.html:100
+#, fuzzy
+#| msgid "Your form has been submitted successfully!"
+msgid "Your Form has been submitted successfully !"
+msgstr "Ваша форма успешно отправлена!"
+
+#: .\web\templates\pages\contact.html:103
+msgid "Error submitting the form. Please try again."
+msgstr "Ошибка при отправке формы. Пожалуйста, попробуйте снова."
+
+#: .\web\templates\pages\contact.html:118 .\web\templates\pages\faqlist.html:14
+msgid "Frequently Asked Questions"
+msgstr "Часто задаваемые вопросы"
+
+#: .\web\templates\pages\contact.html:119
+msgid ""
+"Fill out the form and our team will get back to you as quickly as we can."
+msgstr "Заполните форму, и наша команда свяжется с вами как можно скорее."
+
+#: .\web\templates\pages\contact.html:137
+msgid "Click to view other FAQS"
+msgstr "Нажмите, чтобы посмотреть другие FAQ"
+
+#: .\web\templates\pages\error\error404.html:20
+msgid "404 Page Not Found - Cyber Code"
+msgstr "404 Страница не найдена - Cyber Code"
+
+#: .\web\templates\pages\error\error404.html:468
+msgid "404"
+msgstr "404"
+
+#: .\web\templates\pages\error\error404.html:469
+msgid "UH OH! You're lost."
+msgstr "Упс! Вы потерялись."
+
+#: .\web\templates\pages\error\error404.html:470
+msgid ""
+"The page you are looking for does not exist. How you got here is a mystery. "
+"But you can click the button below to go back to the homepage."
+msgstr ""
+"Страница, которую вы ищете, не существует. Как вы сюда попали, загадка. Но "
+"вы можете нажать на кнопку ниже, чтобы вернуться на главную страницу."
+
+#: .\web\templates\pages\error\error404.html:472
+msgid "Go to home"
+msgstr "Перейти на главную"
+
+#: .\web\templates\pages\faqlist.html:7
+msgid "FAQ List - Cyber Code"
+msgstr "Список ЧаВо - Cyber Code"
+
+#: .\web\templates\pages\faqlist.html:15
+msgid "There is the list of every FAQs."
+msgstr "Здесь приведен список каждого ЧаВо."
+
 #: .\web\templates\pages\index.html:5
-msgid "Home - CyberCode"
-msgstr "Главная - Cybercode"
+msgid "Home - Cyber Code"
+msgstr "Главная - Cyber Code"
 
 #: .\web\templates\pages\index.html:14
 msgid "Build your business with us"
@@ -278,6 +688,7 @@ msgid "Our Projects"
 msgstr "Наши проекты"
 
 #: .\web\templates\pages\index.html:30
+#: .\web\templates\pages\user\profile.html:66
 msgid "Location"
 msgstr "Местоположение"
 
@@ -388,19 +799,21 @@ msgid "Our powerful plan gives you access to core Cyber Code features."
 msgstr "Наш мощный план дает вам доступ к основным функциям Cyber Code."
 
 #: .\web\templates\pages\index.html:158
+#: .\web\templates\pages\pricing\pricing.html:23
+#: .\web\templates\pages\pricing\pricinglist.html:46
 msgid "from"
 msgstr "от"
 
 #: .\web\templates\pages\index.html:161
+#: .\web\templates\pages\pricing\paymentlist.html:75
+#: .\web\templates\pages\pricing\pricing.html:26
+#: .\web\templates\pages\pricing\pricinglist.html:49
 msgid "Recommended"
 msgstr "Рекомендуемый"
 
-#: .\web\templates\pages\index.html:177 .\web\templates\pages\index.html:240
-#: .\web\templates\pages\index.html:271 .\web\templates\pages\index.html:313
-msgid "No matching results"
-msgstr "Нет подходящих результатов"
-
 #: .\web\templates\pages\index.html:178
+#: .\web\templates\pages\pricing\pricing.html:41
+#: .\web\templates\pages\pricing\pricinglist.html:64
 msgid "There are no any pricings yet"
 msgstr "Пока нет ни одного тарифа"
 
@@ -423,10 +836,6 @@ msgstr ""
 #: .\web\templates\pages\index.html:197
 msgid "See more articeles"
 msgstr "Смотреть больше статей"
-
-#: .\web\templates\pages\index.html:218
-msgid "Private post"
-msgstr "Приватная запись"
 
 #: .\web\templates\pages\index.html:227
 msgid "Posted by"
@@ -463,6 +872,554 @@ msgstr ""
 #: .\web\templates\pages\index.html:314
 msgid "There are no any feedbacks yet"
 msgstr "Пока нет ни одного отзыва"
+
+#: .\web\templates\pages\job\job.html:7
+msgid "Job Openings - Cyber Code"
+msgstr "Вакансии - Cyber Code"
+
+#: .\web\templates\pages\job\job.html:16
+msgid "Join one of the World fastest growing Company"
+msgstr "Присоединяйтесь к одной из самых быстрорастущих компаний в мире"
+
+#: .\web\templates\pages\job\job.html:17
+msgid ""
+"We want to find the best specialists from all over the world. Here you can "
+"see job vacancies, and we will be glad if you want to join us"
+msgstr ""
+"Мы хотим найти лучших специалистов со всего мира. Здесь вы можете увидеть "
+"вакансии, и мы будем рады, если вы захотите присоединиться к нам"
+
+#: .\web\templates\pages\job\job.html:20
+msgid "Join with us"
+msgstr "Присоединяйтесь к нам"
+
+#: .\web\templates\pages\job\job.html:38
+msgid "Great perks of working with CyberCode Team"
+msgstr "Преимущества работы в команде CyberCode"
+
+#: .\web\templates\pages\job\job.html:51
+#: .\web\templates\pages\pricing\pricing.html:109
+msgid "Gain full control"
+msgstr "Получите полный контроль"
+
+#: .\web\templates\pages\job\job.html:52
+#: .\web\templates\pages\pricing\pricing.html:110
+msgid ""
+"After we transfer the site to you, you will be able to manage your site "
+"yourself"
+msgstr ""
+"После передачи вам сайта вы сможете управлять своим сайтом самостоятельно"
+
+#: .\web\templates\pages\job\job.html:58
+#: .\web\templates\pages\pricing\pricing.html:116
+msgid "Dedicated support"
+msgstr "Персональная поддержка"
+
+#: .\web\templates\pages\job\job.html:59
+#: .\web\templates\pages\pricing\pricing.html:117
+msgid ""
+"Free support for a month after transfer of the site, as well as fixing it "
+"only 1 time"
+msgstr ""
+"Бесплатная поддержка в течение месяца после передачи сайта, а также "
+"однократное исправление"
+
+#: .\web\templates\pages\job\job.html:65
+#: .\web\templates\pages\pricing\pricing.html:123
+msgid "Order is deliveres on time"
+msgstr "Заказ доставляется вовремя"
+
+#: .\web\templates\pages\job\job.html:66
+#: .\web\templates\pages\pricing\pricing.html:124
+msgid "You will receive your website on time or even earlier, we guarantee it!"
+msgstr "Вы получите ваш сайт вовремя или даже раньше, мы гарантируем это!"
+
+#: .\web\templates\pages\job\job.html:72
+#: .\web\templates\pages\pricing\pricing.html:130
+msgid "Perfect quality"
+msgstr "Идеальное качество"
+
+#: .\web\templates\pages\job\job.html:73
+#: .\web\templates\pages\pricing\pricing.html:131
+#, fuzzy
+#| msgid "Clean code that allows the site to work without lags and errors!"
+msgid "Сlean code that allows the site to work without lags and errors!"
+msgstr "Чистый код, который позволяет сайту работать без задержек и ошибок!"
+
+#: .\web\templates\pages\job\job.html:85
+msgid "What job profiles are we currently looking for?"
+msgstr "Какие профили работ мы в настоящее время ищем?"
+
+#: .\web\templates\pages\job\job.html:87
+msgid ""
+"We are looking for the most professional specialists in their field who will "
+"help us develop together, if you are one of them, join us!"
+msgstr ""
+"Мы ищем самых профессиональных специалистов в своей области, которые помогут "
+"нам вместе развиваться, если вы один из них, присоединяйтесь к нам!"
+
+#: .\web\templates\pages\job\job.html:126
+#: .\web\templates\pages\job\jobdetail.html:167
+msgid "There is no any job vacancies yet"
+msgstr "Пока нет ни одной вакансии"
+
+#: .\web\templates\pages\job\job.html:139
+msgid "Join Our Team and grow your career with us"
+msgstr ""
+"Присоединяйтесь к нашей команде и развивайте свою карьеру вместе с нами"
+
+#: .\web\templates\pages\job\job.html:140
+#: .\web\templates\pages\job\jobdetail.html:181
+msgid ""
+"It's easy to let your day slip away with too many calls and meetings. "
+"Taskable lets you block time for deep work by adding tasks to your calendar "
+"with one click, giving you control back over your day."
+msgstr ""
+"Легко упустить свой день слишком многими звонками и встречами. Taskable "
+"позволяет заблокировать время для глубокой работы, добавляя задачи в ваш "
+"календарь одним нажатием, возвращая вам контроль над своим днем."
+
+#: .\web\templates\pages\job\jobdetail.html:7
+msgid "Job Detail"
+msgstr "Детали работы"
+
+#: .\web\templates\pages\job\jobdetail.html:22
+msgid "Apply now"
+msgstr "Подать заявку сейчас"
+
+#: .\web\templates\pages\job\jobdetail.html:30
+msgid "You have successfully submitted an application to work with us"
+msgstr "Вы успешно подали заявку на работу с нами"
+
+#: .\web\templates\pages\job\jobdetail.html:37
+msgid "Apply for a"
+msgstr "Подать заявку на"
+
+#: .\web\templates\pages\job\jobdetail.html:49
+#: .\web\templates\pages\pricing\paymentlist.html:183
+#: .\web\templates\pages\user\profile.html:56
+msgid "First Name"
+msgstr "Имя"
+
+#: .\web\templates\pages\job\jobdetail.html:55
+#: .\web\templates\pages\pricing\paymentlist.html:189
+#: .\web\templates\pages\user\password_reset.html:25
+#: .\web\templates\pages\user\profile.html:81
+msgid "Email"
+msgstr "Почта"
+
+#: .\web\templates\pages\job\jobdetail.html:63
+msgid "Hello, I want to..."
+msgstr "Здравствуйте, я хочу..."
+
+#: .\web\templates\pages\job\jobdetail.html:66
+#: .\web\templates\pages\pricing\paymentlist.html:222
+#: .\web\templates\pages\pricing\thankyou.html:46
+#: .\web\templates\pages\user\changepassword.html:46
+#: .\web\templates\pages\user\password_reset.html:27
+#: .\web\templates\pages\user\password_reset_confirm.html:37
+#: .\web\templates\pages\user\profile.html:95
+msgid "Submit"
+msgstr "Отправить"
+
+#: .\web\templates\pages\job\jobdetail.html:70
+#: .\web\templates\pages\pricing\paymentlist.html:227
+msgid "U have to Sign in/up to send us message there u can"
+msgstr "Вы должны войти/зарегистрироваться, чтобы отправить нам сообщение"
+
+#: .\web\templates\pages\job\jobdetail.html:70
+#: .\web\templates\pages\pricing\paymentlist.html:229
+msgid "Sign In"
+msgstr "Войти"
+
+#: .\web\templates\pages\job\jobdetail.html:70
+#: .\web\templates\pages\pricing\paymentlist.html:231
+msgid "Sign Up"
+msgstr "Зарегистрироваться"
+
+#: .\web\templates\pages\job\jobdetail.html:83
+#: .\web\templates\pages\job\jobdetail.html:86
+msgid "About the job"
+msgstr "О работе"
+
+#: .\web\templates\pages\job\jobdetail.html:87
+#: .\web\templates\pages\job\jobdetail.html:106
+msgid "Responsibilities"
+msgstr "Обязанности"
+
+#: .\web\templates\pages\job\jobdetail.html:88
+#: .\web\templates\pages\job\jobdetail.html:112
+msgid "Requirements"
+msgstr "Требования"
+
+#: .\web\templates\pages\job\jobdetail.html:100
+msgid "About the"
+msgstr "О"
+
+#: .\web\templates\pages\job\jobdetail.html:126
+msgid "More job openings"
+msgstr "Другие вакансии"
+
+#: .\web\templates\pages\job\jobdetail.html:128
+msgid "Find your future work and improve your skills with us"
+msgstr "Найдите свою будущую работу и развивайтесь с нами"
+
+#: .\web\templates\pages\job\jobdetail.html:180
+msgid "Join Our Team and growth your career with us"
+msgstr ""
+"Присоединяйтесь к нашей команде и развивайте свою карьеру вместе с нами"
+
+#: .\web\templates\pages\pricing\paymentlist.html:24
+msgid "Payment List - Cyber Code"
+msgstr "Список платежей - Cyber Code"
+
+#: .\web\templates\pages\pricing\paymentlist.html:36
+msgid "Order cart"
+msgstr "Корзина заказов"
+
+#: .\web\templates\pages\pricing\paymentlist.html:41
+#: .\web\templates\pages\pricing\paymentlist.html:140
+msgid "items"
+msgstr "элементы"
+
+#: .\web\templates\pages\pricing\paymentlist.html:43
+#: .\web\templates\pages\pricing\paymentlist.html:142
+msgid "item"
+msgstr "элемент"
+
+#: .\web\templates\pages\pricing\paymentlist.html:51
+msgid "product Details"
+msgstr "Детали продукта"
+
+#: .\web\templates\pages\pricing\paymentlist.html:54
+msgid "Price"
+msgstr "Цена"
+
+#: .\web\templates\pages\pricing\paymentlist.html:57
+msgid "Total"
+msgstr "Всего"
+
+#: .\web\templates\pages\pricing\paymentlist.html:79
+msgid "Popular"
+msgstr "Популярное"
+
+#: .\web\templates\pages\pricing\paymentlist.html:90
+msgid "Remove"
+msgstr "Удалить"
+
+#: .\web\templates\pages\pricing\paymentlist.html:116
+msgid "You have not selected any items"
+msgstr "Вы не выбрали ни одного элемента"
+
+#: .\web\templates\pages\pricing\paymentlist.html:124
+#: .\web\templates\pages\pricing\thankyou.html:39
+msgid "Continue Ordering"
+msgstr "Продолжить заказ"
+
+#: .\web\templates\pages\pricing\paymentlist.html:133
+msgid "Order Summary"
+msgstr "Сводка заказа"
+
+#: .\web\templates\pages\pricing\paymentlist.html:152
+msgid "Total Cost"
+msgstr "Общая стоимость"
+
+#: .\web\templates\pages\pricing\paymentlist.html:159
+#: .\web\templates\pages\pricing\paymentlist.html:171
+msgid "Checkout"
+msgstr "Оформить заказ"
+
+#: .\web\templates\pages\pricing\paymentlist.html:184
+msgid "Peter"
+msgstr "Питер"
+
+#: .\web\templates\pages\pricing\paymentlist.html:197
+msgid "City"
+msgstr "Город"
+
+#: .\web\templates\pages\pricing\paymentlist.html:198
+msgid "New York"
+msgstr "Нью-Йорк"
+
+#: .\web\templates\pages\pricing\paymentlist.html:203
+msgid "Address"
+msgstr "Адрес"
+
+#: .\web\templates\pages\pricing\paymentlist.html:204
+msgid "New York 51 street"
+msgstr "51-я улица, Нью-Йорк"
+
+#: .\web\templates\pages\pricing\paymentlist.html:210
+#: .\web\templates\pages\user\profile.html:87
+msgid "Social Media"
+msgstr "Социальные медиа"
+
+#: .\web\templates\pages\pricing\paymentlist.html:211
+msgid "URL Telegram, Instagram, etc."
+msgstr "Ссылка на Telegram, Instagram и тд."
+
+#: .\web\templates\pages\pricing\paymentlist.html:216
+#: .\web\templates\pages\user\profile.html:71
+msgid "Position"
+msgstr "Должность"
+
+#: .\web\templates\pages\pricing\paymentlist.html:217
+msgid "Designer"
+msgstr "Дизайнер"
+
+#: .\web\templates\pages\pricing\pricing.html:5
+msgid "Pricing - Cyber Code"
+msgstr "Услуги - Cyber Code"
+
+#: .\web\templates\pages\pricing\pricing.html:15
+msgid "Our 3 popular pricing models"
+msgstr "Наши 3 популярные услуги"
+
+#: .\web\templates\pages\pricing\pricing.html:16
+msgid "Save your time and order our project with our Subscription plan"
+msgstr "Экономьте время и закажите наш проект с нашим планом подписки"
+
+#: .\web\templates\pages\pricing\pricing.html:49
+msgid "Click to see other packages"
+msgstr "Нажмите, чтобы увидеть другие пакеты"
+
+#: .\web\templates\pages\pricing\pricing.html:69
+msgid "Need A Custom Build?"
+msgstr "Нужна индивидуальная сборка?"
+
+#: .\web\templates\pages\pricing\pricing.html:70
+msgid "We offer custom plans that can support your large team & big vision."
+msgstr ""
+"Мы предлагаем индивидуальные планы, которые могут поддержать вашу большую "
+"команду и большое видение."
+
+#: .\web\templates\pages\pricing\pricing.html:78
+msgid "You don't know how to order?"
+msgstr "Вы не знаете, как сделать заказ?"
+
+#: .\web\templates\pages\pricing\pricing.html:79
+msgid ""
+"Follow this link to find out the instruction how to order and order "
+"requirements"
+msgstr ""
+"Перейдите по этой ссылке, чтобы узнать инструкции о том, как сделать заказ и "
+"требования к заказу"
+
+#: .\web\templates\pages\pricing\pricing.html:82
+msgid "Get instruction"
+msgstr "Взять инструкцию"
+
+#: .\web\templates\pages\pricing\pricing.html:96
+msgid "What do you get after payment"
+msgstr "Что вы получаете после оплаты"
+
+#: .\web\templates\pages\pricing\pricinglist.html:5
+msgid "Pricing List - Cyber Code"
+msgstr "Список цен - Cyber Code"
+
+#: .\web\templates\pages\pricing\pricinglist.html:17
+msgid "Here is a list of all possible categories of our services"
+msgstr "Вот список всех возможных категорий наших услуг"
+
+#: .\web\templates\pages\pricing\pricinglist.html:20
+msgid ""
+"We guarantee that you will receive your order without delay, which means "
+"that we can place your order even earlier! At the same time, the quality "
+"will be perfect, and after we give your order, and if in a day - a month you "
+"contact us with a complaint that you don’t like something or that something "
+"needs to be changed, we will do it. it's free! However, only once, so be "
+"careful!"
+msgstr ""
+"Мы гарантируем, что вы получите свой заказ без задержек, что означает, что "
+"мы можем разместить ваш заказ даже раньше! При этом качество будет "
+"превосходным, и после того, как мы передадим ваш заказ, если в течение дня "
+"или месяца вы свяжетесь с нами с жалобой о том, что вам что-то не нравится "
+"или что-то нужно изменить, мы это сделаем. Бесплатно! Однако только один "
+"раз, так что будьте осторожны!"
+
+#: .\web\templates\pages\pricing\thankyou.html:24
+msgid "Success Checkout - Cyber Code"
+msgstr "Успешное оформление заказа - Cyber Code"
+
+#: .\web\templates\pages\pricing\thankyou.html:35
+msgid "Congratulations!"
+msgstr "Поздравляем!"
+
+#: .\web\templates\pages\pricing\thankyou.html:36
+msgid ""
+"You have successfully submitted an application to the website, our employees "
+"will contact you as soon as it is possible."
+msgstr ""
+"Вы успешно отправили заявку на сайт, наши сотрудники свяжутся с вами как "
+"только это будет возможно."
+
+#: .\web\templates\pages\pricing\thankyou.html:44
+msgid "Feedback"
+msgstr "Обратная связь"
+
+#: .\web\templates\pages\pricing\thankyou.html:45
+msgid ""
+"If it is not difficult for you, describe your impressions of the service..."
+msgstr "Если вам не сложно, опишите ваши впечатления от обслуживания..."
+
+#: .\web\templates\pages\projects\projectdetail.html:5
+msgid "Project"
+msgstr "Проект"
+
+#: .\web\templates\pages\projects\projects.html:5
+msgid "Projects - Cyber Code"
+msgstr "Проекты - Cyber Code"
+
+#: .\web\templates\pages\projects\projects.html:14
+msgid "Here the projects list that we did"
+msgstr "Здесь список проектов которые мы делали"
+
+#: .\web\templates\pages\projects\projects_result.html:18
+msgid "No matching search results"
+msgstr "Нет результатов, соответствующих поиску"
+
+#: .\web\templates\pages\projects\projects_result.html:19
+msgid "Try again using more general search items"
+msgstr "Попробуйте снова, используя более общие критерии поиска"
+
+#: .\web\templates\pages\projects\projects_result.html:20
+msgid "Clear All Filters"
+msgstr "Очистить все фильтры"
+
+#: .\web\templates\pages\user\changepassword.html:5
+msgid "Change Password - Cyber Code"
+msgstr "Изменить пароль - Cyber Code"
+
+#: .\web\templates\pages\user\changepassword.html:13
+#: .\web\templates\pages\user\password_reset_complete.html:12
+#: .\web\templates\pages\user\password_reset_confirm.html:13
+msgid "CyberCode"
+msgstr "CyberCode"
+
+#: .\web\templates\pages\user\changepassword.html:14
+#: .\web\templates\pages\user\profile.html:47
+msgid "Change Password"
+msgstr "Изменить пароль"
+
+#: .\web\templates\pages\user\changepassword.html:16
+#: .\web\templates\pages\user\password_reset.html:16
+#: .\web\templates\pages\user\password_reset_confirm.html:16
+msgid ""
+"All sessions except the current one will be terminated. This will prevent "
+"unauthorized access to your account."
+msgstr ""
+"Все сеансы, кроме текущего, будут завершены. Это предотвратит "
+"несанкционированный доступ к вашей учетной записи."
+
+#: .\web\templates\pages\user\changepassword.html:19
+#: .\web\templates\pages\user\password_reset.html:19
+#: .\web\templates\pages\user\password_reset_confirm.html:19
+#, python-format
+msgid ""
+"The password must contain at least 8 characters, including numbers, letters "
+"and special characters (!$@%%)."
+msgstr ""
+"Пароль должен содержать не менее 8 символов, включая цифры, буквы и "
+"специальные символы (!$@%%)."
+
+#: .\web\templates\pages\user\changepassword.html:25
+msgid "Current Password"
+msgstr "Нынешний пароль"
+
+#: .\web\templates\pages\user\changepassword.html:25
+msgid "Updated"
+msgstr "Обновлен"
+
+#: .\web\templates\pages\user\changepassword.html:32
+#: .\web\templates\pages\user\password_reset_confirm.html:25
+msgid "New Password"
+msgstr "Новый пароль"
+
+#: .\web\templates\pages\user\changepassword.html:39
+#: .\web\templates\pages\user\password_reset_confirm.html:32
+#: .\web\templates\pages\user\registration.html:79
+msgid "Confirm Password"
+msgstr "Подтвердите пароль"
+
+#: .\web\templates\pages\user\changepassword.html:45
+#: .\web\templates\pages\user\login.html:78
+msgid "Forgot Password ?"
+msgstr "Забыли пароль?"
+
+#: .\web\templates\pages\user\login.html:24
+msgid "Sign in - Cyber Code"
+msgstr "Вход - Cyber Code"
+
+#: .\web\templates\pages\user\login.html:40
+msgid "Your place to work Plan and Create"
+msgstr "Ваше место для работы, планирования и создания"
+
+#: .\web\templates\pages\user\login.html:48
+msgid "Sign In to Website"
+msgstr "Войти на веб-сайт"
+
+#: .\web\templates\pages\user\login.html:55
+#: .\web\templates\pages\user\registration.html:56
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: .\web\templates\pages\user\login.html:62
+#: .\web\templates\pages\user\registration.html:71
+msgid "Password"
+msgstr "Пароль"
+
+#: .\web\templates\pages\user\login.html:74
+msgid "Remember me"
+msgstr "Запомнить меня"
+
+#: .\web\templates\pages\user\login.html:83
+#: .\web\templates\pages\user\password_reset_complete.html:18
+msgid "Sign in"
+msgstr "Войти"
+
+#: .\web\templates\pages\user\login.html:85
+msgid "Don’t have an account?"
+msgstr "Нет аккаунта?"
+
+#: .\web\templates\pages\user\password_reset.html:5
+#, fuzzy
+#| msgid "Home - CyberCode"
+msgid "Password Reset - Cyber Code"
+msgstr "Главная - Cybercode"
+
+#: .\web\templates\pages\user\password_reset.html:14
+#: .\web\templates\pages\user\password_reset_confirm.html:14
+#: .\web\templates\pages\user\password_reset_done.html:13
+msgid "Password Reset"
+msgstr "Сброс пароля"
+
+#: .\web\templates\pages\user\password_reset_complete.html:5
+#: .\web\templates\pages\user\password_reset_done.html:5
+msgid "Password Reset Done - Cyber Code"
+msgstr "Сброс пароля завершен - Cyber Code"
+
+#: .\web\templates\pages\user\password_reset_complete.html:13
+msgid "Password Reset Completed"
+msgstr "Сброс пароля завершен"
+
+#: .\web\templates\pages\user\password_reset_complete.html:15
+msgid ""
+"You have successfully updated your password, write it down somewhere so you "
+"don’t forget it again."
+msgstr ""
+"Пароль успешно обновлен, запишите его где-нибудь, чтобы не забыть снова."
+
+#: .\web\templates\pages\user\password_reset_complete.html:18
+msgid ""
+"Use the updated password you just set to log into your account. Here is the "
+"link to login to your account"
+msgstr ""
+"Используйте обновленный пароль, который вы только что установили, чтобы "
+"войти в свою учетную запись. Вот ссылка для входа в свою учетную запись"
+
+#: .\web\templates\pages\user\password_reset_confirm.html:5
+msgid "Password Reset Confirm - Cyber Code"
+msgstr "Подтверждение сброса пароля - Cyber Code"
 
 #: .\web\templates\pages\user\password_reset_done.html:15
 msgid ""
@@ -507,21 +1464,99 @@ msgstr "Спасибо за использование нашего сайта!"
 msgid "The %(site_name)s team"
 msgstr "Команда %(site_name)s"
 
+#: .\web\templates\pages\user\profile.html:5
+msgid "Profile - Cyber Code"
+msgstr "Профиль - Cyber Code"
+
+#: .\web\templates\pages\user\profile.html:53
+msgid "Main info"
+msgstr "Главная информация"
+
+#: .\web\templates\pages\user\profile.html:57
+msgid "John"
+msgstr "Джон"
+
+#: .\web\templates\pages\user\profile.html:61
+msgid "Company"
+msgstr "Компания"
+
+#: .\web\templates\pages\user\profile.html:67
+msgid "NYC, New York, USA"
+msgstr "Нью-Йорк, США"
+
+#: .\web\templates\pages\user\profile.html:72
+msgid "UI/UX Designer"
+msgstr "UI/UX Дизайнер"
+
+#: .\web\templates\pages\user\profile.html:78
+msgid "Contact Info"
+msgstr "Контактная информация"
+
+#: .\web\templates\pages\user\profile.html:82
+msgid ""
+"The email you entered can help you recover your account if you forget your "
+"password."
+msgstr ""
+"Введенный вами адрес электронной почты может помочь вам восстановить учетную "
+"запись, если вы забудете свой пароль."
+
+#: .\web\templates\pages\user\registration.html:24
+#, fuzzy
+#| msgid "Home - CyberCode"
+msgid "Sign up - Cyber Code"
+msgstr "Главная - Cybercode"
+
+#: .\web\templates\pages\user\registration.html:40
+msgid "Your place to work Plan and Create."
+msgstr "Ваше место для работы, планирования и создания."
+
+#: .\web\templates\pages\user\registration.html:47
+msgid "Sign up to Website"
+msgstr "Зарегистрируйтесь на веб-сайте"
+
+#: .\web\templates\pages\user\registration.html:49
+msgid ""
+"Be careful the email address you entered may help you recover your account "
+"if you forget your password "
+msgstr ""
+"Будьте внимательны, адрес электронной почты, который вы ввели, может помочь "
+"восстановить ваш аккаунт, если вы забудете свой пароль."
+
+#: .\web\templates\pages\user\registration.html:64
+msgid "Email Address"
+msgstr "Адрес электронной почты"
+
+#: .\web\templates\pages\user\registration.html:89
+msgid "Sign up"
+msgstr "Зарегистрироваться"
+
+#: .\web\templates\pages\user\registration.html:92
+msgid "Already have an account?"
+msgstr "У вас уже есть аккаунт?"
+
+#: .\web\views.py:352
+msgid "This post is private."
+msgstr ""
+
+#: .\web\views.py:490
+msgid "Profile updated successfully."
+msgstr ""
+
+#: .\web\views.py:538
+#, fuzzy
+#| msgid "You have successfully submitted an application to work with us"
+msgid "You have successfully created an account"
+msgstr "Вы успешно подали заявку на работу с нами"
+
+#: .\web\views.py:560
+msgid "Your password was successfully updated"
+msgstr ""
+
 #~ msgid "Language"
 #~ msgstr "Язык"
 
 #~ msgid "You Use for Work"
 #~ msgstr "Которые вы используете для работы"
-
-#, fuzzy
-#~| msgid "minutes ago"
-#~ msgid "9 minutes ago"
-#~ msgstr "минуты назад"
-
-#, fuzzy
-#~| msgid "minutes ago"
-#~ msgid "2 minutes ago"
-#~ msgstr "минуты назад"
 
 #~ msgid "Our"
 #~ msgstr "Наши"

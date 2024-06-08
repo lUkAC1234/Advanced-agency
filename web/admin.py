@@ -11,7 +11,7 @@ from modeltranslation.admin import TranslationAdmin
 # --------------------------------------------------------------------------- #
 # User Model Admin
 @admin.register(UserModel)
-class UserAdmin(TranslationAdmin):
+class UserAdmin(admin.ModelAdmin):
     list_display = ['id', 'username']
     list_display_links = ['id', 'username']
     search_fields = ['username']
@@ -73,13 +73,13 @@ class PostCategoryAdmin(TranslationAdmin):
     search_fields = ['category']
     
 @admin.register(FeedbackModel)
-class FeedbackAdmin(TranslationAdmin):
+class FeedbackAdmin(admin.ModelAdmin):
     list_display = ['id', 'text']
     list_display_links = ['id', 'text']
     search_fields = ['text']
 
 @admin.register(ContactusModel)
-class ContactAdmin(TranslationAdmin):
+class ContactAdmin(admin.ModelAdmin):
     list_display = ['id', 'company']
     list_display_links = ['id', 'company']
     search_fields = ['company']
@@ -130,13 +130,13 @@ class ProjectsAdmin(TranslationAdmin):
     readonly_fields = ['posted_on']
 
 @admin.register(PartnersModel)
-class PartnersAdmin(TranslationAdmin):
+class PartnersAdmin(admin.ModelAdmin):
     list_display = ['id', 'title']
     list_display_links = ['id', 'title']
     search_fields = ['title']
 
 @admin.register(CheckOut)
-class CheckOutAdmin(TranslationAdmin):
+class CheckOutAdmin(admin.ModelAdmin):
     list_display = ['id', 'first_name', 'total_price']
     list_display_links = ['id', 'first_name']
     search_fields = ['first_name']

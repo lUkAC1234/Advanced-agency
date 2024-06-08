@@ -157,8 +157,10 @@
 .task-image-column {
     video {
         width: 100%;
-        width: min(100%, 37.5rem);
+        height: 100%;
         object-fit: cover;
+        outline: 4px solid var(--background-white);
+        outline-offset: -4px;   
     }
 }
 

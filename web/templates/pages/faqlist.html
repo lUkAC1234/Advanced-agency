@@ -1,18 +1,18 @@
 {% extends 'layout/base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block content %}
 
 {% block title %}
-<title>FAQ List - CyberCode</title>
+<title>{% translate 'FAQ List - Cyber Code' %}</title>
 {% endblock %}
 <main class="main faq-main">
     {% include 'layout/contact_form.html' %}
     <!-- Start FAQ Section -->
 
     <section class="faq-section faqList">
-        <h1 class="faq-main-title fade fadeInDown">Frequently Asked Questions</h1>
-        <p class="faq-main-info fade fadeInDown">There is the list of every FAQs.</p>
+        <h1 class="faq-main-title fade fadeInDown">{% translate 'Frequently Asked Questions' %}</h1>
+        <p class="faq-main-info fade fadeInDown">{% translate 'There is the list of every FAQs.' %}</p>
         <div class="faq-container">
             {% for object in object_list %}
             <div class="faq fade fadeInDown {% if forloop.counter == 1 or forloop.counter == 3 %} active{% endif %}">
@@ -36,17 +36,17 @@
     <section class="ready-to-try-section">
         <div class="ready-to-try-container">
             <div class="ready-to-try-column fade fadeInUp">
-                <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
-                <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
+                <h1 class="ready-to-try-title">{% translate 'Ready to try' %} <br> {% translate 'Cyber Code?' %}</h1>
+                <p class="ready-to-try-info">{% translate 'Try Cyber Code and take back control of your day' %}</p>
                 <div class="ready-to-try-buttons-container">
                     <div class="ready-to-try-btn-column">
                         <a href="{% url 'main:pricing' %}">
-                            <button class="ready-to-try-button">Get started</button>
+                            <button class="ready-to-try-button">{% translate 'Get started' %}</button>
                         </a>
                     </div>
                     <div class="ready-to-try-btn-column">
                         <a href="{% url 'main:pricinglist' %}">
-                            <button class="ready-to-try-button-without-background">Pricing</button>
+                            <button class="ready-to-try-button-without-background">{% translate 'Pricing' %}</button>
                         </a>
                     </div>
                 </div>

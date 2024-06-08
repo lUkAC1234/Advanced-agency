@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 {% if projects %}
     <div class="projects-wrapper">
         {% for object in projects %}
@@ -15,8 +15,8 @@
         <div class="projects-empty-icon-container">
             <img src="{% static 'main/images/errors/noresult.svg' %}" alt="">
         </div>
-        <h1 class="projects-empty-title">No matching search results</h1>
-        <p class="projects-empty-description">Try again using more general search items</p>
-        <button class="projects-empty-clear" id="projects-empty-clear">Clear All Filters <i class="fa-solid fa-rotate"></i></button>
+        <h1 class="projects-empty-title">{% translate 'No matching search results' %}</h1>
+        <p class="projects-empty-description">{% translate 'Try again using more general search items' %}</p>
+        <button class="projects-empty-clear" id="projects-empty-clear">{% translate 'Clear All Filters' %} <i class="fa-solid fa-rotate"></i></button>
     </div>
 {% endif %}

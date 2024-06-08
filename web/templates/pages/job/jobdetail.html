@@ -1,13 +1,12 @@
 {% extends 'layout/base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block content %}
 
 {% block title %}
-<title>Job Detail - CyberCode</title>
+<title>{% translate 'Job Detail' %} - {{ object.title }} - Cyber Code</title>
 {% endblock %}
 <main class="main job-detail-main">
-    {% include 'layout/contact_form.html' %}
     <!-- START JOB DETAIL GRADIENT SECTION -->
 
     <section class="job-gradient-section" id="jobApplySection">
@@ -20,7 +19,7 @@
                 <h2 class="job-gradient-info-category">{{ object.category }}</h2>
                 <p class="job-gradient-info-text">{{ object.description }}</p>
                 <div class="job-gradient-info-btn-container">
-                    <button id="applyNowBtn" class="job-gradient-info-btn">Apply now</button>
+                    <button id="applyNowBtn" class="job-gradient-info-btn">{% translate 'Apply now' %}</button>
                 </div>
             </div>
             <div class="job-gradient-image-container">
@@ -28,14 +27,14 @@
             </div>
         </div>
         <div class="apply-success-message">
-            <p>You have successfully submitted an application to work with us <i class="fa-solid fa-circle-check"></i></p>
+            <p>{% translate 'You have successfully submitted an application to work with us' %} <i class="fa-solid fa-circle-check"></i></p>
         </div>
     </section>
 
     <article id="applyModal" class="applyModal">
         <div class="applyModalContent">
             <div class="modal-close-container">
-                <p class="modalTitle">Apply for a {{ object.title }}</p>
+                <p class="modalTitle">{% translate 'Apply for a' %} {{ object.title }}</p>
                 <span class="closeModal" id="closeApplyModal">
                     <i class="fa-solid fa-xmark"></i>
                 </span>
@@ -47,28 +46,28 @@
                     {{ apply_form.category }}
                     <div class="jobApply-group-double">
                         <div class="jobApply-group">
-                            <label for="firstName">First Name</label>
+                            <label for="firstName">{% translate 'First Name' %}</label>
                             <input type="text" name="firstName" id="firstName" required placeholder="Peter"
                             value="{% if apply_form.firstName.value %}{{ apply_form.firstName.value }}{% else %}{{ request.user.first_name|default:'' }}{% endif %}">
                             <div class="error-message" id="firstName-error"></div>
                         </div>
                         <div class="jobApply-group">
-                            <label for="email">Email</label>
+                            <label for="email">{% translate 'Email' %}</label>
                             <input type="email" name="email" id="email" required placeholder="supportcybercode@gmail.com"
                             value="{% if apply_form.email.value %}{{ apply_form.email.value }}{% else %}{{ request.user.email|default:'' }}{% endif %}">
                             <div class="error-message" id="email-error"></div>
                         </div>
                     </div>
                     <div class="jobApply-group">
-                        <label for="text">Message</label>
-                        <textarea name="text" id="text" rows="5" required placeholder="Hello, I want to..."></textarea>
+                        <label for="text">{% translate 'Message' %}</label>
+                        <textarea name="text" id="text" rows="5" required placeholder="{% translate 'Hello, I want to...' %}"></textarea>
                         <div class="error-message" id="text-error"></div>
                     </div>
-                    <button type="submit" class="apply-button">Submit</button>
+                    <button type="submit" class="apply-button">{% translate 'Submit' %}</button>
                 </form>
                 {% else %}
                     <article class="applyModelUserNotSigned-container">
-                        <p class="applyModelUserNotSigned-text">U have to Sign in/up to send us message there u can <a href="{% url 'main:login' %}">Sign In</a> / <a href="{% url 'main:registration' %}">Sign Up</a></p>
+                        <p class="applyModelUserNotSigned-text">{% translate 'U have to Sign in/up to send us message there u can' %} <a href="{% url 'main:login' %}">{% translate 'Sign In' %}</a> / <a href="{% url 'main:registration' %}">{% translate 'Sign Up' %}</a></p>
                     </article>
                 {% endif %}
             </div>
@@ -81,12 +80,12 @@
 
     <section class="job-info-section fade fadeInUp">
         <div class="job-info-container">
-            <h1 class="job-info-title">About the job</h1>
+            <h1 class="job-info-title">{% translate 'About the job' %}</h1>
             <p class="job-info-text">{{ object.description }}</p>
             <div class="job-info-btn-container">
-                <button class="toggle-button active" id="about-the-jobBtn">About the job</button>
-                <button class="toggle-button" id="responsibilitiesBtn">Responsibilities</button>
-                <button class="toggle-button" id="requirementsBtn">Requirements</button>
+                <button class="toggle-button active" id="about-the-jobBtn">{% translate 'About the job' %}</button>
+                <button class="toggle-button" id="responsibilitiesBtn">{% translate 'Responsibilities' %}</button>
+                <button class="toggle-button" id="requirementsBtn">{% translate 'Requirements' %}</button>
             </div>
         </div>
     </section>
@@ -98,19 +97,19 @@
     <section class="job-detail-text-section">
         <div class="job-detail-text-container">
             <div class="job-detail-text-column about-the-job-content active">
-                <h1 class="job-content-title">About {{ object.title }}</h1>
+                <h1 class="job-content-title">{% translate 'About the' %} {{ object.title }}</h1>
                 <div class="job-content">
                     {{ object.aboutthejob|safe }}
                 </div>
             </div>
             <div class="job-detail-text-column responsibilities-content">
-                <h1 class="job-content-title">About Responsibilities</h1>
+                <h1 class="job-content-title">{% translate 'Responsibilities' %}</h1>
                 <div class="job-content">
                     {{ object.responsibilities|safe }}
                 </div>
             </div>
             <div class="job-detail-text-column requirements-content">
-                <h1 class="job-content-title">About Requirements</h1>
+                <h1 class="job-content-title">{% translate 'Requirements' %}</h1>
                 <div class="job-content">
                     {{ object.requirements|safe }}
                 </div>
@@ -124,9 +123,9 @@
 
     <section class="job-openings-list-section" id="jobList">
         <div class="job-openings-list-title-container">
-            <h1 class="job-openings-list-main-title fade fadeInUp">More job openings</h1>
+            <h1 class="job-openings-list-main-title fade fadeInUp">{% translate 'More job openings' %}</h1>
             <p class="job-openings-list-main-text fade fadeInUp">
-                Find your future work and improve your skills with us
+                {% translate 'Find your future work and improve your skills with us' %}
             </p>
             <article class="job-openings-list-container">
                 {% for object in other_jobs %}
@@ -148,43 +147,41 @@
                             </h2>
                         </div>
                         <p class="job-openings-list-text">{{ object.description|truncatechars:150 }}</p>
-
+    
                         <div class="knowledges-you-need-to-know-container">
-                            {% for object in object.knowledge.all %}
+                            {% for knowledge_object in object.knowledge.all %}
                             <div class="knowledges-you-need-to-know-column">
-                                <h1 class="knowledges-you-need-to-know-text">{{ object.knowledge }}</h1>
+                                <h1 class="knowledges-you-need-to-know-text">{{ knowledge_object.knowledge }}</h1>
                             </div>
                             {% endfor %}
                         </div>
                     </a>
                 </div>
-
+    
                 {% empty %}
                 <article class="partners-empty-container fade fadeInDown" style="margin-top: 0;">
                     <div class="partners-empty-icon-container">
                         <img src="{% static 'main/images/errors/error.svg' %}" alt="">
                     </div>
-                    <h1 class="partners-empty-title">No matching results</h1>
-                    <p class="partners-empty-text">There is no any job vacancies yet</p>
+                    <h1 class="partners-empty-title">{% translate 'No matching results' %}</h1>
+                    <p class="partners-empty-text">{% translate 'There is no any job vacancies yet' %}</p>
                 </article>
                 {% endfor %}
             </article>
         </div>
     </section>
-
+    
     <!-- END JOB OPENINGS SECTION -->
 
     <!-- START JOIN OUR TEAM SECTION -->
 
     <section class="join-our-team-section">
         <div class="join-our-team-container">
-            <h1 class="join-our-team-title fade slideInLeft">Join Our Team and growth your carrer with us</h1>
-            <p class="join-our-team-text fade slideInLeft">It's easy to let your day slip away with too many calls and meetings. Taskable
-                lets you block time for deep work by adding tasks to your calendar with one click, giving you control
-                back over your day.</p>
+            <h1 class="join-our-team-title fade slideInLeft">{% translate 'Join Our Team and growth your career with us' %}</h1>
+            <p class="join-our-team-text fade slideInLeft">{% translate "It's easy to let your day slip away with too many calls and meetings. Taskable lets you block time for deep work by adding tasks to your calendar with one click, giving you control back over your day." %}</p>
             <div class="join-our-team-btn-container fade slideInLeft">
                 <a href="#jobApplySection">
-                    <button class="join-our-team-btn">Get started</button>
+                    <button class="join-our-team-btn">{% translate 'Get started' %}</button>
                 </a>
             </div>
         </div>

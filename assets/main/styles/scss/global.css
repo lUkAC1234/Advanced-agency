@@ -140,8 +140,10 @@
 
 .task-image-column video {
   width: 100%;
-  width: min(100%, 37.5rem);
+  height: 100%;
   object-fit: cover;
+  outline: 4px solid var(--background-white);
+  outline-offset: -4px;
 }
 
 .task-content-column {
@@ -1377,13 +1379,13 @@
     font-size: 1rem !important;
   }
 }
-.clienst-section {
+.clients-section {
   position: relative;
   background: var(--package-background);
   background-position: center bottom;
   padding: 15rem 0;
 }
-.clienst-section::before {
+.clients-section::before {
   content: "";
   position: absolute;
   background: url(../../images/about-us/percentwavetop.svg);
@@ -1393,7 +1395,7 @@
   top: 0px;
   background-size: cover;
 }
-.clienst-section::after {
+.clients-section::after {
   content: "";
   position: absolute;
   background: url(../../images/layout/wave.svg);
@@ -2453,6 +2455,7 @@
   }
   .ready-to-try-title {
     font-size: 4rem !important;
+    text-align: center !important;
   }
   .ready-to-try-info {
     font-size: 1.125rem !important;
@@ -3642,6 +3645,14 @@
 .clear-posts-container {
   margin-top: 2rem;
 }
+.clear-posts-container .clear-posts-clear {
+  width: 100%;
+}
+@media screen and (max-width: 1260px) {
+  .clear-posts-container .clear-posts-clear {
+    width: auto;
+  }
+}
 @media screen and (max-width: 700px) {
   .clear-posts-container .clear-posts-clear {
     width: 100%;
@@ -4340,7 +4351,6 @@
 }
 
 .join-our-team-title {
-  max-width: 38rem;
   color: var(--text-white) !important;
 }
 
@@ -4533,7 +4543,7 @@
   gap: 0.5rem;
 }
 .jobApplyForm select {
-  z-index: 0;
+  z-index: -1;
   opacity: 0;
 }
 .jobApplyForm .jobApply-group {
@@ -6915,6 +6925,8 @@ body:has(.language-dropdown-content.show) {
 .custom-language-select {
   position: relative;
   display: inline-block;
+}
+.custom-language-select:has(.language-dropdown-content.show) {
   z-index: var(--z-index-11);
 }
 .custom-language-select img {
@@ -6974,6 +6986,10 @@ body:has(.language-dropdown-content.show) {
 .language-dropdown-content-close i {
   color: var(--text-dark-blue);
   font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+.language-dropdown-content-close i:hover {
+  color: var(--text-purple);
 }
 
 .language-option {
@@ -7064,6 +7080,7 @@ body:has(.language-dropdown-content.show) {
   display: flex;
   justify-content: space-evenly;
   margin-top: 5rem;
+  padding-inline: 0.5rem;
 }
 .footer .footer-privacy .footer-privacy-text {
   color: var(--text-dark-blue);
@@ -7464,6 +7481,7 @@ strong {
   border: 1px solid var(--background-purple);
   transition: all 0.5s;
   cursor: pointer;
+  text-wrap: nowrap;
 }
 .onerem-tworem-purple-button:hover, .gradient-artice-btn-container .gradient-artice-btn:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover, .custom-build-btn-container button:hover, .services-link-container button:hover, .pricing-list-btn-container .pricing-list-btn:hover, .clear-posts-container .clear-posts-clear:hover, .join-our-team-btn-container button:hover, .job-gradient-info-btn-container button:hover, .jobApplyForm .apply-button:hover, .profile-submit-btn-container .profile-submit-btn:hover, .payment-product-info-container .payment-type-container .payment-product-remove:hover, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn:hover, .success-payment-feedback-container button:hover, .change-password-form-btn:hover {
   background: none;

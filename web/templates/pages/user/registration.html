@@ -21,7 +21,7 @@
     <!-- Animation -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
     <!-- Animation End -->
-    <title>Sign up - CyberCode</title>
+    <title>{% translate 'Sign up - Cyber Code' %}</title>
 </head> 
 
 <body class="sign-body">
@@ -32,43 +32,51 @@
             <div class="sign-container">
                 <div class="sign-image-container">
                     <div class="sign-image-logo-container">
-                        <h1 class="sign-image-logo-text">Cyber Code</h1>
+                        <h1 class="sign-image-logo-text">
+                            Cyber Code
+                        </h1>
                     </div>
-                    <h1 class="sign-image-title">Your place to work Plan and Create.</h1>
+                    <h1 class="sign-image-title">
+                        {% translate "Your place to work Plan and Create." %}</h1>
                     <div class="sign-image-wrapper">
                         <img src="{% static 'main/images/login/login.svg' %}" alt="">
                     </div>
                 </div>
                 <div class="sign-info-container">
                     <a href="{% url 'main:index' %}" class="sign-return-back-link"><i class="fa-solid fa-arrow-left-long"></i></a>
-                    <h1 class="sign-info-title">Sign up to Website</h1>
-                    <p class="sign-info-text"><i class="fa-solid fa-circle-info"></i> Be careful the email address you entered may help you recover your account if you forget your password.</p>
+                    <h1 class="sign-info-title">{% translate "Sign up to Website" %}</h1>
+                    <p class="sign-info-text"><i class="fa-solid fa-circle-info"></i> 
+                        {% translate "Be careful the email address you entered may help you recover your account if you forget your password "%}</p>
                     <form id="registration-form">
                         {% csrf_token %}
                         <input type="hidden" name="next" value="{{ next }}" />
                         <div class="sign-info-input-container">
                             <div class="sign-info-input-column">
-                                <label class="sign-info-label">Username</label>
+                                <label class="sign-info-label">
+                                    {% translate "Username" %}</label>
                                 <input class="sign-info-input" id="username" type="text" placeholder="myusername"
                                     name="username" autocomplete="off"
                                     value="{{ form.username.value|default_if_none:'' }}">
                                 <div class="error-message" id="username-error"></div>
                             </div>
                             <div class="sign-info-input-column">
-                                <label class="sign-info-label">Email Address</label>
+                                <label class="sign-info-label">
+                                    {% translate "Email Address" %}</label>
                                 <input class="sign-info-input" id="email" type="text" placeholder="youremail@gmail.com"
                                     name="email" autocomplete="off" value="{{ form.email.value|default_if_none:'' }}">
                                 <div class="error-message" id="email-error"></div>
                             </div>
                             <div class="sign-info-input-column">
-                                <label class="sign-info-label">Password</label>
+                                <label class="sign-info-label">
+                                    {% translate "Password" %}</label>
                                 <input class="sign-info-input" id="password" type="password" placeholder="••••••••"
                                     name="password" autocomplete="off"
                                     value="{{ form.password.value|default_if_none:'' }}">
                                 <div class="error-message" id="password-error"></div>
                             </div>
                             <div class="sign-info-input-column">
-                                <label class="sign-info-label">Confirm Password</label>
+                                <label class="sign-info-label">
+                                    {% translate "Confirm Password" %}</label>
                                 <input class="sign-info-input" id="confirm_password" type="password"
                                     placeholder="••••••••" name="confirm_password" autocomplete="off"
                                     value="{{ form.confirm_password.value|default_if_none:'' }}">
@@ -77,16 +85,17 @@
                         </div>
                         <div class="sign-info-extra-container">
                             <div class="sign-info-btn-container">
-                                <button class="sign-info-btn" type="submit">Sign up <i
+                                <button class="sign-info-btn" type="submit">
+                                    {% translate "Sign up" %} <i
                                         class="fa-solid fa-arrow-right"></i></button>
-                                <a href="{% url 'main:login' %}" class="sign-info-check-account">Already have an account?</a>
+                                <a href="{% url 'main:login' %}" class="sign-info-check-account">
+                                    {% translate "Already have an account?" %}</a>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
-
         <!-- END LOGIN CONTENT -->
         <script src="{% static 'main/scripts/js/notranslate.js' %}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>

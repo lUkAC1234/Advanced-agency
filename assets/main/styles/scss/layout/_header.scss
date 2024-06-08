@@ -571,7 +571,10 @@ body:has(.language-dropdown-content.show) {
 .custom-language-select {
     position: relative;
     display: inline-block;
-    z-index: var(--z-index-11);
+
+    &:has(.language-dropdown-content.show) {
+        z-index: var(--z-index-11);
+    }
 
     img {
         width: 1.5rem;
@@ -637,6 +640,11 @@ body:has(.language-dropdown-content.show) {
     i {
         color: var(--text-dark-blue);
         font-size: 1.5rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+            color: var(--text-purple);
+        }
     }
 }
 

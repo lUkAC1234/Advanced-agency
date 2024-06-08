@@ -709,6 +709,7 @@
 
     .ready-to-try-title {
         font-size: 4rem !important;
+        text-align: center !important;
     }
 
     .ready-to-try-info {
@@ -718,7 +719,7 @@
 
 @media screen and (max-width: 600px) {
     .ready-to-try-title {
-        font-size: 3rem !important;
+        font-size: 3rem !important; 
     }
 
     .ready-to-try-info {

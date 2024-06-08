@@ -1,49 +1,48 @@
-{% load static %}
+{% load static i18n %}
 
 {% if object_list %}
-{% for object in object_list %}
-    {% if object.is_private == 0 or request.user.is_staff %}
-        <a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-posts-column-link">
-            <div class="featured-posts-column fade fadeInDown">
-                <div class="feautered-posts-image-container">
-                    <img src="{{ object.image.url }}" alt="">
-                </div>
-                <div class="feautered-posts-content">
-                    <h1 class="featured-post-column-title">
-                        {{object.title }}
-                    </h1>
-                    <div class="post-creator-container">
-                        <div class="post-creator-image-container">
-                            <img src="{{ object.user.user_image.url }}" alt="">
-                        </div>
-                        <div class="post-creator-content">
-                            <h1 class="post-creator-username">{{ object.user }}</h1>
-                            <p class="post-creator-position">{{ object.user.position|default:" "|default_if_none:" " }}</p>
-                        </div>
+    {% for object in object_list %}
+        {% if object.is_private == 0 or request.user.is_staff %}
+            <a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-posts-column-link">
+                <div class="featured-posts-column fade fadeInDown">
+                    <div class="feautered-posts-image-container">
+                        <img src="{{ object.image.url }}" alt="">
                     </div>
-                    <p class="featured-post-column-text">{{ object.short_description }}</p>
-                    <span class="featured-post-column-posted">Posted on</span>
-                    <p class="featured-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
-                    <p class="post-social-views">
-                        <i class="fa-solid fa-eye post-social-views-icon"></i> 
-                        <span class="post-social-views-text">{{ object.view_count }}</span>
-                    </p>
-                    {% if object.is_private %}
-                    <p class="detail-gradient-private">Private post</p>
-                    {% endif %}
+                    <div class="feautered-posts-content">
+                        <h1 class="featured-post-column-title">
+                            {{ object.title }}
+                        </h1>
+                        <div class="post-creator-container">
+                            <div class="post-creator-image-container">
+                                <img src="{{ object.user.user_image.url }}" alt="">
+                            </div>
+                            <div class="post-creator-content">
+                                <h1 class="post-creator-username">{{ object.user }}</h1>
+                                <p class="post-creator-position">{{ object.user.position|default_if_none:"" }}</p>
+                            </div>
+                        </div>
+                        <p class="featured-post-column-text">{{ object.short_description }}</p>
+                        <span class="featured-post-column-posted">{% translate 'Posted on' %}</span>
+                        <p class="featured-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
+                        <p class="post-social-views">
+                            <i class="fa-solid fa-eye post-social-views-icon"></i> 
+                            <span class="post-social-views-text">{{ object.view_count }}</span>
+                        </p>
+                        {% if object.is_private %}
+                            <p class="detail-gradient-private">{% translate 'Private post' %}</p>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
-        </a>
-    {% endif %}
-{% endfor %}
-
+            </a>
+        {% endif %}
+    {% endfor %}
 {% else %}
-<article class="partners-empty-container fade fadeInDown" style="margin-top: 0;">
-    <div class="partners-empty-icon-container">
-        <img src="{% static 'main/images/errors/error.svg' %}" alt="">
-    </div>
-    <h1 class="partners-empty-title">No matching results</h1>
-    <p class="partners-empty-text">There are no any blogs yet</p>
-    <a href="{% url 'main:blog' %}" class="partners-empty-clear" id="clearUrl2">Clear all filters <i class="fa-solid fa-rotate"></i></a>
-</article>
+    <article class="partners-empty-container fade fadeInDown" style="margin-top: 0;">
+        <div class="partners-empty-icon-container">
+            <img src="{% static 'main/images/errors/error.svg' %}" alt="">
+        </div>
+        <h1 class="partners-empty-title">{% translate 'No matching results' %}</h1>
+        <p class="partners-empty-text">{% translate 'There are no any blogs yet' %}</p>
+        <a href="{% url 'main:blog' %}" class="partners-empty-clear" id="clearUrl2">{% translate 'Clear all filters' %} <i class="fa-solid fa-rotate"></i></a>
+    </article>
 {% endif %}

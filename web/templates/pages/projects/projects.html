@@ -1,8 +1,8 @@
 {% extends 'layout/base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block title %}
-<title>Projects - CyberCode</title>
+<title>{% translate 'Projects - Cyber Code' %}</title>
 {% endblock %}
 
 {% block content %}
@@ -11,7 +11,7 @@
     <section class="projects-section">
         <div class="projects-container">
             <article class="projects-article">
-                <h1 class="projects-article-title fade fadeInDown">Here the projects list that we did</h1>
+                <h1 class="projects-article-title fade fadeInDown">{% translate 'Here the projects list that we did' %}</h1>
             </article>
             <section class="projects-category-section fade fadeInDown">
                 {% for category in categories %}
@@ -28,22 +28,23 @@
             </section>
         </div>
     </section>
+    
 
     <!-- Start READY TO TRY SECTION -->
     <section class="ready-to-try-section">
         <div class="ready-to-try-container">
             <div class="ready-to-try-column fade fadeInUp">
-                <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
-                <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
+                <h1 class="ready-to-try-title">{% translate 'Ready to try' %}<br> Cyber Code?</h1>
+                <p class="ready-to-try-info">{% translate 'Try Cyber Code and take back control of your day' %}</p>
                 <div class="ready-to-try-buttons-container">
                     <div class="ready-to-try-btn-column">
                         <a href="{% url 'main:pricing' %}">
-                            <button class="ready-to-try-button">Get started</button>
+                            <button class="ready-to-try-button">{% translate 'Get started' %}</button>
                         </a>
                     </div>
                     <div class="ready-to-try-btn-column">
                         <a href="{% url 'main:pricinglist' %}">
-                            <button class="ready-to-try-button-without-background">Pricing</button>
+                            <button class="ready-to-try-button-without-background">{% translate 'Pricing' %}</button>
                         </a>
                     </div>
                 </div>

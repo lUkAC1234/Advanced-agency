@@ -1,8 +1,8 @@
 {% extends 'layout/base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block title %}
-<title>Pricing List - CyberCode</title>
+<title>{% translate 'Pricing List - Cyber Code' %}</title>
 {% endblock %}
 
 {% block content %}
@@ -13,15 +13,15 @@
     <section class="pricing-list-section" id="pricingListSection">
         <div class="pricing-list-container">
             <div class="pricing-list-text-container fade slideInLeft">
-                <h1 class="pricing-list-title">Here is a list of all possible categories of our services</h1>
-                <p class="pricing-list-text">We guarantee that you will receive your order without delay, which means
-                    that we can place your order even earlier! At the same time, the quality will be perfect, and after
-                    we give your order, and if in a day - a month you contact us with a complaint that you don’t like
-                    something or that something needs to be changed, we will do it. it's free! However, only once, so be
-                    careful!</p>
+                <h1 class="pricing-list-title">
+                    {% translate 'Here is a list of all possible categories of our services' %}
+                </h1>
+                <p class="pricing-list-text">
+                    {% translate "We guarantee that you will receive your order without delay, which means that we can place your order even earlier! At the same time, the quality will be perfect, and after we give your order, and if in a day - a month you contact us with a complaint that you don’t like something or that something needs to be changed, we will do it. it's free! However, only once, so be careful!" %}
+                </p>
                 <div class="pricing-list-btn-container">
-                    <a href="">
-                        <button class="pricing-list-btn">Get started</button>
+                    <a href="#pricing-categories-section">
+                        <button class="pricing-list-btn">{% translate 'Get started' %}</button>
                     </a>
                 </div>
             </div>
@@ -36,33 +36,32 @@
 
     <!-- START PRICING CATEGORIES SECTION -->
 
-    <section class="pricing-categories-section">
+    <section class="pricing-categories-section" id="pricing-categories-section">
         <div class="pricing-categories-container">
             {% for object in object_list %}
             <div class="pricing-categories-column fade fadeInDown">
                 <div class="categorie-column">
                     <h1 class="pricing-popular-type">{{ object.type }}</h1>
                     <span class="pricing-popular-price">${{ object.price }}</span>
-                    <span class="pricing-popular-date">/ from</span>
+                    <span class="pricing-popular-date">/ {% translate 'from' %}</span>
                     {% if object.recommended %}
-                        <div class="recommended">
-                            <h1>Recommended</h1>
-                        </div>
+                    <div class="recommended">
+                        <h1>{% translate 'Recommended' %}</h1>
+                    </div>
                     {% endif %}
                 </div>
                 <div class="pricing-categories-abilities">
                     {{ object.advantages|safe }}
-                    <a href="{% url 'main:add_to_cart' object.id %}"><button class="categories-abilities-btn">Get started</button></a>
+                    <a href="{% url 'main:add_to_cart' object.id %}"><button class="categories-abilities-btn">{% translate 'Get started' %}</button></a>
                 </div>
             </div>
-
             {% empty %}
             <article class="partners-empty-container" style="margin-top: 0;">
                 <div class="partners-empty-icon-container">
                     <img src="{% static 'main/images/errors/noresult.svg' %}" alt="">
                 </div>
-                <h1 class="partners-empty-title">No matching results</h1>
-                <p class="partners-empty-text">There are no any pricings yet</p>
+                <h1 class="partners-empty-title">{% translate 'No matching results' %}</h1>
+                <p class="partners-empty-text">{% translate 'There are no any pricings yet' %}</p>
             </article>
             {% endfor %}
         </div>
@@ -74,17 +73,17 @@
     <section class="ready-to-try-section">
         <div class="ready-to-try-container">
             <div class="ready-to-try-column fade fadeInUp">
-                <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
-                <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
+                <h1 class="ready-to-try-title">{% translate 'Ready to try' %} <br> Cyber Code?</h1>
+                <p class="ready-to-try-info">{% translate 'Try Cyber Code and take back control of your day' %}</p>
                 <div class="ready-to-try-buttons-container">
                     <div class="ready-to-try-btn-column">
                         <a href="{% url 'main:pricing' %}">
-                            <button class="ready-to-try-button">Get started</button>
+                            <button class="ready-to-try-button">{% translate 'Get started' %}</button>
                         </a>
                     </div>
                     <div class="ready-to-try-btn-column">
                         <a href="{% url 'main:pricinglist' %}">
-                            <button class="ready-to-try-button-without-background">Pricing</button>
+                            <button class="ready-to-try-button-without-background">{% translate 'Pricing' %}</button>
                         </a>
                     </div>
                 </div>

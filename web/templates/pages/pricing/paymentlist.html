@@ -21,7 +21,7 @@
     <!-- Animation -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
     <!-- Animation End -->
-    <title>Payment List - CyberCode</title>
+    <title>{% translate 'Payment List - Cyber Code' %}</title>
 </head> 
 
 
@@ -32,44 +32,62 @@
             <div class="payment-container">
                 <article class="payment-info-container">
                     <div class="payment-info-title-container fade fadeInDown">
-                        <h1 class="payment-info-title">Order cart</h1>
+                        <h1 class="payment-info-title">
+                            {% translate 'Order cart' %}
+                        </h1>
                         <p class="payment-info-count">
                             {{ cart_items|length }}
                             {% if cart_items|length > 1 %}
-                            items
+                            {% translate 'items' %}
                             {% else %}
-                            item
+                            {% translate 'item' %}
                             {% endif %}
                         </p>
                     </div>
                     <div class="payment-products-container">
                         {% if cart_items %}
                         <div class="payment-product-detail-container">
-                            <p class="payment-detail fade fadeInDown">product Details</p>
-                            <p class="payment-detail fade fadeInDown">Price</p>
-                            <p class="payment-detail fade fadeInDown">Total</p>
+                            <p class="payment-detail fade fadeInDown">
+                                {% translate 'product Details' %}
+                            </p>
+                            <p class="payment-detail fade fadeInDown">
+                                {% translate 'Price' %}
+                            </p>
+                            <p class="payment-detail fade fadeInDown">
+                                {% translate 'Total' %}
+                            </p>
                         </div>
                         <div class="payment-product-wrapper-column">
                             {% for item in cart_items %}
                             <div class="payment-product-column fade fadeInUp">
                                 <div class="payment-product-info-container">
                                     <div class="payment-image-container">
-                                        <span class="payment-image-type">{{ item.type }}</span>
+                                        <span class="payment-image-type">
+                                            {{ item.type }}
+                                        </span>
                                     </div>
                                     <div class="payment-type-container">
-                                        <h1 class="payment-product-type">{{ item.type }}</h1>
+                                        <h1 class="payment-product-type">
+                                            {{ item.type }}
+                                        </h1>
                                         {% if item.product.recommended %}
-                                        <h1 class="payment-product-category">Recommended</h1>
+                                        <h1 class="payment-product-category">
+                                            {% translate 'Recommended' %}
+                                        </h1>
                                         {% elif item.popular %}
-                                        <h1 class="payment-product-category">Popular</h1>
+                                        <h1 class="payment-product-category">
+                                            {% translate 'Popular' %}
+                                        </h1>
                                         {% else %}
-                                        <h1 class="payment-product-category">None</h1>
+                                        <h1 class="payment-product-category">{
+                                            % translate 'None' %}
+                                        </h1>
                                         {% endif %}
                                         <form class="remove-from-cart-form"
                                             action="{% url 'main:removefromcart' item.id %}" method="post">
                                             {% csrf_token %}
                                             <button type="submit" class="payment-product-remove">
-                                                Remove
+                                                {% translate 'Remove' %}
                                             </button>
                                         </form>
 
@@ -91,15 +109,19 @@
                             <div class="projects-empty-icon-container">
                                 <img src="{% static 'main/images/errors/noresult.svg' %}" alt="">
                             </div>
-                            <h1 class="projects-empty-title">No matching results</h1>
-                            <p class="projects-empty-description">You have not selected any items</p>
+                            <h1 class="projects-empty-title">
+                                {% translate 'No matching results' %}
+                            </h1>
+                            <p class="projects-empty-description">
+                                {% translate 'You have not selected any items' %}
+                            </p>
                         </div>
                         {% endif %}
                     </div>
                     <div class="payment-return-back-container fade fadeInUp">
                         <a href="{% url 'main:pricing' %}" class="payment-return-back-link">
                             <i class="fa-solid fa-arrow-left-long"></i>
-                            Continue Ordering
+                            {% translate 'Continue Ordering' %}
                         </a>
                     </div>
                 </article>
@@ -107,15 +129,17 @@
                 {% load my_tags %}
                 <article class="payment-sidebar-container fade slideInUp" id="paymentSidebar">
                     <div class="payment-sidebar-title-container">
-                        <h1 class="payment-sidebar-title">Order Summary</h1>
+                        <h1 class="payment-sidebar-title">
+                            {% translate 'Order Summary' %}
+                        </h1>
                     </div>
                     <div class="payment-sidebar-items-count-container">
                         <h1 class="payment-sidebar-items">
                             {{ cart_items|length }}
                             {% if cart_items|length > 1 %}
-                            items
+                            {% translate 'items' %}
                             {% else %}
-                            item
+                            {% translate 'item' %}
                             {% endif %}
                         </h1>
                         <p class="payment-sidebar-items-price">
@@ -124,12 +148,16 @@
                     </div>
                     <div class="payment-sidebar-total-cost-container">
                         <div class="payment-sidebar-total-cost-info-container">
-                            <h1 class="payment-sidebar-total-cost-title">Total Cost</h1>
+                            <h1 class="payment-sidebar-total-cost-title">
+                                {% translate 'Total Cost' %}
+                            </h1>
                             <p class="payment-sidebar-total-cost">
                                 ${{ request.session.cart|calculate_total_cost:request}}</p>
                         </div>
                         <div class="payment-sidebar-checkout-btn-container">
-                            <button class="payment-sidebar-checkout-btn" id="applyNowBtn">Checkout</button>
+                            <button class="payment-sidebar-checkout-btn" id="applyNowBtn">
+                                {% translate 'Checkout' %}
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -139,75 +167,75 @@
                 <article id="applyModal" class="applyModal">
                     <div class="applyModalContent">
                         <div class="modal-close-container">
-                            <p class="modalTitle">Checkout</p>
+                            <p class="modalTitle">
+                                {% translate 'Checkout' %}
+                            </p>
                             <span class="closeModal" id="closeApplyModal">
                                 <i class="fa-solid fa-xmark"></i>
                             </span>
                         </div>
                         <div class="modal-content-container">
                             {% if request.user.is_authenticated %}
-                            <form id="jobApplyForm" class="jobApplyForm" method="POST"
-                                action="{% url 'main:payment' %}">
+                            <form id="jobApplyForm" class="jobApplyForm" method="POST" action="{% url 'main:payment' %}">
                                 {% csrf_token %}
                                 <div class="jobApply-group-double">
                                     <div class="jobApply-group payment-group">
-                                        <label for="firstName">First Name</label>
-                                        <input type="text" name="first_name" id="first_name" required
-                                            placeholder="Peter"
+                                        <label for="firstName">{% translate 'First Name' %}</label>
+                                        <input type="text" name="first_name" id="first_name" required placeholder="{% translate 'Peter' %}"
                                             value="{% if form.first_name.value %}{{ form.first_name.value }}{% else %}{{ request.user.first_name|default:'' }}{% endif %}">
                                         {{ form.errors.first_name }}
                                     </div>
                                     <div class="jobApply-group payment-group">
-                                        <label for="email">Email</label>
-                                        <input type="email" name="email" id="email" required
-                                            placeholder="cybercodesp@gmail.com"
+                                        <label for="email">{% translate 'Email' %}</label>
+                                        <input type="email" name="email" id="email" required placeholder="cybercodesp@gmail.com"
                                             value="{% if form.email.value %}{{ form.email.value }}{% else %}{{ request.user.email|default:'' }}{% endif %}">
                                         {{ form.errors.email }}
                                     </div>
                                 </div>
                                 <div class="jobApply-group-double">
                                     <div class="jobApply-group payment-group">
-                                        <label for="firstName">City</label>
-                                        <input type="text" name="city" id="city" required placeholder="New York"
+                                        <label for="firstName">{% translate 'City' %}</label>
+                                        <input type="text" name="city" id="city" required placeholder="{% translate 'New York' %}"
                                             value="{% if form.city.value %}{{ form.city.value }}{% endif %}">
                                         {{ form.errors.city }}
                                     </div>
                                     <div class="jobApply-group payment-group">
-                                        <label for="address">Address</label>
-                                        <input type="text" name="address" id="address" required
-                                            placeholder="New York 51 street"
+                                        <label for="address">{% translate 'Address' %}</label>
+                                        <input type="text" name="address" id="address" required placeholder="{% translate 'New York 51 street' %}"
                                             value="{% if form.address.value %}{{ form.address.value }}{% else %}{{ request.user.location|default:'' }}{% endif %}">
                                         {{ form.errors.address }}
                                     </div>
                                 </div>
                                 <div class="jobApply-group payment-group">
-                                    <label for="text">Social Media</label>
-                                        <input type="url" name="socail_media" id="socail_media"
-                                            placeholder="URL Telegram, Instagram, etc."
-                                            value="{% if form.socail_media.value %}{{ form.socail_media.value }}{% else %}{{ request.user.socialMedia|default:'' }}{% endif %}">
-                                        {{ form.errors.socail_media }}
+                                    <label for="text">{% translate 'Social Media' %}</label>
+                                    <input type="url" name="socail_media" id="socail_media" placeholder="{% translate 'URL Telegram, Instagram, etc.' %}"
+                                        value="{% if form.socail_media.value %}{{ form.socail_media.value }}{% else %}{{ request.user.socialMedia|default:'' }}{% endif %}">
+                                    {{ form.errors.socail_media }}
                                 </div>
                                 <div class="jobApply-group payment-group">
-                                    <label for="text">Position</label>
-                                    <input type="text" name="position" id="position" placeholder="Designer"
+                                    <label for="text">{% translate 'Position' %}</label>
+                                    <input type="text" name="position" id="position" placeholder="{% translate 'Designer' %}"
                                         value="{% if form.position.value %}{{ form.position.value }}{% else %}{{ request.user.position|default:'' }}{% endif %}">
                                     {{ form.errors.position }}
                                 </div>
-
-                                <button type="submit" class="apply-button">Submit</button>
+                                <button type="submit" class="apply-button">
+                                    {% translate 'Submit' %}</button>
                             </form>
                             {% else %}
                             <article class="applyModelUserNotSigned-container">
-                                <p class="applyModelUserNotSigned-text">U have to Sign in/up to send us message there u
-                                    can <a href="{% url 'main:login' %}">Sign In</a> / <a
-                                        href="{% url 'main:registration' %}">Sign Up</a></p>
+                                <p class="applyModelUserNotSigned-text">
+                                    {% translate 'U have to Sign in/up to send us message there u can' %} 
+                                    <a href="{% url 'main:login' %}">
+                                    {% translate 'Sign In' %}</a> / 
+                                    <a href="{% url 'main:registration' %}">
+                                    {% translate 'Sign Up' %}
+                                </a></p>
                             </article>
                             {% endif %}
                         </div>
                     </div>
                 </article>
                 {% endif %}
-
             </div>
         </section>
 

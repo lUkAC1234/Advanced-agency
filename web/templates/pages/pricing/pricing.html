@@ -1,8 +1,8 @@
 {% extends 'layout/base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block title %}
-<title>Pricing - CyberCode</title>
+<title>{% translate 'Pricing - Cyber Code' %}</title>
 {% endblock %}
 
 {% block content %}
@@ -12,25 +12,24 @@
 
     <section class="pricing-popular-packages-section" id="pricingSection">
         <div class="pricing-popular-main-container">
-            <h1 class="pricing-popular-package-title fade fadeInUp">Our 3 popular pricing models</h1>
-            <p class="pricing-popular-package-info fade fadeInUp">Save your time and order our project with our Subscription plan
-            </p>
+            <h1 class="pricing-popular-package-title fade fadeInUp">{% translate 'Our 3 popular pricing models' %}</h1>
+            <p class="pricing-popular-package-info fade fadeInUp">{% translate 'Save your time and order our project with our Subscription plan' %}</p>
             <div class="pricing-popular-package-container">
                 {% for object in pricing %}
                 <div class="pricing-popular-column fade fadeInDown">
                     <div class="price-column">
                         <h1 class="pricing-popular-type">{{ object.type }}</h1>
                         <span class="pricing-popular-price">${{ object.price }}</span>
-                        <span class="pricing-popular-date">/ from</span>
+                        <span class="pricing-popular-date">/ {% translate 'from' %}</span>
                         {% if object.recommended %}
                         <div class="recommended">
-                            <h1>Recommended</h1>
+                            <h1>{% translate 'Recommended' %}</h1>
                         </div>
                         {% endif %}
                     </div>
                     <div class="pricing-popular-abilities">
                         {{ object.advantages|safe }}
-                        <a href="{% url 'main:add_to_cart' id=object.id %}"><button class="pricing-abilities-btn">Get started</button></a>
+                        <a href="{% url 'main:add_to_cart' id=object.id %}"><button class="pricing-abilities-btn">{% translate 'Get started' %}</button></a>
                     </div>
                 </div>
                 {% empty %}
@@ -38,16 +37,16 @@
                     <div class="partners-empty-icon-container">
                         <img src="{% static 'main/images/errors/error.svg' %}" alt="">
                     </div>
-                    <h1 class="partners-empty-title purple">No matching results</h1>
-                    <p class="partners-empty-text white">There are no any pricings yet</p>
+                    <h1 class="partners-empty-title purple">{% translate 'No matching results' %}</h1>
+                    <p class="partners-empty-text white">{% translate 'There are no any pricings yet' %}</p>
                 </article>
                 {% endfor %}
             </div>
-
+    
             <!-- START BUTTON FOR OTHER PACKAGES -->
-
+    
             <article class="btn-for-list-of-packages">
-                <h1 class="click-title">Click to see other packages</h1>
+                <h1 class="click-title">{% translate 'Click to see other packages' %}</h1>
                 <a href="{% url 'main:pricinglist' %}">
                     <div class="click-line"></div>
                     <i class="fas fa-angle-down"></i>
@@ -67,27 +66,26 @@
     <section class="custom-build-section">
         <div class="custom-build-container">
             <div class="custom-build-column fade slideInLeft">
-                <h1 class="custom-build-title">Need A Custom Build?</h1>
-                <p class="custom-build-text">We offer custom plans that can support your large team & big vision.</p>
+                <h1 class="custom-build-title">{% translate 'Need A Custom Build?' %}</h1>
+                <p class="custom-build-text">{% translate 'We offer custom plans that can support your large team & big vision.' %}</p>
                 <div class="custom-build-btn-container">
                     <a href="{% url 'main:contact' %}">
-                        <button class="custom-build-btn">Get in touch</button>
+                        <button class="custom-build-btn">{% translate 'Get in touch' %}</button>
                     </a>
                 </div>
             </div>
             <div class="custom-build-column fade slideInRight">
-                <h1 class="custom-build-title">You don't know how to order?</h1>
-                <p class="custom-build-text">Follow this link to find out the instruction how to order and order
-                    requirements</p>
+                <h1 class="custom-build-title">{% translate "You don't know how to order?" %}</h1>
+                <p class="custom-build-text">{% translate 'Follow this link to find out the instruction how to order and order requirements' %}</p>
                 <div class="custom-build-btn-container">
                     <a href="{% url 'main:faqlist' %}">
-                        <button class="custom-build-btn">Get instruction</button>
+                        <button class="custom-build-btn">{% translate 'Get instruction' %}</button>
                     </a>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- END CUSTOM BUILDS SECTION -->
 
     <!-- START OUR SERVICES SECTION -->
@@ -95,12 +93,11 @@
     <section class="services-section">
         <div class="services-container">
             <div class="services-text-container fade slideInLeft">
-                <h1 class="services-text-title">What do you get after payment</h1>
-                <p class="services-text-text">We are a small, but growing team. Our expertise includes growth marketing,
-                    design, software development, and product management.</p>
+                <h1 class="services-text-title">{% translate 'What do you get after payment' %}</h1>
+                <p class="services-text-text">{% translate 'We are a small, but growing team. Our expertise includes growth marketing, design, software development, and product management.' %}</p>
                 <div class="services-link-container">
                     <a href="{% url 'main:pricing' %}">
-                        <button>Get started</button>
+                        <button>{% translate 'Get started' %}</button>
                     </a>
                 </div>
             </div>
@@ -109,29 +106,29 @@
                     <div class="services-icon">
                         <i class="fas fa-wrench fa-rotate-270"></i>
                     </div>
-                    <h1 class="services-info-title">Gain full control</h1>
-                    <p class="services-info-text">After we transfer the site to you, you will be able to manage your site yourself</p>
+                    <h1 class="services-info-title">{% translate 'Gain full control' %}</h1>
+                    <p class="services-info-text">{% translate 'After we transfer the site to you, you will be able to manage your site yourself' %}</p>
                 </div>
                 <div class="services-info-column fade fadeInDown">
                     <div class="services-icon">
                         <i class="fas fa-question-circle"></i>
                     </div>
-                    <h1 class="services-info-title">Dedicated support</h1>
-                    <p class="services-info-text">Free support for a month after transfer of the site, as well as fixing it only 1 time</p>
+                    <h1 class="services-info-title">{% translate 'Dedicated support' %}</h1>
+                    <p class="services-info-text">{% translate 'Free support for a month after transfer of the site, as well as fixing it only 1 time' %}</p>
                 </div>
                 <div class="services-info-column fade fadeInDown">
                     <div class="services-icon">
                         <i class="fa-solid fa-users-gear"></i>
                     </div>
-                    <h1 class="services-info-title">Order is deliveres on time</h1>
-                    <p class="services-info-text">You will receive your website on time or even earlier, we guarantee it!</p>
+                    <h1 class="services-info-title">{% translate 'Order is deliveres on time' %}</h1>
+                    <p class="services-info-text">{% translate 'You will receive your website on time or even earlier, we guarantee it!' %}</p>
                 </div>
                 <div class="services-info-column fade fadeInDown">
                     <div class="services-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
-                    <h1 class="services-info-title">Perfect quality</h1>
-                    <p class="services-info-text">Сlean code that allows the site to work without lags and errors!</p>
+                    <h1 class="services-info-title">{% translate 'Perfect quality' %}</h1>
+                    <p class="services-info-text">{% translate 'Сlean code that allows the site to work without lags and errors!' %}</p>
                 </div>
             </div>
         </div>
@@ -143,17 +140,17 @@
     <section class="ready-to-try-section">
         <div class="ready-to-try-container">
             <div class="ready-to-try-column fade fadeInUp">
-                <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
-                <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
+                <h1 class="ready-to-try-title">{% translate 'Ready to try' %} <br> Cyber Code?</h1>
+                <p class="ready-to-try-info">{% translate 'Try Cyber Code and take back control of your day' %}</p>
                 <div class="ready-to-try-buttons-container">
                     <div class="ready-to-try-btn-column">
                         <a href="{% url 'main:pricing' %}">
-                            <button class="ready-to-try-button">Get started</button>
+                            <button class="ready-to-try-button">{% translate 'Get started' %}</button>
                         </a>
                     </div>
                     <div class="ready-to-try-btn-column">
                         <a href="{% url 'main:pricinglist' %}">
-                            <button class="ready-to-try-button-without-background">Pricing</button>
+                            <button class="ready-to-try-button-without-background">{% translate 'Pricing' %}</button>
                         </a>
                     </div>
                 </div>

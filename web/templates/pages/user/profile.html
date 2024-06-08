@@ -1,8 +1,8 @@
 {% extends 'layout/base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block title %}
-<title>Profile - CyberCode</title>
+<title>{% translate 'Profile - Cyber Code' %}</title>
 {% endblock %}
 
 {% block content %}
@@ -39,52 +39,52 @@
                     <div class="profile-user-info-container">
                         <h1 class="profile-username" style="text-transform: lowercase;">{{ request.user }}</h1>
                         <p class="profile-email">
-                            {{ request.user.email|default_if_none:'cybercodesp@gmail.com'|default:'cybercodesp@gmail.com' }}
+                            cybercodesp@gmail.com
                         </p>
                     </div>
                     <div class="change-password-container">
                         <a href="{% url 'main:changeuserpassword' %}" class="change-password-user">
-                            <i class="fa-solid fa-key"></i> Change Password
+                            <i class="fa-solid fa-key"></i> {% translate "Change Password" %}
                         </a>
                     </div>
                 </article>
                 <article class="profile-edit-container fade slideInRight">
                     <div class="profile-main-edit-container">
-                        <h1 class="profile-edit-title">Main info</h1>
+                        <h1 class="profile-edit-title">{% translate "Main info" %}</h1>
                         <div class="profile-main-edit-wrapper">
                             <div class="profile-edit-column">
-                                <label for="">First Name</label>
-                                <input class="profile-edit-input" type="text" placeholder="example" name="first_name"
+                                <label for="">{% translate "First Name" %}</label>
+                                <input class="profile-edit-input" type="text" placeholder="{% translate 'John' %}" name="first_name"
                                     value="{{ request.user.first_name|default_if_none:'' }}">
                             </div>
                             <div class="profile-edit-column">
-                                <label for="">Company</label>
+                                <label for="">{% translate "Company" %}</label>
                                 <input class="profile-edit-input" type="text" placeholder="CyberCode" name="company"
                                     value="{{ request.user.company|default_if_none:'' }}">
                             </div>
                             <div class="profile-edit-column">
-                                <label for="">Location</label>
-                                <input class="profile-edit-input" type="text" placeholder="NYC, New York, USA"
+                                <label for="">{% translate "Location" %}</label>
+                                <input class="profile-edit-input" type="text" placeholder="{% translate 'NYC, New York, USA' %}"
                                     name="location" value="{{ request.user.location|default_if_none:'' }}">
                             </div>
                             <div class="profile-edit-column">
-                                <label for="">Position</label>
-                                <input class="profile-edit-input" type="text" placeholder="UI/UX Designer"
+                                <label for="">{% translate "Position" %}</label>
+                                <input class="profile-edit-input" type="text" placeholder="{% translate 'UI/UX Designer' %}"
                                     name="position" value="{{ request.user.position|default_if_none:'' }}">
                             </div>
                         </div>
                     </div>
                     <div class="profile-contact-edit-container">
-                        <h1 class="profile-edit-title">Contact Info</h1>
+                        <h1 class="profile-edit-title">{% translate "Contact Info" %}</h1>
                         <div class="profile-contact-edit-wrapper">
                             <div class="profile-edit-column">
-                                <label for="">Email</label>
-                                <p class="profile-edit-text"><i class="fa-solid fa-circle-info"></i> The email you entered can help you recover your account if you forget your password.</p>
+                                <label for="">{% translate "Email" %}</label>
+                                <p class="profile-edit-text"><i class="fa-solid fa-circle-info"></i> {% translate "The email you entered can help you recover your account if you forget your password." %}</p>
                                 <input class="profile-edit-input" type="email" placeholder="cybercodesp@gmail.com"
                                     name="email" value="{{ request.user.email|default_if_none:'' }}">
                             </div>
                             <div class="profile-edit-column">
-                                <label for="">Social Media</label>
+                                <label for="">{% translate "Social Media" %}</label>
                                 <input class="profile-edit-input" type="url" placeholder="https://www.instagram.com/"
                                     name="socialMedia" value="{{ request.user.socialMedia|default_if_none:'' }}">
                             </div>
@@ -92,7 +92,7 @@
                         <div class="profile-submit-btn-container">
                             <button type="submit" class="profile-submit-btn">
                                 <i class="fa-solid fa-circle-check"></i>
-                                Submit
+                                {% translate "Submit" %}
                             </button>
                         </div>
                     </div>
@@ -100,7 +100,6 @@
             </form>
         </div>
     </section>
-
     <!-- END PROFILE SECTION -->
 </main>
 {% endblock %}
