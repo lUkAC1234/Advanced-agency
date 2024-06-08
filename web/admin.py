@@ -46,20 +46,11 @@ class PostAdmin(TranslationAdmin):
     search_fields = ['title']
     readonly_fields = ('user', 'posted_on')
 
-    def get_fieldsets(self, request, obj=None):
-        if obj:
-            return super().get_fieldsets(request, obj)
-        else:
-            return (
-                (None, {'fields': ('title', 'image', 'short_description', 'post_text', 'category', 'tags')}),
-            )
-
-    def save_form(self, request, form, change):
-        obj = super().save_form(request, form, change)
-        if not obj.user_id:
+    def save_model(self, request, obj, form, change):
+        if not obj.pk: 
             obj.user = request.user
-        return obj
-    
+        super().save_model(request, obj, form, change)
+        
 @admin.register(PostTagModel)
 class PostTagAdmin(TranslationAdmin):
     list_display = ['id', 'tag']
@@ -73,7 +64,7 @@ class PostCategoryAdmin(TranslationAdmin):
     search_fields = ['category']
     
 @admin.register(FeedbackModel)
-class FeedbackAdmin(admin.ModelAdmin):
+class FeedbackAdmin(TranslationAdmin):
     list_display = ['id', 'text']
     list_display_links = ['id', 'text']
     search_fields = ['text']

@@ -7003,6 +7003,7 @@ body:has(.language-dropdown-content.show) {
   font-family: var(--grotext-sans);
   font-size: 0.9rem;
 }
+
 .footer {
   position: relative;
   width: 100%;

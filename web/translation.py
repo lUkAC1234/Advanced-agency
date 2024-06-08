@@ -1,45 +1,49 @@
 from modeltranslation.translator import register, TranslationOptions
 from .models import PricingModel, PostCategoryModel, PostTagModel, PostModel, \
-    FaqModel, JobCategoryModel, \
+    FaqModel, JobCategoryModel, FeedbackModel, \
     JobKnowledgesModel, JobModel, ProjectCategory, ProjectModel
 
 @register(PricingModel)
 class PricingModelTranslationOptions(TranslationOptions):
-    fields = ('type', 'advantages')  # Add fields you want to translate
+    fields = ('type', 'advantages') 
 
 @register(PostCategoryModel)
 class PostCategoryModelTranslationOptions(TranslationOptions):
-    fields = ('category',)  # Add fields you want to translate
+    fields = ('category',) 
 
 @register(PostTagModel)
 class PostTagModelTranslationOptions(TranslationOptions):
-    fields = ('tag',)  # Add fields you want to translate
+    fields = ('tag',) 
 
 @register(PostModel)
 class PostModelTranslationOptions(TranslationOptions):
-    fields = ('title', 'short_description', 'post_text')  # Add fields you want to translate
+    fields = ('title', 'short_description', 'post_text') 
 
 @register(FaqModel)
 class FaqModelTranslationOptions(TranslationOptions):
-    fields = ('question', 'answer')  # Add fields you want to translate
+    fields = ('question', 'answer') 
+    
+@register(FeedbackModel)
+class FeedbackModelTranslationOptions(TranslationOptions):
+    fields = ('text',) 
 
 @register(JobCategoryModel)
 class JobCategoryModelTranslationOptions(TranslationOptions):
-    fields = ('category',)  # Add fields you want to translate
+    fields = ('category',) 
 
 @register(JobKnowledgesModel)
 class JobKnowledgesModelTranslationOptions(TranslationOptions):
-    fields = ('knowledge',)  # Add fields you want to translate
+    fields = ('knowledge',) 
 
 @register(JobModel)
 class JobModelTranslationOptions(TranslationOptions):
-    fields = ('title', 'description', 'aboutthejob', 'responsibilities', 'requirements', 'location')  # Add fields you want to translate
+    fields = ('title', 'description', 'aboutthejob', 'responsibilities', 'requirements', 'location') 
 
 @register(ProjectCategory)
 class ProjectCategoryTranslationOptions(TranslationOptions):
-    fields = ('category',)  # Add fields you want to translate
+    fields = ('category',) 
 
 @register(ProjectModel)
 class ProjectModelTranslationOptions(TranslationOptions):
-    fields = ('title', 'description')  # Add fields you want to translate
+    fields = ('title', 'description') 
 

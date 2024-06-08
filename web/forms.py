@@ -22,10 +22,9 @@ class PostModelForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        if not self.instance.pk:  # Check if this is a new instance
+        if self.request and not self.instance.pk:  # Check if this is a new instance
             self.fields['user'].initial = self.request.user
             self.fields['user'].widget = forms.HiddenInput()
-
 class ContactusModelForm(forms.ModelForm):
     class Meta:
         model = ContactusModel

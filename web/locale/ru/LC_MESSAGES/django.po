@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-08 18:24+0500\n"
+"POT-Creation-Date: 2024-06-08 22:47+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,39 +20,39 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\config\settings.py:115 .\web\templates\layout\header.html:25
+#: .\config\settings.py:114 .\web\templates\layout\header.html:25
 msgid "English"
 msgstr "Английский"
 
-#: .\config\settings.py:116
+#: .\config\settings.py:115
 msgid "Russian"
 msgstr "Русский"
 
-#: .\web\forms.py:49
+#: .\web\forms.py:48
 msgid "Enter your username"
 msgstr "Введите ваше имя пользователя"
 
-#: .\web\forms.py:53
+#: .\web\forms.py:52
 msgid "Enter you password"
 msgstr "Введите ваш пароль"
 
-#: .\web\forms.py:70 .\web\views.py:512
+#: .\web\forms.py:69 .\web\views.py:508
 msgid "Username or password is incorrect"
 msgstr "Имя пользователя или пароль неверны"
 
-#: .\web\forms.py:85
+#: .\web\forms.py:84
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
-#: .\web\forms.py:91
+#: .\web\forms.py:90
 msgid "This username is already in use"
 msgstr "Это имя пользователя уже используется"
 
-#: .\web\forms.py:98
+#: .\web\forms.py:97
 msgid "Password can only contain English letters, numbers, !, $, @, %"
 msgstr "Пароль может содержать только английские буквы, цифры, !, $, @, %"
 
-#: .\web\forms.py:101
+#: .\web\forms.py:100
 msgid "Password must be at least 8 characters long"
 msgstr "Пароль должен быть не менее 8 символов в длину"
 
@@ -176,15 +176,15 @@ msgid "Useful links"
 msgstr "Полезные ссылки"
 
 #: .\web\templates\layout\footer.html:24 .\web\templates\layout\footer.html:26
-#: .\web\templates\layout\header.html:160
+#: .\web\templates\layout\header.html:153
 msgid "Profile"
 msgstr "Профиль"
 
-#: .\web\templates\layout\footer.html:28 .\web\templates\layout\header.html:98
+#: .\web\templates\layout\footer.html:28 .\web\templates\layout\header.html:91
 msgid "Job"
 msgstr "Работа"
 
-#: .\web\templates\layout\footer.html:29 .\web\templates\layout\header.html:74
+#: .\web\templates\layout\footer.html:29 .\web\templates\layout\header.html:71
 msgid "Contact"
 msgstr "Контакты"
 
@@ -196,8 +196,9 @@ msgstr "Privacy Policy"
 msgid "Our product"
 msgstr "Наши продукты"
 
-#: .\web\templates\layout\footer.html:36 .\web\templates\layout\header.html:80
+#: .\web\templates\layout\footer.html:36 .\web\templates\layout\header.html:76
 #: .\web\templates\pages\blog\blog.html:159
+#: .\web\templates\pages\blog\blogdetail.html:133
 #: .\web\templates\pages\contact.html:158 .\web\templates\pages\faqlist.html:49
 #: .\web\templates\pages\pricing\pricing.html:153
 #: .\web\templates\pages\pricing\pricinglist.html:86
@@ -209,7 +210,8 @@ msgstr "Услуги"
 msgid "Pricing list"
 msgstr "Список цен"
 
-#: .\web\templates\layout\footer.html:38 .\web\templates\layout\header.html:92
+#: .\web\templates\layout\footer.html:38 .\web\templates\layout\header.html:86
+#: .\web\templates\pages\blog\blogdetail.html:5
 msgid "Blog"
 msgstr "Блог"
 
@@ -217,12 +219,12 @@ msgstr "Блог"
 msgid "About us"
 msgstr "О нас"
 
-#: .\web\templates\layout\footer.html:46 .\web\templates\layout\header.html:180
+#: .\web\templates\layout\footer.html:46 .\web\templates\layout\header.html:173
 msgid "Logout"
 msgstr "Выход"
 
-#: .\web\templates\layout\footer.html:48 .\web\templates\layout\header.html:106
-#: .\web\templates\layout\header.html:188
+#: .\web\templates\layout\footer.html:48 .\web\templates\layout\header.html:99
+#: .\web\templates\layout\header.html:181
 msgid "Login"
 msgstr "Войти"
 
@@ -258,22 +260,23 @@ msgstr "Позвоните нам"
 msgid "Choose your language"
 msgstr "Выберите ваш язык"
 
-#: .\web\templates\layout\header.html:62
+#: .\web\templates\layout\header.html:61
 msgid "Home"
 msgstr "Главная"
 
-#: .\web\templates\layout\header.html:68
+#: .\web\templates\layout\header.html:66
 msgid "About"
 msgstr "О нас"
 
-#: .\web\templates\layout\header.html:86
+#: .\web\templates\layout\header.html:81
 msgid "Projects"
 msgstr "Проекты"
 
-#: .\web\templates\layout\header.html:109
-#: .\web\templates\layout\header.html:152
-#: .\web\templates\layout\header.html:191
+#: .\web\templates\layout\header.html:102
+#: .\web\templates\layout\header.html:145
+#: .\web\templates\layout\header.html:184
 #: .\web\templates\pages\blog\blog.html:154
+#: .\web\templates\pages\blog\blogdetail.html:128
 #: .\web\templates\pages\contact.html:153 .\web\templates\pages\faqlist.html:44
 #: .\web\templates\pages\index.html:20 .\web\templates\pages\index.html:168
 #: .\web\templates\pages\job\job.html:42 .\web\templates\pages\job\job.html:143
@@ -288,12 +291,12 @@ msgstr "Проекты"
 msgid "Get started"
 msgstr "Начать"
 
-#: .\web\templates\layout\header.html:117
-#: .\web\templates\layout\header.html:172
+#: .\web\templates\layout\header.html:110
+#: .\web\templates\layout\header.html:165
 msgid "Help Center"
 msgstr "Центр помощи"
 
-#: .\web\templates\layout\header.html:166 .\web\templates\pages\contact.html:92
+#: .\web\templates\layout\header.html:159 .\web\templates\pages\contact.html:92
 msgid "Messages"
 msgstr "Сообщения"
 
@@ -551,6 +554,9 @@ msgstr "Последние посты"
 
 #: .\web\templates\pages\blog\blog.html:44
 #: .\web\templates\pages\blog\blog_result.html:25
+#: .\web\templates\pages\blog\blogdetail.html:24
+#: .\web\templates\pages\blog\blogdetail.html:61
+#: .\web\templates\pages\blog\blogdetail.html:97
 msgid "Posted on"
 msgstr "Опубликовано"
 
@@ -572,6 +578,7 @@ msgid "Clear all filters"
 msgstr "Сбросить все фильтры"
 
 #: .\web\templates\pages\blog\blog.html:149
+#: .\web\templates\pages\blog\blogdetail.html:123
 #: .\web\templates\pages\contact.html:148 .\web\templates\pages\faqlist.html:39
 #: .\web\templates\pages\pricing\pricing.html:143
 #: .\web\templates\pages\pricing\pricinglist.html:76
@@ -580,11 +587,13 @@ msgid "Ready to try"
 msgstr "Готовы попробовать"
 
 #: .\web\templates\pages\blog\blog.html:149
+#: .\web\templates\pages\blog\blogdetail.html:123
 #: .\web\templates\pages\contact.html:148 .\web\templates\pages\faqlist.html:39
 msgid "Cyber Code?"
 msgstr "Cyber Code?"
 
 #: .\web\templates\pages\blog\blog.html:150
+#: .\web\templates\pages\blog\blogdetail.html:124
 #: .\web\templates\pages\contact.html:149 .\web\templates\pages\faqlist.html:40
 #: .\web\templates\pages\pricing\pricing.html:144
 #: .\web\templates\pages\pricing\pricinglist.html:77
@@ -593,11 +602,13 @@ msgid "Try Cyber Code and take back control of your day"
 msgstr "Попробуйте Cyber Code и верните себе контроль над своим днем"
 
 #: .\web\templates\pages\blog\blog_result.html:32
+#: .\web\templates\pages\blog\blogdetail.html:31
 #: .\web\templates\pages\index.html:218
 msgid "Private post"
 msgstr "Приватный пост"
 
 #: .\web\templates\pages\blog\blog_result.html:44
+#: .\web\templates\pages\blog\blogdetail.html:108
 #: .\web\templates\pages\index.html:177 .\web\templates\pages\index.html:240
 #: .\web\templates\pages\index.html:271 .\web\templates\pages\index.html:313
 #: .\web\templates\pages\job\job.html:125
@@ -611,6 +622,35 @@ msgstr "Нет подходящих результатов"
 #: .\web\templates\pages\blog\blog_result.html:45
 msgid "There are no any blogs yet"
 msgstr "Пока нет ни одного блога"
+
+#: .\web\templates\pages\blog\blogdetail.html:56
+msgid "Share this post with people"
+msgstr "Поделитесь этим постом с людьми"
+
+#: .\web\templates\pages\blog\blogdetail.html:61
+msgid "by"
+msgstr "от"
+
+#: .\web\templates\pages\blog\blogdetail.html:65
+msgid "Share this article"
+msgstr "Поделиться этой статьей"
+
+#: .\web\templates\pages\blog\blogdetail.html:76
+msgid "You have successfully copied the URL"
+msgstr "Вы успешно скопировали ссылку"
+
+#: .\web\templates\pages\blog\blogdetail.html:93
+msgid "Popular Similar Posts"
+msgstr "Популярные похожие посты"
+
+#: .\web\templates\pages\blog\blogdetail.html:109
+msgid "There is no any similar blogs yet"
+msgstr "Пока нет похожих блогов"
+
+#: .\web\templates\pages\blog\blogdetail.html:110
+#: .\web\templates\pages\index.html:242
+msgid "Go to blog"
+msgstr "Перейти к блогу"
 
 #: .\web\templates\pages\contact.html:5
 msgid "Contact us - Cyber Code"
@@ -669,11 +709,11 @@ msgstr "Перейти на главную"
 
 #: .\web\templates\pages\faqlist.html:7
 msgid "FAQ List - Cyber Code"
-msgstr "Список ЧаВо - Cyber Code"
+msgstr "Список FAQ - Cyber Code"
 
 #: .\web\templates\pages\faqlist.html:15
 msgid "There is the list of every FAQs."
-msgstr "Здесь приведен список каждого ЧаВо."
+msgstr "Здесь приведен список каждого FAQ."
 
 #: .\web\templates\pages\index.html:5
 msgid "Home - Cyber Code"
@@ -844,10 +884,6 @@ msgstr "Пост от"
 #: .\web\templates\pages\index.html:241
 msgid "There are no any posts yet"
 msgstr "Пока нет ни одной записи"
-
-#: .\web\templates\pages\index.html:242
-msgid "Go to blog"
-msgstr "Перейти к блогу"
 
 #: .\web\templates\pages\index.html:255
 msgid "Our Partners"
@@ -1532,19 +1568,19 @@ msgstr "Зарегистрироваться"
 msgid "Already have an account?"
 msgstr "У вас уже есть аккаунт?"
 
-#: .\web\views.py:352
+#: .\web\views.py:348
 msgid "This post is private."
 msgstr "Этот пост является приватным."
 
-#: .\web\views.py:490
+#: .\web\views.py:486
 msgid "Profile updated successfully."
 msgstr "Профиль успешно обновлен."
 
-#: .\web\views.py:538
+#: .\web\views.py:534
 msgid "You have successfully created an account"
 msgstr "Вы успешно создали аккаунт"
 
-#: .\web\views.py:560
+#: .\web\views.py:556
 msgid "Your password was successfully updated"
 msgstr "Ваш пароль успешно обновлен"
 

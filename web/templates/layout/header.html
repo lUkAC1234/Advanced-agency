@@ -58,44 +58,37 @@
                 <ul class="pages-section-ul">
                     <li class="nav-link {% if request.path == '/' %}active{% endif %}">
                         <a href="{% url 'main:index' %}">
-                            <i class="fa-solid fa-house"></i>
-                            {% translate 'Home' %}
+                            <i class="fa-solid fa-house"></i> {% translate 'Home' %}
                         </a>
                     </li>
                     <li class="nav-link {% if request.path == '/about/us/' %}active{% endif %}" id="aboutDropdown">
                         <a href="{% url 'main:about' %}">
-                            <i class="fas fa-info-circle"></i>
-                            {% translate 'About' %}
+                            <i class="fas fa-info-circle"></i> {% translate 'About' %}
                         </a>
                     </li>
                     <li class="nav-link {% if request.path == '/contact/us/' %}active{% endif %}">
                         <a href="{% url 'main:contact' %}">
-                            <i class="fas fa-address-card"></i>
-                            {% translate 'Contact' %}
+                            <i class="fas fa-address-card"></i> {% translate 'Contact' %}
                         </a>
                     </li>
                     <li class="nav-link {% if request.path == '/package/prices/' %}active{% endif %}">
                         <a href="{% url 'main:pricing' %}">
-                            <i class="fas fa-wallet"></i>
-                            {% translate 'Pricing' %}
+                            <i class="fas fa-wallet"></i> {% translate 'Pricing' %}
                         </a>
                     </li>
                     <li class="nav-link {% if request.path == '/our/projects/list' %}active{% endif %}">
                         <a href="{% url 'main:projects' %}">
-                            <i class="fa-solid fa-diagram-project"></i>
-                            {% translate 'Projects' %}
+                            <i class="fa-solid fa-diagram-project"></i> {% translate 'Projects' %}
                         </a>
                     </li>
                     <li class="nav-link {% if request.path == '/website/blogs/list' %}active{% endif %}">
                         <a href="{% url 'main:blog' %}">
-                            <i class="fas fa-book-open"></i>
-                            {% translate 'Blog' %}
+                            <i class="fas fa-book-open"></i> {% translate 'Blog' %}
                         </a>
                     </li>
                     <li class="nav-link {% if request.path == '/website/jobs/list/' %}active{% endif %}">
                         <a href="{% url 'main:job' %}">
-                            <i class="fa-solid fa-briefcase"></i>
-                            {% translate 'Job' %}
+                            <i class="fa-solid fa-briefcase"></i> {% translate 'Job' %}
                         </a>
                     </li>                    
                 </ul>

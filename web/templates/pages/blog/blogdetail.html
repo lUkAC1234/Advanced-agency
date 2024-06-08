@@ -1,8 +1,8 @@
 {% extends 'layout/base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block title %}
-<title>Blog - {{ object.title }} - CyberCode</title>
+<title>{% translate 'Blog' %} - {{ object.title }} - CyberCode</title>
 {% endblock %}
 
 {% block content %}
@@ -21,14 +21,14 @@
                 </div>
             </div>
             <h2 class="detail-gradient-posted fade fadeInUp">
-                Posted on 
+                {% translate 'Posted on' %}
                 <span class="detail-gradient-posted-date">
                     {{ object.posted_on|date:"F d, Y" }} 
                 </span>
             </h2>
             
             {% if object.is_private %}
-            <p class="detail-gradient-private fade fadeInUp">Private post</p>
+            <p class="detail-gradient-private fade fadeInUp">{% translate 'Private post' %}</p>
             {% endif %}
 
         </div>
@@ -53,16 +53,16 @@
     <section class="detail-link-section">
         <div class="detail-link-container">
             <div class="detail-link-text-container fade fadeInDown">
-                <h1 class="detail-link-title">Share this post with people</h1>
+                <h1 class="detail-link-title">{% translate 'Share this post with people' %}</h1>
                 <p class="detail-link-text">{{ object.short_description }}</p>
             </div>
             <div class="detail-share-container">
                 <div class="detail-share-user-info-container fade slideInLeft">
-                    <p class="detail-share-posted">Posted on {{ object.posted_on|date:"F d, Y" }}, by</p>
+                    <p class="detail-share-posted">{% translate 'Posted on' %} {{ object.posted_on|date:"F d, Y" }}, {% translate 'by' %}</p>
                     <p class="detail-share-username">{{ object.user }}</p>
                 </div>
                 <div class="detail-share-social-container fade slideInRight">
-                    <h2 class="detail-share-social-text">Share this article </h2>
+                    <h2 class="detail-share-social-text">{% translate 'Share this article' %} </h2>
                     <div class="detail-share-social-urls">
                         <button class="shareBtn" id="shareBtn"><i
                             class="fa-sharp fa-solid fa-link detail-share-link-icon"></i></button>
@@ -73,7 +73,7 @@
                     </div>
 
                     <div class="shareAfterText" id="shareAfterText">
-                        <p>You have successfully copied the URL <i class="fa-sharp fa-solid fa-circle-check"></i></p>
+                        <p>{% translate 'You have successfully copied the URL' %} <i class="fa-sharp fa-solid fa-circle-check"></i></p>
                     </div>
                 </div>
             </div>
@@ -90,11 +90,11 @@
                 <article class="similar-popular-posts-wrapper">
                     <div class="similar-popular-posts-column-container">
                         {% for object in similarPosts %}
-                        <div class="similar-popular-posts-column" data-context="Popular Similar Posts">
+                        <div class="similar-popular-posts-column" data-context="{% translate 'Popular Similar Posts' %}">
                             <a href="{% url 'main:blogdetail' pk=object.pk %}" class="similar-popular-post-column-title">
                                 {{ object.title }}</a>
                             <p class="similar-popular-post-column-text">{{ object.short_description }}</p>
-                            <span class="similar-popular-post-column-posted">Posted on</span>
+                            <span class="similar-popular-post-column-posted">{% translate 'Posted on' %}</span>
                             <p class="similar-popular-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
                         </div>
                         {% endfor %}
@@ -105,9 +105,9 @@
                     <div class="partners-empty-icon-container">
                         <img src="{% static 'main/images/errors/error.svg' %}" alt="">
                     </div>
-                    <h1 class="partners-empty-title">No matching results</h1>
-                    <p class="partners-empty-text">There is no any similar blogs yet</p>
-                    <a href="{% url 'main:blog' %}" class="partners-empty-clear">Go to blog <i class="fa-solid fa-rotate"></i></a>
+                    <h1 class="partners-empty-title">{% translate 'No matching results' %}</h1>
+                    <p class="partners-empty-text">{% translate 'There is no any similar blogs yet' %}</p>
+                    <a href="{% url 'main:blog' %}" class="partners-empty-clear">{% translate 'Go to blog' %} <i class="fa-solid fa-rotate"></i></a>
                 </article>
             {% endif %}
         </div>
@@ -120,17 +120,17 @@
     <section class="ready-to-try-section">
         <div class="ready-to-try-container">
             <div class="ready-to-try-column fade fadeInUp">
-                <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
-                <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
+                <h1 class="ready-to-try-title">{% translate 'Ready to try' %} <br> {% translate 'Cyber Code?' %}</h1>
+                <p class="ready-to-try-info">{% translate 'Try Cyber Code and take back control of your day' %}</p>
                 <div class="ready-to-try-buttons-container">
                     <div class="ready-to-try-btn-column">
                         <a href="{% url 'main:pricing' %}">
-                            <button class="ready-to-try-button">Get started</button>
+                            <button class="ready-to-try-button">{% translate 'Get started' %}</button>
                         </a>
                     </div>
                     <div class="ready-to-try-btn-column">
                         <a href="{% url 'main:pricinglist' %}">
-                            <button class="ready-to-try-button-without-background">Pricing</button>
+                            <button class="ready-to-try-button-without-background">{% translate 'Pricing' %}</button>
                         </a>
                     </div>
                 </div>

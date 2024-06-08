@@ -238,9 +238,6 @@ class SuccessPayment(CreateView):
         )
         return data
 
-
-from django.db.models import Count, Q
-
 class BlogListView(ContactFormMixin, ListView, FormView):
     template_name = "pages/blog/blog.html"
     paginate_by = 5
@@ -336,7 +333,6 @@ class BlogListView(ContactFormMixin, ListView, FormView):
                 }
             )
         return super().render_to_response(context, **response_kwargs)
-
 class blogdetail(ContactFormMixin, DetailView, FormView):
     model = PostModel
     template_name = "pages/blog/blogdetail.html"
