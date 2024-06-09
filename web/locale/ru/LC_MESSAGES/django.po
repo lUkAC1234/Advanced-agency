@@ -302,7 +302,7 @@ msgstr "Сообщения"
 
 #: .\web\templates\pages\about.html:5
 msgid "About us - Cyber Code"
-msgstr "О нас - Кибер Код"
+msgstr "О нас - Cyber Code"
 
 #: .\web\templates\pages\about.html:15
 msgid "Our mission is to make people happy and productive"
@@ -1418,10 +1418,8 @@ msgid "Don’t have an account?"
 msgstr "Нет аккаунта?"
 
 #: .\web\templates\pages\user\password_reset.html:5
-#, fuzzy
-#| msgid "Home - CyberCode"
 msgid "Password Reset - Cyber Code"
-msgstr "Главная - Cybercode"
+msgstr "Сброс пароля - Cyber Code"
 
 #: .\web\templates\pages\user\password_reset.html:14
 #: .\web\templates\pages\user\password_reset_confirm.html:14

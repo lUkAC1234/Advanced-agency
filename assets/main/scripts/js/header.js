@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Update selected value on option click
-    dropdownContent.addEventListener("click", function(event) {
+    dropdownContent.onclick = function(event) {
         var target = event.target;
         if (target.classList.contains("language-option")) {
             var value = target.getAttribute("value");
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
             document.querySelector("#language_select").value = value;
             document.getElementById("language_form").submit();
         }
-    });
+    };
 });
 
 

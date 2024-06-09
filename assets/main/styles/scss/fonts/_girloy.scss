@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/main/fonts/girloy/Gilroy-Regular.ttf') format('truetype'); /* Default font */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/main/fonts/girloy/Gilroy-Light.ttf') format('truetype'); /* Light font */
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/main/fonts/girloy/Gilroy-Medium.ttf') format('truetype'); /* Medium font */
+    font-weight: 500;
+    font-style: normal;
+}

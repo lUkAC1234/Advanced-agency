@@ -2,6 +2,7 @@
 @import './nunito';
 @import './grotext';
 @import './sans_serif';
+@import './girloy';
 
 
 $sans: sans-serif;
@@ -9,10 +10,11 @@ $grotext-sans: 'Space Grotesk',
 sans-serif;
 $nunito: 'Nunito', sans-serif;
 $poppins: 'Poppins';
+$girloy: 'Gilroy', Arial, sans-serif;
 
 html[lang="ru"] {
-    --grotext-sans: 'Nunito', sans-serif !important; 
-    --poppins: 'Nunito', sans-serif !important; 
+    --grotext-sans: #{$girloy} !important; 
+    --poppins: #{$girloy} !important; 
 }
 
 :root {
@@ -20,5 +22,6 @@ html[lang="ru"] {
     --sans: #{$sans} !important;
     --nunito: #{$nunito} !important;
     --poppins: #{$poppins} !important;
+    --girloy: #{$girloy} !important;
 }
 
