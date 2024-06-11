@@ -3,8 +3,9 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import PasswordChangeForm
 from .models import UserModel, PostModel, ContactusModel, JobApplyModel, \
-CheckOut, FeedbackModel
+CheckOut, FeedbackModel, AdminReply
 from django.utils.translation import gettext_lazy as _
+from ckeditor.widgets import CKEditorWidget
 import re
 
 
@@ -112,3 +113,11 @@ class UserPasswordChangeForm(PasswordChangeForm):
     old_password = forms.CharField(widget=forms.PasswordInput)
     new_password1 = forms.CharField(widget=forms.PasswordInput)
     new_password2 = forms.CharField(widget=forms.PasswordInput)
+    
+class AdminReplyForm(forms.ModelForm):
+    class Meta:
+        model = AdminReply
+        fields = ['subject', 'message']
+        widgets = {
+            'message': CKEditorWidget(),
+        }

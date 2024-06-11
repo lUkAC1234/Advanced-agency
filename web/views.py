@@ -24,7 +24,8 @@ from .models import (
     CheckOut,
     ProjectModel,
     ProjectCategory,
-    PostView  
+    PostView, 
+    ContactusModel
 )
 from .forms import (
     ContactusModelForm,
@@ -35,6 +36,7 @@ from .forms import (
     CheckOutForm,
     FeedbackForm,
     UserPasswordChangeForm,
+    AdminReplyForm
 )
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
@@ -48,6 +50,9 @@ from django.utils import timezone
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
+from django.conf import settings
+import pytz
 
 class ContactFormMixin:
     form_class = ContactusModelForm
@@ -105,17 +110,42 @@ class contact(CreateView):
         return data
 
     def form_valid(self, form):
-        try:
-            form.save()
-            response_data = {"success": True}
-            if self.request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest":
-                return JsonResponse(response_data)
-        except Exception as e:
-            errors = {
-                field: [error for error in form[field].errors] for field in form.fields
-            }
-            if self.request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest":
-                return JsonResponse({"success": False, "errors": errors})
+        contact_message = form.save()
+
+        # Get the current timezone
+        current_timezone = pytz.timezone(settings.TIME_ZONE)
+
+        # Convert the datetime to the current timezone
+        created_at = contact_message.created_at.astimezone(current_timezone)
+
+        # Format the created_at datetime
+        formatted_datetime = created_at.strftime("%B %d, %I:%M %p, %Y")
+
+        # Render the HTML email template
+        context = {
+            'fullname': contact_message.fullname,
+            'email': contact_message.email,
+            'company': contact_message.company,
+            'text': contact_message.text,
+            'formatted_datetime': formatted_datetime,
+        }
+        html_message = render_to_string('email/contact_message.html', context)
+
+        # Send email
+        send_mail(
+            subject=f"New contact message from {contact_message.fullname}",
+            message=f"Full Name: {contact_message.fullname}\n"
+                    f"Email: {contact_message.email}\n"
+                    f"Company: {contact_message.company}\n"
+                    f"Message: {contact_message.text}\n"
+                    f"Date and Time: {formatted_datetime}",
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.EMAIL_ADMIN],
+            html_message=html_message,
+        )
+        response_data = {"success": True}
+        if self.request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest":
+            return JsonResponse(response_data)
         return super().form_valid(form)
 
     def form_invalid(self, form):
@@ -125,8 +155,42 @@ class contact(CreateView):
         if self.request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest":
             return JsonResponse({"success": False, "errors": errors})
         return super().form_invalid(form)
+    
+# Admin reply
+class AdminReplyView(FormView):
+    template_name = 'email/admin_reply_form.html'
+    form_class = AdminReplyForm
+    success_url = '/'
 
+    def form_valid(self, form):
+        contact_message_id = self.kwargs['pk']
+        contact_message = ContactusModel.objects.get(pk=contact_message_id)
 
+        # Save the form, linking it with the contact message
+        admin_reply = form.save(commit=False)
+        admin_reply.contact_message = contact_message
+        admin_reply.save()
+
+        # Render the HTML email template with data from the admin reply form
+        context = {
+            'fullname': contact_message.fullname,
+            'email': contact_message.email,
+            'company': contact_message.company,
+            'subject': admin_reply.subject,  # Use admin_reply subject here
+            'message': admin_reply.message,  # Use admin_reply message here
+        }
+        html_message = render_to_string('email/admin_reply.html', context)
+
+        # Send email
+        send_mail(
+            subject=admin_reply.subject,
+            message=admin_reply.message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[contact_message.email],
+            html_message=html_message,
+        )
+        return super().form_valid(form)
+    
 class FAQListView(ContactFormMixin, ListView, FormView):
     model = FaqModel
     template_name = "pages/faqlist.html"
@@ -333,6 +397,7 @@ class BlogListView(ContactFormMixin, ListView, FormView):
                 }
             )
         return super().render_to_response(context, **response_kwargs)
+    
 class blogdetail(ContactFormMixin, DetailView, FormView):
     model = PostModel
     template_name = "pages/blog/blogdetail.html"

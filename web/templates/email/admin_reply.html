@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+        .email-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            max-width: 600px;
+            padding: 20px;
+        }
+        .email-header {
+            background-color: #0073e6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .email-header h1 {
+            margin: 0;
+        }
+        .email-content {
+            padding: 20px;
+        }
+        .email-content p {
+            margin: 10px 0;
+        }
+        .email-footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+        .email-footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <h1>Reply from Cyber Code</h1>
+        </div>
+        <div class="email-content">
+            <p>Dear {{ fullname }},</p>
+            <p><strong>Subject:</strong> {{ subject }}</p>
+            <p>{{ message | safe }}</p>
+        </div>
+        <div class="email-footer">
+            <p>© {{ current_year }} Cyber Code</p>
+            <p>All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

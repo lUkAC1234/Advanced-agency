@@ -222,6 +222,19 @@ class ContactusModel(models.Model):
     def __str__(self):
         return self.fullname
     
+class AdminReply(models.Model):
+    contact_message = models.ForeignKey(ContactusModel, on_delete=models.CASCADE)
+    subject = models.CharField(max_length=100)
+    message = RichTextField()
+
+    class Meta:
+        verbose_name = 'Admin Reply'
+        verbose_name_plural = 'Admin Replies'
+        ordering = ('-id',)
+
+    def __str__(self):
+        return f"Reply to {self.contact_message.fullname}"
+    
 class FaqModel(models.Model):
     question = models.CharField()
     answer = RichTextField()

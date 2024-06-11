@@ -3,7 +3,7 @@ from .views import index, about, contact, Pricing, pricinglist, \
 BlogListView, blogdetail, job, JobDetailView, \
 loginView, RegistrationView, MyProfileEdit, logoutView, FAQListView, \
 payment_list, AddToCart, RemoveFromCart, SuccessPayment, PageNotFound, \
-ProjectsView, ProjectDetailView, UserPasswordChangeView
+ProjectsView, ProjectDetailView, UserPasswordChangeView, AdminReplyView
 
 from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, \
 PasswordResetCompleteView, PasswordResetConfirmView
@@ -12,6 +12,8 @@ from django.views.i18n import set_language
 app_name = "main"
 
 urlpatterns = [
+    path('admin/reply/<int:pk>/', AdminReplyView.as_view(), name='admin_reply'),
+    
     path('set-language/', set_language, name='set_language'),
     # Main Page
     path('', index.as_view(), name="index"),

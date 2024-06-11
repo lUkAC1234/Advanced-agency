@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8ts4y19v^4dh!+wc+d0ub-rr15y+7r2#3#y-4d00oa-2rt)%(r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -78,7 +78,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'webordermain',
-        'USER': 'root',
+        'USER': 'postgres',
         'PASSWORD': 'dimatop12',
         'HOST': 'localhost',
         'PORT': '5432'
@@ -164,8 +164,6 @@ LOGIN_URL = 'main:login'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 465
 EMAIL_HOST_USER = "cybercodesp@gmail.com"
