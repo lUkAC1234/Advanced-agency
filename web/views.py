@@ -56,9 +56,9 @@ from datetime import datetime
 from django.contrib.auth.mixins import UserPassesTestMixin
 import pytz
 
-class ContactFormMixin:
+class ContactFormMixin(FormView):
     form_class = ContactusModelForm
-
+    
     def get_success_url(self):
         return self.request.META.get('HTTP_REFERER', '/')
 
@@ -69,8 +69,45 @@ class ContactFormMixin:
         return context
 
     def form_valid(self, form):
-        form.save()
+        contact_message = form.save()
+
+        # Get the current timezone
+        current_timezone = pytz.timezone(settings.TIME_ZONE)
+
+        # Convert the datetime to the current timezone
+        created_at = contact_message.created_at.astimezone(current_timezone)
+
+        # Format the created_at datetime
+        formatted_datetime = created_at.strftime("%B %d, %I:%M %p, %Y")
+
+        # Render the HTML email template
+        context = {
+            'fullname': contact_message.fullname,
+            'email': contact_message.email,
+            'company': contact_message.company,
+            'text': contact_message.text,
+            'formatted_datetime': formatted_datetime,
+            'contact_message': contact_message, 
+            'current_year': datetime.now().year,  
+            'request': self.request,  
+        }
+        html_message = render_to_string('email/contact_message.html', context)
+
+        # Send email
+        send_mail(
+            subject=f"New contact message from {contact_message.fullname}",
+            message=f"Full Name: {contact_message.fullname}\n"
+                    f"Email: {contact_message.email}\n"
+                    f"Company: {contact_message.company}\n"
+                    f"Message: {contact_message.text}\n"
+                    f"Date and Time: {formatted_datetime}",
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.EMAIL_ADMIN],
+            html_message=html_message,
+        )
+
         return HttpResponseRedirect(self.get_success_url())
+    
     
 class index(ContactFormMixin, TemplateView, FormView):
     template_name = "pages/index.html"

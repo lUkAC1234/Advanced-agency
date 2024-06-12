@@ -6,6 +6,8 @@
 }
 
 .admin-reply-form {
+    display: flex;
+    flex-flow: column;
     div {
         display: flex;
         flex-flow: column;

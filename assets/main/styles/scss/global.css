@@ -6443,6 +6443,10 @@
   margin-inline: auto;
 }
 
+.admin-reply-form {
+  display: flex;
+  flex-flow: column;
+}
 .admin-reply-form div {
   display: flex;
   flex-flow: column;
