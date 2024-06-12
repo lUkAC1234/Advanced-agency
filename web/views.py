@@ -109,7 +109,7 @@ class ContactFormMixin(FormView):
         return HttpResponseRedirect(self.get_success_url())
     
     
-class index(ContactFormMixin, TemplateView, FormView):
+class index(ContactFormMixin, TemplateView):
     template_name = "pages/index.html"
 
     def get_context_data(self, **kwargs):
@@ -129,7 +129,7 @@ class index(ContactFormMixin, TemplateView, FormView):
             post.view_count = post.views.count()
         return data
 
-class about(ContactFormMixin, TemplateView, FormView):
+class about(ContactFormMixin, TemplateView):
     template_name = "pages/about.html"
 
     def get_context_data(self, **kwargs):
@@ -238,7 +238,7 @@ class AdminReplyView(UserPassesTestMixin, FormView):
         )
         return super().form_valid(form)
     
-class FAQListView(ContactFormMixin, ListView, FormView):
+class FAQListView(ContactFormMixin, ListView):
     model = FaqModel
     template_name = "pages/faqlist.html"
 
@@ -253,7 +253,7 @@ class Pricing(ContactFormMixin, TemplateView, FormView):
         return data
 
 
-class pricinglist(ContactFormMixin, ListView, FormView):
+class pricinglist(ContactFormMixin, ListView):
     model = PricingModel
     template_name = "pages/pricing/pricinglist.html"
 
@@ -348,7 +348,7 @@ class SuccessPayment(CreateView):
         )
         return data
 
-class BlogListView(ContactFormMixin, ListView, FormView):
+class BlogListView(ContactFormMixin, ListView):
     template_name = "pages/blog/blog.html"
     paginate_by = 5
     model = PostModel
@@ -444,7 +444,7 @@ class BlogListView(ContactFormMixin, ListView, FormView):
             )
         return super().render_to_response(context, **response_kwargs)
     
-class blogdetail(ContactFormMixin, DetailView, FormView):
+class blogdetail(ContactFormMixin, DetailView):
     model = PostModel
     template_name = "pages/blog/blogdetail.html"
 
@@ -498,7 +498,7 @@ class blogdetail(ContactFormMixin, DetailView, FormView):
         return ip
 
 
-class job(ContactFormMixin, ListView, FormView):
+class job(ContactFormMixin, ListView):
     model = JobModel
     template_name = "pages/job/job.html"
 
@@ -549,7 +549,7 @@ class JobDetailView(DetailView):
         return self.render_to_response(context)
 
 
-class ProjectsView(ContactFormMixin, TemplateView, FormView):
+class ProjectsView(ContactFormMixin, TemplateView):
     template_name = "pages/projects/projects.html"
 
     def get_queryset(self):
@@ -579,7 +579,7 @@ class ProjectsView(ContactFormMixin, TemplateView, FormView):
         return super().render_to_response(context, **response_kwargs)
 
 
-class ProjectDetailView(ContactFormMixin, DetailView, FormView):
+class ProjectDetailView(ContactFormMixin, DetailView):
     model = ProjectModel
     template_name = "pages/projects/projectdetail.html"
 
