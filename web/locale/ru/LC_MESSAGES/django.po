@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-08 22:47+0500\n"
+"POT-Creation-Date: 2024-06-12 13:48+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,33 +28,42 @@ msgstr "Английский"
 msgid "Russian"
 msgstr "Русский"
 
-#: .\web\forms.py:48
+#: .\web\forms.py:49
 msgid "Enter your username"
 msgstr "Введите ваше имя пользователя"
 
-#: .\web\forms.py:52
+#: .\web\forms.py:53
 msgid "Enter you password"
 msgstr "Введите ваш пароль"
 
-#: .\web\forms.py:69 .\web\views.py:508
+#: .\web\forms.py:70 .\web\views.py:582
 msgid "Username or password is incorrect"
 msgstr "Имя пользователя или пароль неверны"
 
-#: .\web\forms.py:84
+#: .\web\forms.py:85
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
-#: .\web\forms.py:90
+#: .\web\forms.py:91
 msgid "This username is already in use"
 msgstr "Это имя пользователя уже используется"
 
-#: .\web\forms.py:97
+#: .\web\forms.py:98
 msgid "Password can only contain English letters, numbers, !, $, @, %"
 msgstr "Пароль может содержать только английские буквы, цифры, !, $, @, %"
 
-#: .\web\forms.py:100
+#: .\web\forms.py:101
 msgid "Password must be at least 8 characters long"
 msgstr "Пароль должен быть не менее 8 символов в длину"
+
+#: .\web\forms.py:126 .\web\templates\email\admin_reply.html:111
+msgid "Subject"
+msgstr "Тема"
+
+#: .\web\forms.py:127 .\web\templates\layout\contact_form.html:47
+#: .\web\templates\pages\job\jobdetail.html:62
+msgid "Message"
+msgstr "Сообщение"
 
 #: .\web\models.py:17
 msgid ""
@@ -129,6 +138,115 @@ msgstr "Администратор сайта Django"
 msgid "Django administration"
 msgstr "Администрация Django"
 
+#: .\web\templates\email\admin_reply.html:106
+msgid "Reply from Cyber Code"
+msgstr "Ответ от Cyber Code"
+
+#: .\web\templates\email\admin_reply.html:109
+msgid "Dear"
+msgstr "Уважаемый"
+
+#: .\web\templates\email\admin_reply.html:110
+msgid ""
+"Thank you for reaching out to us. We have received your message and are "
+"pleased to assist you."
+msgstr ""
+"Спасибо, что обратились к нам. Мы получили ваше сообщение и рады помочь вам."
+
+#: .\web\templates\email\admin_reply.html:114
+msgid ""
+"If you have any further questions or need additional assistance, please do "
+"not hesitate to reply to this email."
+msgstr ""
+"Если у вас есть дополнительные вопросы или вам нужна дополнительная помощь, "
+"пожалуйста, не стесняйтесь отвечать на это письмо."
+
+#: .\web\templates\email\admin_reply.html:116
+msgid "You can also reach us through social media:"
+msgstr "Вы также можете связаться с нами через социальные сети:"
+
+#: .\web\templates\email\admin_reply.html:119
+msgid "Channel"
+msgstr "Канал"
+
+#: .\web\templates\email\admin_reply.html:123
+msgid ""
+"If you did not send us a message or believe this email was sent to you by "
+"mistake, please ignore this email."
+msgstr ""
+"Если вы не отправляли нам сообщение или считаете, что это письмо было "
+"отправлено вам по ошибке, пожалуйста, проигнорируйте его."
+
+#: .\web\templates\email\admin_reply.html:126
+msgid "Best regards,"
+msgstr "С наилучшими пожеланиями,"
+
+#: .\web\templates\email\admin_reply.html:127
+msgid "The"
+msgstr " "
+
+#: .\web\templates\email\admin_reply.html:127
+#: .\web\templates\pages\about.html:202
+msgid "Team"
+msgstr "Команда"
+
+#: .\web\templates\email\admin_reply.html:131
+msgid "Cyber Code. All rights reserved."
+msgstr "Cyber Code. Все права защищены."
+
+#: .\web\templates\email\admin_reply_form.html:5
+msgid "Admin reply form - Cyber Code"
+msgstr "Форма ответа администратора - Cyber Code"
+
+#: .\web\templates\email\admin_reply_form.html:13
+msgid "Reply to Contact Message"
+msgstr "Ответить на сообщение"
+
+#: .\web\templates\email\admin_reply_form.html:23
+msgid "Send Reply"
+msgstr "Отправить ответ"
+
+#: .\web\templates\email\contact_message.html:82
+msgid "Contact Us Message"
+msgstr "Сообщение Свяжитесь с нами"
+
+#: .\web\templates\email\contact_message.html:85
+msgid "Full Name:"
+msgstr "Полное имя:"
+
+#: .\web\templates\email\contact_message.html:86
+msgid "Email:"
+msgstr "Почта:"
+
+#: .\web\templates\email\contact_message.html:87
+msgid "Company:"
+msgstr "Компания:"
+
+#: .\web\templates\email\contact_message.html:88
+msgid "Message:"
+msgstr "Сообщение:"
+
+#: .\web\templates\email\contact_message.html:90
+msgid "Date and Time:"
+msgstr "Дата и время:"
+
+#: .\web\templates\email\contact_message.html:92
+#: .\web\templates\email\contact_message.html:93
+msgid "Reply to"
+msgstr "Ответить на"
+
+#: .\web\templates\email\contact_message.html:93
+msgid "via website"
+msgstr "через веб-сайт"
+
+#: .\web\templates\email\contact_message.html:97
+msgid "Cyber Code"
+msgstr "Cyber Code"
+
+#: .\web\templates\email\contact_message.html:98
+msgid "All rights reserved."
+msgstr "Все права защищены."
+
 #: .\web\templates\layout\contact_form.html:12
 #: .\web\templates\layout\contact_form.html:57
 #: .\web\templates\pages\contact.html:97
@@ -153,11 +271,6 @@ msgstr "Адрес электронной почты"
 #: .\web\templates\pages\contact.html:85
 msgid "Company name"
 msgstr "Название компании"
-
-#: .\web\templates\layout\contact_form.html:47
-#: .\web\templates\pages\job\jobdetail.html:62
-msgid "Message"
-msgstr "Сообщение"
 
 #: .\web\templates\layout\contact_form.html:49
 msgid "Hello, I want to order..."
@@ -460,10 +573,6 @@ msgid "All of our employees are important to us, join us!"
 msgstr "Все наши сотрудники важны для нас, присоединяйтесь к нам!"
 
 #: .\web\templates\pages\about.html:202
-msgid "Team"
-msgstr "Команда"
-
-#: .\web\templates\pages\about.html:202
 msgid "members"
 msgstr "члены"
 
@@ -683,13 +792,29 @@ msgstr "Заполните форму, и наша команда свяжетс
 msgid "Click to view other FAQS"
 msgstr "Нажмите, чтобы посмотреть другие FAQ"
 
+#: .\web\templates\pages\error\error403.html:20
+msgid "Access denied"
+msgstr "Доступ запрещен"
+
+#: .\web\templates\pages\error\error403.html:469
+msgid "Access Denied!"
+msgstr "Доступ запрещен!"
+
+#: .\web\templates\pages\error\error403.html:470
+msgid ""
+"You don't have permission to access this page. How you got here is a "
+"mystery. But you can click the button below to go back to the homepage."
+msgstr ""
+"У вас нет разрешения на доступ к этой странице. Как вы сюда попали, загадка. "
+"Но вы можете нажать на кнопку ниже, чтобы вернуться на главную страницу."
+
+#: .\web\templates\pages\error\error403.html:472
+msgid "Go to Home"
+msgstr "Перейти на главную"
+
 #: .\web\templates\pages\error\error404.html:20
 msgid "404 Page Not Found - Cyber Code"
 msgstr "404 Страница не найдена - Cyber Code"
-
-#: .\web\templates\pages\error\error404.html:468
-msgid "404"
-msgstr "404"
 
 #: .\web\templates\pages\error\error404.html:469
 msgid "UH OH! You're lost."
@@ -1566,19 +1691,19 @@ msgstr "Зарегистрироваться"
 msgid "Already have an account?"
 msgstr "У вас уже есть аккаунт?"
 
-#: .\web\views.py:348
+#: .\web\views.py:422
 msgid "This post is private."
 msgstr "Этот пост является приватным."
 
-#: .\web\views.py:486
+#: .\web\views.py:560
 msgid "Profile updated successfully."
 msgstr "Профиль успешно обновлен."
 
-#: .\web\views.py:534
+#: .\web\views.py:608
 msgid "You have successfully created an account"
 msgstr "Вы успешно создали аккаунт"
 
-#: .\web\views.py:556
+#: .\web\views.py:630
 msgid "Your password was successfully updated"
 msgstr "Ваш пароль успешно обновлен"
 

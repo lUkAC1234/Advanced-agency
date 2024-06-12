@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
 
     <link rel="shortcut icon" href="{% static 'main/images/layout/websiteicon.svg' %}" type="image/svg+xml" />
-    <title>{% translate '404 Page Not Found - Cyber Code' %}</title>
+    <title>403 - {% translate 'Access denied' %} - Cyber Code</title>
 
     <!-- Animation -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -465,11 +465,11 @@
                     </svg>
                 </div>
                 <div class="content-container-404 fade fadeInRight">
-                    <h1 class="title-404">404</h1>
-                    <h2 class="title-second-404">{% translate "UH OH! You're lost." %}</h2>
-                    <p class="text-404">{% translate "The page you are looking for does not exist. How you got here is a mystery. But you can click the button below to go back to the homepage." %}</p>
+                    <h1 class="title-404">403</h1>
+                    <h2 class="title-second-404">{% translate "Access Denied!" %}</h2>
+                    <p class="text-404">{% translate "You don't have permission to access this page. How you got here is a mystery. But you can click the button below to go back to the homepage." %}</p>
                     <a href="{% url 'main:index' %}" class="link-404">
-                        <button>{% translate 'Go to home' %} <i class="fa-solid fa-arrow-right"></i></button>
+                        <button>{% translate 'Go to Home' %} <i class="fa-solid fa-arrow-right"></i></button>
                     </a>
                 </div>
             </div>

@@ -226,6 +226,7 @@ class AdminReply(models.Model):
     contact_message = models.ForeignKey(ContactusModel, on_delete=models.CASCADE)
     subject = models.CharField(max_length=100)
     message = RichTextField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = 'Admin Reply'

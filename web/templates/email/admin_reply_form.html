@@ -1,15 +1,29 @@
 {% extends 'layout/base.html' %}
-{% load static %}
+{% load static i18n %}
+
+{% block title %}
+<title>{% translate 'Admin reply form - Cyber Code' %}</title>
+{% endblock %}
+
 {% block content %}
 <main class="main">
-    <div class="container" style="margin-top: 10rem;">
-        <h1>Reply to Contact Message</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Send Reply</button>
-        </form>
-    </div>
+    <section class="projects-section">
+        <div class="projects-container">
+            <article class="projects-article">
+                <h1 class="projects-article-title fade fadeInDown">{% translate 'Reply to Contact Message' %}</h1>
+            </article>
+        </div>
+    </section>
+    <section class="admin-reply-section">
+        <div class="admin-reply-container">
+            <form action="" class="admin-reply-form" method="POST">
+                {% csrf_token %}
+                {{ form.media }}
+                {{ form }}
+                <button class="admin-reply-btn" type="submit">{% translate 'Send Reply' %}</button>
+            </form>
+        </div>
+    </section>
 </main>
 {% endblock %}
 

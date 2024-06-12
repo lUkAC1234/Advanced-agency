@@ -121,3 +121,8 @@ class AdminReplyForm(forms.ModelForm):
         widgets = {
             'message': CKEditorWidget(),
         }
+        
+        labels = {
+            'subject': _('Subject'),
+            'message': _('Message'),
+        }

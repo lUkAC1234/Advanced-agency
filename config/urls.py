@@ -6,6 +6,7 @@ from web import views
 from django.conf.urls.i18n import i18n_patterns
 
 handler404 = views.PageNotFound
+handler403 = views.ForbiddenPage
 
 urlpatterns = [
     path('cybercode/admin/panel', admin.site.urls),

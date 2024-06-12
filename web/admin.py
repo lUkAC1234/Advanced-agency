@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import UserModel, PricingModel, PostModel, FeedbackModel, ContactusModel, \
 FaqModel, JobModel, JobCategoryModel, ProjectModel, ProjectCategory, PostTagModel, PostCategoryModel, PartnersModel, \
-JobApplyModel, CheckOut, JobKnowledgesModel, VisitHistory
+JobApplyModel, CheckOut, JobKnowledgesModel, VisitHistory, AdminReply
 from django.utils.translation import gettext_lazy as _
 # For saving html code
 from django.utils.safestring import mark_safe
@@ -74,6 +74,13 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ['id', 'company']
     list_display_links = ['id', 'company']
     search_fields = ['company']
+    readonly_fields = ['created_at']
+    
+@admin.register(AdminReply)
+class AdminReply(admin.ModelAdmin):
+    list_display = ['id', 'subject']
+    list_display_links = ['id', 'subject']
+    search_fields = ['subject']
     readonly_fields = ['created_at']
 
 @admin.register(FaqModel)

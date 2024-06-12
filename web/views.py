@@ -42,7 +42,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
 from django.template.loader import render_to_string
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseNotFound, Http404
+from django.http import HttpResponseNotFound, Http404, HttpResponseForbidden
 from django.db.models import Count
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib import messages
@@ -52,6 +52,8 @@ from django.views.decorators.cache import never_cache
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from django.conf import settings
+from datetime import datetime
+from django.contrib.auth.mixins import UserPassesTestMixin
 import pytz
 
 class ContactFormMixin:
@@ -128,6 +130,9 @@ class contact(CreateView):
             'company': contact_message.company,
             'text': contact_message.text,
             'formatted_datetime': formatted_datetime,
+            'contact_message': contact_message, 
+            'current_year': datetime.now().year,  
+            'request': self.request,  
         }
         html_message = render_to_string('email/contact_message.html', context)
 
@@ -143,6 +148,7 @@ class contact(CreateView):
             recipient_list=[settings.EMAIL_ADMIN],
             html_message=html_message,
         )
+
         response_data = {"success": True}
         if self.request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest":
             return JsonResponse(response_data)
@@ -157,10 +163,13 @@ class contact(CreateView):
         return super().form_invalid(form)
     
 # Admin reply
-class AdminReplyView(FormView):
+class AdminReplyView(UserPassesTestMixin, FormView):
     template_name = 'email/admin_reply_form.html'
     form_class = AdminReplyForm
     success_url = '/'
+
+    def test_func(self):
+        return self.request.user.is_superuser
 
     def form_valid(self, form):
         contact_message_id = self.kwargs['pk']
@@ -176,13 +185,14 @@ class AdminReplyView(FormView):
             'fullname': contact_message.fullname,
             'email': contact_message.email,
             'company': contact_message.company,
-            'subject': admin_reply.subject,  # Use admin_reply subject here
-            'message': admin_reply.message,  # Use admin_reply message here
+            'subject': admin_reply.subject,  
+            'message': admin_reply.message, 
+            'current_year': datetime.now().year, 
         }
         html_message = render_to_string('email/admin_reply.html', context)
 
         # Send email
-        send_mail(
+        send_mail(  
             subject=admin_reply.subject,
             message=admin_reply.message,
             from_email=settings.DEFAULT_FROM_EMAIL,
@@ -194,7 +204,6 @@ class AdminReplyView(FormView):
 class FAQListView(ContactFormMixin, ListView, FormView):
     model = FaqModel
     template_name = "pages/faqlist.html"
-
 
 class Pricing(ContactFormMixin, TemplateView, FormView):
     template_name = "pages/pricing/pricing.html"
@@ -633,3 +642,7 @@ def logoutView(request):
 def PageNotFound(request, *args, **kwargs):
     text = render_to_string("pages/error/error404.html")
     return HttpResponseNotFound(text)
+
+def ForbiddenPage(request, *args, **kwargs):
+    text = render_to_string("pages/error/error403.html")
+    return HttpResponseForbidden(text)

@@ -1,0 +1,56 @@
+.admin-reply-section {
+    margin-top: 1rem;
+    padding-inline: 1rem;
+    max-width: 70rem;
+    margin-inline: auto;
+}
+
+.admin-reply-form {
+    div {
+        display: flex;
+        flex-flow: column;
+    }
+
+    label { 
+        @extend .dark-blue-text-center-grotext-family-1rem;
+        @extend .text-align-start;
+        margin-block: 0.5rem;
+    }
+
+    input {
+        border: 1px solid var(--profile-input-border);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        color: var(--text-dark-blue);
+        font-size: 0.8rem;
+        font-family: var(--grotext-sans);
+        transition: 0.4s all;
+
+        &:focus {
+            border-color: var(--background-purple);
+        }
+    }
+
+    .admin-reply-btn {
+        @extend .onerem-tworem-purple-button;
+        margin-block: 1rem;
+        font-size: 0.9rem !important;
+        padding: 0.5rem !important;
+        width: 100%;
+        display: flex;
+        place-content: center;
+        place-items: center;
+        gap: 0.5rem;
+
+        i {
+            font-size: 0.8rem;
+        }
+
+        @media screen and (max-width: 600px) {
+            font-size: 0.8rem;
+            i {
+                font-size: 0.6rem;
+            }
+        }
+    }
+}

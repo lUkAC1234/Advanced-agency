@@ -1,3 +1,4 @@
+{% load static i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,18 +18,21 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin: 0 auto;
             max-width: 600px;
+            padding: 20px;
         }
         .email-header {
-            background-color: #0073e6;
+            background-color: #8828ff;
             color: white;
             padding: 20px;
             text-align: center;
         }
         .email-header h1 {
             margin: 0;
+            font-size: 24px;
         }
+
         .email-content {
-            padding: 20px;
+            padding: 20px 20px 10px;
         }
         .email-content p {
             margin: 10px 0;
@@ -38,6 +42,7 @@
             padding: 20px;
             font-size: 12px;
             color: #777;
+            border-top: 1px solid #777;
         }
         .email-footer p {
             margin: 5px 0;
@@ -47,8 +52,8 @@
             margin-top: 20px;
         }
         .btn {
-            background-color: #0073e6;
-            color: white;
+            background-color: #8828ff;
+            color: #ffffff !important;
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
@@ -56,29 +61,41 @@
             margin: 5px;
         }
         .btn:hover {
-            background-color: #005bb5;
+            background-color: #C08DFF;
+        }
+
+        strong {
+            color: #8828ff;
+        }
+
+        @media screen and (max-width: 600px) {
+            .email-header h1 {
+                margin: 0;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="email-container">
         <div class="email-header">
-            <h1>Contact Us Message</h1>
+            <h1>{% translate 'Contact Us Message' %}</h1>
         </div>
         <div class="email-content">
-            <p><strong>Full Name:</strong> {{ fullname }}</p>
-            <p><strong>Email:</strong> {{ email }}</p>
-            <p><strong>Company:</strong> {{ company }}</p>
-            <p><strong>Message:</strong></p>
+            <p><strong>{% translate 'Full Name:' %}</strong> {{ fullname }}</p>
+            <p><strong>{% translate 'Email:' %}</strong> {{ email }}</p>
+            <p><strong>{% translate 'Company:' %}</strong> {{ company }}</p>
+            <p><strong>{% translate 'Message:' %}</strong></p>
             <p>{{ text }}</p>
-            <p><strong>Date and Time:</strong> {{ formatted_datetime }}</p>
+            <p><strong>{% translate 'Date and Time:' %}</strong> {{ formatted_datetime }}</p>
             <div class="btn-container">
-                <a href="mailto:{{ email }}" class="btn">Reply to {{ fullname }}</a>
+                <a href="mailto:{{ email }}" class="btn">{% translate 'Reply to' %} {{ fullname }}</a>
+                <a href="{{ request.scheme }}://{{ request.get_host }}{% url 'main:adminReplyForm' pk=contact_message.pk %}" class="btn">{% translate 'Reply to' %} "{{ fullname }}" {% translate 'via website' %}</a>
             </div>
         </div>
         <div class="email-footer">
-            <p>© {{ current_year }} Cyber Code</p>
-            <p>All rights reserved.</p>
+            <p>© {{ current_year }} {% translate 'Cyber Code' %}</p>
+            <p>{% translate 'All rights reserved.' %}</p>
         </div>
     </div>
 </body>
