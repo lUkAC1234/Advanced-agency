@@ -139,32 +139,38 @@
 }
 
 .task-image-column video {
-  width: 100%;
-  height: 100%;
+  width: 25rem;
+  height: 25rem;
   object-fit: cover;
   outline: 4px solid var(--background-white);
   outline-offset: -4px;
+}
+@media screen and (max-width: 992px) {
+  .task-image-column video {
+    width: min(100%, 25rem);
+    height: min(100%, 25rem);
+  }
 }
 
 .task-content-column {
   width: min(100%, 33rem);
 }
+.task-content-column .task-title {
+  font-size: 2.25rem !important;
+}
 .task-content-column .task-text {
   margin-left: 0.3rem;
   margin-top: 1rem;
 }
-.task-content-column .task-button-a {
-  margin-left: 0.3rem;
-}
-.task-content-column .task-button-a .task-button {
-  margin-top: 2rem;
+.task-content-column .task-button {
+  margin: 2rem 0 0 0.3rem;
 }
 
-@media screen and (max-width: 1000px) {
-  .task-title {
-    font-size: 2rem !important;
+@media screen and (max-width: 992px) {
+  .task-content-column .task-title {
+    font-size: 1.75rem !important;
   }
-  .task-text {
+  .task-content-column .task-text {
     font-size: 1rem !important;
   }
   .task-content-column {
@@ -184,191 +190,48 @@
     margin: 0 0.5rem;
   }
 }
-.chat {
-  position: relative;
-  padding-top: 12rem;
-  margin: 0 auto;
+@media screen and (max-width: 600px) {
+  .task-content-column .task-title {
+    font-size: 1.5rem !important;
+  }
+  .task-content-column .task-text {
+    font-size: 0.9rem !important;
+  }
 }
-.chat::before {
-  content: "";
-  position: absolute;
-  top: -15rem;
-  right: 0;
-  width: 10rem;
-  height: 25rem;
-  background-image: url("../../images/main-page/rightcircle.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
+.whyus-section {
+  margin-top: 3rem;
 }
-@media screen and (max-width: 1200px) {
-  .chat::before {
-    top: -7rem;
-    width: 8rem;
-    height: 15rem;
+
+.whyus-title {
+  margin-bottom: 3rem;
+  padding-inline: 1rem;
+}
+@media screen and (max-width: 600px) {
+  .whyus-title {
+    font-size: 2rem !important;
   }
 }
 
-.static-info {
-  width: min(100%, 34rem);
-}
-.static-info .static-info-text {
-  margin-top: 1rem;
-}
-
-.chats {
-  gap: 2.31rem;
+.whyus-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  padding-inline: 1rem;
+  gap: 3rem;
 }
 
-.message-container {
-  position: relative;
-  border-radius: 16px;
+.whyus-text-container {
+  font-size: 1.25rem !important;
+  margin-top: 2rem;
+}
+
+.whyus-column {
+  box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  padding: 2rem 1.5rem;
   background: var(--background-white);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 1.25rem;
 }
 
-.chat-column:nth-child(odd) .message-container::after {
-  content: "";
-  position: absolute;
-  left: -24px;
-  bottom: 1px;
-  border-top: 18px solid transparent;
-  border-right: 35px solid var(--background-white);
-  border-bottom: 18px solid transparent;
-  filter: drop-shadow(0 0.5px 0px rgba(0, 0, 0, 0.1));
-}
-.chat-column:nth-child(odd) .message-container::before {
-  content: "";
-  position: absolute;
-  width: 2.5rem;
-  height: 0.5rem;
-  background: var(--background-purple);
-  border-radius: 3.5625rem;
-  bottom: -1rem;
-  left: 0;
-}
-
-.chat-column:nth-child(even) .profile {
-  order: 2;
-}
-.chat-column:nth-child(even) .message-container::after {
-  content: "";
-  position: absolute;
-  right: -24px;
-  bottom: 1px;
-  border-top: 18px solid transparent;
-  border-left: 35px solid var(--background-white);
-  border-bottom: 18px solid transparent;
-  filter: drop-shadow(0 0.5px 0px rgba(0, 0, 0, 0.1));
-}
-.chat-column:nth-child(even) .message-container::before {
-  content: "";
-  position: absolute;
-  width: 2.5rem;
-  height: 0.5rem;
-  background: var(--background-purple);
-  border-radius: 3.5625rem;
-  bottom: -1rem;
-  right: 0;
-}
-
-.chat-column {
-  column-gap: 2.25rem;
-}
-.chat-column .profile img {
-  width: 2.5rem;
-  height: 2.5rem;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 1px solid var(--background-purple);
-}
-.chat-column .message-container .chat-message-text {
-  padding: 1rem 1rem 0.5rem;
-  max-width: 20.5rem;
-}
-.chat-column .message-container .message-creating-details {
-  padding: 0 1.5rem;
-}
-.chat-column .message-container .message-creating-details .message-user {
-  font-size: 0.9rem !important;
-}
-.chat-column .message-container .message-creating-details .message-date {
-  color: var(--text-light-gray);
-  font-size: 0.75rem;
-  font-family: var(--nunito);
-  line-height: 140%;
-}
-
-@media screen and (max-width: 1140px) {
-  .chats {
-    gap: 1rem;
-  }
-  .static-info {
-    margin-left: 0.5rem;
-  }
-  .static-info .static-info-title {
-    font-size: 2rem !important;
-  }
-  .static-info .static-info-text {
-    font-size: 1rem !important;
-  }
-  .chat-column:nth-child(odd) .message-container::after {
-    left: -13px;
-    border-top: 15px solid transparent;
-    border-right: 25px solid var(--background-white);
-    border-bottom: 15px solid transparent;
-    filter: none;
-  }
-  .chat-column:nth-child(odd) .message-container::before {
-    width: 1.5rem;
-    height: 0.35rem;
-    bottom: -0.5rem;
-  }
-  .chat-column:nth-child(even) .message-container::after {
-    right: -13px;
-    border-top: 15px solid transparent;
-    border-left: 25px solid var(--background-white);
-    border-bottom: 15px solid transparent;
-    filter: none;
-  }
-  .chat-column:nth-child(even) .message-container::before {
-    width: 1.5rem;
-    height: 0.35rem;
-    bottom: -0.5rem;
-  }
-  .chat-column {
-    transform: scale(0.9);
-  }
-  .chat-column .message-container .chat-message-text {
-    font-size: 0.7rem !important;
-    padding: 0.8rem 0.8rem 0.5rem;
-  }
-  .chat-column .message-container .message-creating-details .message-user {
-    font-size: 0.7rem !important;
-  }
-  .chat-column .message-container .message-creating-details .message-date {
-    font-size: 0.65rem !important;
-  }
-}
-@media screen and (max-width: 800px) {
-  .chat {
-    flex-flow: column;
-    gap: 2rem;
-    padding-inline: 0.5rem;
-  }
-  .chats {
-    gap: 1rem;
-  }
-  .chat-column {
-    transform: scale(1);
-    margin: 0 0.5rem;
-  }
-  .static-info .static-info-title {
-    font-size: 2rem !important;
-  }
-  .static-info .static-info-text {
-    font-size: 1rem !important;
-  }
-}
 .package {
   position: relative;
   margin-top: 12.5rem;
@@ -392,7 +255,7 @@
   width: 100%;
   height: 10rem;
   background-position: bottom center;
-  bottom: -10px;
+  bottom: -3rem;
   background-size: cover;
 }
 .package .package-info {
@@ -460,9 +323,10 @@
 .choices-column .abilities ul li::before {
   content: "";
   position: absolute;
-  background: url(../../images/main-page/arrow.svg);
-  width: 20px;
-  height: 20px;
+  background: url(../../images/main-page/arrow.svg) no-repeat no-repeat;
+  background-size: cover;
+  width: 1rem;
+  height: 1rem;
   left: -1.25rem;
 }
 .choices-column .abilities .abilities-btn {
@@ -487,7 +351,7 @@
 }
 .choices-column:has(.recommended) .price-column ul li::before,
 .choices-column:has(.recommended) .abilities ul li::before {
-  background: url(../../images/main-page/arrow-white.svg);
+  background-image: url(../../images/main-page/arrow-white.svg);
 }
 .choices-column:has(.recommended) .price-column .abilities-btn,
 .choices-column:has(.recommended) .abilities .abilities-btn {
@@ -519,6 +383,65 @@
   }
   .choices-column ul li {
     font-size: 0.9rem !important;
+  }
+}
+.decide-section {
+  margin-block: 3rem 6rem;
+}
+
+.decide-container {
+  padding-inline: 1rem;
+}
+
+.decide-text {
+  margin-top: 1rem;
+}
+
+.decide-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+@media screen and (max-width: 600px) {
+  .decide-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.decide-input {
+  width: 100%;
+  font-size: 1rem !important;
+}
+.decide-input::placeholder {
+  font-size: 0.8rem !important;
+}
+
+.decide-submit-btn {
+  padding: 0.5rem;
+  color: var(--text-white);
+  text-align: center;
+  font-size: 1rem;
+  font-family: var(--grotext-sans);
+  font-weight: 500;
+  background: var(--background-purple);
+  border-radius: 0.5rem;
+  border: 1px solid var(--background-purple);
+  transition: all 0.5s;
+  cursor: pointer;
+  text-wrap: nowrap;
+}
+.decide-submit-btn:hover {
+  background: none;
+  color: var(--text-purple);
+}
+
+@media screen and (max-width: 600px) {
+  .decide-title {
+    font-size: 2rem !important;
+  }
+  .decide-text {
+    font-size: 1rem !important;
   }
 }
 .carousel-section {
@@ -665,11 +588,6 @@
 }
 
 .partners-info-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  place-content: center;
-  place-items: center;
-  grid-gap: 1rem;
   margin-block: 2rem 3rem;
 }
 .partners-info-container .partners-column {
@@ -5274,7 +5192,8 @@
 .profile-edit-column .profile-edit-text i {
   color: var(--text-dark-blue);
 }
-.profile-edit-column .profile-edit-input {
+
+.profile-edit-input {
   border: 1px solid var(--profile-input-border);
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -5283,7 +5202,7 @@
   font-family: var(--grotext-sans);
   transition: 0.4s all;
 }
-.profile-edit-column .profile-edit-input:focus {
+.profile-edit-input:focus {
   border-color: var(--background-purple);
 }
 
@@ -6602,7 +6521,7 @@
 }
 .login-part-header .sign-button {
   padding: 0.475rem 1.25rem;
-  border-radius: 40px;
+  border-radius: 2rem;
   border: 1.3px solid var(--background-purple);
   color: var(--text-purple);
   background: none;
@@ -7014,7 +6933,7 @@ body:has(.language-dropdown-content.show) {
   display: block;
   top: -2rem;
   left: -6rem;
-  width: min(100vw, 100rem);
+  width: 100vw;
   height: 100vmax;
   background: var(--background-white);
   padding: 3rem 1rem;
@@ -7243,243 +7162,6 @@ body:has(.language-dropdown-content.show) {
 }
 
 @font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/static/main/fonts/poppins/poppins1.woff2") format("woff2");
-  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FF;
-}
-/* latin-ext */
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/static/main/fonts/poppins/poppins2.woff2") format("woff2");
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/static/main/fonts/poppins/poppins3.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* devanagari */
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("/static/main/fonts/poppins/poppins4.woff2") format("woff2");
-  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FF;
-}
-/* latin-ext */
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("/static/main/fonts/poppins/poppins5.woff2") format("woff2");
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("/static/main/fonts/poppins/poppins6.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* devanagari */
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("/static/main/fonts/poppins/poppins7.woff2") format("woff2");
-  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FF;
-}
-/* latin-ext */
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("/static/main/fonts/poppins/poppins8.woff2") format("woff2");
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("/static/main/fonts/poppins/poppins9.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url("/static/main/fonts/poppins/poppins10.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Helvetica";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Helvetica"), url("/static/main/fonts/helvetica/Helvetica.woff") format("woff");
-}
-@font-face {
-  font-family: "Helvetica Oblique";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Helvetica Oblique"), url("/static/main/fonts/helvetica/Helvetica-Oblique.woff") format("woff");
-}
-@font-face {
-  font-family: "Helvetica Compressed";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Helvetica Compressed"), url("/static/main/fonts/helvetica/helvetica-compressed-5871d14b6903a.woff") format("woff");
-}
-@font-face {
-  font-family: "Helvetica Rounded Bold";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Helvetica Rounded Bold"), url("/static/main/fonts/helvetica/helvetica-rounded-bold-5871d05ead8de.woff") format("woff");
-}
-@font-face {
-  font-family: "Helvetica";
-  font-style: normal;
-  font-weight: bold;
-  src: local("Helvetica Bold"), url("/static/main/fonts/helvetica/Helvetica-Bold.woff") format("woff");
-}
-@font-face {
-  font-family: "Helvetica Bold Oblique";
-  font-style: normal;
-  font-weight: bold;
-  src: local("Helvetica Bold Oblique"), url("/static/main/fonts/helvetica/Helvetica-BoldOblique.woff") format("woff");
-}
-@font-face {
-  font-family: "Helvetica Light";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Helvetica Light"), url("/static/main/fonts/helvetica/helvetica-light-587ebe5a59211.woff") format("woff");
-}
-/* vietnamese */
-@font-face {
-  font-family: "Space Grotesk";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/static/main/fonts/grotext/grotext1.woff2") format("woff2");
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: "Space Grotesk";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/static/main/fonts/grotext/grotext2.woff2") format("woff2");
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: "Space Grotesk";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/static/main/fonts/grotext/grotext3.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 300;
-  font-stretch: 100%;
-  font-display: swap;
-  src: url("/static/main/fonts/sans/sans1.woff2") format("woff2");
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 300;
-  font-stretch: 100%;
-  font-display: swap;
-  src: url("/static/main/fonts/sans/sans2.woff2") format("woff2");
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek-ext */
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 300;
-  font-stretch: 100%;
-  font-display: swap;
-  src: url("/static/main/fonts/sans/sans3.woff2") format("woff2");
-  unicode-range: U+1F00-1FFF;
-}
-/* greek */
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 300;
-  font-stretch: 100%;
-  font-display: swap;
-  src: url("/static/main/fonts/sans/sans4.woff2") format("woff2");
-  unicode-range: U+0370-03FF;
-}
-/* hebrew */
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 300;
-  font-stretch: 100%;
-  font-display: swap;
-  src: url("/static/main/fonts/sans/sans5.woff2") format("woff2");
-  unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
-}
-/* vietnamese */
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 300;
-  font-stretch: 100%;
-  font-display: swap;
-  src: url("/static/main/fonts/sans/sans6.woff2") format("woff2");
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 300;
-  font-stretch: 100%;
-  font-display: swap;
-  src: url("/static/main/fonts/sans/sans7.woff2") format("woff2");
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 300;
-  font-stretch: 100%;
-  font-display: swap;
-  src: url("/static/main/fonts/sans/sans8.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
   font-family: "Gilroy";
   src: url("/static/main/fonts/girloy/Gilroy-Regular.ttf") format("truetype"); /* Default font */
   font-weight: normal;
@@ -7497,16 +7179,11 @@ body:has(.language-dropdown-content.show) {
   font-weight: 500;
   font-style: normal;
 }
-html[lang=ru] {
-  --grotext-sans: Gilroy, Arial, sans-serif !important;
-  --poppins: Gilroy, Arial, sans-serif !important;
-}
-
 :root {
-  --grotext-sans: Space Grotesk, sans-serif !important;
-  --sans: sans-serif !important;
-  --nunito: Nunito, sans-serif !important;
-  --poppins: Poppins !important;
+  --grotext-sans: Gilroy, Arial, sans-serif !important;
+  --sans: Gilroy, Arial, sans-serif !important;
+  --nunito: Gilroy, Arial, sans-serif !important;
+  --poppins: Gilroy, Arial, sans-serif !important;
   --girloy: Gilroy, Arial, sans-serif !important;
 }
 
@@ -7532,11 +7209,159 @@ strong {
   scroll-behavior: smooth !important;
 }
 
-@media screen and (min-width: 2000px) {
-  .header,
-  .main,
-  .footer {
-    padding-inline: calc(50% - 50rem);
+:root {
+  --rem: 16px;
+  font-size: calc(var(--rem) + 4 * (100vw - 320px) / 960);
+}
+
+@media screen and (min-width: 2500px) {
+  :root {
+    --rem: 16px;
+  }
+}
+@media screen and (min-width: 3000px) {
+  :root {
+    --rem: 18.5px;
+  }
+}
+@media screen and (min-width: 3500px) {
+  :root {
+    --rem: 21px;
+  }
+}
+@media screen and (min-width: 4000px) {
+  :root {
+    --rem: 23.5px;
+  }
+}
+@media screen and (min-width: 4500px) {
+  :root {
+    --rem: 26px;
+  }
+}
+@media screen and (min-width: 5000px) {
+  :root {
+    --rem: 28.5px;
+  }
+}
+@media screen and (min-width: 5500px) {
+  :root {
+    --rem: 31px;
+  }
+}
+@media screen and (min-width: 6000px) {
+  :root {
+    --rem: 33.5px;
+  }
+}
+@media screen and (min-width: 6500px) {
+  :root {
+    --rem: 36px;
+  }
+}
+@media screen and (min-width: 7000px) {
+  :root {
+    --rem: 38.5px;
+  }
+}
+@media screen and (min-width: 7500px) {
+  :root {
+    --rem: 41px;
+  }
+}
+@media screen and (min-width: 8000px) {
+  :root {
+    --rem: 43.5px;
+  }
+}
+@media screen and (min-width: 8500px) {
+  :root {
+    --rem: 46px;
+  }
+}
+@media screen and (min-width: 9000px) {
+  :root {
+    --rem: 48.5px;
+  }
+}
+@media screen and (min-width: 9500px) {
+  :root {
+    --rem: 51px;
+  }
+}
+@media screen and (min-width: 10000px) {
+  :root {
+    --rem: 53.5px;
+  }
+}
+@media screen and (min-width: 10500px) {
+  :root {
+    --rem: 56px;
+  }
+}
+@media screen and (min-width: 11000px) {
+  :root {
+    --rem: 58.5px;
+  }
+}
+@media screen and (min-width: 11500px) {
+  :root {
+    --rem: 61px;
+  }
+}
+@media screen and (min-width: 12000px) {
+  :root {
+    --rem: 63.5px;
+  }
+}
+@media screen and (min-width: 12500px) {
+  :root {
+    --rem: 66px;
+  }
+}
+@media screen and (min-width: 13000px) {
+  :root {
+    --rem: 68.5px;
+  }
+}
+@media screen and (min-width: 13500px) {
+  :root {
+    --rem: 71px;
+  }
+}
+@media screen and (min-width: 14000px) {
+  :root {
+    --rem: 73.5px;
+  }
+}
+@media screen and (min-width: 14500px) {
+  :root {
+    --rem: 76px;
+  }
+}
+@media screen and (min-width: 15000px) {
+  :root {
+    --rem: 78.5px;
+  }
+}
+@media screen and (min-width: 15500px) {
+  :root {
+    --rem: 81px;
+  }
+}
+@media screen and (min-width: 16000px) {
+  :root {
+    --rem: 83.5px;
+  }
+}
+@media screen and (min-width: 16500px) {
+  :root {
+    --rem: 86px;
+  }
+}
+@media screen and (min-width: 17000px) {
+  :root {
+    --rem: 88.5px;
   }
 }
 .onerem-tworem-purple-button, .gradient-artice-btn-container .gradient-artice-btn, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .clear-posts-container .clear-posts-clear, .join-our-team-btn-container button, .job-gradient-info-btn-container button, .jobApplyForm .apply-button, .profile-submit-btn-container .profile-submit-btn, .payment-product-info-container .payment-type-container .payment-product-remove, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn, .success-payment-feedback-container button, .change-password-form-btn, .admin-reply-form .admin-reply-btn {
@@ -7547,7 +7372,7 @@ strong {
   font-family: var(--grotext-sans);
   font-weight: 500;
   background: var(--background-purple);
-  border-radius: 40px;
+  border-radius: 2rem;
   border: 1px solid var(--background-purple);
   transition: all 0.5s;
   cursor: pointer;
@@ -7565,7 +7390,7 @@ strong {
   font-size: 1.125rem;
   font-family: var(--grotext-sans);
   font-weight: 500;
-  border-radius: 40px;
+  border-radius: 2rem;
   border: none;
   background: none;
   transition: all 0.5s;
@@ -7575,7 +7400,7 @@ strong {
   color: var(--text-purple);
 }
 
-.gray-button-purple-1rem-2rem, .gradient-artice-btn-container .gradient-artice-btn-no-border, .task-content-column .task-button-a .task-button, .choices-column .abilities .abilities-btn, .choices-column:has(.recommended) .price-column .abilities-btn,
+.gray-button-purple-1rem-2rem, .gradient-artice-btn-container .gradient-artice-btn-no-border, .task-content-column .task-button, .choices-column .abilities .abilities-btn, .choices-column:has(.recommended) .price-column .abilities-btn,
 .choices-column:has(.recommended) .abilities .abilities-btn, .partners-empty-container .partners-empty-clear, .pricing-abilities-btn, .pricing-popular-column:has(.recommended) .price-column .pricing-abilities-btn,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities .pricing-abilities-btn, .pricing-categories-column:has(.recommended) .categorie-column .categories-abilities-btn,
 .pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn, .categories-abilities-btn, .posts-tags-column .post-tags-element, .job-info-btn-container .toggle-button, .projects-category-section .projects-category-text, .projects-empty .projects-empty-clear, .project-detail-category-container .project-detail-category {
@@ -7585,13 +7410,13 @@ strong {
   font-family: var(--grotext-sans);
   font-weight: 500;
   padding: 1rem 2rem;
-  border-radius: 40px;
+  border-radius: 2rem;
   border: none;
   background: var(--gray-button);
   transition: 0.5s;
   cursor: pointer;
 }
-.gray-button-purple-1rem-2rem:hover, .gradient-artice-btn-container .gradient-artice-btn-no-border:hover, .task-content-column .task-button-a .task-button:hover, .choices-column .abilities .abilities-btn:hover, .choices-column:has(.recommended) .price-column .abilities-btn:hover, .partners-empty-container .partners-empty-clear:hover, .pricing-abilities-btn:hover, .pricing-popular-column:has(.recommended) .price-column .pricing-abilities-btn:hover,
+.gray-button-purple-1rem-2rem:hover, .gradient-artice-btn-container .gradient-artice-btn-no-border:hover, .task-content-column .task-button:hover, .choices-column .abilities .abilities-btn:hover, .choices-column:has(.recommended) .price-column .abilities-btn:hover, .partners-empty-container .partners-empty-clear:hover, .pricing-abilities-btn:hover, .pricing-popular-column:has(.recommended) .price-column .pricing-abilities-btn:hover,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities .pricing-abilities-btn:hover, .pricing-categories-column:has(.recommended) .categorie-column .categories-abilities-btn:hover,
 .pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn:hover, .categories-abilities-btn:hover, .posts-tags-column .post-tags-element:hover, .job-info-btn-container .toggle-button:hover, .projects-category-section .projects-category-text:hover, .projects-empty .projects-empty-clear:hover, .project-detail-category-container .project-detail-category:hover {
   background: var(--background-purple);
@@ -7657,19 +7482,19 @@ select:-webkit-autofill:focus {
 .job-content h3,
 .job-content h4,
 .job-content h5,
-.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title, .project-content-title, .project-detail-posted-on, .change-password-form-title, .language-dropdown-content-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .post-text-container .post-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .job-openings-list-title-container .job-openings-list-main-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .projects-article .projects-article-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
+.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title, .project-content-title, .project-detail-posted-on, .change-password-form-title, .language-dropdown-content-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .post-text-container .post-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .whyus-title, .package .package-title, .decide-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .job-openings-list-title-container .job-openings-list-main-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .projects-article .projects-article-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
 .featured-posts-category-title, .posts-tags-title, .detail-gradient-container .detail-gradient-title, .detail-content-wrapper .detail-content-title,
 .project-detail-description-container .detail-content-title, .detail-link-text-container .detail-link-title {
   color: var(--text-dark-blue);
   text-align: center;
   font-size: 4rem;
-  font-family: var(--grotext-sans);
+  font-family: var(--girloy);
   font-weight: 700;
   line-height: 120%;
   text-transform: capitalize;
 }
 
-.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .job-openings-list-title-container .job-openings-list-main-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .projects-article .projects-article-title {
+.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .whyus-title, .package .package-title, .decide-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .job-openings-list-title-container .job-openings-list-main-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .projects-article .projects-article-title {
   font-size: 3rem;
 }
 
@@ -7705,8 +7530,8 @@ select:-webkit-autofill:focus {
 .job-content address,
 .job-content i,
 .job-content div,
-.job-content strong, .messenger-header-user-info-container .messenger-header-user, .profile-edit-column .profile-edit-text, .sign-info-text, .change-password-form-text, .change-password-form-input-container .placeholder, .static-info .static-info-text, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
-.choices-column:has(.recommended) .abilities ul li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .modal-user-container .modalUser, .feedback-empty-container .feedback-empty-text, .website-technologies-main-text, .website-technologies-column .website-technologies-type,
+.job-content strong, .messenger-header-user-info-container .messenger-header-user, .profile-edit-column .profile-edit-text, .sign-info-text, .change-password-form-text, .change-password-form-input-container .placeholder, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
+.choices-column:has(.recommended) .abilities ul li, .decide-text, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .modal-user-container .modalUser, .feedback-empty-container .feedback-empty-text, .website-technologies-main-text, .website-technologies-column .website-technologies-type,
 .job-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities ul li, .pricing-popular-column:has(.recommended) .price-column ul li,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities ul li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-column:has(.recommended) .categorie-column ul li,
 .pricing-categories-column:has(.recommended) .pricing-categories-abilities ul li, .pricing-categories-abilities ul li, .post-text-container .post-text, .post-social-views .post-social-views-text, .featured-posts-column .featured-post-column-text, .detail-content-wrapper pre,
@@ -7724,7 +7549,7 @@ select:-webkit-autofill:focus {
 .messenger-others-message .messenger-others-message-text {
   color: #666;
   font-size: 1.125rem;
-  font-family: var(--grotext-sans);
+  font-family: var(--girloy);
   line-height: 160%;
 }
 
@@ -7740,29 +7565,29 @@ select:-webkit-autofill:focus {
   font-size: 1rem;
 }
 
-.chat-text-gray, .chat-date-text, .chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text,
-.job-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .services-info-column .services-info-text, .detail-gradient-container .detail-gradient-posted, .similar-popular-posts-column .similar-popular-post-column-text, .profile-user-info-container .profile-email, .success-payment-container .success-payment-description, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-type, .chat-column .message-container .chat-message-text, .carousel-text-container .carousel-slide-text, .carousel-date-container .carousel-date-posted,
+.chat-text-gray, .chat-date-text, .chat-text-gray-1-125, .task-content-column .task-text, .whyus-text-container, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text,
+.job-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .services-info-column .services-info-text, .detail-gradient-container .detail-gradient-posted, .similar-popular-posts-column .similar-popular-post-column-text, .profile-user-info-container .profile-email, .success-payment-container .success-payment-description, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-type, .carousel-text-container .carousel-slide-text, .carousel-date-container .carousel-date-posted,
 .carousel-date-container .carousel-date, .partners-empty-container .partners-empty-text, .about-page-gradient-image-column-task-date, .messenger-your-message-user-profile .messenger-your-message-time,
 .messenger-your-message-user-profile .messenger-others-message-time,
 .messenger-others-message-user-profile .messenger-your-message-time,
 .messenger-others-message-user-profile .messenger-others-message-time, .projects-empty .projects-empty-description {
   color: var(--text-light-gray);
   font-size: 1rem;
-  font-family: var(--nunito);
+  font-family: var(--girloy);
   font-weight: 400;
   line-height: 140%;
 }
 
-.chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text,
+.chat-text-gray-1-125, .task-content-column .task-text, .whyus-text-container, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text,
 .job-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .services-info-column .services-info-text, .detail-gradient-container .detail-gradient-posted, .similar-popular-posts-column .similar-popular-post-column-text, .profile-user-info-container .profile-email, .success-payment-container .success-payment-description {
   font-size: 1.125rem;
   line-height: 160%;
 }
 
-.chat-creator-text, .chat-column .message-container .message-creating-details .message-user {
+.chat-creator-text {
   color: var(--text-dark-blue);
   font-size: 1.125rem;
-  font-family: var(--nunito);
+  font-family: var(--girloy);
   font-weight: 700;
   line-height: 140%;
 }
@@ -7771,7 +7596,7 @@ select:-webkit-autofill:focus {
   font-size: 0.75rem;
 }
 
-.text-align-start, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .contact-form-included-input-container label, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .blog-gradient-title, .post-text-container .post-title, .post-text-container .post-posted, .post-creator-container .post-creator-position,
+.text-align-start, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text, .task-content-column .task-title, .decide-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .contact-form-included-input-container label, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .blog-gradient-title, .post-text-container .post-title, .post-text-container .post-posted, .post-creator-container .post-creator-position,
 .post-creator-container .post-creator-username, .featured-search-title,
 .featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title, .detail-content-wrapper .detail-content-title,
 .project-detail-description-container .detail-content-title, .detail-link-text-container .detail-link-title, .similar-popular-posts-column .similar-popular-post-column-title, .job-openings-list-type-container .job-openings-list-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-gradient-info-container .job-gradient-info-category, .jobApplyForm .jobApply-group label, .job-content h1,
@@ -7802,7 +7627,7 @@ select:-webkit-autofill:focus {
 .detail-gradient-image-container-user .detail-gradient-username, .similar-popular-posts-column .similar-popular-post-column-date, .apply-success-message p, .applyModelUserNotSigned-container .applyModelUserNotSigned-text, .payment-return-back-container .payment-return-back-link {
   color: var(--text-white);
   font-size: 1rem;
-  font-family: var(--grotext-sans);
+  font-family: var(--girloy);
   font-style: normal;
   font-weight: 700;
   line-height: 160%;
@@ -7810,6 +7635,11 @@ select:-webkit-autofill:focus {
 
 .white-1-125rem-grotext, .contact-page-gradient-text-container .contact-page-gradient-text, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-share-user-info-container .detail-share-username, .join-our-team-text, .success-payment-container .success-payment-go-back-link {
   font-size: 1.125rem;
+}
+
+.important-word {
+  color: var(--text-purple);
+  font-weight: 500;
 }
 
 .image-50-50, .image-50-50-with-mobile-with-text, .image-100-50-50, .image-100-50-50-with-mobile, .image-50-50-with-mobile {
@@ -7905,19 +7735,19 @@ select:-webkit-autofill:focus {
   align-items: center;
 }
 
-.flex-row-justify-align-end, .flex-column-justify-align-end, .chat-column {
+.flex-row-justify-align-end, .flex-column-justify-align-end {
   display: flex;
   justify-content: flex-end;
   align-items: end;
 }
 
-.flex-row-center-between, .flex-column-center-between, .chat-column .message-container .message-creating-details, .carousel-title-container, .about-get-in-touch-container, .search-container, .messenger-header-container, .navbar {
+.flex-row-center-between, .flex-column-center-between, .carousel-title-container, .about-get-in-touch-container, .search-container, .messenger-header-container, .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.flex-row-center-around, .flex-column-center-around, .tasks, .chat {
+.flex-row-center-around, .flex-column-center-around, .tasks {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -7929,7 +7759,7 @@ select:-webkit-autofill:focus {
   align-items: center;
 }
 
-.flex-row-justify-between, .flex-column-justify-between, .chats, .pages-section {
+.flex-row-justify-between, .flex-column-justify-between, .pages-section {
   display: flex;
   justify-content: space-between;
 }
@@ -7987,7 +7817,7 @@ select:-webkit-autofill:focus {
   flex-flow: column;
 }
 
-.flex-column-justify-between, .chats {
+.flex-column-justify-between {
   flex-flow: column;
 }
 
@@ -8054,10 +7884,6 @@ body {
 
 .footer {
   grid-area: footer;
-}
-
-:root {
-  font-size: calc(16px + 4 * (100vw - 320px) / 960);
 }
 
 ::-webkit-scrollbar {

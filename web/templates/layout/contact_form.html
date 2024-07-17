@@ -1,6 +1,17 @@
 {% load static i18n %}
 <!-- Start Contact form Included Section -->
-
+{% if messages %}
+    <ul class="success-password-message">
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                <li class="{{ message.tags }}"><i class="fa-solid fa-circle-check"></i> {{ message }}</li>
+            {% elif message.tags == 'error' %}
+                <li class="{{ message.tags }}"><i class="fa-solid fa-circle-exclamation"></i> {{ message }}</li>
+            {% endif %}
+        {% endfor %}
+        <button class="close-message" onclick="closeMessage(this)"><i class="fa-solid fa-xmark"></i></button>
+    </ul>
+{% endif %}
 <section class="contact-form-included-section" id="included-section">
     <div class="contact-form-included-container">
         <button class="contact-form-included-icon" id="contact-form-included-toggle">

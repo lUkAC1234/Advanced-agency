@@ -39,7 +39,7 @@
                     <div class="profile-user-info-container">
                         <h1 class="profile-username" style="text-transform: lowercase;">{{ request.user }}</h1>
                         <p class="profile-email">
-                            cybercodesp@gmail.com
+                            {{ request.user.email|default:"cybercodesp@gmail.com"|default_if_none:"cybercodesp@gmail.com" }}
                         </p>
                     </div>
                     <div class="change-password-container">

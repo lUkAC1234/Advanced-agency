@@ -156,11 +156,16 @@
 
 .task-image-column {
     video {
-        width: 100%;
-        height: 100%;
+        width: 25rem;
+        height: 25rem;
         object-fit: cover;
         outline: 4px solid var(--background-white);
         outline-offset: -4px;   
+
+        @media screen and (max-width: 992px) {
+            width: min(100%, 25rem);
+            height: min(100%, 25rem);
+        }
     }
 }
 
@@ -169,6 +174,7 @@
     .task-title {
         @extend .dark-blue-text-center-grotext-family-3rem;
         @extend .text-align-start;
+        font-size: 2.25rem !important;
     }
 
     .task-text {
@@ -177,23 +183,21 @@
         margin-top: 1rem;
     }
 
-    .task-button-a {
-        margin-left: 0.3rem;
-
-        .task-button {
-            @extend .gray-button-purple-1rem-2rem;
-            margin-top: 2rem;
-        }
+    .task-button {
+        @extend .gray-button-purple-1rem-2rem;
+        margin: 2rem 0 0 0.3rem;
     }
 }
 
-@media screen and (max-width: 1000px) {
-    .task-title {
-        font-size: 2rem !important;
-    }
-
-    .task-text {
-        font-size: 1rem !important;
+@media screen and (max-width: 992px) {
+    .task-content-column {
+        .task-title {
+            font-size: 1.75rem !important;
+        }
+    
+        .task-text {
+            font-size: 1rem !important;
+        }
     }
 
     .task-content-column {
@@ -218,264 +222,59 @@
     }
 }
 
+@media screen and (max-width: 600px) {
+    .task-content-column {
+        .task-title {
+            font-size: 1.5rem !important;
+        }
+    
+        .task-text {
+            font-size: 0.9rem !important;
+        }
+    }
+}
+
 // TASKS END
 
-// CHAT START
 
-.chat {
-    @extend .flex-row-center-around;
-    position: relative;
-    padding-top: 12rem;
-    margin: 0 auto;
+// Why Us START
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: -15rem;
-        right: 0;
-        width: 10rem;
-        height: 25rem;
-        background-image: url('../../images/main-page/rightcircle.svg');
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
+.whyus-section {
+    margin-top: 3rem;
+} 
 
-    @media screen and (max-width:1200px) {
-        &::before {
-            top: -7rem;
-            width: 8rem;
-            height: 15rem;
-        }
+.whyus-title {
+    @extend .dark-blue-text-center-grotext-family-3rem;
+    margin-bottom: 3rem;
+    padding-inline: 1rem;
+
+    @media screen and (max-width: 600px) {
+        font-size: 2rem !important;
     }
 }
 
-.static-info {
-    width: min(100%, 34rem);
-    .static-info-title {
-        @extend .dark-blue-text-center-grotext-family-3rem;
-        @extend .text-align-start;
-    }
-
-    .static-info-text {
-        @extend .info-text-gray-1-125rem;
-        margin-top: 1rem;
-    }
+.whyus-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    padding-inline: 1rem;
+    gap: 3rem;
 }
 
-.chats {
-    @extend .flex-column-justify-between;
-    gap: 2.31rem;
+.whyus-text-container {
+    @extend .chat-text-gray-1-125;
+    font-size: 1.25rem !important;
+    margin-top: 2rem;
 }
 
-.message-container {
-    position: relative;
-    border-radius: 16px;
+.whyus-column {
+    box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    padding: 2rem 1.5rem;
     background: var(--background-white);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 1.25rem;
 }
 
-.chat-column:nth-child(odd) {
-    .message-container {
-        &::after {
-            content: "";
-            position: absolute;
-            left: -24px;
-            bottom: 1px;
-            border-top: 18px solid transparent;
-            border-right: 35px solid var(--background-white);
-            border-bottom: 18px solid transparent;
-            filter: drop-shadow(0 0.5px 0px rgba(0, 0, 0, 0.1));
-        }
-
-        &::before {
-            content: "";
-            position: absolute;
-            width: 2.5rem;
-            height: 0.5rem;
-            background: var(--background-purple);
-            border-radius: 3.5625rem;
-            bottom: -1rem;
-            left: 0;
-        }
-    }
-}
-
-.chat-column:nth-child(even) {
-    .profile {
-        order: 2;
-    }
-
-    .message-container {
-        &::after {
-            content: "";
-            position: absolute;
-            right: -24px;
-            bottom: 1px;
-            border-top: 18px solid transparent;
-            border-left: 35px solid var(--background-white);
-            border-bottom: 18px solid transparent;
-            filter: drop-shadow(0 0.5px 0px rgba(0, 0, 0, 0.1));
-        }
-
-        &::before {
-            content: "";
-            position: absolute;
-            width: 2.5rem;
-            height: 0.5rem;
-            background: var(--background-purple);
-            border-radius: 3.5625rem;
-            bottom: -1rem;
-            right: 0;
-        }
-    }
-}
-
-.chat-column {
-    @extend .flex-row-justify-align-end;
-    column-gap: 2.25rem;
-
-    .profile {
-        img {
-            width: 2.5rem;
-            height: 2.5rem;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 1px solid var(--background-purple);
-        }
-    }
-
-    .message-container {
-        .chat-message-text {
-            @extend .chat-text-gray;
-            padding: 1rem 1rem 0.5rem;
-            max-width: 20.5rem;
-        }
-
-        .message-creating-details {
-            @extend .flex-row-center-between;
-            padding: 0 1.5rem;
-
-            .message-user {
-                @extend .chat-creator-text;
-                font-size: 0.9rem !important;
-            }
-
-            .message-date {
-                color: var(--text-light-gray);
-                font-size: 0.75rem;
-                font-family: var(--nunito);
-                line-height: 140%;
-            }
-        }
-    }
-}
-
-
-@media screen and (max-width: 1140px) {
-    .chats {
-        gap: 1rem;
-    }
-
-    .static-info {
-        margin-left: 0.5rem;
-
-        .static-info-title {
-            font-size: 2rem !important;
-        }
-
-        .static-info-text {
-            font-size: 1rem !important;
-        }
-    }
-
-    .chat-column:nth-child(odd) {
-        .message-container {
-            &::after {
-                left: -13px;
-                border-top: 15px solid transparent;
-                border-right: 25px solid var(--background-white);
-                border-bottom: 15px solid transparent;
-                filter: none;
-            }
-
-            &::before {
-                width: 1.5rem;
-                height: 0.35rem;
-                bottom: -0.5rem;
-            }
-        }
-    }
-
-    .chat-column:nth-child(even) {
-        .message-container {
-            &::after {
-                right: -13px;
-                border-top: 15px solid transparent;
-                border-left: 25px solid var(--background-white);
-                border-bottom: 15px solid transparent;
-                filter: none;
-            }
-
-            &::before {
-                width: 1.5rem;
-                height: 0.35rem;
-                bottom: -0.5rem;
-            }
-        }
-    }
-
-    .chat-column {
-        transform: scale(0.9);
-
-
-
-        .message-container {
-            .chat-message-text {
-                font-size: 0.7rem !important;
-                padding: 0.8rem 0.8rem 0.5rem;
-            }
-
-            .message-creating-details {
-                .message-user {
-                    font-size: 0.7rem !important;
-                }
-
-                .message-date {
-                    font-size: 0.65rem !important;
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .chat {
-        flex-flow: column;
-        gap: 2rem;
-        padding-inline: 0.5rem;
-    }
-
-    .chats {
-        gap: 1rem;
-    }
-
-    .chat-column {
-        transform: scale(1);
-        margin: 0 0.5rem;
-    }
-
-    .static-info {
-        .static-info-title {
-            font-size: 2rem !important;
-        }
-
-        .static-info-text {
-            font-size: 1rem !important;
-        }
-    }
-}
-
-// CHAT END
+// Why Us END
 
 // PACKAGE START
 
@@ -503,7 +302,7 @@
         width: 100%;
         height: 10rem;
         background-position: bottom center;
-        bottom: -10px;
+        bottom: -3rem;
         background-size: cover;
     }
 
@@ -601,9 +400,10 @@
                 &::before {
                     content: "";
                     position: absolute;
-                    background: url(../../images/main-page/arrow.svg);
-                    width: 20px;
-                    height: 20px;
+                    background: url(../../images/main-page/arrow.svg) no-repeat no-repeat;
+                    background-size: cover;
+                    width: 1rem;
+                    height: 1rem;
                     left: -1.25rem;
                 }
             }
@@ -637,7 +437,7 @@
                 }
 
                 &::before {
-                    background: url(../../images/main-page/arrow-white.svg);
+                    background-image: url(../../images/main-page/arrow-white.svg);
                 }
             }
         }
@@ -689,6 +489,77 @@
 
 // PACKAGE END
 
+// START DECIDE SECTION
+
+.decide-section {
+    margin-block: 3rem 6rem;
+}
+
+.decide-container {
+    padding-inline: 1rem;   
+}
+
+.decide-title {
+    @extend .dark-blue-text-center-grotext-family-3rem;
+    @extend .text-align-start;
+}
+
+.decide-text {
+    @extend .info-text-gray-1-125rem;
+    margin-top: 1rem;
+}
+
+.decide-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+
+    @media screen and (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }    
+}
+
+.decide-input {
+    width: 100%;
+    font-size: 1rem !important;
+
+    &::placeholder {
+        font-size: 0.8rem !important;
+    }
+}
+
+.decide-submit-btn {
+    padding: 0.5rem;
+    color: var(--text-white);
+    text-align: center;
+    font-size: 1rem;
+    font-family: var(--grotext-sans);
+    font-weight: 500;
+    background: var(--background-purple);
+    border-radius: 0.5rem;
+    border: 1px solid var(--background-purple);
+    transition: all 0.5s;
+    cursor: pointer;
+    text-wrap: nowrap;
+
+    &:hover {
+        background: none;
+        color: var(--text-purple);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .decide-title {
+        font-size: 2rem !important;
+    }
+    
+    .decide-text {
+        font-size: 1rem !important;
+    }
+} 
+
+// END DECIDE SECTION
 
 // CAROUSEL START
 
@@ -882,11 +753,6 @@
 
 
 .partners-info-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    place-content: center;
-    place-items: center;
-    grid-gap: 1rem;
     margin-block: 2rem 3rem;
 
     .partners-column {

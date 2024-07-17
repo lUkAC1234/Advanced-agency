@@ -210,8 +210,8 @@ class FeedbackModel(models.Model):
 class ContactusModel(models.Model):
     fullname = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)
-    company = models.CharField(max_length=100)
-    text = models.TextField()
+    company = models.CharField(max_length=100, blank=True, null=True)
+    text = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

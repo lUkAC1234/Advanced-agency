@@ -1,12 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contact-form-included');
-    const toggleButton = document.getElementById('contact-form-included-toggle');
+    const toggleButtons = [
+        document.getElementById('contact-form-included-toggle'),
+        document.getElementById('contact-form-included-toggle-index')
+    ];
     const closeButton = document.getElementById('contact-form-included-close');
 
-    const toggleForm = () => form.classList.toggle('active');
-    const closeForm = event => !form.contains(event.target) && !toggleButton.contains(event.target) && form.classList.remove('active');
+    const toggleForm = () => form?.classList.toggle('active');
 
-    toggleButton.addEventListener('click', toggleForm);
-    closeButton.addEventListener('click', toggleForm);
+    const closeForm = event => {
+        if (form && !form.contains(event.target) && !toggleButtons.some(button => button?.contains(event.target))) {
+            form.classList.remove('active');
+        }
+    };
+
+    toggleButtons.forEach(button => button?.addEventListener('click', toggleForm));
+    closeButton?.addEventListener('click', toggleForm);
     document.addEventListener('click', closeForm);
 });

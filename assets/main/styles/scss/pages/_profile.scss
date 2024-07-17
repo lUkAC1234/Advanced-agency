@@ -143,19 +143,19 @@
             color: var(--text-dark-blue);
         }
     }
+}
 
-    .profile-edit-input {
-        border: 1px solid var(--profile-input-border);
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        color: var(--text-dark-blue);
-        font-size: 0.8rem;
-        font-family: var(--grotext-sans);
-        transition: 0.4s all;
+.profile-edit-input {
+    border: 1px solid var(--profile-input-border);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: var(--text-dark-blue);
+    font-size: 0.8rem;
+    font-family: var(--grotext-sans);
+    transition: 0.4s all;
 
-        &:focus {
-            border-color: var(--background-purple);
-        }
+    &:focus {
+        border-color: var(--background-purple);
     }
 }
 

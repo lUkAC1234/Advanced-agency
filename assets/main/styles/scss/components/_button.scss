@@ -7,7 +7,7 @@
     font-family: var(--grotext-sans);
     font-weight: 500;
     background: var(--background-purple);
-    border-radius: 40px;
+    border-radius: 2rem;
     border: 1px solid var(--background-purple);
     transition: all 0.5s;
     cursor: pointer;
@@ -27,7 +27,7 @@
     font-size: 1.125rem;
     font-family: var(--grotext-sans);
     font-weight: 500;
-    border-radius: 40px;
+    border-radius: 2rem;
     border: none;
     background: none;
     transition: all 0.5s;
@@ -46,7 +46,7 @@
     font-family: var(--grotext-sans);
     font-weight: 500;
     padding: 1rem 2rem;
-    border-radius: 40px;
+    border-radius: 2rem;
     border: none;
     background: var(--gray-button);
     transition: 0.5s;
@@ -56,7 +56,6 @@
         color: var(--gray-button);
     }
 }
-
 
 // BTN ON SCROOL TO TOP
 

@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# We offer payment for 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-12 13:48+0500\n"
+"POT-Creation-Date: 2024-07-17 23:23+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,7 +36,7 @@ msgstr "Введите ваше имя пользователя"
 msgid "Enter you password"
 msgstr "Введите ваш пароль"
 
-#: .\web\forms.py:70 .\web\views.py:582
+#: .\web\forms.py:70 .\web\views.py:620
 msgid "Username or password is incorrect"
 msgstr "Имя пользователя или пароль неверны"
 
@@ -391,7 +391,7 @@ msgstr "Проекты"
 #: .\web\templates\pages\blog\blog.html:154
 #: .\web\templates\pages\blog\blogdetail.html:128
 #: .\web\templates\pages\contact.html:153 .\web\templates\pages\faqlist.html:44
-#: .\web\templates\pages\index.html:20 .\web\templates\pages\index.html:168
+#: .\web\templates\pages\index.html:20 .\web\templates\pages\index.html:154
 #: .\web\templates\pages\job\job.html:42 .\web\templates\pages\job\job.html:143
 #: .\web\templates\pages\job\jobdetail.html:184
 #: .\web\templates\pages\pricing\pricing.html:32
@@ -712,14 +712,14 @@ msgstr "Попробуйте Cyber Code и верните себе контро�
 
 #: .\web\templates\pages\blog\blog_result.html:32
 #: .\web\templates\pages\blog\blogdetail.html:31
-#: .\web\templates\pages\index.html:218
+#: .\web\templates\pages\index.html:375
 msgid "Private post"
 msgstr "Приватный пост"
 
 #: .\web\templates\pages\blog\blog_result.html:44
 #: .\web\templates\pages\blog\blogdetail.html:108
-#: .\web\templates\pages\index.html:177 .\web\templates\pages\index.html:240
-#: .\web\templates\pages\index.html:271 .\web\templates\pages\index.html:313
+#: .\web\templates\pages\index.html:163 .\web\templates\pages\index.html:313
+#: .\web\templates\pages\index.html:397 .\web\templates\pages\index.html:440
 #: .\web\templates\pages\job\job.html:125
 #: .\web\templates\pages\job\jobdetail.html:166
 #: .\web\templates\pages\pricing\paymentlist.html:113
@@ -757,7 +757,7 @@ msgid "There is no any similar blogs yet"
 msgstr "Пока нет похожих блогов"
 
 #: .\web\templates\pages\blog\blogdetail.html:110
-#: .\web\templates\pages\index.html:242
+#: .\web\templates\pages\index.html:399
 msgid "Go to blog"
 msgstr "Перейти к блогу"
 
@@ -780,6 +780,7 @@ msgid "Error submitting the form. Please try again."
 msgstr "Ошибка при отправке формы. Пожалуйста, попробуйте снова."
 
 #: .\web\templates\pages\contact.html:118 .\web\templates\pages\faqlist.html:14
+#: .\web\templates\pages\index.html:324
 msgid "Frequently Asked Questions"
 msgstr "Часто задаваемые вопросы"
 
@@ -873,124 +874,249 @@ msgstr "Деятельность"
 msgid "Clients"
 msgstr "Клиенты"
 
-#: .\web\templates\pages\index.html:74
-msgid "Connect With Apps You Use for Work"
-msgstr "Подключайтесь к приложениям для работы"
-
-#: .\web\templates\pages\index.html:76
-msgid "Cyber Code integrates with the products you use, bringing all"
-msgstr ""
-"Cyber Code интегрируется с продуктами, которые вы используете, объединяя все"
-
-#: .\web\templates\pages\index.html:77
-msgid "your tasks, files and communications in one place so"
-msgstr "ваши задачи, файлы и коммуникации в одном месте, чтобы"
+#: .\web\templates\pages\index.html:75
+msgid "COMPLETE WEBSITE DEVELOPMENT IN TASHKENT WITHOUT DELAYS OR OVERPAYMENTS"
+msgstr "РАЗРАБОТКА САЙТОВ ПОД КЛЮЧ В ТАШКЕНТЕ БЕЗ ЗАДЕРЖЕК И ПЕРЕПЛАТ"
 
 #: .\web\templates\pages\index.html:78
-msgid "you always know what to do next."
-msgstr "вы всегда знали, что делать дальше."
+msgid ""
+"Find out the exact cost of complete website development and receive a "
+"tailored proposal for your business."
+msgstr ""
+"Узнайте точную стоимость создание сайта под ключ и получите предложение "
+"конкретно для вашего бизнеса"
+
+#: .\web\templates\pages\index.html:78
+msgid "One year of technical support included for free!"
+msgstr "Техническая поддержка в течение года - в подарок!"
 
 #: .\web\templates\pages\index.html:81
-msgid "Browse posts"
-msgstr "Посмотреть посты"
-
-#: .\web\templates\pages\index.html:91
-msgid "Easy and familiar"
-msgstr "Простой и знакомый"
-
-#: .\web\templates\pages\index.html:92
-msgid "Real-time-posts"
-msgstr "Публикации в реальном времени"
-
-#: .\web\templates\pages\index.html:93
-msgid "Features"
-msgstr "Функции"
+msgid "Calculate the cost"
+msgstr "Рассчитать стоимость"
 
 #: .\web\templates\pages\index.html:96
-msgid "Easy to use, apply for a job, order websites,"
-msgstr "Легко использовать, подать заявку на работу, заказать сайты,"
+msgid "With"
+msgstr "С"
 
-#: .\web\templates\pages\index.html:97
-msgid "see our daily posts, and relax with time"
-msgstr "смотрите наши ежедневные публикации и расслабляйтесь со временем"
+#: .\web\templates\pages\index.html:96
+msgid "4 years of successful experience"
+msgstr "4-летним успешным опытом"
 
-#: .\web\templates\pages\index.html:98
-msgid "quality is the most needful thing everywhere!"
-msgstr "качество - это самое необходимое везде!"
+#: .\web\templates\pages\index.html:96
+msgid "in the market, we have completed and delivered over"
+msgstr "на рынке, мы завершили и доставили более"
 
-#: .\web\templates\pages\index.html:108
-msgid "hi, i have finished all the design, kindly check on figma"
-msgstr "привет, я закончил весь дизайн, пожалуйста, проверьте на figma"
+#: .\web\templates\pages\index.html:96
+msgid "50 successful projects"
+msgstr "50 успешных проектов"
 
-#: .\web\templates\pages\index.html:111
-msgid "Sasa Anastasya"
-msgstr "Саса Анастасия"
+#: .\web\templates\pages\index.html:96
+msgid "."
+msgstr "."
 
-#: .\web\templates\pages\index.html:112 .\web\templates\pages\index.html:126
-#: .\web\templates\pages\index.html:140
-msgid "minutes ago"
-msgstr "минут назад"
-
-#: .\web\templates\pages\index.html:122
-msgid ""
-"What you have is good, but maybe we can improve one of the designs above"
+#: .\web\templates\pages\index.html:106
+msgid "After completing a project, we don’t leave our clients. We provide"
 msgstr ""
-"То, что у вас есть, хорошо, но, возможно, мы можем улучшить один из дизайнов "
-"выше"
+"После завершения проекта мы не оставляем наших клиентов. Мы предоставляем"
 
-#: .\web\templates\pages\index.html:125
-msgid "Justin Nur"
-msgstr "Джастин Нур"
+#: .\web\templates\pages\index.html:106
+msgid "one year of free technical support"
+msgstr "один год бесплатной технической поддержки"
+
+#: .\web\templates\pages\index.html:106
+msgid "and"
+msgstr "и"
+
+#: .\web\templates\pages\index.html:106
+msgid "security"
+msgstr "безопасность"
+
+#: .\web\templates\pages\index.html:106
+msgid ", to ensure your website runs smoothly."
+msgstr ", чтобы ваш веб-сайт работал бесперебойно."
+
+#: .\web\templates\pages\index.html:116
+msgid ""
+"We work every day, without weekends. You can reach out to us at any time "
+"that suits you! We are always"
+msgstr ""
+"Мы работаем каждый день, без выходных. Вы можете связаться с нами в любое "
+"время, которое вам удобно! Мы всегда"
+
+#: .\web\templates\pages\index.html:116
+msgid "happy to assist"
+msgstr "рады помочь"
+
+#: .\web\templates\pages\index.html:116
+msgid "you with your needs."
+msgstr "вам с вашими потребностями."
+
+#: .\web\templates\pages\index.html:126
+msgid "Direct"
+msgstr "Прямой"
+
+#: .\web\templates\pages\index.html:126
+msgid "contact with management"
+msgstr "контакт с руководством"
+
+#: .\web\templates\pages\index.html:126
+msgid ""
+"at every stage of the project ensures smooth communication and efficient "
+"results."
+msgstr ""
+"на каждом этапе проекта обеспечивает бесперебойное общение и эффективные "
+"результаты."
 
 #: .\web\templates\pages\index.html:136
-msgid "Great job Azkia! maybe we can add a some gradient for section #2"
-msgstr ""
-"Отличная работа, Азкия! Может быть, мы можем добавить градиент для секции №2"
-
-#: .\web\templates\pages\index.html:139
-msgid "Ahsan Mulia"
-msgstr "Ахсан Мулиа"
-
-#: .\web\templates\pages\index.html:150
 msgid "Your Suitable package"
 msgstr "Ваш подходящий пакет"
 
-#: .\web\templates\pages\index.html:150
+#: .\web\templates\pages\index.html:136
 msgid "for your needs"
 msgstr "для ваших нужд"
 
-#: .\web\templates\pages\index.html:151
+#: .\web\templates\pages\index.html:137
 msgid "Our powerful plan gives you access to core Cyber Code features."
 msgstr "Наш мощный план дает вам доступ к основным функциям Cyber Code."
 
-#: .\web\templates\pages\index.html:158
+#: .\web\templates\pages\index.html:144
 #: .\web\templates\pages\pricing\pricing.html:23
 #: .\web\templates\pages\pricing\pricinglist.html:46
 msgid "from"
 msgstr "от"
 
-#: .\web\templates\pages\index.html:161
+#: .\web\templates\pages\index.html:147
 #: .\web\templates\pages\pricing\paymentlist.html:75
 #: .\web\templates\pages\pricing\pricing.html:26
 #: .\web\templates\pages\pricing\pricinglist.html:49
 msgid "Recommended"
 msgstr "Рекомендуемый"
 
-#: .\web\templates\pages\index.html:178
+#: .\web\templates\pages\index.html:164
 #: .\web\templates\pages\pricing\pricing.html:41
 #: .\web\templates\pages\pricing\pricinglist.html:64
 msgid "There are no any pricings yet"
 msgstr "Пока нет ни одного тарифа"
 
-#: .\web\templates\pages\index.html:179
+#: .\web\templates\pages\index.html:165
 msgid "Go to pricing"
 msgstr "Перейти к тарифам"
 
-#: .\web\templates\pages\index.html:191
+#: .\web\templates\pages\index.html:176
+msgid "Not sure which website solution is right for you ?"
+msgstr "Нe можете определиться с подходящим для вас вариантом сайта ?"
+
+#: .\web\templates\pages\index.html:179
+msgid ""
+"It is not always easy to determine the exact website you need for your "
+"project. If you are having trouble choosing, leave your phone number, and "
+"one of our specialists will contact you within 15 minutes for a personalized "
+"consultation:"
+msgstr ""
+"Не всегда удается так быстро понять, какой именно нужен сайт под тот или "
+"иной проект. Если у вас возникли трудности в выборе, оставьте свой номер "
+"телефона, и наш специалист свяжется с Вами в течение 15 минут для "
+"консультации:"
+
+#: .\web\templates\pages\index.html:184
+msgid "Name"
+msgstr "Имя"
+
+#: .\web\templates\pages\index.html:187
+#: .\web\templates\pages\job\jobdetail.html:55
+#: .\web\templates\pages\pricing\paymentlist.html:189
+#: .\web\templates\pages\user\password_reset.html:25
+#: .\web\templates\pages\user\profile.html:81
+msgid "Email"
+msgstr "Почта"
+
+#: .\web\templates\pages\index.html:190
+msgid "Send"
+msgstr "Отправить"
+
+#: .\web\templates\pages\index.html:202
+msgid "Why is it better to order website development from us?"
+msgstr "Почему лучше заказать разработку сайта у нас?"
+
+#: .\web\templates\pages\index.html:211
+#, fuzzy
+#| msgid ""
+#| "We develop websites from scratch, without using ready-made templates or "
+#| "copying competitors' sites. One design — one website."
+msgid ""
+"We develop websites from scratch, without using ready-made templates or "
+"copying competitors\\"
+msgstr ""
+"Мы разрабатываем сайты с нуля, не используя готовые шаблоны и не копируя "
+"сайты конкурентов. Один дизайн — один сайт."
+
+#: .\web\templates\pages\index.html:221
+msgid ""
+"Websites developed by our team feature clean and quality code, making them "
+"easy to optimize for SEO."
+msgstr ""
+"Сайты, разработанные нашей командой, имеют чистый и качественный код, что "
+"делает их легкими для оптимизации по SEO."
+
+#: .\web\templates\pages\index.html:231
+msgid ""
+"The websites we create are always responsive and have versions for all "
+"devices, from mobile phones to tablets. There is no extra charge for this."
+msgstr ""
+"Созданные нами сайты всегда адаптивные и имеют версии для всех устройств, от "
+"мобильных телефонов до планшетов. Дополнительная плата за это не взимается."
+
+#: .\web\templates\pages\index.html:241
+msgid ""
+"Once the project is completed, we do not leave you on your own. After "
+"delivering your site, we provide full technical support and security for a "
+"year at no extra cost."
+msgstr ""
+"После завершения проекта мы не оставляем вас одних. После передачи сайта мы "
+"предоставляем полную техническую поддержку и безопасность на год без "
+"дополнительной платы."
+
+#: .\web\templates\pages\index.html:251
+msgid ""
+"All work is done under a contract. If we fail to meet our deadlines, we will "
+"refund your money. You can rest easy."
+msgstr ""
+"Вся работа выполняется по договору. Если мы не уложимся в сроки, мы вернем "
+"ваши деньги. Вы можете быть уверены в этом."
+
+#: web/templates/pages/index.html:261
+msgid "We offer payment for development in stages. Typically, 50%% upfront and 50%% upon project completion."
+msgstr "Мы предлагаем оплату за разработку по частям. Обычно 50% предоплата и 50% по завершении проекта."
+
+#: .\web\templates\pages\index.html:271
+msgid ""
+"We work every day, without breaks. You can reach out to us anytime that "
+"suits you! We are always here to help!"
+msgstr ""
+"Мы работаем каждый день, без перерывов. Вы можете связаться с нами в любое "
+"время, которое вам удобно! Мы всегда готовы помочь!"
+
+#: .\web\templates\pages\index.html:281
+msgid ""
+"With 4 years of successful experience in the market, we have developed and "
+"launched over 50 successful projects."
+msgstr ""
+"С 4-летним успешным опытом работы на рынке мы разработали и запустили более "
+"50 успешных проектов."
+
+#: .\web\templates\pages\index.html:295
+msgid "Our Partners"
+msgstr "Наши партнеры"
+
+#: .\web\templates\pages\index.html:314
+msgid "There is no any partners yet"
+msgstr "Пока нет ни одного партнера"
+
+#: .\web\templates\pages\index.html:348
 msgid "Ideas to help you navigate work"
 msgstr "Идеи, чтобы помочь вам в работе"
 
-#: .\web\templates\pages\index.html:194
+#: .\web\templates\pages\index.html:351
 msgid ""
 "We regularly share resources on startups, productivity, and the future of "
 "work"
@@ -998,31 +1124,23 @@ msgstr ""
 "Мы регулярно делимся ресурсами о стартапах, производительности и будущем "
 "работы"
 
-#: .\web\templates\pages\index.html:197
+#: .\web\templates\pages\index.html:354
 msgid "See more articeles"
 msgstr "Смотреть больше статей"
 
-#: .\web\templates\pages\index.html:227
+#: .\web\templates\pages\index.html:384
 msgid "Posted by"
 msgstr "Пост от"
 
-#: .\web\templates\pages\index.html:241
+#: .\web\templates\pages\index.html:398
 msgid "There are no any posts yet"
 msgstr "Пока нет ни одной записи"
 
-#: .\web\templates\pages\index.html:255
-msgid "Our Partners"
-msgstr "Наши партнеры"
-
-#: .\web\templates\pages\index.html:272
-msgid "There is no any partners yet"
-msgstr "Пока нет ни одного партнера"
-
-#: .\web\templates\pages\index.html:285
+#: .\web\templates\pages\index.html:412
 msgid "Feedbacks from our clients"
 msgstr "Отзывы от наших клиентов"
 
-#: .\web\templates\pages\index.html:287
+#: .\web\templates\pages\index.html:414
 msgid ""
 "Join the thousands of other people just like you who started using CyberCode "
 "and took back control of their day"
@@ -1030,7 +1148,7 @@ msgstr ""
 "Присоединяйтесь к тысячам других людей, таким же как вы, которые начали "
 "использовать CyberCode и вернули контроль над своим днем"
 
-#: .\web\templates\pages\index.html:314
+#: .\web\templates\pages\index.html:441
 msgid "There are no any feedbacks yet"
 msgstr "Пока нет ни одного отзыва"
 
@@ -1102,8 +1220,6 @@ msgstr "Идеальное качество"
 
 #: .\web\templates\pages\job\job.html:73
 #: .\web\templates\pages\pricing\pricing.html:131
-#, fuzzy
-#| msgid "Clean code that allows the site to work without lags and errors!"
 msgid "Сlean code that allows the site to work without lags and errors!"
 msgstr "Чистый код, который позволяет сайту работать без задержек и ошибок!"
 
@@ -1132,11 +1248,11 @@ msgstr ""
 #: .\web\templates\pages\job\job.html:140
 #: .\web\templates\pages\job\jobdetail.html:181
 msgid ""
-"It's easy to let your day slip away with too many calls and meetings. "
-"Taskable lets you block time for deep work by adding tasks to your calendar "
-"with one click, giving you control back over your day."
+"It's easy to let your day slip away with too many calls and meetings. Cyber "
+"Code lets you block time for deep work by adding tasks to your calendar with "
+"one click, giving you control back over your day."
 msgstr ""
-"Легко упустить свой день слишком многими звонками и встречами. Taskable "
+"Легко упустить свой день слишком многими звонками и встречами. Cyber Code "
 "позволяет заблокировать время для глубокой работы, добавляя задачи в ваш "
 "календарь одним нажатием, возвращая вам контроль над своим днем."
 
@@ -1161,13 +1277,6 @@ msgstr "Подать заявку на"
 #: .\web\templates\pages\user\profile.html:56
 msgid "First Name"
 msgstr "Имя"
-
-#: .\web\templates\pages\job\jobdetail.html:55
-#: .\web\templates\pages\pricing\paymentlist.html:189
-#: .\web\templates\pages\user\password_reset.html:25
-#: .\web\templates\pages\user\profile.html:81
-msgid "Email"
-msgstr "Почта"
 
 #: .\web\templates\pages\job\jobdetail.html:63
 msgid "Hello, I want to..."
@@ -1691,21 +1800,82 @@ msgstr "Зарегистрироваться"
 msgid "Already have an account?"
 msgstr "У вас уже есть аккаунт?"
 
-#: .\web\views.py:422
+#: .\web\views.py:460
 msgid "This post is private."
 msgstr "Этот пост является приватным."
 
-#: .\web\views.py:560
+#: .\web\views.py:598
 msgid "Profile updated successfully."
 msgstr "Профиль успешно обновлен."
 
-#: .\web\views.py:608
+#: .\web\views.py:646
 msgid "You have successfully created an account"
 msgstr "Вы успешно создали аккаунт"
 
-#: .\web\views.py:630
+#: .\web\views.py:668
 msgid "Your password was successfully updated"
 msgstr "Ваш пароль успешно обновлен"
+
+#~ msgid "Connect With Apps You Use for Work"
+#~ msgstr "Подключайтесь к приложениям для работы"
+
+#~ msgid "Cyber Code integrates with the products you use, bringing all"
+#~ msgstr ""
+#~ "Cyber Code интегрируется с продуктами, которые вы используете, объединяя "
+#~ "все"
+
+#~ msgid "your tasks, files and communications in one place so"
+#~ msgstr "ваши задачи, файлы и коммуникации в одном месте, чтобы"
+
+#~ msgid "you always know what to do next."
+#~ msgstr "вы всегда знали, что делать дальше."
+
+#~ msgid "Browse posts"
+#~ msgstr "Посмотреть посты"
+
+#~ msgid "Easy and familiar"
+#~ msgstr "Простой и знакомый"
+
+#~ msgid "Real-time-posts"
+#~ msgstr "Публикации в реальном времени"
+
+#~ msgid "Features"
+#~ msgstr "Функции"
+
+#~ msgid "Easy to use, apply for a job, order websites,"
+#~ msgstr "Легко использовать, подать заявку на работу, заказать сайты,"
+
+#~ msgid "see our daily posts, and relax with time"
+#~ msgstr "смотрите наши ежедневные публикации и расслабляйтесь со временем"
+
+#~ msgid "quality is the most needful thing everywhere!"
+#~ msgstr "качество - это самое необходимое везде!"
+
+#~ msgid "hi, i have finished all the design, kindly check on figma"
+#~ msgstr "привет, я закончил весь дизайн, пожалуйста, проверьте на figma"
+
+#~ msgid "Sasa Anastasya"
+#~ msgstr "Саса Анастасия"
+
+#~ msgid "minutes ago"
+#~ msgstr "минут назад"
+
+#~ msgid ""
+#~ "What you have is good, but maybe we can improve one of the designs above"
+#~ msgstr ""
+#~ "То, что у вас есть, хорошо, но, возможно, мы можем улучшить один из "
+#~ "дизайнов выше"
+
+#~ msgid "Justin Nur"
+#~ msgstr "Джастин Нур"
+
+#~ msgid "Great job Azkia! maybe we can add a some gradient for section #2"
+#~ msgstr ""
+#~ "Отличная работа, Азкия! Может быть, мы можем добавить градиент для секции "
+#~ "№2"
+
+#~ msgid "Ahsan Mulia"
+#~ msgstr "Ахсан Мулиа"
 
 #~ msgid "Language"
 #~ msgstr "Язык"

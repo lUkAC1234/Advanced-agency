@@ -71,79 +71,65 @@
             </video>
         </div>
         <div class="task-content-column fade slideInRight">
-            <h1 class="task-title">{% translate 'Connect With Apps You Use for Work' %}</h1>
+            <h1 class="task-title">
+                {% translate 'COMPLETE WEBSITE DEVELOPMENT IN TASHKENT WITHOUT DELAYS OR OVERPAYMENTS' %}
+            </h1>
             <p class="task-text">
-                {% translate 'Cyber Code integrates with the products you use, bringing all' %} <br>
-                {% translate 'your tasks, files and communications in one place so' %} <br>
-                {% translate 'you always know what to do next.' %}
+                {% translate 'Find out the exact cost of complete website development and receive a tailored proposal for your business.' %}  <span class="important-word">{% translate 'One year of technical support included for free!' %} </span>
             </p>
-            <a href="{% url 'main:blog' %}" class="task-button-a">
-                <button class="task-button">{% translate 'Browse posts' %}</button>
-            </a>
+            <button class="task-button" id="contact-form-included-toggle-index">
+                {% translate 'Calculate the cost' %}
+            </button>
         </div>
     </section>
     <!-- END TASKS CONTENT -->
 
-    <!-- START CHAT -->
-    <section class="chat fade fadeInDown" data-wow-duration="2s">
-        <div class="static-info">
-            <h1 class="static-info-title">
-                {% translate 'Easy and familiar' %} <br>
-                {% translate 'Real-time-posts' %} <br>
-                {% translate 'Features' %}
-            </h1>
-            <p class="static-info-text">
-                {% translate 'Easy to use, apply for a job, order websites,' %} <br>
-                {% translate 'see our daily posts, and relax with time' %} <br>
-                {% translate 'quality is the most needful thing everywhere!' %}
-            </p>
-        </div>
-        <div class="chats">
-            <div class="chat-column">
-                <div class="profile">
-                    <img src="{% static 'main/images/main-page/avatar.svg' %}" alt="">
+    <!-- START Why Us Section -->
+    <section class="whyus-section">
+        <div class="whyus-container">
+            <div class="whyus-column fade fadeInDown">
+                <div class="whyus-icon-container services-icon">
+                    <i class="fas fa-project-diagram"></i>
                 </div>
-                <div class="message-container">
-                    <p class="chat-message-text">
-                        {% translate 'hi, i have finished all the design, kindly check on figma' %} :)
+                <div class="whyus-text-container">
+                    <p class="whyus-text">
+                        {% translate 'With' %} <span class="important-word">{% translate '4 years of successful experience' %}</span> {% translate 'in the market, we have completed and delivered over' %} <span class="important-word">{% translate '50 successful projects' %}</span>{% translate '.' %}
                     </p>
-                    <div class="message-creating-details">
-                        <h1 class="message-user">{% translate 'Sasa Anastasya' %}</h1>
-                        <span class="message-date">12 {% translate 'minutes ago' %}</span>
-                    </div>
                 </div>
             </div>
-            <div class="chat-column">
-                <div class="profile">
-                    <img src="{% static 'main/images/main-page/feedback.svg' %}" alt="">
+            <div class="whyus-column fade fadeInDown">
+                <div class="whyus-icon-container services-icon">
+                    <i class="fas fa-headset"></i>
                 </div>
-                <div class="message-container">
-                    <p class="chat-message-text">
-                        {% translate 'What you have is good, but maybe we can improve one of the designs above' %}
+                <div class="whyus-text-container">
+                    <p class="whyus-text">
+                        {% translate 'After completing a project, we don’t leave our clients. We provide' %} <span class="important-word">{% translate 'one year of free technical support' %}</span> {% translate 'and' %} <span class="important-word">{% translate 'security' %}</span>{% translate ', to ensure your website runs smoothly.' %}
                     </p>
-                    <div class="message-creating-details">
-                        <h1 class="message-user">{% translate 'Justin Nur' %}</h1>
-                        <span class="message-date">9 {% translate 'minutes ago' %}</span>
-                    </div>
                 </div>
             </div>
-            <div class="chat-column">
-                <div class="profile">
-                    <img src="{% static 'main/images/profile/profile.svg' %}" alt="">
+            <div class="whyus-column fade fadeInDown">
+                <div class="whyus-icon-container services-icon">
+                    <i class="fas fa-calendar-day"></i>
                 </div>
-                <div class="message-container">
-                    <p class="chat-message-text">
-                        {% translate 'Great job Azkia! maybe we can add a some gradient for section #2' %}
+                <div class="whyus-text-container">
+                    <p class="whyus-text">
+                        {% translate 'We work every day, without weekends. You can reach out to us at any time that suits you! We are always' %} <span class="important-word">{% translate 'happy to assist' %}</span> {% translate 'you with your needs.' %}
                     </p>
-                    <div class="message-creating-details">
-                        <h1 class="message-user">{% translate 'Ahsan Mulia' %}</h1>
-                        <span class="message-date">2 {% translate 'minutes ago' %}</span>
-                    </div>
+                </div>
+            </div>
+            <div class="whyus-column fade fadeInDown">
+                <div class="whyus-icon-container services-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="whyus-text-container">
+                    <p class="whyus-text">
+                        {% translate 'Direct' %} <span class="important-word">{% translate 'contact with management' %}</span> {% translate 'at every stage of the project ensures smooth communication and efficient results.' %}
+                    </p>
                 </div>
             </div>
         </div>
     </section>
-    <!-- END CHAT -->
+    <!-- END Why Us Section -->
 
     <!-- START PACKAGE -->
     <section class="package" id="packageSection">
@@ -182,6 +168,177 @@
         </div>
     </section>
     <!-- END PACKAGE -->
+
+    <!-- START DECIDE SECTION -->
+    <section class="decide-section">
+        <div class="decide-container">
+            <h1 class="decide-title">
+                {% translate 'Not sure which website solution is right for you ?' %}
+            </h1>
+            <p class="decide-text">
+                {% translate 'It is not always easy to determine the exact website you need for your project. If you are having trouble choosing, leave your phone number, and one of our specialists will contact you within 15 minutes for a personalized consultation:' %}
+            </p>
+            <form action="" class="decide-form" method="post">
+                {% csrf_token %}
+                <div class="decide-column">
+                    <input type="text" name="fullname" class="decide-input profile-edit-input" required placeholder="{% translate 'Name' %}">
+                </div>
+                <div class="decide-column">
+                    <input type="email" name="email" class="decide-input profile-edit-input" required placeholder="{% translate 'Email' %}">
+                </div>
+                <button type="submit" class="decide-submit-btn">
+                    {% translate 'Send' %}
+                </button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- END DECIDE SECTION -->
+
+    <!-- START Why us second section -->
+    <section class="whyus-section">
+        <div class="whyus-wrapper">
+            <h1 class="whyus-title fade fadeInDown">
+                {% translate 'Why is it better to order website development from us?' %}
+            </h1>
+            <div class="whyus-container">
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-pencil-ruler"></i> <!-- Icon for No Templates -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'We develop websites from scratch, without using ready-made templates or copying competitors\' sites. One design — one website.' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-search"></i> <!-- Icon for SEO Optimization -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'Websites developed by our team feature clean and quality code, making them easy to optimize for SEO.' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-mobile-alt"></i> <!-- Icon for Responsive Design -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'The websites we create are always responsive and have versions for all devices, from mobile phones to tablets. There is no extra charge for this.' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-life-ring"></i> <!-- Icon for Technical Support -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'Once the project is completed, we do not leave you on your own. After delivering your site, we provide full technical support and security for a year at no extra cost.' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-file-signature"></i> <!-- Icon for Contract-Based Work -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'All work is done under a contract. If we fail to meet our deadlines, we will refund your money. You can rest easy.' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-credit-card"></i> <!-- Icon for Staged Payments -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'We offer payment for development in stages. Typically, 50% upfront and 50% upon project completion.' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-clock"></i> <!-- Icon for 24/7 Support -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'We work every day, without breaks. You can reach out to us anytime that suits you! We are always here to help!' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-trophy"></i> <!-- Icon for Operating Since 2020 -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'With 4 years of successful experience in the market, we have developed and launched over 50 successful projects.' %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END Why us second section -->
+
+    <!-- START USED BY SECTION -->
+
+    <section class="partners-section">
+        <div class="partners-container">
+            <h1 class="partners-title fade fadeInDown">
+                {% translate 'Our Partners' %}
+            </h1>
+            {% if partners %}
+            <article class="partners-info-container">
+                <div class="owl-carousel carousel-slide-container fade fadeInDown"> 
+                    {% for object in partners %}
+                    <div class="partners-column fade fadeInDown">
+                        <img src="{{ object.logo.url }}" alt="">
+                        <h1 class="partners-info-title">{{ object.title }}</h1>
+                    </div>
+                    {% endfor %}
+                </div>
+            </article>
+            {% else %}
+            <article class="partners-empty-container fade fadeInDown">
+                <div class="partners-empty-icon-container">
+                    <img src="{% static 'main/images/errors/error.svg' %}" alt="">
+                </div>
+                <h1 class="partners-empty-title">{% translate 'No matching results' %}</h1>
+                <p class="partners-empty-text">{% translate 'There is no any partners yet' %}</p>
+            </article>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- END USED BY SECTION -->
+
+    <!-- START FAQ QUESTIONS SECTION -->
+    <section class="faq-section">
+        <h1 class="faq-main-title fade fadeInDown">{% translate 'Frequently Asked Questions' %}</h1>
+        <div class="faq-container">
+            {% for object in faqs %}
+            <div class="faq fade fadeInDown {% if forloop.counter == 1 or forloop.counter == 3 %} active{% endif %}">
+                <div class="faq-btn-container">
+                    <button class="faq-card-title">
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                        <p class="faq-card-title-text">{% translate object.question %}</p>
+                    </button>
+                </div>
+                <div class="faq-text">
+                    {{ object.answer|safe }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- END FAQ QUESTIONS SECTION -->
 
     <!-- START CAROUSEL SECTION -->
     <section class="carousel-section">
@@ -247,36 +404,6 @@
 
     <!-- END CAROUSEL SECTION -->
 
-    <!-- START USED BY SECTION -->
-
-    <section class="partners-section">
-        <div class="partners-container">
-            <h1 class="partners-title fade fadeInDown">
-                {% translate 'Our Partners' %}
-            </h1>
-            {% if partners %}
-            <article class="partners-info-container">
-                {% for object in partners %}
-                <div class="partners-column fade fadeInDown">
-                    <img src="{{ object.logo.url }}" alt="">
-                    <h1 class="partners-info-title">{{ object.title }}</h1>
-                </div>
-                {% endfor %}
-            </article>
-            {% else %}
-            <article class="partners-empty-container fade fadeInDown">
-                <div class="partners-empty-icon-container">
-                    <img src="{% static 'main/images/errors/error.svg' %}" alt="">
-                </div>
-                <h1 class="partners-empty-title">{% translate 'No matching results' %}</h1>
-                <p class="partners-empty-text">{% translate 'There is no any partners yet' %}</p>
-            </article>
-            {% endif %}
-        </div>
-    </section>
-
-    <!-- END USED BY SECTION -->
-
     <!-- START FEEDBACK SECTION -->
 
     <section class="feedback-list-section">
@@ -340,4 +467,10 @@
 {% block js_block %}
 <script src="{% static 'main/scripts/js/carousel.js' %}"></script>
 <script src="{% static 'main/scripts/js/feedback.js' %}"></script>
+<script src="{% static 'main/scripts/js/faq.js' %}"></script>
+<script>
+    function closeMessage(button) {
+        button.parentNode.style.display = 'none';
+    }
+</script>
 {% endblock %}

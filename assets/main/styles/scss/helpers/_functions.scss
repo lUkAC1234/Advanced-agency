@@ -20,11 +20,23 @@ strong {
   scroll-behavior: smooth !important;
 }
 
-@media screen and (min-width: 2000px) {
+:root {
+  --rem: 16px;
+  font-size: calc(var(--rem) + (20 - 16) * (100vw - 320px) / (1280 - 320));
+}
 
-  .header,
-  .main,
-  .footer {
-    padding-inline: calc(50% - 50rem);
+@function calc-rem($min-width, $step, $max-scale) {
+  @return ();
+}
+
+@for $i from 0 through 29 {
+  $width: 2500px + $i * 500px;
+  $rem: 16px + $i * 2.5px;
+  @at-root {
+    @media screen and (min-width: #{$width}) {
+      :root {
+        --rem: #{$rem};
+      }
+    }
   }
 }

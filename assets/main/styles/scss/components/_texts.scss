@@ -2,7 +2,7 @@
     color: var(--text-dark-blue);
     text-align: center;
     font-size: 4rem;
-    font-family: var(--grotext-sans);
+    font-family: var(--girloy);
     font-weight: 700;
     line-height: 120%;
     text-transform: capitalize;
@@ -31,7 +31,7 @@
 .info-text-gray-1-125rem {
     color: #666;
     font-size: 1.125rem;
-    font-family: var(--grotext-sans);
+    font-family: var(--girloy);
     line-height: 160%;
 }
 
@@ -43,7 +43,7 @@
 .chat-text-gray {
     color: var(--text-light-gray);
     font-size: 1rem;
-    font-family: var(--nunito);
+    font-family: var(--girloy);
     font-weight: 400;
     line-height: 140%;
 }
@@ -57,7 +57,7 @@
 .chat-creator-text {
     color: var(--text-dark-blue);
     font-size: 1.125rem;
-    font-family: var(--nunito);
+    font-family: var(--girloy);
     font-weight: 700;
     line-height: 140%;
 }
@@ -82,7 +82,7 @@
 .white-1rem-grotext {
     color: var(--text-white);
     font-size: 1rem;
-    font-family: var(--grotext-sans);
+    font-family: var(--girloy);
     font-style: normal;
     font-weight: 700;
     line-height: 160%;
@@ -91,4 +91,9 @@
 .white-1-125rem-grotext {
     @extend .white-1rem-grotext;
     font-size: 1.125rem;
+}
+
+.important-word {
+    color: var(--text-purple);
+    font-weight: 500;
 }

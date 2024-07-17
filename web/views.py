@@ -58,15 +58,9 @@ import pytz
 
 class ContactFormMixin(FormView):
     form_class = ContactusModelForm
-    
+
     def get_success_url(self):
         return self.request.META.get('HTTP_REFERER', '/')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        if 'contact_form' not in context:
-            context['contact_form'] = self.get_form()
-        return context
 
     def form_valid(self, form):
         contact_message = form.save()
@@ -87,9 +81,9 @@ class ContactFormMixin(FormView):
             'company': contact_message.company,
             'text': contact_message.text,
             'formatted_datetime': formatted_datetime,
-            'contact_message': contact_message, 
-            'current_year': datetime.now().year,  
-            'request': self.request,  
+            'contact_message': contact_message,
+            'current_year': datetime.now().year,
+            'request': self.request,
         }
         html_message = render_to_string('email/contact_message.html', context)
 
@@ -106,7 +100,14 @@ class ContactFormMixin(FormView):
             html_message=html_message,
         )
 
-        return HttpResponseRedirect(self.get_success_url())
+        messages.success(self.request, _("Письмо успешно отправлено."))  # Ensure message is added here
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if 'contact_form' not in context:
+            context['contact_form'] = self.get_form()
+        return context
     
     
 class index(ContactFormMixin, TemplateView):
@@ -124,6 +125,7 @@ class index(ContactFormMixin, TemplateView):
             is_allowed=True
         )
         data["partners"] = PartnersModel.objects.all()
+        data["faqs"] = FaqModel.objects.all()[:8]
 
         for post in data["posts"]:
             post.view_count = post.views.count()

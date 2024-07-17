@@ -61,14 +61,6 @@ body {
 
 // HEADER-CONTENT-FOOTER POSITIONS END
 
-// ROOT 
-
-:root {
-  font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1280 - 320));
-}
-
-// ROOT END
-
 // ScroolBar
 
 ::-webkit-scrollbar {

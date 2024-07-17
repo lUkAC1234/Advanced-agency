@@ -127,7 +127,7 @@
 
     .sign-button {
         padding: 0.475rem 1.25rem;
-        border-radius: 40px;
+        border-radius: 2rem;
         border: 1.3px solid var(--background-purple);
         color: var(--text-purple);
         background: none;
@@ -610,7 +610,7 @@ body:has(.language-dropdown-content.show) {
         display: block;
         top: -2rem;
         left: -6rem;
-        width: min(100vw, 100rem);
+        width: 100vw;
         height: 100vmax;
         background: var(--background-white);
         padding: 3rem 1rem;
