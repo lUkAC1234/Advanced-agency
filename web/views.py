@@ -65,16 +65,12 @@ class ContactFormMixin(FormView):
     def form_valid(self, form):
         contact_message = form.save()
 
-        # Get the current timezone
         current_timezone = pytz.timezone(settings.TIME_ZONE)
 
-        # Convert the datetime to the current timezone
         created_at = contact_message.created_at.astimezone(current_timezone)
 
-        # Format the created_at datetime
         formatted_datetime = created_at.strftime("%B %d, %I:%M %p, %Y")
 
-        # Render the HTML email template
         context = {
             'fullname': contact_message.fullname,
             'email': contact_message.email,
@@ -100,7 +96,7 @@ class ContactFormMixin(FormView):
             html_message=html_message,
         )
 
-        messages.success(self.request, _("Письмо успешно отправлено."))  # Ensure message is added here
+        messages.success(self.request, _("Your message has been successfully sent."))  
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):

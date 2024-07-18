@@ -1,7 +1,7 @@
 // GRADIENT CONTENT START
 
-.index-main {
-    overflow-x: hidden;
+.main {
+    overflow-x: hidden !important;
 }
 
 .gradient-container {
@@ -243,6 +243,15 @@
     margin-top: 3rem;
 } 
 
+.whyus-second-section {
+    background: var(--background-light-purple);
+    padding-block: 3rem;
+
+    .whyus-title {
+        color: var(--text-white) !important;
+    }
+}
+
 .whyus-title {
     @extend .dark-blue-text-center-grotext-family-3rem;
     margin-bottom: 3rem;
@@ -262,7 +271,6 @@
 
 .whyus-text-container {
     @extend .chat-text-gray-1-125;
-    font-size: 1.25rem !important;
     margin-top: 2rem;
 }
 
@@ -736,7 +744,7 @@
 // PARTNERS SECTION START
 
 .partners-section {
-    margin-top: 15rem;
+    margin-top: 6rem;
     background: var(--carousel-white);
     padding: 1rem 0;
 }

@@ -172,21 +172,21 @@
     <!-- START DECIDE SECTION -->
     <section class="decide-section">
         <div class="decide-container">
-            <h1 class="decide-title">
+            <h1 class="decide-title fade fadeInDown">
                 {% translate 'Not sure which website solution is right for you ?' %}
             </h1>
-            <p class="decide-text">
+            <p class="decide-text fade fadeInDown">
                 {% translate 'It is not always easy to determine the exact website you need for your project. If you are having trouble choosing, leave your phone number, and one of our specialists will contact you within 15 minutes for a personalized consultation:' %}
             </p>
             <form action="" class="decide-form" method="post">
                 {% csrf_token %}
-                <div class="decide-column">
+                <div class="decide-column fade fadeInDown">
                     <input type="text" name="fullname" class="decide-input profile-edit-input" required placeholder="{% translate 'Name' %}">
                 </div>
-                <div class="decide-column">
+                <div class="decide-column fade fadeInDown">
                     <input type="email" name="email" class="decide-input profile-edit-input" required placeholder="{% translate 'Email' %}">
                 </div>
-                <button type="submit" class="decide-submit-btn">
+                <button type="submit" class="decide-submit-btn fade fadeInDown">
                     {% translate 'Send' %}
                 </button>
             </form>
@@ -196,7 +196,7 @@
     <!-- END DECIDE SECTION -->
 
     <!-- START Why us second section -->
-    <section class="whyus-section">
+    <section class="whyus-section whyus-second-section">
         <div class="whyus-wrapper">
             <h1 class="whyus-title fade fadeInDown">
                 {% translate 'Why is it better to order website development from us?' %}
@@ -208,7 +208,7 @@
                     </div>
                     <div class="whyus-text-container">
                         <p class="whyus-text">
-                            {% translate 'We develop websites from scratch, without using ready-made templates or copying competitors\' sites. One design — one website.' %}
+                            {% translate 'We develop websites from scratch, without using ready-made templates or copying competitors sites. One design — one website.' %}
                         </p>
                     </div>
                 </div>
@@ -258,7 +258,7 @@
                     </div>
                     <div class="whyus-text-container">
                         <p class="whyus-text">
-                            {% translate 'We offer payment for development in stages. Typically, 50% upfront and 50% upon project completion.' %}
+                            {% translate 'We offer payment for development in stages. Typically, 50 percent upfront and 50 percent upon project completion.' %}
                         </p>
                     </div>
                 </div>
@@ -468,9 +468,4 @@
 <script src="{% static 'main/scripts/js/carousel.js' %}"></script>
 <script src="{% static 'main/scripts/js/feedback.js' %}"></script>
 <script src="{% static 'main/scripts/js/faq.js' %}"></script>
-<script>
-    function closeMessage(button) {
-        button.parentNode.style.display = 'none';
-    }
-</script>
 {% endblock %}

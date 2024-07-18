@@ -1,7 +1,7 @@
 {% load static i18n %}
 <!-- Start Contact form Included Section -->
 {% if messages %}
-    <ul class="success-password-message">
+    <ul class="success-password-message contact-form-included-success-message-container">
         {% for message in messages %}
             {% if message.tags == 'success' %}
                 <li class="{{ message.tags }}"><i class="fa-solid fa-circle-check"></i> {{ message }}</li>

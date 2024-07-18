@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# We offer payment for 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 23:23+0500\n"
+"POT-Creation-Date: 2024-07-18 09:40+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,7 +36,7 @@ msgstr "Введите ваше имя пользователя"
 msgid "Enter you password"
 msgstr "Введите ваш пароль"
 
-#: .\web\forms.py:70 .\web\views.py:620
+#: .\web\forms.py:70 .\web\views.py:617
 msgid "Username or password is incorrect"
 msgstr "Имя пользователя или пароль неверны"
 
@@ -60,7 +60,7 @@ msgstr "Пароль должен быть не менее 8 символов в
 msgid "Subject"
 msgstr "Тема"
 
-#: .\web\forms.py:127 .\web\templates\layout\contact_form.html:47
+#: .\web\forms.py:127 .\web\templates\layout\contact_form.html:58
 #: .\web\templates\pages\job\jobdetail.html:62
 msgid "Message"
 msgstr "Сообщение"
@@ -247,32 +247,32 @@ msgstr "Cyber Code"
 msgid "All rights reserved."
 msgstr "Все права защищены."
 
-#: .\web\templates\layout\contact_form.html:12
-#: .\web\templates\layout\contact_form.html:57
-#: .\web\templates\pages\contact.html:97
+#: .\web\templates\layout\contact_form.html:23
+#: .\web\templates\layout\contact_form.html:68
+#: .\web\templates\pages\contact.html:98
 msgid "Send message"
 msgstr "Отправить сообщение"
 
-#: .\web\templates\layout\contact_form.html:19
-#: .\web\templates\pages\contact.html:71
+#: .\web\templates\layout\contact_form.html:30
+#: .\web\templates\pages\contact.html:72
 msgid "Full Name"
 msgstr "Полное имя"
 
-#: .\web\templates\layout\contact_form.html:20
+#: .\web\templates\layout\contact_form.html:31
 msgid "Dwayne Johnson"
 msgstr "Дуэйн Джонсон"
 
-#: .\web\templates\layout\contact_form.html:28
-#: .\web\templates\pages\contact.html:78
+#: .\web\templates\layout\contact_form.html:39
+#: .\web\templates\pages\contact.html:79
 msgid "Email address"
 msgstr "Адрес электронной почты"
 
-#: .\web\templates\layout\contact_form.html:37
-#: .\web\templates\pages\contact.html:85
+#: .\web\templates\layout\contact_form.html:48
+#: .\web\templates\pages\contact.html:86
 msgid "Company name"
 msgstr "Название компании"
 
-#: .\web\templates\layout\contact_form.html:49
+#: .\web\templates\layout\contact_form.html:60
 msgid "Hello, I want to order..."
 msgstr "Здравствуйте, я хочу сделать заказ..."
 
@@ -301,9 +301,9 @@ msgstr "Работа"
 msgid "Contact"
 msgstr "Контакты"
 
-#: .\web\templates\layout\footer.html:30
-msgid "Privacy Policy"
-msgstr "Privacy Policy"
+#: .\web\templates\layout\footer.html:30 .\web\templates\layout\header.html:81
+msgid "Projects"
+msgstr "Проекты"
 
 #: .\web\templates\layout\footer.html:34
 msgid "Our product"
@@ -312,7 +312,7 @@ msgstr "Наши продукты"
 #: .\web\templates\layout\footer.html:36 .\web\templates\layout\header.html:76
 #: .\web\templates\pages\blog\blog.html:159
 #: .\web\templates\pages\blog\blogdetail.html:133
-#: .\web\templates\pages\contact.html:158 .\web\templates\pages\faqlist.html:49
+#: .\web\templates\pages\contact.html:159 .\web\templates\pages\faqlist.html:49
 #: .\web\templates\pages\pricing\pricing.html:153
 #: .\web\templates\pages\pricing\pricinglist.html:86
 #: .\web\templates\pages\projects\projects.html:47
@@ -381,16 +381,12 @@ msgstr "Главная"
 msgid "About"
 msgstr "О нас"
 
-#: .\web\templates\layout\header.html:81
-msgid "Projects"
-msgstr "Проекты"
-
 #: .\web\templates\layout\header.html:102
 #: .\web\templates\layout\header.html:145
 #: .\web\templates\layout\header.html:184
 #: .\web\templates\pages\blog\blog.html:154
 #: .\web\templates\pages\blog\blogdetail.html:128
-#: .\web\templates\pages\contact.html:153 .\web\templates\pages\faqlist.html:44
+#: .\web\templates\pages\contact.html:154 .\web\templates\pages\faqlist.html:44
 #: .\web\templates\pages\index.html:20 .\web\templates\pages\index.html:154
 #: .\web\templates\pages\job\job.html:42 .\web\templates\pages\job\job.html:143
 #: .\web\templates\pages\job\jobdetail.html:184
@@ -409,7 +405,7 @@ msgstr "Начать"
 msgid "Help Center"
 msgstr "Центр помощи"
 
-#: .\web\templates\layout\header.html:159 .\web\templates\pages\contact.html:92
+#: .\web\templates\layout\header.html:159 .\web\templates\pages\contact.html:93
 msgid "Messages"
 msgstr "Сообщения"
 
@@ -634,18 +630,18 @@ msgstr "Работать в команде намного лучше, чем р�
 msgid "Stay get in touch with us"
 msgstr "Оставайтесь на связи с нами"
 
-#: .\web\templates\pages\about.html:273 .\web\templates\pages\contact.html:15
-#: .\web\templates\pages\contact.html:33
+#: .\web\templates\pages\about.html:273 .\web\templates\pages\contact.html:16
+#: .\web\templates\pages\contact.html:34
 msgid "Questions? Comments? Want to schedule a demo? We’d love to chat!"
 msgstr ""
 "Вопросы? Комментарии? Хотите запланировать демонстрацию? Мы будем рады "
 "побеседовать!"
 
-#: .\web\templates\pages\about.html:281 .\web\templates\pages\contact.html:42
+#: .\web\templates\pages\about.html:281 .\web\templates\pages\contact.html:43
 msgid "Email us"
 msgstr "Напишите нам"
 
-#: .\web\templates\pages\about.html:290 .\web\templates\pages\contact.html:51
+#: .\web\templates\pages\about.html:290 .\web\templates\pages\contact.html:52
 msgid "Phone number"
 msgstr "Номер телефона"
 
@@ -688,7 +684,7 @@ msgstr "Сбросить все фильтры"
 
 #: .\web\templates\pages\blog\blog.html:149
 #: .\web\templates\pages\blog\blogdetail.html:123
-#: .\web\templates\pages\contact.html:148 .\web\templates\pages\faqlist.html:39
+#: .\web\templates\pages\contact.html:149 .\web\templates\pages\faqlist.html:39
 #: .\web\templates\pages\pricing\pricing.html:143
 #: .\web\templates\pages\pricing\pricinglist.html:76
 #: .\web\templates\pages\projects\projects.html:37
@@ -697,13 +693,13 @@ msgstr "Готовы попробовать"
 
 #: .\web\templates\pages\blog\blog.html:149
 #: .\web\templates\pages\blog\blogdetail.html:123
-#: .\web\templates\pages\contact.html:148 .\web\templates\pages\faqlist.html:39
+#: .\web\templates\pages\contact.html:149 .\web\templates\pages\faqlist.html:39
 msgid "Cyber Code?"
 msgstr "Cyber Code?"
 
 #: .\web\templates\pages\blog\blog.html:150
 #: .\web\templates\pages\blog\blogdetail.html:124
-#: .\web\templates\pages\contact.html:149 .\web\templates\pages\faqlist.html:40
+#: .\web\templates\pages\contact.html:150 .\web\templates\pages\faqlist.html:40
 #: .\web\templates\pages\pricing\pricing.html:144
 #: .\web\templates\pages\pricing\pricinglist.html:77
 #: .\web\templates\pages\projects\projects.html:38
@@ -765,31 +761,31 @@ msgstr "Перейти к блогу"
 msgid "Contact us - Cyber Code"
 msgstr "Свяжитесь с нами - Cyber Code"
 
-#: .\web\templates\pages\contact.html:14 .\web\templates\pages\contact.html:32
+#: .\web\templates\pages\contact.html:15 .\web\templates\pages\contact.html:33
 msgid "Contact us"
 msgstr "Свяжитесь с нами"
 
-#: .\web\templates\pages\contact.html:100
+#: .\web\templates\pages\contact.html:101
 #, fuzzy
 #| msgid "Your form has been submitted successfully!"
 msgid "Your Form has been submitted successfully !"
 msgstr "Ваша форма успешно отправлена!"
 
-#: .\web\templates\pages\contact.html:103
+#: .\web\templates\pages\contact.html:104
 msgid "Error submitting the form. Please try again."
 msgstr "Ошибка при отправке формы. Пожалуйста, попробуйте снова."
 
-#: .\web\templates\pages\contact.html:118 .\web\templates\pages\faqlist.html:14
+#: .\web\templates\pages\contact.html:119 .\web\templates\pages\faqlist.html:14
 #: .\web\templates\pages\index.html:324
 msgid "Frequently Asked Questions"
 msgstr "Часто задаваемые вопросы"
 
-#: .\web\templates\pages\contact.html:119
+#: .\web\templates\pages\contact.html:120
 msgid ""
 "Fill out the form and our team will get back to you as quickly as we can."
 msgstr "Заполните форму, и наша команда свяжется с вами как можно скорее."
 
-#: .\web\templates\pages\contact.html:137
+#: .\web\templates\pages\contact.html:138
 msgid "Click to view other FAQS"
 msgstr "Нажмите, чтобы посмотреть другие FAQ"
 
@@ -1039,13 +1035,9 @@ msgid "Why is it better to order website development from us?"
 msgstr "Почему лучше заказать разработку сайта у нас?"
 
 #: .\web\templates\pages\index.html:211
-#, fuzzy
-#| msgid ""
-#| "We develop websites from scratch, without using ready-made templates or "
-#| "copying competitors' sites. One design — one website."
 msgid ""
 "We develop websites from scratch, without using ready-made templates or "
-"copying competitors\\"
+"copying competitors sites. One design — one website."
 msgstr ""
 "Мы разрабатываем сайты с нуля, не используя готовые шаблоны и не копируя "
 "сайты конкурентов. Один дизайн — один сайт."
@@ -1084,9 +1076,13 @@ msgstr ""
 "Вся работа выполняется по договору. Если мы не уложимся в сроки, мы вернем "
 "ваши деньги. Вы можете быть уверены в этом."
 
-#: web/templates/pages/index.html:261
-msgid "We offer payment for development in stages. Typically, 50%% upfront and 50%% upon project completion."
-msgstr "Мы предлагаем оплату за разработку по частям. Обычно 50% предоплата и 50% по завершении проекта."
+#: .\web\templates\pages\index.html:261
+msgid ""
+"We offer payment for development in stages. Typically, 50 percent upfront "
+"and 50 percent upon project completion."
+msgstr ""
+"Мы предлагаем оплату за разработку по частям. Обычно 50 процентов предоплата и 50 процентов "
+"по завершении проекта."
 
 #: .\web\templates\pages\index.html:271
 msgid ""
@@ -1800,21 +1796,28 @@ msgstr "Зарегистрироваться"
 msgid "Already have an account?"
 msgstr "У вас уже есть аккаунт?"
 
-#: .\web\views.py:460
+#: .\web\views.py:99
+msgid "Your message has been successfully sent."
+msgstr "Ваше сообщение успешно отправлено!"
+
+#: .\web\views.py:457
 msgid "This post is private."
 msgstr "Этот пост является приватным."
 
-#: .\web\views.py:598
+#: .\web\views.py:595
 msgid "Profile updated successfully."
 msgstr "Профиль успешно обновлен."
 
-#: .\web\views.py:646
+#: .\web\views.py:643
 msgid "You have successfully created an account"
 msgstr "Вы успешно создали аккаунт"
 
-#: .\web\views.py:668
+#: .\web\views.py:665
 msgid "Your password was successfully updated"
 msgstr "Ваш пароль успешно обновлен"
+
+#~ msgid "Privacy Policy"
+#~ msgstr "Privacy Policy"
 
 #~ msgid "Connect With Apps You Use for Work"
 #~ msgstr "Подключайтесь к приложениям для работы"

@@ -47,7 +47,7 @@
     <script src="{% static 'main/scripts/js/owlcarousel/owl.carousel.min.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             wow = new WOW({
                 boxClass: 'fade',
                 animateClass: 'animated',
@@ -57,6 +57,9 @@
             });
             wow.init();
         });
+        function closeMessage(button) {
+            button.parentNode.style.display = 'none';
+        }
     </script>
     {% block js_block %}
 
