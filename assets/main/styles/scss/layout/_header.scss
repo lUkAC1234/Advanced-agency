@@ -186,7 +186,7 @@
             position: absolute;
             top: 0;
             background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(192, 141, 255, 1) 100%, rgba(136, 40, 255, 1) 100%);
-            height: 100vh;
+            height: 110vmax;
             overflow-y: auto;
             gap: 1.25rem;
             justify-content: start;
@@ -224,7 +224,8 @@
         ul {
             flex-flow: column;
             gap: 1.5rem;
-            margin: 10rem 0 3rem 1rem;
+            padding: 10rem 0 3rem 1rem;
+            width: 100%;
         }
 
         li {
@@ -418,8 +419,8 @@
     height: 2.5rem;
     border-radius: 50%;
     object-fit: cover;
-    border: 1px solid transparent;
-    padding: 2px;
+    border: 0.025rem solid transparent;
+    padding: 0.05rem;
     background-color: var(--background-white);
 }
 
