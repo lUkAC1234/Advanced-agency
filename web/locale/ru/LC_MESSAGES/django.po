@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 22:11+0500\n"
+"POT-Creation-Date: 2024-07-18 23:59+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,27 +40,27 @@ msgstr "Введите ваш пароль"
 msgid "Username or password is incorrect"
 msgstr "Имя пользователя или пароль неверны"
 
-#: .\web\forms.py:85
+#: .\web\forms.py:88 .\web\forms.py:115
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
-#: .\web\forms.py:91
+#: .\web\forms.py:94
 msgid "This username is already in use"
 msgstr "Это имя пользователя уже используется"
 
-#: .\web\forms.py:98
+#: .\web\forms.py:102
 msgid "Password can only contain English letters, numbers, !, $, @, %"
 msgstr "Пароль может содержать только английские буквы, цифры, !, $, @, %"
 
-#: .\web\forms.py:101
+#: .\web\forms.py:105
 msgid "Password must be at least 8 characters long"
 msgstr "Пароль должен быть не менее 8 символов в длину"
 
-#: .\web\forms.py:126 .\web\templates\email\admin_reply.html:111
+#: .\web\forms.py:140 .\web\templates\email\admin_reply.html:111
 msgid "Subject"
 msgstr "Тема"
 
-#: .\web\forms.py:127 .\web\templates\layout\contact_form.html:58
+#: .\web\forms.py:141 .\web\templates\layout\contact_form.html:58
 #: .\web\templates\pages\job\jobdetail.html:62
 msgid "Message"
 msgstr "Сообщение"
@@ -162,14 +162,17 @@ msgstr ""
 "пожалуйста, не стесняйтесь отвечать на это письмо."
 
 #: .\web\templates\email\admin_reply.html:116
+#: .\web\templates\pages\user\password_reset_email.html:76
 msgid "You can also reach us through social media:"
 msgstr "Вы также можете связаться с нами через социальные сети:"
 
 #: .\web\templates\email\admin_reply.html:119
+#: .\web\templates\pages\user\password_reset_email.html:79
 msgid "Channel"
 msgstr "Канал"
 
 #: .\web\templates\email\admin_reply.html:123
+#: .\web\templates\pages\user\password_reset_email.html:83
 msgid ""
 "If you did not send us a message or believe this email was sent to you by "
 "mistake, please ignore this email."
@@ -178,19 +181,23 @@ msgstr ""
 "отправлено вам по ошибке, пожалуйста, проигнорируйте его."
 
 #: .\web\templates\email\admin_reply.html:126
+#: .\web\templates\pages\user\password_reset_email.html:86
 msgid "Best regards,"
 msgstr "С наилучшими пожеланиями,"
 
 #: .\web\templates\email\admin_reply.html:127
+#: .\web\templates\pages\user\password_reset_email.html:87
 msgid "The"
 msgstr " "
 
 #: .\web\templates\email\admin_reply.html:127
 #: .\web\templates\pages\about.html:202
+#: .\web\templates\pages\user\password_reset_email.html:87
 msgid "Team"
 msgstr "Команда"
 
 #: .\web\templates\email\admin_reply.html:131
+#: .\web\templates\pages\user\password_reset_email.html:91
 msgid "Cyber Code. All rights reserved."
 msgstr "Cyber Code. Все права защищены."
 
@@ -1010,9 +1017,8 @@ msgid ""
 "consultation:"
 msgstr ""
 "Не всегда удается так быстро понять, какой именно нужен сайт под тот или "
-"иной проект. Если у вас возникли трудности в выборе, оставьте свою почту, "
-"и наш специалист свяжется с Вами в течение 15 минут для "
-"консультации:"
+"иной проект. Если у вас возникли трудности в выборе, оставьте свою почту, и "
+"наш специалист свяжется с Вами в течение 15 минут для консультации:"
 
 #: .\web\templates\pages\index.html:184
 msgid "Name"
@@ -1702,7 +1708,11 @@ msgstr ""
 "Если вы не получили письмо, убедитесь, что ввели адрес, с которым "
 "зарегистрировались, и проверьте папку со спамом."
 
-#: .\web\templates\pages\user\password_reset_email.html:2
+#: .\web\templates\pages\user\password_reset_email.html:65
+msgid "Password Reset Request"
+msgstr "Запрос на сброс пароля"
+
+#: .\web\templates\pages\user\password_reset_email.html:68
 #, python-format
 msgid ""
 "You're receiving this email because you requested a password reset for your "
@@ -1711,22 +1721,13 @@ msgstr ""
 "Вы получаете это письмо, потому что запросили сброс пароля для вашей учетной "
 "записи на сайте %(site_name)s."
 
-#: .\web\templates\pages\user\password_reset_email.html:4
+#: .\web\templates\pages\user\password_reset_email.html:69
 msgid "Please go to the following page and choose a new password:"
 msgstr "Перейдите на следующую страницу и выберите новый пароль:"
 
-#: .\web\templates\pages\user\password_reset_email.html:8
+#: .\web\templates\pages\user\password_reset_email.html:75
 msgid "Your username, in case you’ve forgotten:"
 msgstr "Ваше имя пользователя, если вы его забыли:"
-
-#: .\web\templates\pages\user\password_reset_email.html:10
-msgid "Thanks for using our site!"
-msgstr "Спасибо за использование нашего сайта!"
-
-#: .\web\templates\pages\user\password_reset_email.html:12
-#, python-format
-msgid "The %(site_name)s team"
-msgstr "Команда %(site_name)s"
 
 #: .\web\templates\pages\user\profile.html:5
 msgid "Profile - Cyber Code"
@@ -1815,6 +1816,13 @@ msgstr "Вы успешно создали аккаунт"
 #: .\web\views.py:665
 msgid "Your password was successfully updated"
 msgstr "Ваш пароль успешно обновлен"
+
+#~ msgid "Thanks for using our site!"
+#~ msgstr "Спасибо за использование нашего сайта!"
+
+#, python-format
+#~ msgid "The %(site_name)s team"
+#~ msgstr "Команда %(site_name)s"
 
 #~ msgid "Privacy Policy"
 #~ msgstr "Privacy Policy"
