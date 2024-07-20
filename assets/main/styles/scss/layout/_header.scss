@@ -66,6 +66,7 @@
         .nav-link {
             position: relative;
             transition: all 0.5s;
+            width: max-content;
 
             &::after {
                 content: "";
@@ -510,7 +511,7 @@
     border-radius: 1.25rem;
 
     i {
-        width: 25px;
+        width: 1.2rem;
     }
 }
 

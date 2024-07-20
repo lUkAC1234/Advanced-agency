@@ -1,4 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Open+Sans:wght@300&family=Poppins:wght@400;500;600;700;800;900&display=swap");
+@font-face {
+  font-family: "Gilroy";
+  src: url("/static/main/fonts/girloy/Gilroy-Regular.ttf") format("truetype"); /* Default font */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("/static/main/fonts/girloy/Gilroy-Light.ttf") format("truetype"); /* Light font */
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("/static/main/fonts/girloy/Gilroy-Medium.ttf") format("truetype"); /* Medium font */
+  font-weight: 500;
+  font-style: normal;
+}
 /* Base Colors */
 :root {
   --primary-color: #20184E;
@@ -8,7 +26,7 @@
   --yellow: #FFDA58;
   --white: #ffffff;
   --input-background: #D8E0F0;
-  --poppins: "Poppins", "sans-serif";
+  --poppins: Gilroy, Arial, sans-serif !important;
 }
 
 .aligned label + p,
