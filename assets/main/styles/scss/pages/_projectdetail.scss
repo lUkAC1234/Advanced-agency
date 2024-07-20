@@ -54,6 +54,25 @@
     }
 }
 
+.project-detail-content {
+    width: min(100%, 80rem);
+    margin-inline: auto;
+}
+
+.project-detail-description-container {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 600;
+    }
+    * {
+        line-height: 140%;
+    }
+}
+
 .project-detail-description-container {
     margin-top: 2rem;
     transition: all 0.2s ease
