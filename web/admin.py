@@ -1,7 +1,24 @@
 from django.contrib import admin
-from .models import UserModel, PricingModel, PostModel, FeedbackModel, ContactusModel, \
-FaqModel, JobModel, JobCategoryModel, ProjectModel, ProjectCategory, PostTagModel, PostCategoryModel, PartnersModel, \
-JobApplyModel, CheckOut, JobKnowledgesModel, VisitHistory, AdminReply
+from .models import (
+    UserModel, 
+    PricingModel, 
+    PostModel, 
+    FeedbackModel, 
+    ContactusModel, 
+    FaqModel, 
+    JobModel, 
+    JobCategoryModel, 
+    ProjectModel, 
+    ProjectCategory, 
+    PostTagModel, 
+    PostCategoryModel, 
+    PartnersModel, 
+    JobApplyModel, 
+    CheckOut, 
+    JobKnowledgesModel, 
+    VisitHistory, 
+    AdminReply
+)
 from django.utils.translation import gettext_lazy as _
 # For saving html code
 from django.utils.safestring import mark_safe
