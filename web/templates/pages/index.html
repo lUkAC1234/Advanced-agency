@@ -149,8 +149,9 @@
                     {% endif %}
                 </div>
                 <div class="abilities">
-                    {{ object.advantages|safe }}
-                    <a href="{% url 'main:add_to_cart' object.id %}">
+                    {% load my_tags %}
+                    {{ object.advantages|first_n_advantages:4|safe }}
+                    <a href="{% url 'main:pricingdetail' type=object.slug %}">
                         <button class="abilities-btn">{% translate 'Get started' %}</button>
                     </a>
                 </div>

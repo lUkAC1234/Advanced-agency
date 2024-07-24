@@ -130,11 +130,6 @@ class index(ContactFormMixin, TemplateView):
 class about(ContactFormMixin, TemplateView):
     template_name = "pages/about.html"
 
-    def get_context_data(self, **kwargs):
-        data = super().get_context_data(**kwargs)
-        data["users"] = CheckOut.objects.only("user").all()
-        return data
-
 
 class contact(CreateView):
     form_class = ContactusModelForm
@@ -249,7 +244,13 @@ class Pricing(ContactFormMixin, TemplateView, FormView):
             "-popular", "-id"
         )[:3]
         return data
-
+    
+class PricingDetailView(ContactFormMixin, DetailView):
+    model = PricingModel
+    template_name = "pages/pricing/pricingdetail.html"
+    
+    def get_object(self):
+        return PricingModel.objects.get(slug=self.kwargs['type'])
 
 class pricinglist(ContactFormMixin, ListView):
     model = PricingModel
@@ -269,17 +270,10 @@ class pricinglist(ContactFormMixin, ListView):
 
 def AddToCart(request, id):
     cart = request.session.get("cart", [])
-
-    if not cart:
-        request.session["cart"] = []
-        cart = request.session.get("cart", [])
     if id not in cart:
         cart.append(id)
-
-    request.session["cart"] = cart
-
+        request.session["cart"] = cart
     return redirect("main:payment")
-
 
 def RemoveFromCart(request, id):
     cart = request.session.get("cart", [])
@@ -306,7 +300,6 @@ class payment_list(CreateView):
         cart = self.request.session.get("cart", [])
         queryset = PricingModel.get_cart_objects(cart)
         form.instance.total_price = sum(item.price for item in queryset)
-        form.instance.user = self.request.user
         form.instance.success_checkout = 1
         data = form.save()
         data.item.set(queryset)
@@ -325,14 +318,7 @@ class SuccessPayment(CreateView):
     def get_success_url(self):
         return reverse("main:pricing")
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-
     def get(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return redirect("main:page404")
-
         if self.request.session.get("success_checkout", False):
             self.request.session["success_checkout"] = False
             return super().get(request, *args, **kwargs)
@@ -341,7 +327,7 @@ class SuccessPayment(CreateView):
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        CheckOut.objects.filter(user=self.request.user, success_checkout=True).update(
+        CheckOut.objects.filter(success_checkout=True).update(
             success_checkout=True
         )
         return data

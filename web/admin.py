@@ -155,7 +155,7 @@ class CheckOutAdmin(admin.ModelAdmin):
     list_display = ['id', 'first_name', 'total_price']
     list_display_links = ['id', 'first_name']
     search_fields = ['first_name']
-    readonly_fields = ['created_at', 'item', 'user', 'total_price', 'success_checkout']
+    readonly_fields = ['created_at', 'item', 'total_price', 'success_checkout']
 
 
 admin.site.site_header = 'Cyber Code'

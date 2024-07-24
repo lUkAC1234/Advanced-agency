@@ -17,6 +17,9 @@
         background: none;
         color: var(--text-purple);
     }
+    &::first-letter {
+        text-transform: uppercase;
+    }
 }
 
 // PURPLE BUTTON WITHOUT BACKGROUND 1rem 2rem
@@ -36,6 +39,9 @@
     &:hover {
         color: var(--text-purple);
     }
+    &::first-letter {
+        text-transform: uppercase;
+    }
 }
 
 // GRAY BUTTON WITH PURPLE TEXT
@@ -54,6 +60,9 @@
     &:hover {
         background: var(--background-purple);
         color: var(--gray-button);
+    }
+    &::first-letter {
+        text-transform: uppercase;
     }
 }
 

@@ -1,12 +1,37 @@
 from django.urls import path,include, reverse_lazy
-from .views import index, about, contact, Pricing, pricinglist, \
-BlogListView, blogdetail, job, JobDetailView, \
-loginView, RegistrationView, MyProfileEdit, logoutView, FAQListView, \
-payment_list, AddToCart, RemoveFromCart, SuccessPayment, PageNotFound, \
-ProjectsView, ProjectDetailView, UserPasswordChangeView, AdminReplyView
+from .views import (
+    index, about, 
+    contact, 
+    Pricing, 
+    PricingDetailView,
+    pricinglist, 
+    BlogListView, 
+    blogdetail, 
+    job, 
+    JobDetailView, 
+    loginView, 
+    RegistrationView, 
+    MyProfileEdit, 
+    logoutView, 
+    FAQListView, 
+    payment_list, 
+    AddToCart, 
+    RemoveFromCart, 
+    SuccessPayment, 
+    PageNotFound, 
+    ProjectsView, 
+    ProjectDetailView, 
+    UserPasswordChangeView, 
+    AdminReplyView
+)
 
-from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, \
-PasswordResetCompleteView, PasswordResetConfirmView
+from django.contrib.auth.views import (
+    PasswordResetView, 
+    PasswordResetDoneView, 
+    PasswordResetCompleteView, 
+    PasswordResetConfirmView
+)
+
 from django.views.i18n import set_language
 
 app_name = "main"
@@ -29,6 +54,7 @@ urlpatterns = [
 
     # Pricing
     path('package/prices/', Pricing.as_view(), name="pricing"),
+    path('package/prices/detail/<slug:type>/', PricingDetailView.as_view(), name="pricingdetail"),
     path('payment/list', payment_list.as_view(), name="payment"),
     path('add_to_cart/<int:id>', AddToCart, name="add_to_cart"),
     path('remove_from_cart/<int:id>/', RemoveFromCart, name="removefromcart"),

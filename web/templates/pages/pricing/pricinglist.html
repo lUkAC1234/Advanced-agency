@@ -51,8 +51,9 @@
                     {% endif %}
                 </div>
                 <div class="pricing-categories-abilities">
-                    {{ object.advantages|safe }}
-                    <a href="{% url 'main:add_to_cart' object.id %}"><button class="categories-abilities-btn">{% translate 'Get started' %}</button></a>
+                    {% load my_tags %}
+                    {{ object.advantages|first_n_advantages:4|safe }}
+                    <a href="{% url 'main:pricingdetail' type=object.slug %}"><button class="categories-abilities-btn">{% translate 'Get started' %}</button></a>
                 </div>
             </div>
             {% empty %}

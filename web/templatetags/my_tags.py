@@ -3,10 +3,9 @@ from django.db.models import Sum
 from web.models import PricingModel
 from django.utils.timesince import timesince
 from django.utils import timezone
-
+from bs4 import BeautifulSoup
 
 register = template.Library()
-
 
 # Is Cart ?
 @register.simple_tag
@@ -45,3 +44,21 @@ def custom_timesince(value):
         return f'{minutes} {"minute" if minutes == 1 else "minutes"} ago'
     else:
         return 'Just now'
+    
+# PRICING
+
+@register.filter
+def first_n_advantages(value, n=4):
+    if not value:
+        return value
+    
+    soup = BeautifulSoup(value, 'html.parser')
+    items = soup.find_all('li')
+    limited_items = items[:n]
+
+    # Create a new list with the limited items
+    new_list = soup.new_tag('ul')
+    for item in limited_items:
+        new_list.append(item)
+
+    return str(new_list)

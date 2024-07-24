@@ -120,7 +120,7 @@ class RegistrationForm(forms.ModelForm):
 class CheckOutForm(forms.ModelForm):
     class Meta:
         model = CheckOut
-        exclude = ('item', 'total_price', 'user')
+        exclude = ('item', 'total_price')
         
 
 class UserPasswordChangeForm(PasswordChangeForm):

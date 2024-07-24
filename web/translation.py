@@ -5,7 +5,7 @@ from .models import PricingModel, PostCategoryModel, PostTagModel, PostModel, \
 
 @register(PricingModel)
 class PricingModelTranslationOptions(TranslationOptions):
-    fields = ('type', 'advantages') 
+    fields = ('type', 'advantages', 'detail') 
 
 @register(PostCategoryModel)
 class PostCategoryModelTranslationOptions(TranslationOptions):

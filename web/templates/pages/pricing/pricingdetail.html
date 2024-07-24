@@ -1,0 +1,143 @@
+{% extends 'layout/base.html' %}
+{% load static i18n %}
+
+{% block title %}
+<title>{{ object.type }} - Cyber Code - {% translate 'from'%} / {{ object.price }}$</title>
+{% endblock %}
+
+{% block content %}
+<main class="main pricing-main">
+    {% include 'layout/contact_form.html' %}
+    <section class="pricing-detail-section">
+        <div class="pricing-detail-container">
+            <div class="pricing-detail-first-screen-container">
+                <h1 class="pricing-detail-first-screen-title fade fadeInDown">
+                    {% translate 'Creating high-converting' %}
+                    <span class="prcing-detail-first-screen-title-second-color">
+                        {% translate 'turnkey websites' %}
+                    </span>
+                </h1>
+                <div class="pricing-detail-first-screen-button-container">
+                    <button class="pricing-detail-first-screen-button open-form-button fade fadeInDown">
+                        {% translate 'discuss the project' %}
+                    </button>
+                </div>
+                <div class="pricing-detail-modal-overlay" id="pricingDetailModalOverlay">
+                    <button type="button" class="pricing-detail-close-form-button">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <form action="" class="pricing-detail-contact-form" id="pricingDetailContactForm" method="post">
+                        {% csrf_token %}
+                        <h1 class="pricing-detail-modal-title">{% translate 'leave a request' %}</h1>
+                        <p class="pricing-detail-modal-text">{% translate 'please leave your details and we will contact you shortly' %}</p>
+                        <div class="pricing-detail-contact-form-column">
+                            <input type="text" name="fullname" class="pricing-detail-contact-form-input profile-edit-input" required placeholder="{% translate 'Name' %}">
+                        </div>
+                        <div class="pricing-detail-contact-form-column">
+                            <input type="email" name="email" class="pricing-detail-contact-form-input profile-edit-input" required placeholder="{% translate 'Email' %}">
+                        </div>
+                        <button type="submit" class="decide-submit-btn pricing-detail-contact-form-submit-btn">
+                            {% translate 'Send' %}
+                        </button>
+                        <p class="pricing-detail-form-bottom-text">{% translate 'by clicking the button you consent to the processing of personal data and agree to the' %} <span class="important-word">{% translate 'privacy policy' %}</span></p>
+                    </form>
+                </div>
+                <div class="pricing-detail-first-screen-video-container">
+                    <video autoplay playsinline loop muted>
+                        <source src="{% static 'main/videos/pricingdetail/pricingdetail.mp4' %}" type="video/mp4">
+                    </video>
+                    <div class="video-color-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pricing-detail-content-section">
+        <div class="pricing-detail-content-container">
+            <div class="pricing-detail-content-info-container">
+                <h1 class="pricing-detail-info-title fade fadeInDown">{{ object.type }}</h1>
+                <p class="pricing-detail-info-text fade fadeInDown">{{ object.detail }}</p>
+                <div class="pricing-detail-info-button-container">
+                    <button class="pricing-detail-info-button pricing-detail-first-screen-button open-form-button fade fadeInDown">
+                        {% translate 'discuss the project' %}
+                    </button>
+                    {% load my_tags %}
+                    <a class="pricing-detail-first-screen-button fade fadeInDown" href="{% url 'main:add_to_cart' id=object.id %}">Add to cart</a>
+                </div>
+            </div>
+            <div class="pricing-detail-content-price-info-container">
+                <div class="pricing-detail-content-price-container">
+                    <h1 class="pricing-detail-price-title fade fadeInDown">
+                        {% translate 'from' %} 
+                        <span class="pricing-detail-price">{{ object.price }}$</span>
+                    </h1>
+                </div>
+                <div class="pricing-detail-content-advantages-container">
+                    <div class="fade fadeInRight">
+                        {{ object.advantages|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pricing-detail-more-advantages-section">
+        <div class="pricing-detail-more-advantages-container">
+            <h1 class="pricing-detail-more-advantages-title fade fadeInDown">
+                {% translate 'all' %} 
+                <span class="important-word">{% translate 'the most important' %}</span>
+                {% translate 'things implement and adapt to your business' %}</span>
+            </h1>
+            <div class="pricing-detail-more-advantages-wrapper">
+                <div class="pricing-detail-more-advantages-column fade fadeInDown">
+                    <h1 class="pricing-detail-more-advantages-column-title" data-counter-of-title="01">
+                        {% translate 'user story' %}
+                    </h1>
+                    <p class="pricing-detail-more-advantages-column-text">{% translate 'describing tasks from the perspective of different users' %}</p>
+                </div>
+                <div class="pricing-detail-more-advantages-column fade fadeInDown">
+                    <h1 class="pricing-detail-more-advantages-column-title" data-counter-of-title="02">
+                        {% translate 'journey map' %}
+                    </h1>
+                    <p class="pricing-detail-more-advantages-column-text">{% translate 'designing user action maps' %}</p>
+                </div>
+                <div class="pricing-detail-more-advantages-column fade fadeInDown">
+                    <h1 class="pricing-detail-more-advantages-column-title" data-counter-of-title="03">
+                        {% translate 'convenient admin panel and personal account' %}
+                    </h1>
+                    <p class="pricing-detail-more-advantages-column-text">{% translate 'comfortable site management for both you and your users.' %}</p>
+                </div>
+            </div>
+            <div class="pricing-detail-more-advantages-images-container">
+                <img class="fade fadeInDown" src="{% static 'main/images/pricingdetail/userstory1.svg' %}" alt="">
+                <img class="fade fadeInDown" src="{% static 'main/images/pricingdetail/userstory2.svg' %}" alt="">
+                <img class="fade fadeInDown" src="{% static 'main/images/pricingdetail/userstory3.svg' %}" alt="">
+            </div>
+        </div>
+    </section>
+    <section class="decide-section">
+        <div class="decide-container">
+            <h1 class="decide-title fade fadeInDown">
+                {% translate 'Not sure which website solution is right for you ?' %}
+            </h1>
+            <p class="decide-text fade fadeInDown">
+                {% translate 'It is not always easy to determine the exact website you need for your project. If you are having trouble choosing, leave your email, and one of our specialists will contact you within 15 minutes for a personalized consultation:' %}
+            </p>
+            <form action="" class="decide-form" method="post">
+                {% csrf_token %}
+                <div class="decide-column fade fadeInDown">
+                    <input type="text" name="fullname" class="decide-input profile-edit-input" required placeholder="{% translate 'Name' %}">
+                </div>
+                <div class="decide-column fade fadeInDown">
+                    <input type="email" name="email" class="decide-input profile-edit-input" required placeholder="{% translate 'Email' %}">
+                </div>
+                <button type="submit" class="decide-submit-btn fade fadeInDown">
+                    {% translate 'Send' %}
+                </button>
+            </form>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block js_block %}
+<script src="{% static 'main/scripts/js/pricingdetail.js' %}"></script>
+{% endblock %}

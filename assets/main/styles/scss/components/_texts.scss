@@ -5,7 +5,10 @@
     font-family: var(--girloy);
     font-weight: 700;
     line-height: 120%;
-    text-transform: capitalize;
+
+    &::first-letter {
+        text-transform: uppercase;
+    }
 }
 
 .dark-blue-text-center-grotext-family-3rem {
@@ -46,6 +49,9 @@
     font-family: var(--girloy);
     font-weight: 400;
     line-height: 140%;
+    &::first-letter {
+        text-transform: uppercase;
+    }
 }
 
 .chat-text-gray-1-125 {

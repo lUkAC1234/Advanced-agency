@@ -123,30 +123,28 @@ class VisitHistory(models.Model):
 
 class PricingModel(models.Model):
     type = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, unique=True, blank=True)
     price = models.PositiveIntegerField()
     advantages = RichTextField()
+    detail = models.TextField(blank=True)
     popular = models.BooleanField(null=True)
     recommended = models.BooleanField(null=True)
 
     @staticmethod
     def get_cart_objects(cart_list):
         unique_cart_list = list(set(cart_list))
-
         qs = PricingModel.objects.filter(id__in=unique_cart_list)
-
         pricing_dict = {pricing.id: pricing for pricing in qs}
-
         cart_objects = [pricing_dict[cart_id] for cart_id in unique_cart_list if cart_id in pricing_dict]
-
         return cart_objects
-
+    
+    def __str__(self):
+        return self.type
+    
     class Meta:
         verbose_name = 'Pricing'
         verbose_name_plural = 'Pricings'
         ordering = ('-id',)
-
-    def __str__(self):
-        return self.type
 
 class PostCategoryModel(models.Model):
     category = models.CharField(max_length=100, unique=True)
@@ -334,11 +332,9 @@ class CheckOut(models.Model):
     email = models.EmailField()
     item = models.ManyToManyField(PricingModel, related_name='checkout')
     total_price = models.FloatField()
-    socail_media = models.URLField()
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
-    position = models.CharField(max_length=50, blank=True, null=True)
-    user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='checkoutUser')
+    company = models.CharField(max_length=50, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     is_verified = models.BooleanField(default=0)
     is_completed = models.BooleanField(default=0)

@@ -175,7 +175,6 @@
                             </span>
                         </div>
                         <div class="modal-content-container">
-                            {% if request.user.is_authenticated %}
                             <form id="jobApplyForm" class="jobApplyForm" method="POST" action="{% url 'main:payment' %}">
                                 {% csrf_token %}
                                 <div class="jobApply-group-double">
@@ -207,31 +206,14 @@
                                     </div>
                                 </div>
                                 <div class="jobApply-group payment-group">
-                                    <label for="text">{% translate 'Social Media' %}</label>
-                                    <input type="url" name="socail_media" id="socail_media" placeholder="{% translate 'URL Telegram, Instagram, etc.' %}"
-                                        value="{% if form.socail_media.value %}{{ form.socail_media.value }}{% else %}{{ request.user.socialMedia|default:'' }}{% endif %}">
-                                    {{ form.errors.socail_media }}
-                                </div>
-                                <div class="jobApply-group payment-group">
-                                    <label for="text">{% translate 'Position' %}</label>
-                                    <input type="text" name="position" id="position" placeholder="{% translate 'Designer' %}"
-                                        value="{% if form.position.value %}{{ form.position.value }}{% else %}{{ request.user.position|default:'' }}{% endif %}">
-                                    {{ form.errors.position }}
+                                    <label for="company">{% translate 'Company' %}</label>
+                                    <input type="text" name="company" id="company" placeholder="Cyber Code"
+                                        value="{% if form.company.value %}{{ form.company.value|default_if_none:'' }}{% endif %}">
+                                    {{ form.errors.company }}
                                 </div>
                                 <button type="submit" class="apply-button">
                                     {% translate 'Submit' %}</button>
                             </form>
-                            {% else %}
-                            <article class="applyModelUserNotSigned-container">
-                                <p class="applyModelUserNotSigned-text">
-                                    {% translate 'U have to Sign in/up to send us message there u can' %} 
-                                    <a href="{% url 'main:login' %}">
-                                    {% translate 'Sign In' %}</a> / 
-                                    <a href="{% url 'main:registration' %}">
-                                    {% translate 'Sign Up' %}
-                                </a></p>
-                            </article>
-                            {% endif %}
                         </div>
                     </div>
                 </article>
