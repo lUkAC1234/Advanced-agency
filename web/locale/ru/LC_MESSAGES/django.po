@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-24 21:09+0500\n"
+"POT-Creation-Date: 2024-07-25 00:01+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,7 +36,7 @@ msgstr "Введите ваше имя пользователя"
 msgid "Enter you password"
 msgstr "Введите ваш пароль"
 
-#: .\web\forms.py:70 .\web\views.py:623
+#: .\web\forms.py:70 .\web\views.py:603
 msgid "Username or password is incorrect"
 msgstr "Имя пользователя или пароль неверны"
 
@@ -725,7 +725,7 @@ msgstr "Приватный пост"
 #: .\web\templates\pages\index.html:398 .\web\templates\pages\index.html:441
 #: .\web\templates\pages\job\job.html:125
 #: .\web\templates\pages\job\jobdetail.html:166
-#: .\web\templates\pages\pricing\paymentlist.html:113
+#: .\web\templates\pages\pricing\paymentlist.html:112
 #: .\web\templates\pages\pricing\pricing.html:41
 #: .\web\templates\pages\pricing\pricinglist.html:64
 msgid "No matching results"
@@ -984,7 +984,8 @@ msgstr "Наш мощный план дает вам доступ к основ�
 
 #: .\web\templates\pages\index.html:144
 #: .\web\templates\pages\pricing\pricing.html:23
-#: .\web\templates\pages\pricing\pricingdetail.html:68
+#: .\web\templates\pages\pricing\pricingdetail.html:5
+#: .\web\templates\pages\pricing\pricingdetail.html:70
 #: .\web\templates\pages\pricing\pricinglist.html:46
 msgid "from"
 msgstr "от"
@@ -1007,12 +1008,12 @@ msgid "Go to pricing"
 msgstr "Перейти к тарифам"
 
 #: .\web\templates\pages\index.html:177
-#: .\web\templates\pages\pricing\pricingdetail.html:117
+#: .\web\templates\pages\pricing\pricingdetail.html:119
 msgid "Not sure which website solution is right for you ?"
 msgstr "Нe можете определиться с подходящим для вас вариантом сайта ?"
 
 #: .\web\templates\pages\index.html:180
-#: .\web\templates\pages\pricing\pricingdetail.html:120
+#: .\web\templates\pages\pricing\pricingdetail.html:122
 msgid ""
 "It is not always easy to determine the exact website you need for your "
 "project. If you are having trouble choosing, leave your email, and one of "
@@ -1025,15 +1026,15 @@ msgstr ""
 
 #: .\web\templates\pages\index.html:185
 #: .\web\templates\pages\pricing\pricingdetail.html:34
-#: .\web\templates\pages\pricing\pricingdetail.html:125
+#: .\web\templates\pages\pricing\pricingdetail.html:127
 msgid "Name"
 msgstr "Имя"
 
 #: .\web\templates\pages\index.html:188
 #: .\web\templates\pages\job\jobdetail.html:55
-#: .\web\templates\pages\pricing\paymentlist.html:189
+#: .\web\templates\pages\pricing\paymentlist.html:187
 #: .\web\templates\pages\pricing\pricingdetail.html:37
-#: .\web\templates\pages\pricing\pricingdetail.html:128
+#: .\web\templates\pages\pricing\pricingdetail.html:130
 #: .\web\templates\pages\user\password_reset.html:25
 #: .\web\templates\pages\user\profile.html:81
 msgid "Email"
@@ -1041,7 +1042,7 @@ msgstr "Почта"
 
 #: .\web\templates\pages\index.html:191
 #: .\web\templates\pages\pricing\pricingdetail.html:40
-#: .\web\templates\pages\pricing\pricingdetail.html:131
+#: .\web\templates\pages\pricing\pricingdetail.html:133
 msgid "Send"
 msgstr "Отправить"
 
@@ -1284,7 +1285,7 @@ msgid "Apply for a"
 msgstr "Подать заявку на"
 
 #: .\web\templates\pages\job\jobdetail.html:49
-#: .\web\templates\pages\pricing\paymentlist.html:183
+#: .\web\templates\pages\pricing\paymentlist.html:181
 #: .\web\templates\pages\user\profile.html:56
 msgid "First Name"
 msgstr "Имя"
@@ -1294,7 +1295,7 @@ msgid "Hello, I want to..."
 msgstr "Здравствуйте, я хочу..."
 
 #: .\web\templates\pages\job\jobdetail.html:66
-#: .\web\templates\pages\pricing\paymentlist.html:222
+#: .\web\templates\pages\pricing\paymentlist.html:214
 #: .\web\templates\pages\pricing\thankyou.html:46
 #: .\web\templates\pages\user\changepassword.html:46
 #: .\web\templates\pages\user\password_reset.html:27
@@ -1304,17 +1305,14 @@ msgid "Submit"
 msgstr "Отправить"
 
 #: .\web\templates\pages\job\jobdetail.html:70
-#: .\web\templates\pages\pricing\paymentlist.html:227
 msgid "U have to Sign in/up to send us message there u can"
 msgstr "Вы должны войти/зарегистрироваться, чтобы отправить нам сообщение"
 
 #: .\web\templates\pages\job\jobdetail.html:70
-#: .\web\templates\pages\pricing\paymentlist.html:229
 msgid "Sign In"
 msgstr "Войти"
 
 #: .\web\templates\pages\job\jobdetail.html:70
-#: .\web\templates\pages\pricing\paymentlist.html:231
 msgid "Sign Up"
 msgstr "Зарегистрироваться"
 
@@ -1359,12 +1357,12 @@ msgid "Order cart"
 msgstr "Корзина заказов"
 
 #: .\web\templates\pages\pricing\paymentlist.html:41
-#: .\web\templates\pages\pricing\paymentlist.html:140
+#: .\web\templates\pages\pricing\paymentlist.html:139
 msgid "items"
 msgstr "элементы"
 
 #: .\web\templates\pages\pricing\paymentlist.html:43
-#: .\web\templates\pages\pricing\paymentlist.html:142
+#: .\web\templates\pages\pricing\paymentlist.html:141
 msgid "item"
 msgstr "элемент"
 
@@ -1384,69 +1382,60 @@ msgstr "Всего"
 msgid "Popular"
 msgstr "Популярное"
 
-#: .\web\templates\pages\pricing\paymentlist.html:90
+#: .\web\templates\pages\pricing\paymentlist.html:82
+msgid "None"
+msgstr ""
+
+#: .\web\templates\pages\pricing\paymentlist.html:89
 msgid "Remove"
 msgstr "Удалить"
 
-#: .\web\templates\pages\pricing\paymentlist.html:116
+#: .\web\templates\pages\pricing\paymentlist.html:115
 msgid "You have not selected any items"
 msgstr "Вы не выбрали ни одного элемента"
 
-#: .\web\templates\pages\pricing\paymentlist.html:124
+#: .\web\templates\pages\pricing\paymentlist.html:123
 #: .\web\templates\pages\pricing\thankyou.html:39
 msgid "Continue Ordering"
 msgstr "Продолжить заказ"
 
-#: .\web\templates\pages\pricing\paymentlist.html:133
+#: .\web\templates\pages\pricing\paymentlist.html:132
 msgid "Order Summary"
 msgstr "Сводка заказа"
 
-#: .\web\templates\pages\pricing\paymentlist.html:152
+#: .\web\templates\pages\pricing\paymentlist.html:151
 msgid "Total Cost"
 msgstr "Общая стоимость"
 
-#: .\web\templates\pages\pricing\paymentlist.html:159
-#: .\web\templates\pages\pricing\paymentlist.html:171
+#: .\web\templates\pages\pricing\paymentlist.html:158
+#: .\web\templates\pages\pricing\paymentlist.html:170
 msgid "Checkout"
 msgstr "Оформить заказ"
 
-#: .\web\templates\pages\pricing\paymentlist.html:184
+#: .\web\templates\pages\pricing\paymentlist.html:182
 msgid "Peter"
 msgstr "Питер"
 
-#: .\web\templates\pages\pricing\paymentlist.html:197
+#: .\web\templates\pages\pricing\paymentlist.html:195
 msgid "City"
 msgstr "Город"
 
-#: .\web\templates\pages\pricing\paymentlist.html:198
+#: .\web\templates\pages\pricing\paymentlist.html:196
 msgid "New York"
 msgstr "Нью-Йорк"
 
-#: .\web\templates\pages\pricing\paymentlist.html:203
+#: .\web\templates\pages\pricing\paymentlist.html:201
 msgid "Address"
 msgstr "Адрес"
 
-#: .\web\templates\pages\pricing\paymentlist.html:204
+#: .\web\templates\pages\pricing\paymentlist.html:202
 msgid "New York 51 street"
 msgstr "51-я улица, Нью-Йорк"
 
-#: .\web\templates\pages\pricing\paymentlist.html:210
-#: .\web\templates\pages\user\profile.html:87
-msgid "Social Media"
-msgstr "Социальные медиа"
-
-#: .\web\templates\pages\pricing\paymentlist.html:211
-msgid "URL Telegram, Instagram, etc."
-msgstr "Ссылка на Telegram, Instagram и тд."
-
-#: .\web\templates\pages\pricing\paymentlist.html:216
-#: .\web\templates\pages\user\profile.html:71
-msgid "Position"
-msgstr "Должность"
-
-#: .\web\templates\pages\pricing\paymentlist.html:217
-msgid "Designer"
-msgstr "Дизайнер"
+#: .\web\templates\pages\pricing\paymentlist.html:208
+#: .\web\templates\pages\user\profile.html:61
+msgid "Company"
+msgstr "Компания"
 
 #: .\web\templates\pages\pricing\pricing.html:5
 msgid "Pricing - Cyber Code"
@@ -1513,51 +1502,58 @@ msgstr "оставить заявку"
 
 #: .\web\templates\pages\pricing\pricingdetail.html:32
 msgid "please leave your details and we will contact you shortly"
-msgstr "пожалуйста, оставьте ваши данные и мы свяжемся с вами в ближайшее время"
+msgstr ""
+"пожалуйста, оставьте ваши данные и мы свяжемся с вами в ближайшее время"
 
 #: .\web\templates\pages\pricing\pricingdetail.html:42
 msgid ""
 "by clicking the button you consent to the processing of personal data and "
 "agree to the"
-msgstr "нажимая на кнопку вы даете согласие на обработку персональных данных и соглашаетесь c"
+msgstr ""
+"нажимая на кнопку вы даете согласие на обработку персональных данных и "
+"соглашаетесь c"
 
 #: .\web\templates\pages\pricing\pricingdetail.html:42
 msgid "privacy policy"
 msgstr "политикой конфиденциальности"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:83
+#: .\web\templates\pages\pricing\pricingdetail.html:64
+msgid "Add to cart"
+msgstr "Добавить в корзину"
+
+#: .\web\templates\pages\pricing\pricingdetail.html:85
 msgid "all"
 msgstr "все"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:84
+#: .\web\templates\pages\pricing\pricingdetail.html:86
 msgid "the most important"
 msgstr "самое важное"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:85
+#: .\web\templates\pages\pricing\pricingdetail.html:87
 msgid "things implement and adapt to your business"
 msgstr "реализуем и адаптируем под ваш бизнес"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:90
+#: .\web\templates\pages\pricing\pricingdetail.html:92
 msgid "user story"
 msgstr "пользовательская история"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:92
+#: .\web\templates\pages\pricing\pricingdetail.html:94
 msgid "describing tasks from the perspective of different users"
 msgstr "описание задач с точки зрения различных пользователей"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:96
+#: .\web\templates\pages\pricing\pricingdetail.html:98
 msgid "journey map"
 msgstr "карта путешествия"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:98
+#: .\web\templates\pages\pricing\pricingdetail.html:100
 msgid "designing user action maps"
 msgstr "разработка карт действий пользователей"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:102
+#: .\web\templates\pages\pricing\pricingdetail.html:104
 msgid "convenient admin panel and personal account"
 msgstr "удобная админка и личный кабинет"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:104
+#: .\web\templates\pages\pricing\pricingdetail.html:106
 msgid "comfortable site management for both you and your users."
 msgstr "комфортное управление сайтом как для вас, так и для пользователей."
 
@@ -1817,13 +1813,13 @@ msgstr "Главная информация"
 msgid "John"
 msgstr "Джон"
 
-#: .\web\templates\pages\user\profile.html:61
-msgid "Company"
-msgstr "Компания"
-
 #: .\web\templates\pages\user\profile.html:67
 msgid "NYC, New York, USA"
 msgstr "Нью-Йорк, США"
+
+#: .\web\templates\pages\user\profile.html:71
+msgid "Position"
+msgstr "Должность"
 
 #: .\web\templates\pages\user\profile.html:72
 msgid "UI/UX Designer"
@@ -1840,6 +1836,10 @@ msgid ""
 msgstr ""
 "Введенный вами адрес электронной почты может помочь вам восстановить учетную "
 "запись, если вы забудете свой пароль."
+
+#: .\web\templates\pages\user\profile.html:87
+msgid "Social Media"
+msgstr "Социальные медиа"
 
 #: .\web\templates\pages\user\registration.html:24
 msgid "Sign up - Cyber Code"
@@ -1877,21 +1877,27 @@ msgstr "У вас уже есть аккаунт?"
 msgid "Your message has been successfully sent."
 msgstr "Ваше сообщение успешно отправлено!"
 
-#: .\web\views.py:463
+#: .\web\views.py:443
 msgid "This post is private."
 msgstr "Этот пост является приватным."
 
-#: .\web\views.py:601
+#: .\web\views.py:581
 msgid "Profile updated successfully."
 msgstr "Профиль успешно обновлен."
 
-#: .\web\views.py:649
+#: .\web\views.py:629
 msgid "You have successfully created an account"
 msgstr "Вы успешно создали аккаунт"
 
-#: .\web\views.py:671
+#: .\web\views.py:651
 msgid "Your password was successfully updated"
 msgstr "Ваш пароль успешно обновлен"
+
+#~ msgid "URL Telegram, Instagram, etc."
+#~ msgstr "Ссылка на Telegram, Instagram и тд."
+
+#~ msgid "Designer"
+#~ msgstr "Дизайнер"
 
 #~ msgid "Thanks for using our site!"
 #~ msgstr "Спасибо за использование нашего сайта!"
