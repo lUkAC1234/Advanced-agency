@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-25 00:01+0500\n"
+"POT-Creation-Date: 2024-07-25 00:23+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -129,6 +129,10 @@ msgstr ""
 #: .\web\models.py:80
 msgid "A user with that email already exists."
 msgstr "Пользователь с таким адресом электронной почты уже существует."
+
+#: .\web\models.py:196
+msgid "client"
+msgstr "клиент"
 
 #: .\web\templates\admin\base_site.html:7
 msgid "Django site admin"

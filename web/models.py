@@ -193,7 +193,7 @@ class PostView(models.Model):
     
 class FeedbackModel(models.Model):
     text = models.TextField(max_length=2500)
-    user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='feedbackUser')
+    user = models.ForeignKey(UserModel, null=True, default=1, on_delete=models.RESTRICT, related_name='feedbackUser')
     created_at = models.DateTimeField(auto_now_add=True)
     is_allowed = models.BooleanField(default=0)
 
