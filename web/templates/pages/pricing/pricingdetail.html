@@ -56,12 +56,12 @@
             <div class="pricing-detail-content-info-container">
                 <h1 class="pricing-detail-info-title fade fadeInDown">{{ object.type }}</h1>
                 <p class="pricing-detail-info-text fade fadeInDown">{{ object.detail }}</p>
-                <div class="pricing-detail-info-button-container">
-                    <button class="pricing-detail-info-button pricing-detail-first-screen-button open-form-button fade fadeInDown">
+                <div class="pricing-detail-info-button-container fade fadeInDown">
+                    <button class="pricing-detail-info-button pricing-detail-first-screen-button open-form-button">
                         {% translate 'discuss the project' %}
                     </button>
                     {% load my_tags %}
-                    <a class="pricing-detail-first-screen-button fade fadeInDown" href="{% url 'main:add_to_cart' id=object.id %}">Add to cart</a>
+                    <a class="pricing-detail-first-screen-button" href="{% url 'main:add_to_cart' id=object.id %}">Add to cart</a>
                 </div>
             </div>
             <div class="pricing-detail-content-price-info-container">
