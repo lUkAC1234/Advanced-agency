@@ -61,7 +61,9 @@
                         {% translate 'discuss the project' %}
                     </button>
                     {% load my_tags %}
-                    <a class="pricing-detail-first-screen-button" href="{% url 'main:add_to_cart' id=object.id %}">{% translate 'Add to cart' %}</a>
+                    <a class="pricing-detail-info-button-cart-link" href="{% url 'main:add_to_cart' id=object.id %}">
+                        <i class="fa-solid fa-cart-shopping"></i> <span>{% translate 'Add to cart' %}</span>
+                    </a>
                 </div>
             </div>
             <div class="pricing-detail-content-price-info-container">

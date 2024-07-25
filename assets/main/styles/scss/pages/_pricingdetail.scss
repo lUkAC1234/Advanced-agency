@@ -66,12 +66,12 @@
         background: var(--background-white);
         padding: 2rem 1rem;
         border-radius: 0.5rem;
-        width: 0;
         max-width: 20rem;
         min-height: 20rem;
         transform: scale(0);
         transition: all 0.3s ease;
         transform-origin: bottom;
+        width: 100%;
     }
 }
 
@@ -85,7 +85,6 @@ body:has(.pricing-detail-modal-overlay.active) {
 
     .pricing-detail-contact-form {
         transform: scale(1) !important;
-        width: 100%;
     }
 }
 
@@ -164,6 +163,17 @@ body:has(.pricing-detail-modal-overlay.active) {
     }
 }
 
+@media screen and (max-width: 992px) {
+    .pricing-detail-first-screen-video-container {
+        video {
+            display: none;
+        }
+        .video-color-overlay {
+            background: var(--background-white) !important;
+        }
+    }
+}
+
 @media screen and (max-width: 600px) {
     .pricing-detail-section {
         padding-block: 10.5rem;
@@ -178,9 +188,9 @@ body:has(.pricing-detail-modal-overlay.active) {
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
     .pricing-detail-first-screen-title {
-        font-size: 1.75rem !important;
+        font-size: 1.65rem !important;
     }
 
     .pricing-detail-first-screen-button {
@@ -198,7 +208,7 @@ body:has(.pricing-detail-modal-overlay.active) {
 .pricing-detail-content-container {
     display: grid;
     gap: 2rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     padding-left: 1rem;
 
     @media screen and (max-width: 992px) {
@@ -271,6 +281,41 @@ body:has(.pricing-detail-modal-overlay.active) {
                 top: 50%;
                 transform: translateY(-50%);
             }
+        }
+    }
+}
+
+.pricing-detail-info-button-container {
+    display: flex;
+    gap: 0.5rem
+}
+
+.pricing-detail-info-button-cart-link {
+    @extend .gray-button-purple-1rem-2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    @media screen and (max-width: 600px) {
+        padding: 1rem !important;
+        justify-content: center;
+        border-radius: 50%;
+        width: 4rem;
+        height: 4rem;
+        i {
+            font-size: 1.25rem;
+        }
+
+        span {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        width: 3rem;
+        height: 3rem;
+        i {
+            font-size: 1rem;
         }
     }
 }
@@ -352,7 +397,7 @@ body:has(.pricing-detail-modal-overlay.active) {
     &::after {
         content: "";
         position: absolute;
-        top: -2.15rem;
+        top: -2.5rem;
         left: 2.5rem;
         width: 2rem;
         height: 0.2rem;
