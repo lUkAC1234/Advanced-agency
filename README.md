@@ -1,4 +1,4 @@
-# Добро пожаловать в репозиторий CyberCode!
+# Добро пожаловать в репозиторий CyberCode !
 
 <div>
   <img src="https://devcybercode.com/static/main/images/layout/codecraftheader.svg" alt="Логотип CyberCode" width="200">
