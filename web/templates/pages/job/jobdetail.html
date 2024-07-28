@@ -1,11 +1,11 @@
 {% extends 'layout/base.html' %}
 {% load static i18n %}
 
-{% block content %}
-
 {% block title %}
-<title>{% translate 'Job Detail' %} - {{ object.title }} - Cyber Code</title>
+{% translate 'Job Detail' %} — {{ object.title }}
 {% endblock %}
+
+{% block content %}
 <main class="main job-detail-main">
     <!-- START JOB DETAIL GRADIENT SECTION -->
 

@@ -1,11 +1,11 @@
 {% extends 'layout/base.html' %}
 {% load static i18n %}
 
-{% block content %}
-
 {% block title %}
-<title>{% translate 'Job Openings - Cyber Code' %}</title>
+{% translate 'Job Openings' %}
 {% endblock %}
+
+{% block content %}
 <main class="main job-main">
     {% include 'layout/contact_form.html' %}
     <!-- START PRICING LISTS SECTION -->
