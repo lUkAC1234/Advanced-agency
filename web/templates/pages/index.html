@@ -2,7 +2,7 @@
 {% load static i18n %}
 
 {% block title %}
-{% translate 'Home' %}
+Разработка и создание сайтов в Ташкенте — {% translate 'Home' %}
 {% endblock %}
 
 {% block content %}
@@ -10,8 +10,8 @@
     {% include 'layout/contact_form.html' %}
     <!-- START GRADIENT CONTENT -->
     <section class="gradient-container" id="gradient-container">
-        <article class="gradient-artice-main">
-            <h1 class="gradient-title fade fadeInDown">{% translate 'Build your business with us' %}</h1>
+        <div class="gradient-artice-main">
+            <h1 class="gradient-title fade fadeInDown">{% translate 'Web development in Tashkent' %}</h1>
             <div class="gradient-artice-btn-container fade fadeInUp">
                 <a href="{% url 'main:projects' %}">
                     <button class="gradient-artice-btn-no-border">{% translate 'Our Projects' %}</button>
@@ -59,26 +59,27 @@
                     </div>
                 </div>
             </article>
-        </article>
+        </div>
     </section>
     <!-- END GRADIENT CONTENT -->
 
     <!-- START TASKS CONTENT -->
     <section class="tasks">
         <div class="task-image-column fade slideInLeft">
-            <video autoplay="" muted="" loop="" playsinline="">
+            <video autoplay="" muted="" loop="" playsinline="" aria-label="{% translate 'Two people collaborating on website development code' %}">
                 <source src="{% static 'main/images/main-page/tasks.mp4' %}">
             </video>
         </div>
         <div class="task-content-column fade slideInRight">
-            <h1 class="task-title">
-                {% translate 'COMPLETE WEBSITE DEVELOPMENT IN TASHKENT WITHOUT DELAYS OR OVERPAYMENTS' %}
-            </h1>
+            <h2 class="task-title">
+                {% translate 'Professional Website Development in Tashkent – Fast and Affordable' %}
+            </h2>
             <p class="task-text">
-                {% translate 'Find out the exact cost of complete website development and receive a tailored proposal for your business.' %}  <span class="important-word">{% translate 'One year of technical support included for free!' %} </span>
+                {% translate 'Discover the exact cost of a complete website development solution tailored for your business needs.' %}  
+                <span class="important-word">{% translate 'Enjoy one year of free technical support with every project!' %}</span>
             </p>
             <button class="task-button" id="contact-form-included-toggle-index">
-                {% translate 'Calculate the cost' %}
+                {% translate 'Get Your Free Quote' %}
             </button>
         </div>
     </section>
@@ -133,18 +134,18 @@
 
     <!-- START PACKAGE -->
     <section class="package" id="packageSection">
-        <h1 class="package-title fade fadeInDown">{% translate 'Your Suitable package' %} <br> {% translate 'for your needs' %}</h1>
+        <h2 class="package-title fade fadeInDown">{% translate 'Your Suitable package' %} <br> {% translate 'for your needs' %}</h2>
         <p class="package-info fade fadeInDown">{% translate 'Our powerful plan gives you access to core Cyber Code features.' %}</p>
         <div class="package-choices-container">
             {% for object in pricing %}
             <div class="choices-column fade fadeInDown">
                 <div class="price-column">
-                    <h1 class="choice-type">{{ object.type }}</h1>
+                    <h3 class="choice-type">{{ object.type }}</h3>
                     <span class="price">${{ object.price }}</span>
                     <span class="date">/ {% translate 'from' %}</span>
                     {% if object.recommended %}
                     <div class="recommended">
-                        <h1>{% translate 'Recommended' %}</h1>
+                        <h3>{% translate 'Recommended' %}</h3>
                     </div>
                     {% endif %}
                 </div>
@@ -161,7 +162,7 @@
                 <div class="partners-empty-icon-container">
                     <img src="{% static 'main/images/errors/error.svg' %}" alt="">
                 </div>
-                <h1 class="partners-empty-title">{% translate 'No matching results' %}</h1>
+                <h2 class="partners-empty-title">{% translate 'No matching results' %}</h2>
                 <p class="partners-empty-text">{% translate 'There are no any pricings yet' %}</p>
                 <a href="{% url 'main:pricinglist' %}" class="partners-empty-clear">{% translate 'Go to pricing' %} <i class="fa-solid fa-rotate"></i></a>
             </article>
@@ -173,9 +174,9 @@
     <!-- START DECIDE SECTION -->
     <section class="decide-section">
         <div class="decide-container">
-            <h1 class="decide-title fade fadeInDown">
+            <h2 class="decide-title fade fadeInDown">
                 {% translate 'Not sure which website solution is right for you ?' %}
-            </h1>
+            </h2>
             <p class="decide-text fade fadeInDown">
                 {% translate 'It is not always easy to determine the exact website you need for your project. If you are having trouble choosing, leave your email, and one of our specialists will contact you within 15 minutes for a personalized consultation:' %}
             </p>
@@ -199,9 +200,9 @@
     <!-- START Why us second section -->
     <section class="whyus-section whyus-second-section">
         <div class="whyus-wrapper">
-            <h1 class="whyus-title fade fadeInDown">
+            <h2 class="whyus-title fade fadeInDown">
                 {% translate 'Why is it better to order website development from us?' %}
-            </h1>
+            </h2>
             <div class="whyus-container">
                 <div class="whyus-column fade fadeInDown">
                     <div class="whyus-icon-container services-icon">
@@ -292,16 +293,16 @@
 
     <section class="partners-section">
         <div class="partners-container">
-            <h1 class="partners-title fade fadeInDown">
+            <h2 class="partners-title fade fadeInDown">
                 {% translate 'Our Partners' %}
-            </h1>
+            </h2>
             {% if partners %}
             <article class="partners-info-container">
                 <div class="owl-carousel carousel-slide-container fade fadeInDown"> 
                     {% for object in partners %}
                     <div class="partners-column fade fadeInDown">
-                        <img src="{{ object.logo.url }}" alt="">
-                        <h1 class="partners-info-title">{{ object.title }}</h1>
+                        <img src="{{ object.logo.url }}" alt="{{ object.logo }}">
+                        <h2 class="partners-info-title">{{ object.title }}</h2>
                     </div>
                     {% endfor %}
                 </div>
@@ -311,7 +312,7 @@
                 <div class="partners-empty-icon-container">
                     <img src="{% static 'main/images/errors/error.svg' %}" alt="">
                 </div>
-                <h1 class="partners-empty-title">{% translate 'No matching results' %}</h1>
+                <h2 class="partners-empty-title">{% translate 'No matching results' %}</h2>
                 <p class="partners-empty-text">{% translate 'There is no any partners yet' %}</p>
             </article>
             {% endif %}
@@ -345,9 +346,9 @@
     <section class="carousel-section">
         <div class="carousel-container">
             <div class="carousel-title-container fade fadeInDown">
-                <h1 class="carousel-title">
+                <h2 class="carousel-title">
                     {% translate 'Ideas to help you navigate work' %}
-                </h1>
+                </h2>
                 <p class="carousel-text">
                     {% translate 'We regularly share resources on startups, productivity, and the future of work' %}
                 </p>
@@ -363,12 +364,12 @@
                     <div class="carousel-slide">
                         <div class="carousel-image-container">
                             <a href="{% url 'main:blogdetail' pk=object.pk %}">
-                                <img src="{{ object.image.url }}" alt="">
+                                <img src="{{ object.image.url }}" alt="{{ object.image }}">
                             </a>
                         </div>
                         <div class="carousel-text-container">
                             <a href="{% url 'main:blogdetail' pk=object.pk %}">
-                                <h1 class="carousel-slide-title">{{ object.title }}</h1>
+                                <h2 class="carousel-slide-title">{{ object.title }}</h2>
                             </a>
                             <p class="carousel-slide-text">
                                 {{ object.short_description|truncatechars:75|safe }}
@@ -393,9 +394,9 @@
             {% else %}
             <article class="partners-empty-container">
                 <div class="partners-empty-icon-container">
-                    <img src="{% static 'main/images/errors/error.svg' %}" alt="">
+                    <img src="{% static 'main/images/errors/error.svg' %}" alt="{% translate 'error' %}">
                 </div>
-                <h1 class="partners-empty-title">{% translate 'No matching results' %}</h1>
+                <h2 class="partners-empty-title">{% translate 'No matching results' %}</h2>
                 <p class="partners-empty-text">{% translate 'There are no any posts yet' %}</p>
                 <a href="{% url 'main:blog' %}" class="partners-empty-clear">{% translate 'Go to blog' %} <i class="fa-solid fa-rotate"></i></a>
             </article>
@@ -410,7 +411,7 @@
     <section class="feedback-list-section">
         <div class="feedback-list-container">
             <div class="feedback-list-text-column fade slideInLeft">
-                <h1 class="feedback-list-text-column-title">{% translate 'Feedbacks from our clients' %}</h1>
+                <h2 class="feedback-list-text-column-title">{% translate 'Feedbacks from our clients' %}</h2>
                 <p class="feedback-list-text-column-text">
                     {% translate 'Join the thousands of other people just like you who started using CyberCode and took back control of their day' %}
                 </p>
@@ -426,7 +427,7 @@
                     </div>
                     <div class="feedback-user">
                         <div class="feedback-user-container" data-image="{{ object.user.user_image.url }}">
-                            <img src="{{ object.user.user_image.url }}" alt="">
+                            <img src="{{ object.user.user_image.url }}" alt="{{ object.user}}">
                         </div>
                         <h1 class="feedback-username">{{ object.user }}</h1>
                     </div>
@@ -436,7 +437,7 @@
             {% else %}
             <article class="partners-empty-container fade slideInRight">
                 <div class="partners-empty-icon-container">
-                    <img src="{% static 'main/images/errors/error.svg' %}" alt="">
+                    <img src="{% static 'main/images/errors/error.svg' %}" alt="{% translate 'error' %}">
                 </div>
                 <h1 class="partners-empty-title purple">{% translate 'No matching results' %}</h1>
                 <p class="partners-empty-text white">{% translate 'There are no any feedbacks yet' %}</p>
