@@ -1,0 +1,20 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /cybercode/admin/panel
+Disallow: /login/
+Disallow: /logout/
+Disallow: /registration/
+Disallow: /user/password/reset/
+Disallow: /user/password/reset/done/
+Disallow: /user/password/reset/complete/
+Disallow: /user/password/change/
+Disallow: /set-language/
+Disallow: /add_to_cart/
+Disallow: /remove_from_cart/
+Disallow: /success/checkout/
+Disallow: /page/not/found/404/error
+Disallow: /admin/reply/
+
+Allow: /
+
+Sitemap: https://devcybercode.com/sitemap.xml

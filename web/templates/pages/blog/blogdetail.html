@@ -5,6 +5,31 @@
 {% translate 'Blog' %} — {{ object.title }}
 {% endblock %}
 
+{% block meta_description %}
+{{ object.short_description|default:"Описание блога по умолчанию" }}
+{% endblock %}
+
+{% block og_description %}
+{{ object.short_description|default:"Описание блога по умолчанию" }}
+{% endblock %}
+
+{% block og_image %}
+{% if object.image.url %}
+{{ object.image.url }}
+{% else %}
+{% static 'main/images/layout/websiteicon.png' %}
+{% endif %}
+{% endblock %}
+
+{% block keywords %}
+блог, {{ object.title|slugify }}, {{ object.short_description|slugify }}
+{% endblock %}
+
+{% block og_image_width_height %}
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+{% endblock %}
+
 {% block content %}
 <main class="main blog-detail-main">
     {% include 'layout/contact_form.html' %}
@@ -91,7 +116,7 @@
                     <div class="similar-popular-posts-column-container">
                         {% for object in similarPosts %}
                         <div class="similar-popular-posts-column" data-context="{% translate 'Popular Similar Posts' %}">
-                            <a href="{% url 'main:blogdetail' pk=object.pk %}" class="similar-popular-post-column-title">
+                            <a href="{% url 'main:blogdetail' slug=object.slug %}" class="similar-popular-post-column-title">
                                 {{ object.title }}</a>
                             <p class="similar-popular-post-column-text">{{ object.short_description }}</p>
                             <span class="similar-popular-post-column-posted">{% translate 'Posted on' %}</span>

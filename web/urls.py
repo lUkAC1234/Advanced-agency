@@ -54,7 +54,7 @@ urlpatterns = [
 
     # Pricing
     path('package/prices/', Pricing.as_view(), name="pricing"),
-    path('package/prices/detail/<slug:type>/', PricingDetailView.as_view(), name="pricingdetail"),
+    path('package/prices/detail/<slug:slug>/', PricingDetailView.as_view(), name="pricingdetail"),
     path('payment/list', payment_list.as_view(), name="payment"),
     path('add_to_cart/<int:id>', AddToCart, name="add_to_cart"),
     path('remove_from_cart/<int:id>/', RemoveFromCart, name="removefromcart"),
@@ -63,7 +63,7 @@ urlpatterns = [
 
     # Blog
     path('website/blogs/list', BlogListView.as_view(), name="blog"),
-    path('website/blog/detail/<int:pk>', blogdetail.as_view(), name="blogdetail"),
+    path('website/blog/detail/<slug:slug>/', blogdetail.as_view(), name="blogdetail"),
 
     # Job
     path('website/jobs/list/', job.as_view(), name="job"),

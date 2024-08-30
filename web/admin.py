@@ -55,6 +55,7 @@ class PricingAdmin(TranslationAdmin):
     list_display = ['id', 'type', 'price']
     list_display_links = ['id', 'type', 'price']
     search_fields = ['type', 'price']
+    prepopulated_fields = {'slug': ('type', )}
 
 @admin.register(PostModel)
 class PostAdmin(TranslationAdmin):
@@ -62,6 +63,7 @@ class PostAdmin(TranslationAdmin):
     list_display_links = ['id', 'title']
     search_fields = ['title']
     readonly_fields = ('user', 'posted_on')
+    prepopulated_fields = {'slug': ('title', )}
 
     def save_model(self, request, obj, form, change):
         if not obj.pk: 

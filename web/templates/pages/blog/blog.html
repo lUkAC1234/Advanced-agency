@@ -23,12 +23,12 @@
             <h1 class="latest-posts-title fade slideInLeft">{% translate 'Latest posts' %}</h1>
             <div class="latest-post-wrapper">
                 <div class="post-image-container fade slideInLeft">
-                    <a href="{% url 'main:blogdetail' pk=latestPost.pk %}">
+                    <a href="{% url 'main:blogdetail' slug=latestPost.slug %}">
                         <img src="{{ latestPost.image.url }}" alt="">
                     </a>
                 </div>
                 <div class="post-text-container fade fadeInUp">
-                    <a href="{% url 'main:blogdetail' pk=latestPost.pk %}">
+                    <a href="{% url 'main:blogdetail' slug=latestPost.slug %}">
                         <h1 class="post-title">{{ latestPost.title }}</h1>
                     </a>
                     <div class="post-creator-container">

@@ -3,7 +3,7 @@
 {% if object_list %}
     {% for object in object_list %}
         {% if object.is_private == 0 or request.user.is_staff %}
-            <a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-posts-column-link">
+            <a href="{% url 'main:blogdetail' slug=object.slug %}" class="featured-posts-column-link">
                 <div class="featured-posts-column fade fadeInDown">
                     <div class="feautered-posts-image-container">
                         <img src="{{ object.image.url }}" alt="">

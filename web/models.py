@@ -9,6 +9,8 @@ from django.core.validators import EmailValidator
 from django.core.exceptions import ValidationError
 from django.utils import timezone
 from datetime import timedelta
+from django.urls import reverse
+from django.utils.text import slugify
 import os
 
 class EnglishLettersUsernameValidator(RegexValidator):
@@ -123,12 +125,20 @@ class VisitHistory(models.Model):
 
 class PricingModel(models.Model):
     type = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=100, unique=True, blank=True)
+    slug = models.SlugField(max_length=100, unique=True, blank=True, db_index=True)
     price = models.PositiveIntegerField()
     advantages = RichTextField()
     detail = models.TextField(blank=True)
     popular = models.BooleanField(null=True)
     recommended = models.BooleanField(null=True)
+
+    def get_absolute_url(self):
+        return reverse("pricing_detail", kwargs={"slug": self.slug}) 
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.type) 
+        super().save(*args, **kwargs)  
 
     @staticmethod
     def get_cart_objects(cart_list):
@@ -137,10 +147,10 @@ class PricingModel(models.Model):
         pricing_dict = {pricing.id: pricing for pricing in qs}
         cart_objects = [pricing_dict[cart_id] for cart_id in unique_cart_list if cart_id in pricing_dict]
         return cart_objects
-    
+
     def __str__(self):
         return self.type
-    
+
     class Meta:
         verbose_name = 'Pricing'
         verbose_name_plural = 'Pricings'
@@ -174,6 +184,15 @@ class PostModel(models.Model):
     tags = models.ManyToManyField(PostTagModel, related_name='postTags')
     user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='postUser')
     is_private = models.BooleanField(default=0)
+    slug = models.SlugField(max_length=100, unique=True, blank=True, db_index=True)
+
+    def get_absolute_url(self):
+        return reverse("pricing_detail", kwargs={"slug": self.slug}) 
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title) 
+        super().save(*args, **kwargs)  
 
     class Meta:
         verbose_name = 'Post'

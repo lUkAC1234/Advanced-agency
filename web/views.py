@@ -248,9 +248,6 @@ class Pricing(ContactFormMixin, TemplateView, FormView):
 class PricingDetailView(ContactFormMixin, DetailView):
     model = PricingModel
     template_name = "pages/pricing/pricingdetail.html"
-    
-    def get_object(self):
-        return PricingModel.objects.get(slug=self.kwargs['type'])
 
 class pricinglist(ContactFormMixin, ListView):
     model = PricingModel

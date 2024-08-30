@@ -30,7 +30,7 @@
                     <div class="pricing-popular-abilities">
                         {% load my_tags %}
                         {{ object.advantages|first_n_advantages:4|safe }}
-                        <a href="{% url 'main:pricingdetail' type=object.slug %}"><button class="pricing-abilities-btn">{% translate 'Get started' %}</button></a>
+                        <a href="{% url 'main:pricingdetail' slug=object.slug %}"><button class="pricing-abilities-btn">{% translate 'Get started' %}</button></a>
                     </div>
                 </div>
                 {% empty %}

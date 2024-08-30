@@ -53,7 +53,7 @@
                 <div class="pricing-categories-abilities">
                     {% load my_tags %}
                     {{ object.advantages|first_n_advantages:4|safe }}
-                    <a href="{% url 'main:pricingdetail' type=object.slug %}"><button class="categories-abilities-btn">{% translate 'Get started' %}</button></a>
+                    <a href="{% url 'main:pricingdetail' slug=object.slug %}"><button class="categories-abilities-btn">{% translate 'Get started' %}</button></a>
                 </div>
             </div>
             {% empty %}

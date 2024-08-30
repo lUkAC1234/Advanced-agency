@@ -152,7 +152,7 @@
                 <div class="abilities">
                     {% load my_tags %}
                     {{ object.advantages|first_n_advantages:4|safe }}
-                    <a href="{% url 'main:pricingdetail' type=object.slug %}">
+                    <a href="{% url 'main:pricingdetail' slug=object.slug %}">
                         <button class="abilities-btn">{% translate 'Get started' %}</button>
                     </a>
                 </div>
@@ -363,12 +363,12 @@
                     {% if object.is_private == 0 or request.user.is_staff %}
                     <div class="carousel-slide">
                         <div class="carousel-image-container">
-                            <a href="{% url 'main:blogdetail' pk=object.pk %}">
+                            <a href="{% url 'main:blogdetail' slug=object.slug %}">
                                 <img src="{{ object.image.url }}" alt="{{ object.image }}">
                             </a>
                         </div>
                         <div class="carousel-text-container">
-                            <a href="{% url 'main:blogdetail' pk=object.pk %}">
+                            <a href="{% url 'main:blogdetail' slug=object.slug %}">
                                 <h2 class="carousel-slide-title">{{ object.title }}</h2>
                             </a>
                             <p class="carousel-slide-text">
