@@ -60,9 +60,6 @@
     <script src="{% static 'main/scripts/js/header.js' %}"></script>
     <script src="{% static 'main/scripts/js/contact_form_included.js' %}"></script>
     <script src="{% static 'main/scripts/js/owlcarousel/owl.carousel.min.js' %}"></script>
-    {% block js_block %}
-
-    {% endblock %}
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -81,6 +78,9 @@
     </script>
     
     {% endcompress %}
+    {% block js_block %}
+
+    {% endblock %}
      <!-- Скрипт с данными контактной информации -->
      <script type="application/ld+json">
         {
