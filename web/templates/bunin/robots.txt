@@ -17,4 +17,5 @@ Disallow: /admin/reply/
 
 Allow: /
 
+Host: https://devcybercode.com
 Sitemap: https://devcybercode.com/sitemap.xml
