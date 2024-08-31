@@ -2,7 +2,7 @@
 {% load static i18n %}
 
 {% block title %}
-Разработка и создание сайтов в Ташкенте — {% translate 'Home' %}
+Создание сайтов в Ташкенте — {% translate 'Home' %}
 {% endblock %}
 
 {% block content %}
@@ -28,7 +28,7 @@
                     </div>
                     <div class="gradient-website-information-text-container">
                         <p class="gradient-website-information-type">{% translate 'Location' %}</p>
-                        <h1 class="gradient-website-information-text">{% translate 'Tashkent' %}</h1>
+                        <h3 class="gradient-website-information-text">{% translate 'Tashkent' %}</h3>
                     </div>
                 </div>
                 <div class="gradient-website-information-column">
@@ -46,7 +46,7 @@
                     </div>
                     <div class="gradient-website-information-text-container">
                         <p class="gradient-website-information-type">{% translate 'Activity' %}</p>
-                        <h1 class="gradient-website-information-text">24 / 7</h1>
+                        <h3 class="gradient-website-information-text">24 / 7</h3>
                     </div>
                 </div>
                 <div class="gradient-website-information-column">
@@ -55,7 +55,7 @@
                     </div>
                     <div class="gradient-website-information-text-container">
                         <p class="gradient-website-information-type">{% translate 'Clients' %}</p>
-                        <h1 class="gradient-website-information-text">50+</h1>
+                        <h3 class="gradient-website-information-text">50+</h3>
                     </div>
                 </div>
             </article>
@@ -134,18 +134,18 @@
 
     <!-- START PACKAGE -->
     <section class="package" id="packageSection">
-        <h2 class="package-title fade fadeInDown">{% translate 'Your Suitable package' %} <br> {% translate 'for your needs' %}</h2>
+        <h3 class="package-title fade fadeInDown">{% translate 'Your Suitable package' %} <br> {% translate 'for your needs' %}</h3>
         <p class="package-info fade fadeInDown">{% translate 'Our powerful plan gives you access to core Cyber Code features.' %}</p>
         <div class="package-choices-container">
             {% for object in pricing %}
             <div class="choices-column fade fadeInDown">
                 <div class="price-column">
-                    <h3 class="choice-type">{{ object.type }}</h3>
+                    <h4 class="choice-type">{{ object.type }}</h4>
                     <span class="price">${{ object.price }}</span>
                     <span class="date">/ {% translate 'from' %}</span>
                     {% if object.recommended %}
                     <div class="recommended">
-                        <h3>{% translate 'Recommended' %}</h3>
+                        <h5>{% translate 'Recommended' %}</h5>
                     </div>
                     {% endif %}
                 </div>
@@ -162,7 +162,7 @@
                 <div class="partners-empty-icon-container">
                     <img src="{% static 'main/images/errors/error.svg' %}" alt="">
                 </div>
-                <h2 class="partners-empty-title">{% translate 'No matching results' %}</h2>
+                <h4 class="partners-empty-title">{% translate 'No matching results' %}</h4>
                 <p class="partners-empty-text">{% translate 'There are no any pricings yet' %}</p>
                 <a href="{% url 'main:pricinglist' %}" class="partners-empty-clear">{% translate 'Go to pricing' %} <i class="fa-solid fa-rotate"></i></a>
             </article>
@@ -174,9 +174,9 @@
     <!-- START DECIDE SECTION -->
     <section class="decide-section">
         <div class="decide-container">
-            <h2 class="decide-title fade fadeInDown">
+            <h3 class="decide-title fade fadeInDown">
                 {% translate 'Not sure which website solution is right for you ?' %}
-            </h2>
+            </h3>
             <p class="decide-text fade fadeInDown">
                 {% translate 'It is not always easy to determine the exact website you need for your project. If you are having trouble choosing, leave your email, and one of our specialists will contact you within 15 minutes for a personalized consultation:' %}
             </p>
@@ -293,16 +293,16 @@
 
     <section class="partners-section">
         <div class="partners-container">
-            <h2 class="partners-title fade fadeInDown">
+            <h3 class="partners-title fade fadeInDown">
                 {% translate 'Our Partners' %}
-            </h2>
+            </h3>
             {% if partners %}
             <article class="partners-info-container">
                 <div class="owl-carousel carousel-slide-container fade fadeInDown"> 
                     {% for object in partners %}
                     <div class="partners-column fade fadeInDown">
                         <img src="{{ object.logo.url }}" alt="{{ object.logo }}">
-                        <h2 class="partners-info-title">{{ object.title }}</h2>
+                        <h4 class="partners-info-title">{{ object.title }}</h4>
                     </div>
                     {% endfor %}
                 </div>
@@ -312,7 +312,7 @@
                 <div class="partners-empty-icon-container">
                     <img src="{% static 'main/images/errors/error.svg' %}" alt="">
                 </div>
-                <h2 class="partners-empty-title">{% translate 'No matching results' %}</h2>
+                <h4 class="partners-empty-title">{% translate 'No matching results' %}</h4>
                 <p class="partners-empty-text">{% translate 'There is no any partners yet' %}</p>
             </article>
             {% endif %}
@@ -346,9 +346,9 @@
     <section class="carousel-section">
         <div class="carousel-container">
             <div class="carousel-title-container fade fadeInDown">
-                <h2 class="carousel-title">
+                <h4 class="carousel-title">
                     {% translate 'Ideas to help you navigate work' %}
-                </h2>
+                </h4>
                 <p class="carousel-text">
                     {% translate 'We regularly share resources on startups, productivity, and the future of work' %}
                 </p>
@@ -369,7 +369,7 @@
                         </div>
                         <div class="carousel-text-container">
                             <a href="{% url 'main:blogdetail' slug=object.slug %}">
-                                <h2 class="carousel-slide-title">{{ object.title }}</h2>
+                                <h4 class="carousel-slide-title">{{ object.title }}</h4>
                             </a>
                             <p class="carousel-slide-text">
                                 {{ object.short_description|truncatechars:75|safe }}
@@ -396,7 +396,7 @@
                 <div class="partners-empty-icon-container">
                     <img src="{% static 'main/images/errors/error.svg' %}" alt="{% translate 'error' %}">
                 </div>
-                <h2 class="partners-empty-title">{% translate 'No matching results' %}</h2>
+                <h4 class="partners-empty-title">{% translate 'No matching results' %}</h4>
                 <p class="partners-empty-text">{% translate 'There are no any posts yet' %}</p>
                 <a href="{% url 'main:blog' %}" class="partners-empty-clear">{% translate 'Go to blog' %} <i class="fa-solid fa-rotate"></i></a>
             </article>
@@ -411,7 +411,7 @@
     <section class="feedback-list-section">
         <div class="feedback-list-container">
             <div class="feedback-list-text-column fade slideInLeft">
-                <h2 class="feedback-list-text-column-title">{% translate 'Feedbacks from our clients' %}</h2>
+                <h5 class="feedback-list-text-column-title">{% translate 'Feedbacks from our clients' %}</h5>
                 <p class="feedback-list-text-column-text">
                     {% translate 'Join the thousands of other people just like you who started using CyberCode and took back control of their day' %}
                 </p>
@@ -439,7 +439,7 @@
                 <div class="partners-empty-icon-container">
                     <img src="{% static 'main/images/errors/error.svg' %}" alt="{% translate 'error' %}">
                 </div>
-                <h1 class="partners-empty-title purple">{% translate 'No matching results' %}</h1>
+                <h4 class="partners-empty-title purple">{% translate 'No matching results' %}</h4>
                 <p class="partners-empty-text white">{% translate 'There are no any feedbacks yet' %}</p>
             </article>
             {% endif %}

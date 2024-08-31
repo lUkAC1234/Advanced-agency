@@ -1,4 +1,4 @@
-{% load static i18n %}
+{% load static i18n compress %}
 <!DOCTYPE html>
 <html lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}">
 
@@ -8,28 +8,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
     <meta name="author" content="devcybercode">
+    
+    <meta property="og:title" content="{% block og_title %}Разработка и создание сайтов в Ташкенте{% endblock %}">
     <meta property="og:site_name" content="Разработка сайтов — devcybercode">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     
-    <meta name="description" content="{% block meta_description %}Разработка и создание сайтов в Ташкенте и по всему Узбекистану | Закажите сейчас у компании devcybercode{% endblock %}">
+    <meta name="description" content="{% block meta_description %}Разработка сайтов в Ташкенте и по всему Узбекистану. Закажите профессиональный сайт у devcybercode!{% endblock %}">
     <meta property="og:description" content="{% block og_description %}Разработка сайтов в Ташкенте. Индивидуальные решения для вашего бизнеса от devcybercode{% endblock %}">
-    <meta name="keywords" content="{% block keywords %}разработка сайтов, создание сайтов в ташкенте, сайт под ключ{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}Разработка и создание сайтов в Ташкенте, разработка сайтов, создание сайтов в ташкенте, сайт под ключ{% endblock %}">
     <meta property="og:image" content="{% block og_image %}{% static 'main/images/layout/websiteicon.png' %}{% endblock %}">
     {% block og_image_width_height %}{% endblock %}
+    <meta property="og:image:width" content="{% block og_image_width %}200{% endblock %}">
+    <meta property="og:image:height" content="{% block og_image_height %}200{% endblock %}">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}Разработка и создание сайтов в Ташкенте{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Разработка сайтов в Ташкенте. Индивидуальные решения для вашего бизнеса от devcybercode{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{% static 'main/images/layout/websiteicon.png' %}{% endblock %}">
     
-    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+    {% compress css %}
     <link href="{% static 'main/scripts/js/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
     <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
+    {% endcompress %}
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
     <link rel="icon" href="{% static 'main/images/layout/websiteicon.png' %}" type="image/png"/>
     <link rel="shortcut icon" href="{% static 'main/images/layout/websiteicon.svg' %}" type="image/svg+xml"/>
-
-    <script src="{% static 'main/scripts/js/notranslate.js' %}"></script>
-    
     
     <title>{% block title %}{% endblock %}</title>
 </head>
@@ -48,13 +57,12 @@
 
     {# ------------------------------------------------------------------------------------------- #}
     {# Scripts #}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    {% compress js %}
     <script src="{% static 'main/scripts/js/progressbar.js' %}"></script>
     <script src="{% static 'main/scripts/js/header.js' %}"></script>
     <script src="{% static 'main/scripts/js/contact_form_included.js' %}"></script>
     <script src="{% static 'main/scripts/js/owlcarousel/owl.carousel.min.js' %}"></script>
-
+    <script src="{% static 'main/scripts/js/notranslate.js' %}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             wow = new WOW({
@@ -70,11 +78,7 @@
             button.parentNode.style.display = 'none';
         }
     </script>
-    {% block js_block %}
-
-    {% endblock %}
-     <!-- Скрипт с данными контактной информации -->
-     <script type="application/ld+json">
+    <script type="application/ld+json">
         {
           "@context": "http://schema.org",
           "@type": "Organization",
@@ -88,7 +92,25 @@
         }
         
     </script>
-    <!-- Google tag (gtag.js) -->
+    
+    <script>
+        function gtagSendEvent(url) {
+        var callback = function () {
+            if (typeof url === 'string') {
+            window.location = url;
+            }
+        };
+        gtag('event', 'ads_conversion___2', {
+            'event_callback': callback,
+            'event_timeout': 2000,
+        });
+        return false;
+        }
+    </script>
+    {% block js_block %}
+
+    {% endblock %}
+    {% endcompress %}
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZK6FPK7YB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -106,26 +128,10 @@
     
       gtag('config', 'G-R2SJKN90KK');
     </script>
-    <!-- Google tag (gtag.js) event - delayed navigation helper -->
-    <script>
-        // Helper function to delay opening a URL until a gtag event is sent.
-        // Call it in response to an action that should navigate to a URL.
-        function gtagSendEvent(url) {
-        var callback = function () {
-            if (typeof url === 'string') {
-            window.location = url;
-            }
-        };
-        gtag('event', 'ads_conversion___2', {
-            'event_callback': callback,
-            'event_timeout': 2000,
-            // <event_parameters>
-        });
-        return false;
-        }
-    </script>
-    
-  
+
+    <!-- External scripts not included in the compression block -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </body>
 
 </html>

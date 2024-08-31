@@ -6,7 +6,7 @@
     <nav class="navbar">
         <section class="logo-section">
             <a href="{% url 'main:index' %}" class="logo">
-                <img src="{% static 'main/images/layout/codecraftheader.svg' %}" alt="">
+                <img src="{% static 'main/images/layout/codecraftheader.svg' %}" alt="{% translate 'Logo' %}">
             </a>
             <div class="custom-language-select">
                 {% get_current_language as LANGUAGE_CODE %}
@@ -16,9 +16,9 @@
                     {% for language in languages %}
                         {% if language.code == LANGUAGE_CODE %}
                             {% if language.code == 'en' %}
-                                <img src="{% static 'main/images/languages/en.svg' %}" alt=""> {{ language.name_local }}
+                                <img src="{% static 'main/images/languages/en.svg' %}" alt="{{ language.name_local }}"> {{ language.name_local }}
                             {% elif language.code == 'ru' %}
-                                <img src="{% static 'main/images/languages/ru.svg' %}" alt=""> {{ language.name_local }}
+                                <img src="{% static 'main/images/languages/ru.svg' %}" alt="{{ language.name_local }}"> {{ language.name_local }}
                             {% endif %}
                         {% endif %}
                     {% empty %}
@@ -27,7 +27,7 @@
                 </div>
                 <div class="language-dropdown-content">
                     <div class="language-dropdown-content-title-container">
-                        <h1 class="language-dropdown-content-title">{% translate 'Choose your language' %}</h1>
+                        <h3 class="language-dropdown-content-title">{% translate 'Choose your language' %}</h3>
                         <button class="language-dropdown-content-close">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
@@ -35,9 +35,9 @@
                     {% for language in languages %}
                         <div class="language-option" value="{{ language.code }}">
                             {% if language.code == 'en' %}
-                                <img src="{% static 'main/images/languages/en.svg' %}" alt=""> {{ language.name_local }}
+                                <img src="{% static 'main/images/languages/en.svg' %}" alt="{{ language.name_local }}"> {{ language.name_local }}
                             {% elif language.code == 'ru' %}
-                                <img src="{% static 'main/images/languages/ru.svg' %}" alt=""> {{ language.name_local }}
+                                <img src="{% static 'main/images/languages/ru.svg' %}" alt="{{ language.name_local }}"> {{ language.name_local }}
                             {% endif %}
                         </div>
                     {% endfor %}
@@ -134,7 +134,7 @@
                 <div class="dropdown-container" id="dropdown-content">
                     <button class="dropdown__button" id="dropdown-button">
                         <img class="dropdown__icon" id="dropdownProfileImage" src="{{ request.user.user_image.url }}"
-                            alt="">
+                            alt="{{ request.user }}">
                         <span class="dropdown__name"></span>
                     </button>
                     <ul class="dropdown__menu" id="dropdown__menu">
@@ -187,4 +187,4 @@
             </div>
         </section>
     </nav>
-</header>
+</header> 
