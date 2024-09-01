@@ -5,18 +5,30 @@
 {{ object.type }} — {% translate 'from'%} / {{ object.price }}$
 {% endblock %}
 
+{% block meta_description %}
+{{ object.detail|default:"Описание блога по умолчанию" }}
+{% endblock %}
+
+{% block og_description %}
+{{ object.detail|default:"Описание блога по умолчанию" }}
+{% endblock %}
+
+{% block twitter_description %}
+{{ object.detail|default:"Описание блога по умолчанию" }}
+{% endblock %}
+
 {% block content %}
 <main class="main pricing-main">
     {% include 'layout/contact_form.html' %}
     <section class="pricing-detail-section">
         <div class="pricing-detail-container">
             <div class="pricing-detail-first-screen-container">
-                <h1 class="pricing-detail-first-screen-title fade fadeInDown">
+                <h2 class="pricing-detail-first-screen-title fade fadeInDown">
                     {% translate 'Creating high-converting' %}
                     <span class="prcing-detail-first-screen-title-second-color">
                         {% translate 'turnkey websites' %}
                     </span>
-                </h1>
+                </h2>
                 <div class="pricing-detail-first-screen-button-container">
                     <button class="pricing-detail-first-screen-button open-form-button fade fadeInDown">
                         {% translate 'discuss the project' %}
@@ -28,7 +40,7 @@
                     </button>
                     <form action="" class="pricing-detail-contact-form" id="pricingDetailContactForm" method="post">
                         {% csrf_token %}
-                        <h1 class="pricing-detail-modal-title">{% translate 'leave a request' %}</h1>
+                        <h4 class="pricing-detail-modal-title">{% translate 'leave a request' %}</h4>
                         <p class="pricing-detail-modal-text">{% translate 'please leave your details and we will contact you shortly' %}</p>
                         <div class="pricing-detail-contact-form-column">
                             <input type="text" name="fullname" class="pricing-detail-contact-form-input profile-edit-input" required placeholder="{% translate 'Name' %}">
@@ -68,10 +80,10 @@
             </div>
             <div class="pricing-detail-content-price-info-container">
                 <div class="pricing-detail-content-price-container">
-                    <h1 class="pricing-detail-price-title fade fadeInDown">
+                    <h4 class="pricing-detail-price-title fade fadeInDown">
                         {% translate 'from' %} 
                         <span class="pricing-detail-price">{{ object.price }}$</span>
-                    </h1>
+                    </h4>
                 </div>
                 <div class="pricing-detail-content-advantages-container">
                     <div class="fade fadeInRight">
@@ -83,28 +95,28 @@
     </section>
     <section class="pricing-detail-more-advantages-section">
         <div class="pricing-detail-more-advantages-container">
-            <h1 class="pricing-detail-more-advantages-title fade fadeInDown">
+            <h2 class="pricing-detail-more-advantages-title fade fadeInDown">
                 {% translate 'all' %} 
                 <span class="important-word">{% translate 'the most important' %}</span>
                 {% translate 'things implement and adapt to your business' %}</span>
-            </h1>
+            </h2>
             <div class="pricing-detail-more-advantages-wrapper">
                 <div class="pricing-detail-more-advantages-column fade fadeInDown">
-                    <h1 class="pricing-detail-more-advantages-column-title" data-counter-of-title="01">
+                    <h4 class="pricing-detail-more-advantages-column-title" data-counter-of-title="01">
                         {% translate 'user story' %}
-                    </h1>
+                    </h4>
                     <p class="pricing-detail-more-advantages-column-text">{% translate 'describing tasks from the perspective of different users' %}</p>
                 </div>
                 <div class="pricing-detail-more-advantages-column fade fadeInDown">
-                    <h1 class="pricing-detail-more-advantages-column-title" data-counter-of-title="02">
+                    <h4 class="pricing-detail-more-advantages-column-title" data-counter-of-title="02">
                         {% translate 'journey map' %}
-                    </h1>
+                    </h4>
                     <p class="pricing-detail-more-advantages-column-text">{% translate 'designing user action maps' %}</p>
                 </div>
                 <div class="pricing-detail-more-advantages-column fade fadeInDown">
-                    <h1 class="pricing-detail-more-advantages-column-title" data-counter-of-title="03">
+                    <h4 class="pricing-detail-more-advantages-column-title" data-counter-of-title="03">
                         {% translate 'convenient admin panel and personal account' %}
-                    </h1>
+                    </h4>
                     <p class="pricing-detail-more-advantages-column-text">{% translate 'comfortable site management for both you and your users.' %}</p>
                 </div>
             </div>
@@ -117,9 +129,9 @@
     </section>
     <section class="decide-section">
         <div class="decide-container">
-            <h1 class="decide-title fade fadeInDown">
+            <h3 class="decide-title fade fadeInDown">
                 {% translate 'Not sure which website solution is right for you ?' %}
-            </h1>
+            </h3>
             <p class="decide-text fade fadeInDown">
                 {% translate 'It is not always easy to determine the exact website you need for your project. If you are having trouble choosing, leave your email, and one of our specialists will contact you within 15 minutes for a personalized consultation:' %}
             </p>

@@ -8,18 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
     <meta name="author" content="devcybercode">
-    
+
     <meta property="og:title" content="{% block og_title %}Разработка и создание сайтов в Ташкенте{% endblock %}">
     <meta property="og:site_name" content="Разработка сайтов — devcybercode">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    
-    <meta name="description" content="{% block meta_description %}Разработка сайтов в Ташкенте и по всему Узбекистану. Закажите профессиональный сайт у devcybercode!{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}Разработка сайтов в Ташкенте. Индивидуальные решения для вашего бизнеса от devcybercode{% endblock %}">
-    <meta name="keywords" content="{% block keywords %}Разработка и создание сайтов в Ташкенте, разработка сайтов, создание сайтов в ташкенте, сайт под ключ{% endblock %}">
-    <meta property="og:image" content="{% block og_image %}{% static 'main/images/layout/websiteicon.png' %}{% endblock %}">
+
+    <meta name="description"
+        content="{% block meta_description %}Разработка сайтов в Ташкенте и по всему Узбекистану. Закажите профессиональный сайт у devcybercode! | ☎️ (33) 170-17-06{% endblock %}">
+    <meta property="og:description"
+        content="{% block og_description %}Разработка сайтов в Ташкенте. Индивидуальные решения для вашего бизнеса от devcybercode | ☎️ (33) 170-17-06{% endblock %}">
+    <meta name="keywords"
+        content="{% block keywords %}Разработка и создание сайтов в Ташкенте, веб-студия Ташкент, разработка сайтов под ключ, создание сайтов в Узбекистане, профессиональная веб-разработка, SEO-оптимизация, адаптивный веб-дизайн, создание интернет-магазинов, UX/UI дизайн, создание корпоративных сайтов, поддержка сайтов, заказ сайта под ключ, разработка веб-приложений{% endblock %}">
+    <meta property="og:image"
+        content="{% block og_image %}{% static 'main/images/layout/websiteicon.png' %}{% endblock %}">
     {% block og_image_width_height %}{% endblock %}
     <meta property="og:image:width" content="{% block og_image_width %}200{% endblock %}">
     <meta property="og:image:height" content="{% block og_image_height %}200{% endblock %}">
@@ -27,9 +31,11 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% block twitter_title %}Разработка и создание сайтов в Ташкенте{% endblock %}">
-    <meta name="twitter:description" content="{% block twitter_description %}Разработка сайтов в Ташкенте. Индивидуальные решения для вашего бизнеса от devcybercode{% endblock %}">
-    <meta name="twitter:image" content="{% block twitter_image %}{% static 'main/images/layout/websiteicon.png' %}{% endblock %}">
-    
+    <meta name="twitter:description"
+        content="{% block twitter_description %}Разработка сайтов в Ташкенте. Индивидуальные решения для вашего бизнеса от devcybercode | ☎️ (33) 170-17-06{% endblock %}">
+    <meta name="twitter:image"
+        content="{% block twitter_image %}{% static 'main/images/layout/websiteicon.png' %}{% endblock %}">
+
     {% compress css %}
     <link href="{% static 'main/scripts/js/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
     <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -37,10 +43,38 @@
     {% endcompress %}
     <link rel="canonical" href="{{ request.build_absolute_uri }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
-    <link rel="icon" href="{% static 'main/images/layout/websiteicon.png' %}" type="image/png"/>
-    <link rel="shortcut icon" href="{% static 'main/images/layout/websiteicon.svg' %}" type="image/svg+xml"/>
-    
+    <link rel="icon" href="{% static 'main/images/layout/websiteicon.png' %}" type="image/png" />
+    <link rel="shortcut icon" href="{% static 'main/images/layout/websiteicon.svg' %}" type="image/svg+xml" />
+
     <title>{% block title %}{% endblock %}</title>
+
+    <!-- Schema.org JSON-LD Data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Devcybercode",
+            "url": "https://devcybercode.com",
+            "logo": "https://devcybercode.com/static/main/images/layout/websiteicon.png",
+            "description": "Разработка сайтов в Ташкенте. Индивидуальные решения для вашего бизнеса от devcybercode.",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+998331701706",
+                "contactType": "customer service",
+                "availableLanguage": ["English", "Russian"]
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Tashkent, Shodlik 54",
+                "addressLocality": "Tashkent",
+                "addressCountry": "Uzbekistan"
+            },
+            "sameAs": [
+                "https://www.instagram.com/devcybercode",
+                "https://t.me/lUkACENkO1"
+            ]
+        }
+    </script>
 </head>
 
 <body>
@@ -57,14 +91,20 @@
 
     {# ------------------------------------------------------------------------------------------- #}
     {# Scripts #}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+
     {% compress js %}
-    <script src="{% static 'main/scripts/js/progressbar.js' %}"></script>
-    <script src="{% static 'main/scripts/js/header.js' %}"></script>
-    <script src="{% static 'main/scripts/js/contact_form_included.js' %}"></script>
-    <script src="{% static 'main/scripts/js/owlcarousel/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'main/scripts/js/notranslate.js' %}"></script>
+        <script src="{% static 'main/scripts/js/progressbar.js' %}"></script>
+        <script src="{% static 'main/scripts/js/header.js' %}"></script>
+        <script src="{% static 'main/scripts/js/contact_form_included.js' %}"></script>
+        <script src="{% static 'main/scripts/js/owlcarousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'main/scripts/js/notranslate.js' %}"></script>
+        {% block js_block %}
+        {% endblock %}
+    {% endcompress %}
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             wow = new WOW({
                 boxClass: 'fade',
                 animateClass: 'animated',
@@ -74,59 +114,42 @@
             });
             wow.init();
         });
+
         function closeMessage(button) {
             button.parentNode.style.display = 'none';
         }
     </script>
-    <script type="application/ld+json">
-        {
-          "@context": "http://schema.org",
-          "@type": "Organization",
-          "url": "https://devcybercode.com/contact/us/",
-          "contactPoint": [{
-            "@type": "ContactPoint",
-            "telephone": "+998331701706",
-            "contactType": "customer service",
-            "availableLanguage": ["English", "Russian"]
-          }]
-        }
-        
-    </script>
-    
+
     <script>
         function gtagSendEvent(url) {
-        var callback = function () {
-            if (typeof url === 'string') {
-            window.location = url;
-            }
-        };
-        gtag('event', 'ads_conversion___2', {
-            'event_callback': callback,
-            'event_timeout': 2000,
-        });
-        return false;
+            var callback = function () {
+                if (typeof url === 'string') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'ads_conversion___2', {
+                'event_callback': callback,
+                'event_timeout': 2000,
+            });
+            return false;
         }
     </script>
-    {% block js_block %}
 
-    {% endblock %}
-    {% endcompress %}
+    <!-- Google Tag Manager and external scripts -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZK6FPK7YB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-YZK6FPK7YB');
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R2SJKN90KK">
-    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R2SJKN90KK"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-R2SJKN90KK');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-R2SJKN90KK');
     </script>
 
     <!-- External scripts not included in the compression block -->

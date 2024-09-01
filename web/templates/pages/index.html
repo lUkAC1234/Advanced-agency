@@ -2,7 +2,7 @@
 {% load static i18n %}
 
 {% block title %}
-Создание сайтов в Ташкенте — {% translate 'Home' %}
+Разработка и создание сайтов в Ташкенте — Профессиональные услуги от devcybercode
 {% endblock %}
 
 {% block content %}
@@ -323,7 +323,7 @@
 
     <!-- START FAQ QUESTIONS SECTION -->
     <section class="faq-section">
-        <h1 class="faq-main-title fade fadeInDown">{% translate 'Frequently Asked Questions' %}</h1>
+        <h3 class="faq-main-title fade fadeInDown">{% translate 'Frequently Asked Questions' %}</h3>
         <div class="faq-container">
             {% for object in faqs %}
             <div class="faq fade fadeInDown {% if forloop.counter == 1 or forloop.counter == 3 %} active{% endif %}">
@@ -429,7 +429,7 @@
                         <div class="feedback-user-container" data-image="{{ object.user.user_image.url }}">
                             <img src="{{ object.user.user_image.url }}" alt="{{ object.user}}">
                         </div>
-                        <h1 class="feedback-username">{{ object.user }}</h1>
+                        <h4 class="feedback-username">{{ object.user }}</h4>
                     </div>
                 </div>
                 {% endfor %}
@@ -453,7 +453,7 @@
                     <div class="modal-content-container">
                         <p id="modalContent" class="modalContent"></p>
                         <div class="modal-user-container">
-                            <img id="modalUserImage" class="modalUserImage" src="" alt="">
+                            <img id="modalUserImage" class="modalUserImage" src="" alt="{{ object.user }}">
                             <p id="modalUser" class="modalUser"></p>
                         </div>
                     </div>

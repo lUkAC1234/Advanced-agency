@@ -13,6 +13,10 @@
 {{ object.short_description|default:"Описание блога по умолчанию" }}
 {% endblock %}
 
+{% block twitter_description %}
+{{ object.short_description|default:"Описание блога по умолчанию" }}
+{% endblock %}
+
 {% block og_image %}
 {% if object.image.url %}
 {{ object.image.url }}
@@ -27,6 +31,13 @@
 
 {% block og_image_width %}1200{% endblock %}
 {% block og_image_height %}630{% endblock %}
+{% block twitter_image %}
+{% if object.image.url %}
+{{ object.image.url }}
+{% else %}
+{% static 'main/images/layout/websiteicon.png' %}
+{% endif %}
+{% endblock %}
 
 {% block content %}
 <main class="main blog-detail-main">
