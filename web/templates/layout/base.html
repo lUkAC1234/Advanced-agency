@@ -92,17 +92,14 @@
     {# Scripts #}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="{% static 'main/scripts/js/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'main/scripts/js/contact_form_included.js' %}"></script>
 
     {% compress js %}
         <script src="{% static 'main/scripts/js/progressbar.js' %}"></script>
         <script src="{% static 'main/scripts/js/header.js' %}"></script>
-        <script src="{% static 'main/scripts/js/contact_form_included.js' %}"></script>
         <script src="{% static 'main/scripts/js/notranslate.js' %}"></script>
-        {% block js_block %}
-        {% endblock %}
     {% endcompress %}
-
-    {% block not_compress_js_block %}
+    {% block js_block %}
     {% endblock %}
 
     <script>
