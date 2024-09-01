@@ -2,19 +2,7 @@
 {% load static i18n %}
 
 {% block title %}
-{{ object.type }} — {% translate 'from'%} / {{ object.price }}$
-{% endblock %}
-
-{% block meta_description %}
-{{ object.detail|default:"Описание блога по умолчанию" }}
-{% endblock %}
-
-{% block og_description %}
-{{ object.detail|default:"Описание блога по умолчанию" }}
-{% endblock %}
-
-{% block twitter_description %}
-{{ object.detail|default:"Описание блога по умолчанию" }}
+Разработка сайта — {{ object.type }} — {% translate 'from'%} / {{ object.price }}$
 {% endblock %}
 
 {% block content %}
@@ -121,9 +109,9 @@
                 </div>
             </div>
             <div class="pricing-detail-more-advantages-images-container">
-                <img class="fade fadeInDown" src="{% static 'main/images/pricingdetail/userstory1.svg' %}" alt="">
-                <img class="fade fadeInDown" src="{% static 'main/images/pricingdetail/userstory2.svg' %}" alt="">
-                <img class="fade fadeInDown" src="{% static 'main/images/pricingdetail/userstory3.svg' %}" alt="">
+                <img class="fade fadeInDown" src="{% static 'main/images/pricingdetail/userstory1.svg' %}" alt="User story">
+                <img class="fade fadeInDown" src="{% static 'main/images/pricingdetail/userstory2.svg' %}" alt="User story">
+                <img class="fade fadeInDown" src="{% static 'main/images/pricingdetail/userstory3.svg' %}" alt="User story">
             </div>
         </div>
     </section>
