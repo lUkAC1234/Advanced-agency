@@ -53,6 +53,7 @@ from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from django.conf import settings
 from datetime import datetime
+from django.utils.translation import activate
 from django.contrib.auth.mixins import UserPassesTestMixin
 import pytz
 
@@ -128,6 +129,7 @@ class index(ContactFormMixin, TemplateView):
         return data
 
     def get(self, request, *args, **kwargs):
+        activate('ru') 
         response = super().get(request, *args, **kwargs)
         response['Content-Language'] = 'ru'
         return response
