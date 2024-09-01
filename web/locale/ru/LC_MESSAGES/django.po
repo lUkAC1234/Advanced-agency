@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-28 14:07+0500\n"
+"POT-Creation-Date: 2024-09-01 15:41+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,13 +20,13 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\config\settings.py:114 .\web\templates\layout\header.html:25
-msgid "English"
-msgstr "Английский"
-
-#: .\config\settings.py:115
+#: .\config\settings.py:116
 msgid "Russian"
 msgstr "Русский"
+
+#: .\config\settings.py:117 .\web\templates\layout\header.html:25
+msgid "English"
+msgstr "Английский"
 
 #: .\web\forms.py:49
 msgid "Enter your username"
@@ -36,7 +36,7 @@ msgstr "Введите ваше имя пользователя"
 msgid "Enter you password"
 msgstr "Введите ваш пароль"
 
-#: .\web\forms.py:70 .\web\views.py:603
+#: .\web\forms.py:70 .\web\views.py:605
 msgid "Username or password is incorrect"
 msgstr "Имя пользователя или пароль неверны"
 
@@ -65,7 +65,7 @@ msgstr "Тема"
 msgid "Message"
 msgstr "Сообщение"
 
-#: .\web\models.py:17
+#: .\web\models.py:19
 msgid ""
 "Username can only contain lowercase English letters (a-z) and numbers (0-9), "
 "and must be between 8 and 16 characters long."
@@ -73,7 +73,7 @@ msgstr ""
 "Имя пользователя может содержать только строчные английские буквы (a-z) и "
 "цифры (0-9), и должно быть длиной от 8 до 16 символов."
 
-#: .\web\models.py:28
+#: .\web\models.py:30
 msgid ""
 "Password must be at least 8 characters and at most 128 characters long, and "
 "can only contain English letters, numbers and !$@%."
@@ -81,7 +81,7 @@ msgstr ""
 "Пароль должен содержать от 8 до 128 символов и может содержать только "
 "английские буквы, цифры и символы !$@%."
 
-#: .\web\models.py:36
+#: .\web\models.py:38
 msgid ""
 "User image: Unsupported file extension. Please upload a webp, png, jpg, "
 "jpeg, or svg file."
@@ -89,36 +89,36 @@ msgstr ""
 "Изображение пользователя: неподдерживаемое расширение файла. Пожалуйста, "
 "загрузите файл в формате webp, png, jpg, jpeg или svg."
 
-#: .\web\models.py:52
+#: .\web\models.py:54
 msgid "email address"
 msgstr "адрес электронной почты"
 
-#: .\web\models.py:55
+#: .\web\models.py:57
 msgid "Required. Must be a valid email address."
 msgstr "Обязательно. Должен быть действительным адресом электронной почты."
 
-#: .\web\models.py:56
+#: .\web\models.py:58
 msgid "Enter a valid email address."
 msgstr "Введите действительный адрес электронной почты."
 
-#: .\web\models.py:60
+#: .\web\models.py:62
 msgid "username"
 msgstr "имя пользователя"
 
-#: .\web\models.py:63
+#: .\web\models.py:65
 msgid "Required. Up to 16 characters. Only English letters (a-z)(0-9)."
 msgstr ""
 "Обязательно. До 16 символов. Только английские буквы (a-z) и цифры (0-9)."
 
-#: .\web\models.py:66
+#: .\web\models.py:68
 msgid "A user with that username already exists."
 msgstr "Пользователь с таким именем уже существует."
 
-#: .\web\models.py:71
+#: .\web\models.py:73
 msgid "password"
 msgstr "пароль"
 
-#: .\web\models.py:74
+#: .\web\models.py:76
 msgid ""
 "Password must be at least 8 characters and at most 32 characters long, and "
 "can only contain English letters, numbers and !$@%."
@@ -126,7 +126,7 @@ msgstr ""
 "Пароль должен содержать от 8 до 32 символов и может содержать только "
 "английские буквы, цифры и символы !$@%."
 
-#: .\web\models.py:80
+#: .\web\models.py:82
 msgid "A user with that email already exists."
 msgstr "Пользователь с таким адресом электронной почты уже существует."
 
@@ -319,7 +319,7 @@ msgstr "Наши продукты"
 
 #: .\web\templates\layout\footer.html:36 .\web\templates\layout\header.html:76
 #: .\web\templates\pages\blog\blog.html:159
-#: .\web\templates\pages\blog\blogdetail.html:133
+#: .\web\templates\pages\blog\blogdetail.html:167
 #: .\web\templates\pages\contact.html:159 .\web\templates\pages\faqlist.html:50
 #: .\web\templates\pages\pricing\pricing.html:5
 #: .\web\templates\pages\pricing\pricing.html:154
@@ -379,11 +379,17 @@ msgstr "Авторское право"
 msgid "Call us"
 msgstr "Позвоните нам"
 
+#: .\web\templates\layout\header.html:9
+#, fuzzy
+#| msgid "Logout"
+msgid "Logo"
+msgstr "Выход"
+
 #: .\web\templates\layout\header.html:30
 msgid "Choose your language"
 msgstr "Выберите ваш язык"
 
-#: .\web\templates\layout\header.html:61 .\web\templates\pages\index.html:5
+#: .\web\templates\layout\header.html:61
 msgid "Home"
 msgstr "Главная"
 
@@ -395,9 +401,9 @@ msgstr "О нас"
 #: .\web\templates\layout\header.html:145
 #: .\web\templates\layout\header.html:184
 #: .\web\templates\pages\blog\blog.html:154
-#: .\web\templates\pages\blog\blogdetail.html:128
+#: .\web\templates\pages\blog\blogdetail.html:162
 #: .\web\templates\pages\contact.html:154 .\web\templates\pages\faqlist.html:45
-#: .\web\templates\pages\index.html:20 .\web\templates\pages\index.html:156
+#: .\web\templates\pages\index.html:20 .\web\templates\pages\index.html:155
 #: .\web\templates\pages\job\job.html:42 .\web\templates\pages\job\job.html:143
 #: .\web\templates\pages\job\jobdetail.html:184
 #: .\web\templates\pages\pricing\pricing.html:33
@@ -661,9 +667,9 @@ msgstr "Последние посты"
 
 #: .\web\templates\pages\blog\blog.html:44
 #: .\web\templates\pages\blog\blog_result.html:25
-#: .\web\templates\pages\blog\blogdetail.html:24
-#: .\web\templates\pages\blog\blogdetail.html:61
-#: .\web\templates\pages\blog\blogdetail.html:97
+#: .\web\templates\pages\blog\blogdetail.html:58
+#: .\web\templates\pages\blog\blogdetail.html:95
+#: .\web\templates\pages\blog\blogdetail.html:131
 msgid "Posted on"
 msgstr "Опубликовано"
 
@@ -685,7 +691,7 @@ msgid "Clear all filters"
 msgstr "Сбросить все фильтры"
 
 #: .\web\templates\pages\blog\blog.html:149
-#: .\web\templates\pages\blog\blogdetail.html:123
+#: .\web\templates\pages\blog\blogdetail.html:157
 #: .\web\templates\pages\contact.html:149 .\web\templates\pages\faqlist.html:40
 #: .\web\templates\pages\pricing\pricing.html:144
 #: .\web\templates\pages\pricing\pricinglist.html:77
@@ -694,13 +700,13 @@ msgid "Ready to try"
 msgstr "Готовы попробовать"
 
 #: .\web\templates\pages\blog\blog.html:149
-#: .\web\templates\pages\blog\blogdetail.html:123
+#: .\web\templates\pages\blog\blogdetail.html:157
 #: .\web\templates\pages\contact.html:149 .\web\templates\pages\faqlist.html:40
 msgid "Cyber Code?"
 msgstr "Cyber Code?"
 
 #: .\web\templates\pages\blog\blog.html:150
-#: .\web\templates\pages\blog\blogdetail.html:124
+#: .\web\templates\pages\blog\blogdetail.html:158
 #: .\web\templates\pages\contact.html:150 .\web\templates\pages\faqlist.html:41
 #: .\web\templates\pages\pricing\pricing.html:145
 #: .\web\templates\pages\pricing\pricinglist.html:78
@@ -709,15 +715,15 @@ msgid "Try Cyber Code and take back control of your day"
 msgstr "Попробуйте Cyber Code и верните себе контроль над своим днем"
 
 #: .\web\templates\pages\blog\blog_result.html:32
-#: .\web\templates\pages\blog\blogdetail.html:31
-#: .\web\templates\pages\index.html:377
+#: .\web\templates\pages\blog\blogdetail.html:65
+#: .\web\templates\pages\index.html:376
 msgid "Private post"
 msgstr "Приватный пост"
 
 #: .\web\templates\pages\blog\blog_result.html:44
-#: .\web\templates\pages\blog\blogdetail.html:108
-#: .\web\templates\pages\index.html:165 .\web\templates\pages\index.html:315
-#: .\web\templates\pages\index.html:399 .\web\templates\pages\index.html:442
+#: .\web\templates\pages\blog\blogdetail.html:142
+#: .\web\templates\pages\index.html:164 .\web\templates\pages\index.html:314
+#: .\web\templates\pages\index.html:398 .\web\templates\pages\index.html:441
 #: .\web\templates\pages\job\job.html:125
 #: .\web\templates\pages\job\jobdetail.html:166
 #: .\web\templates\pages\pricing\paymentlist.html:120
@@ -730,32 +736,32 @@ msgstr "Нет подходящих результатов"
 msgid "There are no any blogs yet"
 msgstr "Пока нет ни одного блога"
 
-#: .\web\templates\pages\blog\blogdetail.html:56
+#: .\web\templates\pages\blog\blogdetail.html:90
 msgid "Share this post with people"
 msgstr "Поделитесь этим постом с людьми"
 
-#: .\web\templates\pages\blog\blogdetail.html:61
+#: .\web\templates\pages\blog\blogdetail.html:95
 msgid "by"
 msgstr "от"
 
-#: .\web\templates\pages\blog\blogdetail.html:65
+#: .\web\templates\pages\blog\blogdetail.html:99
 msgid "Share this article"
 msgstr "Поделиться этой статьей"
 
-#: .\web\templates\pages\blog\blogdetail.html:76
+#: .\web\templates\pages\blog\blogdetail.html:110
 msgid "You have successfully copied the URL"
 msgstr "Вы успешно скопировали ссылку"
 
-#: .\web\templates\pages\blog\blogdetail.html:93
+#: .\web\templates\pages\blog\blogdetail.html:127
 msgid "Popular Similar Posts"
 msgstr "Популярные похожие посты"
 
-#: .\web\templates\pages\blog\blogdetail.html:109
+#: .\web\templates\pages\blog\blogdetail.html:143
 msgid "There is no any similar blogs yet"
 msgstr "Пока нет похожих блогов"
 
-#: .\web\templates\pages\blog\blogdetail.html:110
-#: .\web\templates\pages\index.html:401
+#: .\web\templates\pages\blog\blogdetail.html:144
+#: .\web\templates\pages\index.html:400
 msgid "Go to blog"
 msgstr "Перейти к блогу"
 
@@ -775,7 +781,7 @@ msgid "Error submitting the form. Please try again."
 msgstr "Ошибка при отправке формы. Пожалуйста, попробуйте снова."
 
 #: .\web\templates\pages\contact.html:119 .\web\templates\pages\faqlist.html:15
-#: .\web\templates\pages\index.html:326
+#: .\web\templates\pages\index.html:325
 msgid "Frequently Asked Questions"
 msgstr "Часто задаваемые вопросы"
 
@@ -837,43 +843,43 @@ msgid "There is the list of every FAQs."
 msgstr "Здесь приведен список каждого FAQ."
 
 #: .\web\templates\pages\index.html:14
-msgid "Web development in Tashkent"
-msgstr "Разработка сайтов в Ташкенте"
+msgid "Website development in Tashkent"
+msgstr "Разработка и создание сайтов в Ташкенте"
 
 #: .\web\templates\pages\index.html:17
 msgid "Our Projects"
 msgstr "Наши проекты"
 
-#: .\web\templates\pages\index.html:30
+#: .\web\templates\pages\index.html:29
 #: .\web\templates\pages\user\profile.html:66
 msgid "Location"
 msgstr "Местоположение"
 
-#: .\web\templates\pages\index.html:31
+#: .\web\templates\pages\index.html:30
 msgid "Tashkent"
 msgstr "Ташкент"
 
-#: .\web\templates\pages\index.html:39
+#: .\web\templates\pages\index.html:38
 msgid "Phone"
 msgstr "Телефон"
 
-#: .\web\templates\pages\index.html:48
+#: .\web\templates\pages\index.html:47
 msgid "Activity"
 msgstr "Деятельность"
 
-#: .\web\templates\pages\index.html:57
+#: .\web\templates\pages\index.html:56
 msgid "Clients"
 msgstr "Клиенты"
 
-#: .\web\templates\pages\index.html:69
+#: .\web\templates\pages\index.html:68
 msgid "Two people collaborating on website development code"
 msgstr "Два человека совместно работают над кодом для разработки сайта"
 
-#: .\web\templates\pages\index.html:75
+#: .\web\templates\pages\index.html:74
 msgid "Professional Website Development in Tashkent – Fast and Affordable"
 msgstr "Профессиональная разработка сайтов в Ташкенте – Быстро и Доступно"
 
-#: .\web\templates\pages\index.html:78
+#: .\web\templates\pages\index.html:77
 msgid ""
 "Discover the exact cost of a complete website development solution tailored "
 "for your business needs."
@@ -881,56 +887,56 @@ msgstr ""
 "Узнайте точную стоимость разработки сайта под ключ и получите предложение, "
 "адаптированное под потребности вашего бизнеса."
 
-#: .\web\templates\pages\index.html:79
+#: .\web\templates\pages\index.html:78
 msgid "Enjoy one year of free technical support with every project!"
 msgstr "Получите один год бесплатной технической поддержки с каждым проектом!"
 
-#: .\web\templates\pages\index.html:82
+#: .\web\templates\pages\index.html:81
 msgid "Get Your Free Quote"
 msgstr "Получите бесплатную оценку"
 
-#: .\web\templates\pages\index.html:97
+#: .\web\templates\pages\index.html:96
 msgid "With"
 msgstr "С"
 
-#: .\web\templates\pages\index.html:97
+#: .\web\templates\pages\index.html:96
 msgid "4 years of successful experience"
 msgstr "4-летним успешным опытом"
 
-#: .\web\templates\pages\index.html:97
+#: .\web\templates\pages\index.html:96
 msgid "in the market, we have completed and delivered over"
 msgstr "на рынке, мы завершили и доставили более"
 
-#: .\web\templates\pages\index.html:97
+#: .\web\templates\pages\index.html:96
 msgid "50 successful projects"
 msgstr "50 успешных проектов"
 
-#: .\web\templates\pages\index.html:97
+#: .\web\templates\pages\index.html:96
 msgid "."
 msgstr "."
 
-#: .\web\templates\pages\index.html:107
+#: .\web\templates\pages\index.html:106
 msgid "After completing a project, we don’t leave our clients. We provide"
 msgstr ""
 "После завершения проекта мы не оставляем наших клиентов. Мы предоставляем"
 
-#: .\web\templates\pages\index.html:107
+#: .\web\templates\pages\index.html:106
 msgid "one year of free technical support"
 msgstr "один год бесплатной технической поддержки"
 
-#: .\web\templates\pages\index.html:107
+#: .\web\templates\pages\index.html:106
 msgid "and"
 msgstr "и"
 
-#: .\web\templates\pages\index.html:107
+#: .\web\templates\pages\index.html:106
 msgid "security"
 msgstr "безопасность"
 
-#: .\web\templates\pages\index.html:107
+#: .\web\templates\pages\index.html:106
 msgid ", to ensure your website runs smoothly."
 msgstr ", чтобы ваш веб-сайт работал бесперебойно."
 
-#: .\web\templates\pages\index.html:117
+#: .\web\templates\pages\index.html:116
 msgid ""
 "We work every day, without weekends. You can reach out to us at any time "
 "that suits you! We are always"
@@ -938,23 +944,23 @@ msgstr ""
 "Мы работаем каждый день, без выходных. Вы можете связаться с нами в любое "
 "время, которое вам удобно! Мы всегда"
 
-#: .\web\templates\pages\index.html:117
+#: .\web\templates\pages\index.html:116
 msgid "happy to assist"
 msgstr "рады помочь"
 
-#: .\web\templates\pages\index.html:117
+#: .\web\templates\pages\index.html:116
 msgid "you with your needs."
 msgstr "вам с вашими потребностями."
 
-#: .\web\templates\pages\index.html:127
+#: .\web\templates\pages\index.html:126
 msgid "Direct"
 msgstr "Прямой"
 
-#: .\web\templates\pages\index.html:127
+#: .\web\templates\pages\index.html:126
 msgid "contact with management"
 msgstr "контакт с руководством"
 
-#: .\web\templates\pages\index.html:127
+#: .\web\templates\pages\index.html:126
 msgid ""
 "at every stage of the project ensures smooth communication and efficient "
 "results."
@@ -962,50 +968,50 @@ msgstr ""
 "на каждом этапе проекта обеспечивает бесперебойное общение и эффективные "
 "результаты."
 
-#: .\web\templates\pages\index.html:137
+#: .\web\templates\pages\index.html:136
 msgid "Your Suitable package"
 msgstr "Ваш подходящий пакет"
 
-#: .\web\templates\pages\index.html:137
+#: .\web\templates\pages\index.html:136
 msgid "for your needs"
 msgstr "для ваших нужд"
 
-#: .\web\templates\pages\index.html:138
+#: .\web\templates\pages\index.html:137
 msgid "Our powerful plan gives you access to core Cyber Code features."
 msgstr "Наш мощный план дает вам доступ к основным функциям Cyber Code."
 
-#: .\web\templates\pages\index.html:145
+#: .\web\templates\pages\index.html:144
 #: .\web\templates\pages\pricing\pricing.html:23
 #: .\web\templates\pages\pricing\pricingdetail.html:5
-#: .\web\templates\pages\pricing\pricingdetail.html:72
+#: .\web\templates\pages\pricing\pricingdetail.html:84
 #: .\web\templates\pages\pricing\pricinglist.html:46
 msgid "from"
 msgstr "от"
 
-#: .\web\templates\pages\index.html:148
+#: .\web\templates\pages\index.html:147
 #: .\web\templates\pages\pricing\paymentlist.html:83
 #: .\web\templates\pages\pricing\pricing.html:26
 #: .\web\templates\pages\pricing\pricinglist.html:49
 msgid "Recommended"
 msgstr "Рекомендуемый"
 
-#: .\web\templates\pages\index.html:166
+#: .\web\templates\pages\index.html:165
 #: .\web\templates\pages\pricing\pricing.html:42
 #: .\web\templates\pages\pricing\pricinglist.html:65
 msgid "There are no any pricings yet"
 msgstr "Пока нет ни одного тарифа"
 
-#: .\web\templates\pages\index.html:167
+#: .\web\templates\pages\index.html:166
 msgid "Go to pricing"
 msgstr "Перейти к тарифам"
 
-#: .\web\templates\pages\index.html:178
-#: .\web\templates\pages\pricing\pricingdetail.html:121
+#: .\web\templates\pages\index.html:177
+#: .\web\templates\pages\pricing\pricingdetail.html:133
 msgid "Not sure which website solution is right for you ?"
 msgstr "Нe можете определиться с подходящим для вас вариантом сайта ?"
 
-#: .\web\templates\pages\index.html:181
-#: .\web\templates\pages\pricing\pricingdetail.html:124
+#: .\web\templates\pages\index.html:180
+#: .\web\templates\pages\pricing\pricingdetail.html:136
 msgid ""
 "It is not always easy to determine the exact website you need for your "
 "project. If you are having trouble choosing, leave your email, and one of "
@@ -1016,33 +1022,33 @@ msgstr ""
 "иной проект. Если у вас возникли трудности в выборе, оставьте свою почту, и "
 "наш специалист свяжется с Вами в течение 15 минут для консультации:"
 
-#: .\web\templates\pages\index.html:186
-#: .\web\templates\pages\pricing\pricingdetail.html:34
-#: .\web\templates\pages\pricing\pricingdetail.html:129
+#: .\web\templates\pages\index.html:185
+#: .\web\templates\pages\pricing\pricingdetail.html:46
+#: .\web\templates\pages\pricing\pricingdetail.html:141
 msgid "Name"
 msgstr "Имя"
 
-#: .\web\templates\pages\index.html:189
+#: .\web\templates\pages\index.html:188
 #: .\web\templates\pages\job\jobdetail.html:55
 #: .\web\templates\pages\pricing\paymentlist.html:195
-#: .\web\templates\pages\pricing\pricingdetail.html:37
-#: .\web\templates\pages\pricing\pricingdetail.html:132
+#: .\web\templates\pages\pricing\pricingdetail.html:49
+#: .\web\templates\pages\pricing\pricingdetail.html:144
 #: .\web\templates\pages\user\password_reset.html:25
 #: .\web\templates\pages\user\profile.html:81
 msgid "Email"
 msgstr "Почта"
 
-#: .\web\templates\pages\index.html:192
-#: .\web\templates\pages\pricing\pricingdetail.html:40
-#: .\web\templates\pages\pricing\pricingdetail.html:135
+#: .\web\templates\pages\index.html:191
+#: .\web\templates\pages\pricing\pricingdetail.html:52
+#: .\web\templates\pages\pricing\pricingdetail.html:147
 msgid "Send"
 msgstr "Отправить"
 
-#: .\web\templates\pages\index.html:204
+#: .\web\templates\pages\index.html:203
 msgid "Why is it better to order website development from us?"
 msgstr "Почему лучше заказать разработку сайта у нас?"
 
-#: .\web\templates\pages\index.html:213
+#: .\web\templates\pages\index.html:212
 msgid ""
 "We develop websites from scratch, without using ready-made templates or "
 "copying competitors sites. One design — one website."
@@ -1050,7 +1056,7 @@ msgstr ""
 "Мы разрабатываем сайты с нуля, не используя готовые шаблоны и не копируя "
 "сайты конкурентов. Один дизайн — один сайт."
 
-#: .\web\templates\pages\index.html:223
+#: .\web\templates\pages\index.html:222
 msgid ""
 "Websites developed by our team feature clean and quality code, making them "
 "easy to optimize for SEO."
@@ -1058,7 +1064,7 @@ msgstr ""
 "Сайты, разработанные нашей командой, имеют чистый и качественный код, что "
 "делает их легкими для оптимизации по SEO."
 
-#: .\web\templates\pages\index.html:233
+#: .\web\templates\pages\index.html:232
 msgid ""
 "The websites we create are always responsive and have versions for all "
 "devices, from mobile phones to tablets. There is no extra charge for this."
@@ -1066,7 +1072,7 @@ msgstr ""
 "Созданные нами сайты всегда адаптивные и имеют версии для всех устройств, от "
 "мобильных телефонов до планшетов. Дополнительная плата за это не взимается."
 
-#: .\web\templates\pages\index.html:243
+#: .\web\templates\pages\index.html:242
 msgid ""
 "Once the project is completed, we do not leave you on your own. After "
 "delivering your site, we provide full technical support and security for a "
@@ -1076,7 +1082,7 @@ msgstr ""
 "предоставляем полную техническую поддержку и безопасность на год без "
 "дополнительной платы."
 
-#: .\web\templates\pages\index.html:253
+#: .\web\templates\pages\index.html:252
 msgid ""
 "All work is done under a contract. If we fail to meet our deadlines, we will "
 "refund your money. You can rest easy."
@@ -1084,7 +1090,7 @@ msgstr ""
 "Вся работа выполняется по договору. Если мы не уложимся в сроки, мы вернем "
 "ваши деньги. Вы можете быть уверены в этом."
 
-#: .\web\templates\pages\index.html:263
+#: .\web\templates\pages\index.html:262
 msgid ""
 "We offer payment for development in stages. Typically, 50 percent upfront "
 "and 50 percent upon project completion."
@@ -1092,7 +1098,7 @@ msgstr ""
 "Мы предлагаем оплату за разработку по частям. Обычно 50 процентов предоплата "
 "и 50 процентов по завершении проекта."
 
-#: .\web\templates\pages\index.html:273
+#: .\web\templates\pages\index.html:272
 msgid ""
 "We work every day, without breaks. You can reach out to us anytime that "
 "suits you! We are always here to help!"
@@ -1100,7 +1106,7 @@ msgstr ""
 "Мы работаем каждый день, без перерывов. Вы можете связаться с нами в любое "
 "время, которое вам удобно! Мы всегда готовы помочь!"
 
-#: .\web\templates\pages\index.html:283
+#: .\web\templates\pages\index.html:282
 msgid ""
 "With 4 years of successful experience in the market, we have developed and "
 "launched over 50 successful projects."
@@ -1108,19 +1114,19 @@ msgstr ""
 "С 4-летним успешным опытом работы на рынке мы разработали и запустили более "
 "50 успешных проектов."
 
-#: .\web\templates\pages\index.html:297
+#: .\web\templates\pages\index.html:296
 msgid "Our Partners"
 msgstr "Наши партнеры"
 
-#: .\web\templates\pages\index.html:316
+#: .\web\templates\pages\index.html:315
 msgid "There is no any partners yet"
 msgstr "Пока нет ни одного партнера"
 
-#: .\web\templates\pages\index.html:350
+#: .\web\templates\pages\index.html:349
 msgid "Ideas to help you navigate work"
 msgstr "Идеи, чтобы помочь вам в работе"
 
-#: .\web\templates\pages\index.html:353
+#: .\web\templates\pages\index.html:352
 msgid ""
 "We regularly share resources on startups, productivity, and the future of "
 "work"
@@ -1128,27 +1134,27 @@ msgstr ""
 "Мы регулярно делимся ресурсами о стартапах, производительности и будущем "
 "работы"
 
-#: .\web\templates\pages\index.html:356
+#: .\web\templates\pages\index.html:355
 msgid "See more articeles"
 msgstr "Смотреть больше статей"
 
-#: .\web\templates\pages\index.html:386
+#: .\web\templates\pages\index.html:385
 msgid "Posted by"
 msgstr "Пост от"
 
-#: .\web\templates\pages\index.html:397 .\web\templates\pages\index.html:440
+#: .\web\templates\pages\index.html:396 .\web\templates\pages\index.html:439
 msgid "error"
 msgstr ""
 
-#: .\web\templates\pages\index.html:400
+#: .\web\templates\pages\index.html:399
 msgid "There are no any posts yet"
 msgstr "Пока нет ни одной записи"
 
-#: .\web\templates\pages\index.html:414
+#: .\web\templates\pages\index.html:413
 msgid "Feedbacks from our clients"
 msgstr "Отзывы от наших клиентов"
 
-#: .\web\templates\pages\index.html:416
+#: .\web\templates\pages\index.html:415
 msgid ""
 "Join the thousands of other people just like you who started using CyberCode "
 "and took back control of their day"
@@ -1156,7 +1162,7 @@ msgstr ""
 "Присоединяйтесь к тысячам других людей, таким же как вы, которые начали "
 "использовать CyberCode и вернули контроль над своим днем"
 
-#: .\web\templates\pages\index.html:443
+#: .\web\templates\pages\index.html:442
 msgid "There are no any feedbacks yet"
 msgstr "Пока нет ни одного отзыва"
 
@@ -1475,29 +1481,29 @@ msgstr "Взять инструкцию"
 msgid "What do you get after payment"
 msgstr "Что вы получаете после оплаты"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:15
+#: .\web\templates\pages\pricing\pricingdetail.html:27
 msgid "Creating high-converting"
 msgstr "Разработка продающих"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:17
+#: .\web\templates\pages\pricing\pricingdetail.html:29
 msgid "turnkey websites"
 msgstr "веб-сайтов под ключ"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:22
-#: .\web\templates\pages\pricing\pricingdetail.html:61
+#: .\web\templates\pages\pricing\pricingdetail.html:34
+#: .\web\templates\pages\pricing\pricingdetail.html:73
 msgid "discuss the project"
 msgstr "обсудить проект"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:31
+#: .\web\templates\pages\pricing\pricingdetail.html:43
 msgid "leave a request"
 msgstr "оставить заявку"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:32
+#: .\web\templates\pages\pricing\pricingdetail.html:44
 msgid "please leave your details and we will contact you shortly"
 msgstr ""
 "пожалуйста, оставьте ваши данные и мы свяжемся с вами в ближайшее время"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:42
+#: .\web\templates\pages\pricing\pricingdetail.html:54
 msgid ""
 "by clicking the button you consent to the processing of personal data and "
 "agree to the"
@@ -1505,47 +1511,47 @@ msgstr ""
 "нажимая на кнопку вы даете согласие на обработку персональных данных и "
 "соглашаетесь c"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:42
+#: .\web\templates\pages\pricing\pricingdetail.html:54
 msgid "privacy policy"
 msgstr "политикой конфиденциальности"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:65
+#: .\web\templates\pages\pricing\pricingdetail.html:77
 msgid "Add to cart"
 msgstr "Добавить в корзину"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:87
+#: .\web\templates\pages\pricing\pricingdetail.html:99
 msgid "all"
 msgstr "все"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:88
+#: .\web\templates\pages\pricing\pricingdetail.html:100
 msgid "the most important"
 msgstr "самое важное"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:89
+#: .\web\templates\pages\pricing\pricingdetail.html:101
 msgid "things implement and adapt to your business"
 msgstr "реализуем и адаптируем под ваш бизнес"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:94
+#: .\web\templates\pages\pricing\pricingdetail.html:106
 msgid "user story"
 msgstr "пользовательская история"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:96
+#: .\web\templates\pages\pricing\pricingdetail.html:108
 msgid "describing tasks from the perspective of different users"
 msgstr "описание задач с точки зрения различных пользователей"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:100
+#: .\web\templates\pages\pricing\pricingdetail.html:112
 msgid "journey map"
 msgstr "карта путешествия"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:102
+#: .\web\templates\pages\pricing\pricingdetail.html:114
 msgid "designing user action maps"
 msgstr "разработка карт действий пользователей"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:106
+#: .\web\templates\pages\pricing\pricingdetail.html:118
 msgid "convenient admin panel and personal account"
 msgstr "удобная админка и личный кабинет"
 
-#: .\web\templates\pages\pricing\pricingdetail.html:108
+#: .\web\templates\pages\pricing\pricingdetail.html:120
 msgid "comfortable site management for both you and your users."
 msgstr "комфортное управление сайтом как для вас, так и для пользователей."
 
@@ -1862,19 +1868,19 @@ msgstr "У вас уже есть аккаунт?"
 msgid "Your message has been successfully sent."
 msgstr "Ваше сообщение успешно отправлено!"
 
-#: .\web\views.py:443
+#: .\web\views.py:445
 msgid "This post is private."
 msgstr "Этот пост является приватным."
 
-#: .\web\views.py:581
+#: .\web\views.py:583
 msgid "Profile updated successfully."
 msgstr "Профиль успешно обновлен."
 
-#: .\web\views.py:629
+#: .\web\views.py:631
 msgid "You have successfully created an account"
 msgstr "Вы успешно создали аккаунт"
 
-#: .\web\views.py:651
+#: .\web\views.py:653
 msgid "Your password was successfully updated"
 msgstr "Ваш пароль успешно обновлен"
 

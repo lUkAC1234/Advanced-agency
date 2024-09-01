@@ -127,6 +127,11 @@ class index(ContactFormMixin, TemplateView):
             post.view_count = post.views.count()
         return data
 
+    def get(self, request, *args, **kwargs):
+        response = super().get(request, *args, **kwargs)
+        response['Content-Language'] = 'ru'
+        return response
+
 class about(ContactFormMixin, TemplateView):
     template_name = "pages/about.html"
 

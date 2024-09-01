@@ -108,13 +108,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'EN-RU'
+LANGUAGE_CODE = 'RU-EN'
 
 gettext = lambda s: s
 
 LANGUAGES = [
-    ('en', gettext('English')),
     ('ru', gettext('Russian')),
+    ('en', gettext('English')),
 ]
 
 LOCALE_PATHS = [
