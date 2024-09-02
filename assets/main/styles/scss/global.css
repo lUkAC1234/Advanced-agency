@@ -2603,7 +2603,6 @@
   background: linear-gradient(168deg, rgb(170, 235, 255) 0%, rgb(255, 217, 221) 0%, rgb(222, 181, 255) 16%, rgb(193, 188, 255) 33%, rgb(193, 115, 255) 96%);
   background-position: center bottom;
   padding: 10.5rem 0;
-  margin-bottom: 10rem;
 }
 .pricing-popular-packages-section::after {
   content: "";
@@ -2616,19 +2615,23 @@
   background-size: cover;
 }
 
+.pricing-popular-main-container {
+  width: min(100%, 75rem);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
 .pricing-popular-package-title {
-  color: var(--text-white) !important;
+  color: var(--text-purple) !important;
 }
 
 .pricing-popular-package-info {
   margin-top: 1rem;
-  text-align: center;
 }
 
 .pricing-popular-package-container {
   flex-wrap: wrap;
   display: flex;
-  justify-content: center;
   align-items: end;
   gap: 1rem;
   margin-top: 5rem;
@@ -2636,7 +2639,7 @@
 
 .pricing-popular-column {
   position: relative;
-  width: 24rem;
+  width: calc(33% - 0.5rem);
   min-height: 28rem;
   height: max-content;
   border-radius: 1.25rem;
@@ -2719,24 +2722,29 @@
   margin-top: 1rem;
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 1400px) {
   .pricing-popular-package-title {
-    font-size: 2rem !important;
+    font-size: 3rem !important;
   }
   .pricing-popular-package-info {
     font-size: 1rem !important;
-    width: 60%;
-    margin-inline: 20%;
+  }
+  .pricing-popular-package-container {
+    justify-content: center;
+  }
+  .pricing-popular-column {
+    width: 24rem;
+  }
+}
+@media screen and (max-width: 660px) {
+  .pricing-popular-package-title {
+    font-size: 2.5rem !important;
   }
   .pricing-popular-column {
     width: 22rem;
   }
 }
 @media screen and (max-width: 660px) and (max-width: 400px) {
-  .pricing-popular-column {
-    width: 96%;
-    margin: 0 2%;
-  }
   .pricing-popular-column ul li {
     font-size: 0.9rem !important;
   }
@@ -2801,6 +2809,7 @@
   flex-wrap: wrap;
   gap: 3rem 1.25rem;
   padding: 0 1rem;
+  margin-top: 6rem;
 }
 
 .custom-build-column {
@@ -7886,7 +7895,7 @@ select:-webkit-autofill:focus {
   -webkit-transition: color 9999999s ease-out, background-color 9999999s ease-out;
 }
 
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text, .choices-column .price-column .recommended h1, .partners-info-container .partners-column .partners-info-title, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .contact-form-included-input-container label, .price-column .recommended h1, .pricing-detail-content-advantages-container ul li, .pricing-detail-more-advantages-column-title, .categorie-column .recommended h1, .post-text-container .post-posted, .post-creator-container .post-creator-position,
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text, .choices-column .price-column .recommended h1, .partners-info-container .partners-column .partners-info-title, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .contact-form-included-input-container label, .price-column .recommended .recommended-text, .pricing-detail-content-advantages-container ul li, .pricing-detail-more-advantages-column-title, .categorie-column .recommended .recommended-text, .post-text-container .post-posted, .post-creator-container .post-creator-position,
 .post-creator-container .post-creator-username, .featured-posts-column .featured-post-column-posted, .similar-popular-posts-column .similar-popular-post-column-posted, .jobApplyForm .jobApply-group label, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
@@ -7909,7 +7918,7 @@ select:-webkit-autofill:focus {
   font-weight: 700;
   line-height: 120%;
 }
-.dark-blue-text-center-grotext-family-4rem::first-letter, .dark-blue-text-center-grotext-family-1rem::first-letter, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text::first-letter, .choices-column .price-column .recommended h1::first-letter, .partners-info-container .partners-column .partners-info-title::first-letter, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title::first-letter, .about-page-gradient-image-column-task-title::first-letter, .team-members-info-container .team-members-count-text::first-letter, .faq-card-title::first-letter, .contact-form-included-input-container label::first-letter, .price-column .recommended h1::first-letter, .pricing-detail-content-advantages-container ul li::first-letter, .pricing-detail-more-advantages-column-title::first-letter, .categorie-column .recommended h1::first-letter, .post-text-container .post-posted::first-letter, .post-creator-container .post-creator-position::first-letter,
+.dark-blue-text-center-grotext-family-4rem::first-letter, .dark-blue-text-center-grotext-family-1rem::first-letter, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text::first-letter, .choices-column .price-column .recommended h1::first-letter, .partners-info-container .partners-column .partners-info-title::first-letter, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title::first-letter, .about-page-gradient-image-column-task-title::first-letter, .team-members-info-container .team-members-count-text::first-letter, .faq-card-title::first-letter, .contact-form-included-input-container label::first-letter, .price-column .recommended .recommended-text::first-letter, .pricing-detail-content-advantages-container ul li::first-letter, .pricing-detail-more-advantages-column-title::first-letter, .categorie-column .recommended .recommended-text::first-letter, .post-text-container .post-posted::first-letter, .post-creator-container .post-creator-position::first-letter,
 .post-creator-container .post-creator-username::first-letter, .featured-posts-column .featured-post-column-posted::first-letter, .similar-popular-posts-column .similar-popular-post-column-posted::first-letter, .jobApplyForm .jobApply-group label::first-letter, .messenger-your-message-user-profile .messenger-your-message-username::first-letter,
 .messenger-your-message-user-profile .messenger-others-message-username::first-letter,
 .messenger-others-message-user-profile .messenger-your-message-username::first-letter,
@@ -7947,7 +7956,7 @@ select:-webkit-autofill:focus {
   font-size: 1.5rem;
 }
 
-.dark-blue-text-center-grotext-family-1rem, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text, .choices-column .price-column .recommended h1, .partners-info-container .partners-column .partners-info-title, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .contact-form-included-input-container label, .price-column .recommended h1, .pricing-detail-content-advantages-container ul li, .pricing-detail-more-advantages-column-title, .categorie-column .recommended h1, .post-text-container .post-posted, .post-creator-container .post-creator-position,
+.dark-blue-text-center-grotext-family-1rem, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text, .choices-column .price-column .recommended h1, .partners-info-container .partners-column .partners-info-title, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .contact-form-included-input-container label, .price-column .recommended .recommended-text, .pricing-detail-content-advantages-container ul li, .pricing-detail-more-advantages-column-title, .categorie-column .recommended .recommended-text, .post-text-container .post-posted, .post-creator-container .post-creator-position,
 .post-creator-container .post-creator-username, .featured-posts-column .featured-post-column-posted, .similar-popular-posts-column .similar-popular-post-column-posted, .jobApplyForm .jobApply-group label, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
@@ -8039,7 +8048,7 @@ select:-webkit-autofill:focus {
   font-size: 0.75rem;
 }
 
-.text-align-start, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text, .task-content-column .task-title, .decide-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .contact-form-included-input-container label, .services-text-container .services-text-title, .pricing-detail-info-title,
+.text-align-start, .gradient-website-information-column .gradient-website-information-text-container .gradient-website-information-text, .task-content-column .task-title, .decide-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .contact-form-included-input-container label, .pricing-popular-package-title, .services-text-container .services-text-title, .pricing-detail-info-title,
 .pricing-detail-price-title, .pricing-detail-content-advantages-container ul li, .pricing-detail-more-advantages-title, .pricing-detail-more-advantages-column-title, .pricing-list-text-container .pricing-list-title, .blog-gradient-title, .post-text-container .post-title, .post-text-container .post-posted, .post-creator-container .post-creator-position,
 .post-creator-container .post-creator-username, .featured-search-title,
 .featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title, .detail-content-wrapper .detail-content-title,

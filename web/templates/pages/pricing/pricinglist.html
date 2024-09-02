@@ -26,8 +26,8 @@
                 </div>
             </div>
             <div class="pricing-list-image-container fade slideInRight">
-                <img class="pricing-list-first-image" src="{% static 'main/images/pricinglist/people.png' %}" alt="">
-                <img class="pricing-list-second-image" src="{% static 'main/images/pricinglist/people2.png' %}" alt="">
+                <img class="pricing-list-first-image" src="{% static 'main/images/pricinglist/people.png' %}" alt="Organization image 1">
+                <img class="pricing-list-second-image" src="{% static 'main/images/pricinglist/people2.png' %}" alt="Organization image 2">
             </div>
         </div>
     </section>
@@ -41,12 +41,12 @@
             {% for object in object_list %}
             <div class="pricing-categories-column fade fadeInDown">
                 <div class="categorie-column">
-                    <h1 class="pricing-popular-type">{{ object.type }}</h1>
+                    <h4 class="pricing-popular-type">{{ object.type }}</h4>
                     <span class="pricing-popular-price">${{ object.price }}</span>
                     <span class="pricing-popular-date">/ {% translate 'from' %}</span>
                     {% if object.recommended %}
                     <div class="recommended">
-                        <h1>{% translate 'Recommended' %}</h1>
+                        <h5 class="recommended-text">{% translate 'Recommended' %}</h5>
                     </div>
                     {% endif %}
                 </div>
@@ -59,9 +59,9 @@
             {% empty %}
             <article class="partners-empty-container" style="margin-top: 0;">
                 <div class="partners-empty-icon-container">
-                    <img src="{% static 'main/images/errors/noresult.svg' %}" alt="">
+                    <img src="{% static 'main/images/errors/noresult.svg' %}" alt="{% translate 'error image' %}">
                 </div>
-                <h1 class="partners-empty-title">{% translate 'No matching results' %}</h1>
+                <h4 class="partners-empty-title">{% translate 'No matching results' %}</h4>
                 <p class="partners-empty-text">{% translate 'There are no any pricings yet' %}</p>
             </article>
             {% endfor %}
@@ -74,7 +74,7 @@
     <section class="ready-to-try-section">
         <div class="ready-to-try-container">
             <div class="ready-to-try-column fade fadeInUp">
-                <h1 class="ready-to-try-title">{% translate 'Ready to try' %} <br> Cyber Code?</h1>
+                <h4 class="ready-to-try-title">{% translate 'Ready to try' %} <br> Cyber Code?</h4>
                 <p class="ready-to-try-info">{% translate 'Try Cyber Code and take back control of your day' %}</p>
                 <div class="ready-to-try-buttons-container">
                     <div class="ready-to-try-btn-column">
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="ready-to-try-image-column fade fadeInDown">
-                <img src="{% static 'main/images/contactus/readytotry.png' %}" alt="">
+                <img src="{% static 'main/images/contactus/readytotry.png' %}" alt="{% translate 'Ready to try image' %}">
             </div>
         </div>
     </section>

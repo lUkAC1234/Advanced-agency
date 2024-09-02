@@ -34,12 +34,14 @@
         content="{% block twitter_description %}Профессиональная разработка сайтов в Ташкенте. Услуги по созданию и продвижению сайтов от devcybercode. ☎️ (33) 170-17-06{% endblock %}">
     <meta name="twitter:image"
         content="{% block twitter_image %}{% static 'main/images/layout/websiteicon.png' %}{% endblock %}">
-
+        
     {% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
     <link href="{% static 'main/scripts/js/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
     <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
     {% endcompress %}
+    
+    
     <link rel="canonical" href="{{ request.build_absolute_uri }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
     <link rel="icon" href="{% static 'main/images/layout/websiteicon.png' %}" type="image/png" />

@@ -2,7 +2,7 @@
 {% load static i18n %}
 
 {% block title %}
-{% translate 'Pricing' %}
+{% translate 'Website development for business' %} — {% translate 'Pricing' %}
 {% endblock %}
 
 {% block content %}
@@ -12,18 +12,18 @@
 
     <section class="pricing-popular-packages-section" id="pricingSection">
         <div class="pricing-popular-main-container">
-            <h1 class="pricing-popular-package-title fade fadeInUp">{% translate 'Our 3 popular pricing models' %}</h1>
-            <p class="pricing-popular-package-info fade fadeInUp">{% translate 'Save your time and order our project with our Subscription plan' %}</p>
+            <h1 class="pricing-popular-package-title fade fadeInUp">{% translate 'Website development for business' %}</h1>
+            <p class="pricing-popular-package-info fade fadeInUp">{% translate '«devcybercode» designs modern, adaptive websites that solve business challenges and captivate visitors. We also maintain and enhance existing web resources to ensure they stay effective and engaging.' %}</p>
             <div class="pricing-popular-package-container">
                 {% for object in pricing %}
                 <div class="pricing-popular-column fade fadeInDown">
                     <div class="price-column">
-                        <h1 class="pricing-popular-type">{{ object.type }}</h1>
+                        <h4 class="pricing-popular-type">{{ object.type }}</h4>
                         <span class="pricing-popular-price">${{ object.price }}</span>
                         <span class="pricing-popular-date">/ {% translate 'from' %}</span>
                         {% if object.recommended %}
                         <div class="recommended">
-                            <h1>{% translate 'Recommended' %}</h1>
+                            <h5 class="recommended-text">{% translate 'Recommended' %}</h5>
                         </div>
                         {% endif %}
                     </div>
@@ -36,9 +36,9 @@
                 {% empty %}
                 <article class="partners-empty-container">
                     <div class="partners-empty-icon-container">
-                        <img src="{% static 'main/images/errors/error.svg' %}" alt="">
+                        <img src="{% static 'main/images/errors/error.svg' %}" alt="{% translate 'error image' %}">
                     </div>
-                    <h1 class="partners-empty-title purple">{% translate 'No matching results' %}</h1>
+                    <h4 class="partners-empty-title purple">{% translate 'No matching results' %}</h4>
                     <p class="partners-empty-text white">{% translate 'There are no any pricings yet' %}</p>
                 </article>
                 {% endfor %}
@@ -47,13 +47,13 @@
             <!-- START BUTTON FOR OTHER PACKAGES -->
     
             <article class="btn-for-list-of-packages">
-                <h1 class="click-title">{% translate 'Click to see other packages' %}</h1>
+                <h4 class="click-title">{% translate 'Click to see other packages' %}</h4>
                 <a href="{% url 'main:pricinglist' %}">
                     <div class="click-line"></div>
                     <i class="fas fa-angle-down"></i>
                 </a>
                 <div class="click-image-container">
-                    <img class="click-image" src="{% static 'main/images/about-us/click.svg' %}" alt="">
+                    <img class="click-image" src="{% static 'main/images/about-us/click.svg' %}" alt="{% translate 'click image' %}">
                 </div>
             </article>
             <!-- END BUTTON FOR OTHER PACKAGES -->
@@ -62,12 +62,104 @@
 
     <!-- END POPULAR PACKAGES SECTION -->
 
+    <!-- START Why us second section -->
+    <section class="whyus-section">
+        <div class="whyus-wrapper">
+            <h2 class="whyus-title fade fadeInDown">
+                {% translate 'Why is it better to order website development from us?' %}
+            </h2>
+            <div class="whyus-container">
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-pencil-ruler"></i> <!-- Icon for No Templates -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'We develop websites from scratch, without using ready-made templates or copying competitors sites. One design — one website.' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-search"></i> <!-- Icon for SEO Optimization -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'Websites developed by our team feature clean and quality code, making them easy to optimize for SEO.' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-mobile-alt"></i> <!-- Icon for Responsive Design -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'The websites we create are always responsive and have versions for all devices, from mobile phones to tablets. There is no extra charge for this.' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-life-ring"></i> <!-- Icon for Technical Support -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'Once the project is completed, we do not leave you on your own. After delivering your site, we provide full technical support and security for a year at no extra cost.' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-file-signature"></i> <!-- Icon for Contract-Based Work -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'All work is done under a contract. If we fail to meet our deadlines, we will refund your money. You can rest easy.' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-credit-card"></i> <!-- Icon for Staged Payments -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'We offer payment for development in stages. Typically, 50 percent upfront and 50 percent upon project completion.' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-clock"></i> <!-- Icon for 24/7 Support -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'We work every day, without breaks. You can reach out to us anytime that suits you! We are always here to help!' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="whyus-column fade fadeInDown">
+                    <div class="whyus-icon-container services-icon">
+                        <i class="fas fa-trophy"></i> <!-- Icon for Operating Since 2020 -->
+                    </div>
+                    <div class="whyus-text-container">
+                        <p class="whyus-text">
+                            {% translate 'With 4 years of successful experience in the market, we have developed and launched over 50 successful projects.' %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END Why us second section -->
+
     <!-- START CUSTOM BUILDS SECTION -->
 
     <section class="custom-build-section">
         <div class="custom-build-container">
             <div class="custom-build-column fade slideInLeft">
-                <h1 class="custom-build-title">{% translate 'Need A Custom Build?' %}</h1>
+                <h2 class="custom-build-title">{% translate 'Need A Custom Build?' %}</h2>
                 <p class="custom-build-text">{% translate 'We offer custom plans that can support your large team & big vision.' %}</p>
                 <div class="custom-build-btn-container">
                     <a href="{% url 'main:contact' %}">
@@ -76,7 +168,7 @@
                 </div>
             </div>
             <div class="custom-build-column fade slideInRight">
-                <h1 class="custom-build-title">{% translate "You don't know how to order?" %}</h1>
+                <h2 class="custom-build-title">{% translate "You don't know how to order?" %}</h2>
                 <p class="custom-build-text">{% translate 'Follow this link to find out the instruction how to order and order requirements' %}</p>
                 <div class="custom-build-btn-container">
                     <a href="{% url 'main:faqlist' %}">
@@ -94,7 +186,7 @@
     <section class="services-section">
         <div class="services-container">
             <div class="services-text-container fade slideInLeft">
-                <h1 class="services-text-title">{% translate 'What do you get after payment' %}</h1>
+                <h2 class="services-text-title">{% translate 'What do you get after payment' %}</h2>
                 <p class="services-text-text">{% translate 'We are a small, but growing team. Our expertise includes growth marketing, design, software development, and product management.' %}</p>
                 <div class="services-link-container">
                     <a href="{% url 'main:pricing' %}">
@@ -107,28 +199,28 @@
                     <div class="services-icon">
                         <i class="fas fa-wrench fa-rotate-270"></i>
                     </div>
-                    <h1 class="services-info-title">{% translate 'Gain full control' %}</h1>
+                    <h4 class="services-info-title">{% translate 'Gain full control' %}</h4>
                     <p class="services-info-text">{% translate 'After we transfer the site to you, you will be able to manage your site yourself' %}</p>
                 </div>
                 <div class="services-info-column fade fadeInDown">
                     <div class="services-icon">
                         <i class="fas fa-question-circle"></i>
                     </div>
-                    <h1 class="services-info-title">{% translate 'Dedicated support' %}</h1>
+                    <h4 class="services-info-title">{% translate 'Dedicated support' %}</h4>
                     <p class="services-info-text">{% translate 'Free support for a month after transfer of the site, as well as fixing it only 1 time' %}</p>
                 </div>
                 <div class="services-info-column fade fadeInDown">
                     <div class="services-icon">
                         <i class="fa-solid fa-users-gear"></i>
                     </div>
-                    <h1 class="services-info-title">{% translate 'Order is deliveres on time' %}</h1>
+                    <h4 class="services-info-title">{% translate 'Order is deliveres on time' %}</h4>
                     <p class="services-info-text">{% translate 'You will receive your website on time or even earlier, we guarantee it!' %}</p>
                 </div>
                 <div class="services-info-column fade fadeInDown">
                     <div class="services-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
-                    <h1 class="services-info-title">{% translate 'Perfect quality' %}</h1>
+                    <h4 class="services-info-title">{% translate 'Perfect quality' %}</h4>
                     <p class="services-info-text">{% translate 'Сlean code that allows the site to work without lags and errors!' %}</p>
                 </div>
             </div>
@@ -141,7 +233,7 @@
     <section class="ready-to-try-section">
         <div class="ready-to-try-container">
             <div class="ready-to-try-column fade fadeInUp">
-                <h1 class="ready-to-try-title">{% translate 'Ready to try' %} <br> Cyber Code?</h1>
+                <h4 class="ready-to-try-title">{% translate 'Ready to try' %} <br> Cyber Code?</h4>
                 <p class="ready-to-try-info">{% translate 'Try Cyber Code and take back control of your day' %}</p>
                 <div class="ready-to-try-buttons-container">
                     <div class="ready-to-try-btn-column">
@@ -157,7 +249,7 @@
                 </div>
             </div>
             <div class="ready-to-try-image-column fade fadeInDown">
-                <img src="{% static 'main/images/contactus/readytotry.png' %}" alt="">
+                <img src="{% static 'main/images/contactus/readytotry.png' %}" alt="{% translate 'Ready to try image' %}">
             </div>
         </div>
     </section>

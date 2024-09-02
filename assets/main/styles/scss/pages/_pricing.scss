@@ -6,7 +6,6 @@
     background: linear-gradient(168deg, rgba(170, 235, 255, 1) 0%, rgba(255, 217, 221, 1) 0%, rgba(222, 181, 255, 1) 16%, rgba(193, 188, 255, 1) 33%, rgba(193, 115, 255, 1) 96%);
     background-position: center bottom;
     padding: 10.5rem 0;
-    margin-bottom: 10rem;
 
     &::after {
         content: "";
@@ -20,21 +19,26 @@
     }
 }
 
+.pricing-popular-main-container {
+    width: min(100%, 75rem);
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
 .pricing-popular-package-title {
     @extend .dark-blue-text-center-grotext-family-4rem;
-    color: var(--text-white) !important;
+    @extend .text-align-start;
+    color: var(--text-purple) !important;
 }
 
 .pricing-popular-package-info {
     @extend .white-1-125rem-grotext;
     margin-top: 1rem;
-    text-align: center;
 }
 
 .pricing-popular-package-container {
     flex-wrap: wrap;
     display: flex;
-    justify-content: center;
     align-items: end;
     gap: 1rem;
     margin-top: 5rem;
@@ -42,7 +46,7 @@
 
 .pricing-popular-column {
     position: relative;
-    width: 24rem;
+    width: calc(33% - 0.5rem);
     min-height: 28rem;
     height: max-content;
     border-radius: 1.25rem;
@@ -80,7 +84,7 @@
         padding: 0.7rem 1.4rem;
         border-radius: 0 0 1rem 1rem;
 
-        h1 {
+        .recommended-text {
             @extend .dark-blue-text-center-grotext-family-1rem;
         }
     }
@@ -156,15 +160,27 @@
     }
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 1400px) {
     .pricing-popular-package-title {
-        font-size: 2rem !important;
+        font-size: 3rem !important;
     }
-
+    
     .pricing-popular-package-info {
         font-size: 1rem !important;
-        width: 60%;
-        margin-inline: 20%;
+    }
+    
+    .pricing-popular-package-container {
+        justify-content: center;
+    }
+    
+    .pricing-popular-column {
+        width: 24rem;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .pricing-popular-package-title {
+        font-size: 2.5rem !important;
     }
 
     .pricing-popular-column {
@@ -173,9 +189,6 @@
 
     @media screen and (max-width: 400px) {
         .pricing-popular-column {
-            width: 96%;
-            margin: 0 2%;
-
             ul {
                 li {
                     & {
@@ -259,6 +272,7 @@
     flex-wrap: wrap;
     gap: 3rem 1.25rem;
     padding: 0 1rem;
+    margin-top: 6rem;
 }
 
 .custom-build-column {
