@@ -692,7 +692,7 @@
 }
 
 .feedback-container {
-  width: 50%;
+  width: 50% !important;
 }
 
 .feedback-slide {
@@ -783,7 +783,7 @@
   }
   .feedback-list-text-column,
   .feedback-container {
-    width: 100%;
+    width: 100% !important;
   }
 }
 @media screen and (max-width: 992px) and (max-width: 600px) {
