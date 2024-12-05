@@ -603,7 +603,7 @@
   place-items: center;
 }
 .partners-info-container .partners-column img {
-  width: 15rem;
+  width: 15rem !important;
   height: 15rem;
   object-fit: contain;
   filter: grayscale(1);

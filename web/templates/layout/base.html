@@ -35,11 +35,9 @@
     <meta name="twitter:image"
         content="{% block twitter_image %}{% static 'main/images/layout/websiteicon.png' %}{% endblock %}">
         
-    {% compress css %}
     <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
     <link href="{% static 'main/scripts/js/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
     <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
-    {% endcompress %}
     
     
     <link rel="canonical" href="{{ request.build_absolute_uri }}">
@@ -54,7 +52,7 @@
         {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Devcybercode",
+            "name": "devcybercode",
             "url": "https://devcybercode.com",
             "logo": "https://devcybercode.com/static/main/images/layout/websiteicon.png",
             "description": "Разработка сайтов в Ташкенте. Индивидуальные решения для вашего бизнеса от devcybercode.",
