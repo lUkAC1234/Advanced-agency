@@ -47,14 +47,24 @@ def custom_timesince(value):
     
 # PRICING
 
+
 @register.filter
-def first_n_advantages(value, n=4):
+def first_n_advantages(value, args='4,100'):
     if not value:
         return value
+    
+    # Parse the arguments (n, max_length)
+    n, max_length = map(int, args.split(','))  # split and convert to integers
     
     soup = BeautifulSoup(value, 'html.parser')
     items = soup.find_all('li')
     limited_items = items[:n]
+    
+    # Truncate text in each list item
+    for item in limited_items:
+        if len(item.get_text()) > max_length:
+            truncated_text = item.get_text()[:max_length] + '...'  # Truncate and append '...'
+            item.string = truncated_text  # Update the item text
 
     # Create a new list with the limited items
     new_list = soup.new_tag('ul')

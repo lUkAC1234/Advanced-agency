@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-02 20:46+0500\n"
+"POT-Creation-Date: 2024-12-07 10:07+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -322,7 +322,7 @@ msgstr "Наши продукты"
 #: .\web\templates\pages\blog\blogdetail.html:167
 #: .\web\templates\pages\contact.html:159 .\web\templates\pages\faqlist.html:50
 #: .\web\templates\pages\pricing\pricing.html:5
-#: .\web\templates\pages\pricing\pricing.html:246
+#: .\web\templates\pages\pricing\pricing.html:248
 #: .\web\templates\pages\pricing\pricinglist.html:87
 #: .\web\templates\pages\projects\projects.html:47
 msgid "Pricing"
@@ -403,14 +403,12 @@ msgstr "О нас"
 #: .\web\templates\pages\blog\blog.html:154
 #: .\web\templates\pages\blog\blogdetail.html:162
 #: .\web\templates\pages\contact.html:154 .\web\templates\pages\faqlist.html:45
-#: .\web\templates\pages\index.html:20 .\web\templates\pages\index.html:156
-#: .\web\templates\pages\job\job.html:42 .\web\templates\pages\job\job.html:143
+#: .\web\templates\pages\index.html:20 .\web\templates\pages\job\job.html:42
+#: .\web\templates\pages\job\job.html:143
 #: .\web\templates\pages\job\jobdetail.html:184
-#: .\web\templates\pages\pricing\pricing.html:33
-#: .\web\templates\pages\pricing\pricing.html:193
-#: .\web\templates\pages\pricing\pricing.html:241
+#: .\web\templates\pages\pricing\pricing.html:195
+#: .\web\templates\pages\pricing\pricing.html:243
 #: .\web\templates\pages\pricing\pricinglist.html:24
-#: .\web\templates\pages\pricing\pricinglist.html:56
 #: .\web\templates\pages\pricing\pricinglist.html:82
 #: .\web\templates\pages\projects\projects.html:42
 msgid "Get started"
@@ -438,7 +436,7 @@ msgstr ""
 "и реагируя. Проводите больше времени на важных вещах."
 
 #: .\web\templates\pages\about.html:19
-#: .\web\templates\pages\pricing\pricing.html:166
+#: .\web\templates\pages\pricing\pricing.html:168
 msgid "Get in touch"
 msgstr "Связаться с нами"
 
@@ -590,7 +588,7 @@ msgstr "Великая история всегда начинается с ве�
 
 #: .\web\templates\pages\about.html:207 .\web\templates\pages\about.html:225
 #: .\web\templates\pages\job\job.html:39
-#: .\web\templates\pages\pricing\pricing.html:190
+#: .\web\templates\pages\pricing\pricing.html:192
 msgid ""
 "We are a small, but growing team. Our expertise includes growth marketing, "
 "design, software development, and product management."
@@ -693,7 +691,7 @@ msgstr "Сбросить все фильтры"
 #: .\web\templates\pages\blog\blog.html:149
 #: .\web\templates\pages\blog\blogdetail.html:157
 #: .\web\templates\pages\contact.html:149 .\web\templates\pages\faqlist.html:40
-#: .\web\templates\pages\pricing\pricing.html:236
+#: .\web\templates\pages\pricing\pricing.html:238
 #: .\web\templates\pages\pricing\pricinglist.html:77
 #: .\web\templates\pages\projects\projects.html:37
 msgid "Ready to try"
@@ -708,7 +706,7 @@ msgstr "Cyber Code?"
 #: .\web\templates\pages\blog\blog.html:150
 #: .\web\templates\pages\blog\blogdetail.html:158
 #: .\web\templates\pages\contact.html:150 .\web\templates\pages\faqlist.html:41
-#: .\web\templates\pages\pricing\pricing.html:237
+#: .\web\templates\pages\pricing\pricing.html:239
 #: .\web\templates\pages\pricing\pricinglist.html:78
 #: .\web\templates\pages\projects\projects.html:38
 msgid "Try Cyber Code and take back control of your day"
@@ -727,7 +725,7 @@ msgstr "Приватный пост"
 #: .\web\templates\pages\job\job.html:125
 #: .\web\templates\pages\job\jobdetail.html:166
 #: .\web\templates\pages\pricing\paymentlist.html:120
-#: .\web\templates\pages\pricing\pricing.html:41
+#: .\web\templates\pages\pricing\pricing.html:43
 #: .\web\templates\pages\pricing\pricinglist.html:64
 msgid "No matching results"
 msgstr "Нет подходящих результатов"
@@ -991,8 +989,14 @@ msgstr "от"
 msgid "Recommended"
 msgstr "Рекомендуемый"
 
+#: .\web\templates\pages\index.html:156
+#: .\web\templates\pages\pricing\pricing.html:34
+#: .\web\templates\pages\pricing\pricinglist.html:56
+msgid "more details"
+msgstr "подробнее"
+
 #: .\web\templates\pages\index.html:166
-#: .\web\templates\pages\pricing\pricing.html:42
+#: .\web\templates\pages\pricing\pricing.html:44
 #: .\web\templates\pages\pricing\pricinglist.html:65
 msgid "There are no any pricings yet"
 msgstr "Пока нет ни одного тарифа"
@@ -1041,12 +1045,12 @@ msgid "Send"
 msgstr "Отправить"
 
 #: .\web\templates\pages\index.html:204
-#: .\web\templates\pages\pricing\pricing.html:69
+#: .\web\templates\pages\pricing\pricing.html:71
 msgid "Why is it better to order website development from us?"
 msgstr "Почему лучше заказать разработку сайта у нас?"
 
 #: .\web\templates\pages\index.html:213
-#: .\web\templates\pages\pricing\pricing.html:78
+#: .\web\templates\pages\pricing\pricing.html:80
 msgid ""
 "We develop websites from scratch, without using ready-made templates or "
 "copying competitors sites. One design — one website."
@@ -1055,7 +1059,7 @@ msgstr ""
 "сайты конкурентов. Один дизайн — один сайт."
 
 #: .\web\templates\pages\index.html:223
-#: .\web\templates\pages\pricing\pricing.html:88
+#: .\web\templates\pages\pricing\pricing.html:90
 msgid ""
 "Websites developed by our team feature clean and quality code, making them "
 "easy to optimize for SEO."
@@ -1064,7 +1068,7 @@ msgstr ""
 "делает их легкими для оптимизации по SEO."
 
 #: .\web\templates\pages\index.html:233
-#: .\web\templates\pages\pricing\pricing.html:98
+#: .\web\templates\pages\pricing\pricing.html:100
 msgid ""
 "The websites we create are always responsive and have versions for all "
 "devices, from mobile phones to tablets. There is no extra charge for this."
@@ -1073,7 +1077,7 @@ msgstr ""
 "мобильных телефонов до планшетов. Дополнительная плата за это не взимается."
 
 #: .\web\templates\pages\index.html:243
-#: .\web\templates\pages\pricing\pricing.html:108
+#: .\web\templates\pages\pricing\pricing.html:110
 msgid ""
 "Once the project is completed, we do not leave you on your own. After "
 "delivering your site, we provide full technical support and security for a "
@@ -1084,7 +1088,7 @@ msgstr ""
 "дополнительной платы."
 
 #: .\web\templates\pages\index.html:253
-#: .\web\templates\pages\pricing\pricing.html:118
+#: .\web\templates\pages\pricing\pricing.html:120
 msgid ""
 "All work is done under a contract. If we fail to meet our deadlines, we will "
 "refund your money. You can rest easy."
@@ -1093,7 +1097,7 @@ msgstr ""
 "ваши деньги. Вы можете быть уверены в этом."
 
 #: .\web\templates\pages\index.html:263
-#: .\web\templates\pages\pricing\pricing.html:128
+#: .\web\templates\pages\pricing\pricing.html:130
 msgid ""
 "We offer payment for development in stages. Typically, 50 percent upfront "
 "and 50 percent upon project completion."
@@ -1102,7 +1106,7 @@ msgstr ""
 "и 50 процентов по завершении проекта."
 
 #: .\web\templates\pages\index.html:273
-#: .\web\templates\pages\pricing\pricing.html:138
+#: .\web\templates\pages\pricing\pricing.html:140
 msgid ""
 "We work every day, without breaks. You can reach out to us anytime that "
 "suits you! We are always here to help!"
@@ -1111,7 +1115,7 @@ msgstr ""
 "время, которое вам удобно! Мы всегда готовы помочь!"
 
 #: .\web\templates\pages\index.html:283
-#: .\web\templates\pages\pricing\pricing.html:148
+#: .\web\templates\pages\pricing\pricing.html:150
 msgid ""
 "With 4 years of successful experience in the market, we have developed and "
 "launched over 50 successful projects."
@@ -1196,12 +1200,12 @@ msgid "Great perks of working with CyberCode Team"
 msgstr "Преимущества работы в команде CyberCode"
 
 #: .\web\templates\pages\job\job.html:51
-#: .\web\templates\pages\pricing\pricing.html:202
+#: .\web\templates\pages\pricing\pricing.html:204
 msgid "Gain full control"
 msgstr "Получите полный контроль"
 
 #: .\web\templates\pages\job\job.html:52
-#: .\web\templates\pages\pricing\pricing.html:203
+#: .\web\templates\pages\pricing\pricing.html:205
 msgid ""
 "After we transfer the site to you, you will be able to manage your site "
 "yourself"
@@ -1209,12 +1213,12 @@ msgstr ""
 "После передачи вам сайта вы сможете управлять своим сайтом самостоятельно"
 
 #: .\web\templates\pages\job\job.html:58
-#: .\web\templates\pages\pricing\pricing.html:209
+#: .\web\templates\pages\pricing\pricing.html:211
 msgid "Dedicated support"
 msgstr "Персональная поддержка"
 
 #: .\web\templates\pages\job\job.html:59
-#: .\web\templates\pages\pricing\pricing.html:210
+#: .\web\templates\pages\pricing\pricing.html:212
 msgid ""
 "Free support for a month after transfer of the site, as well as fixing it "
 "only 1 time"
@@ -1223,22 +1227,22 @@ msgstr ""
 "однократное исправление"
 
 #: .\web\templates\pages\job\job.html:65
-#: .\web\templates\pages\pricing\pricing.html:216
+#: .\web\templates\pages\pricing\pricing.html:218
 msgid "Order is deliveres on time"
 msgstr "Заказ доставляется вовремя"
 
 #: .\web\templates\pages\job\job.html:66
-#: .\web\templates\pages\pricing\pricing.html:217
+#: .\web\templates\pages\pricing\pricing.html:219
 msgid "You will receive your website on time or even earlier, we guarantee it!"
 msgstr "Вы получите ваш сайт вовремя или даже раньше, мы гарантируем это!"
 
 #: .\web\templates\pages\job\job.html:72
-#: .\web\templates\pages\pricing\pricing.html:223
+#: .\web\templates\pages\pricing\pricing.html:225
 msgid "Perfect quality"
 msgstr "Идеальное качество"
 
 #: .\web\templates\pages\job\job.html:73
-#: .\web\templates\pages\pricing\pricing.html:224
+#: .\web\templates\pages\pricing\pricing.html:226
 msgid "Сlean code that allows the site to work without lags and errors!"
 msgstr "Чистый код, который позволяет сайту работать без задержек и ошибок!"
 
@@ -1454,35 +1458,40 @@ msgid ""
 "«devcybercode» designs modern, adaptive websites that solve business "
 "challenges and captivate visitors. We also maintain and enhance existing web "
 "resources to ensure they stay effective and engaging."
-msgstr "«devcybercode» разрабатывает современные адаптивные сайты, которые решают бизнес-задачи и привлекают внимание посетителей. Мы также поддерживаем и развиваем существующие веб-ресурсы, чтобы они оставались эффективными и интересными."
+msgstr ""
+"«devcybercode» разрабатывает современные адаптивные сайты, которые решают "
+"бизнес-задачи и привлекают внимание посетителей. Мы также поддерживаем и "
+"развиваем существующие веб-ресурсы, чтобы они оставались эффективными и "
+"интересными."
 
-#: .\web\templates\pages\pricing\pricing.html:39
+#: .\web\templates\pages\pricing\pricing.html:41
+#: .\web\templates\pages\pricing\pricinglist.html:62
 msgid "error image"
 msgstr "изображение ошибки"
 
-#: .\web\templates\pages\pricing\pricing.html:50
+#: .\web\templates\pages\pricing\pricing.html:52
 msgid "Click to see other packages"
 msgstr "Нажмите, чтобы увидеть другие пакеты"
 
-#: .\web\templates\pages\pricing\pricing.html:56
+#: .\web\templates\pages\pricing\pricing.html:58
 msgid "click image"
 msgstr "изображение кнопки"
 
-#: .\web\templates\pages\pricing\pricing.html:162
+#: .\web\templates\pages\pricing\pricing.html:164
 msgid "Need A Custom Build?"
 msgstr "Нужна индивидуальная сборка?"
 
-#: .\web\templates\pages\pricing\pricing.html:163
+#: .\web\templates\pages\pricing\pricing.html:165
 msgid "We offer custom plans that can support your large team & big vision."
 msgstr ""
 "Мы предлагаем индивидуальные планы, которые могут поддержать вашу большую "
 "команду и большое видение."
 
-#: .\web\templates\pages\pricing\pricing.html:171
+#: .\web\templates\pages\pricing\pricing.html:173
 msgid "You don't know how to order?"
 msgstr "Вы не знаете, как сделать заказ?"
 
-#: .\web\templates\pages\pricing\pricing.html:172
+#: .\web\templates\pages\pricing\pricing.html:174
 msgid ""
 "Follow this link to find out the instruction how to order and order "
 "requirements"
@@ -1490,15 +1499,16 @@ msgstr ""
 "Перейдите по этой ссылке, чтобы узнать инструкции о том, как сделать заказ и "
 "требования к заказу"
 
-#: .\web\templates\pages\pricing\pricing.html:175
+#: .\web\templates\pages\pricing\pricing.html:177
 msgid "Get instruction"
 msgstr "Взять инструкцию"
 
-#: .\web\templates\pages\pricing\pricing.html:189
+#: .\web\templates\pages\pricing\pricing.html:191
 msgid "What do you get after payment"
 msgstr "Что вы получаете после оплаты"
 
-#: .\web\templates\pages\pricing\pricing.html:252
+#: .\web\templates\pages\pricing\pricing.html:254
+#: .\web\templates\pages\pricing\pricinglist.html:93
 msgid "Ready to try image"
 msgstr "Изоброжение готовы попробовать"
 

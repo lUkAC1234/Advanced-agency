@@ -151,9 +151,9 @@
                 </div>
                 <div class="abilities">
                     {% load my_tags %}
-                    {{ object.advantages|first_n_advantages:4|safe }}
+                    {{ object.advantages|first_n_advantages:"4,31"|safe }} 
                     <a href="{% url 'main:pricingdetail' slug=object.slug %}">
-                        <button class="abilities-btn">{% translate 'Get started' %}</button>
+                        <button class="abilities-btn">{% translate 'more details' %}</button>
                     </a>
                 </div>
             </div>
