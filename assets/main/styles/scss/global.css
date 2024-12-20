@@ -4129,6 +4129,22 @@ body:has(.pricing-detail-modal-overlay.active) {
     padding-inline: 5rem;
   }
 }
+.detail-content-wrapper .detail-content-main-image-container,
+.project-detail-description-container .detail-content-main-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+.detail-content-wrapper .detail-content-main-image,
+.project-detail-description-container .detail-content-main-image {
+  width: 100%;
+  height: 100%;
+  max-width: 45rem;
+  max-height: 45rem;
+  object-fit: contain;
+}
 .detail-content-wrapper h1,
 .project-detail-description-container h1 {
   margin: 1rem 0;
@@ -4203,6 +4219,18 @@ body:has(.pricing-detail-modal-overlay.active) {
 .project-detail-description-container p strong,
 .project-detail-description-container li strong {
   color: var(--text-dark-blue);
+}
+.detail-content-wrapper li,
+.project-detail-description-container li {
+  list-style: initial;
+  margin-left: 2rem;
+}
+.detail-content-wrapper ol,
+.detail-content-wrapper ol li,
+.project-detail-description-container ol,
+.project-detail-description-container ol li {
+  list-style: decimal;
+  margin-left: 2rem;
 }
 .detail-content-wrapper div,
 .project-detail-description-container div {
